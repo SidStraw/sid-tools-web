@@ -6,15 +6,36 @@
     "dist"
   ],
   "type": "module",
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs"
+    },
+    "./images": {
+      "types": "./dist/images.d.mts",
+      "import": "./dist/images.mjs"
+    },
+    "./lighthouse": {
+      "types": "./dist/lighthouse.d.mts",
+      "import": "./dist/lighthouse.mjs"
+    },
+    "./json-diff": {
+      "types": "./dist/json-diff.d.mts",
+      "import": "./dist/json-diff.mjs"
+    },
+    "./cron": {
+      "types": "./dist/cron.d.mts",
+      "import": "./dist/cron.mjs"
     }
   },
   "scripts": {
     "build": "vp pack",
     "test": "vp test run"
+  },
+  "dependencies": {
+    "cron-parser": "5.10.2",
+    "lossless-json": "4.3.1"
   },
   "devDependencies": {
     "@types/node": "catalog:",

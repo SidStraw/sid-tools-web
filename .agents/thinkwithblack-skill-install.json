@@ -1,0 +1,2242 @@
+{
+  "repository": "https://github.com/backtrue/thinkwithblack-skill",
+  "commit": "7028e7cf072e6fb77faa7a4863de4af253718890",
+  "version": "2026.10.14-free.4",
+  "language": "zh-TW",
+  "installedSkillCount": 365,
+  "sourceRoot": ".agents/vendor/thinkwithblack-skill",
+  "discoveryRoot": ".agents/skills",
+  "excludedSourcePaths": [
+    ".git",
+    "en"
+  ],
+  "skills": [
+    {
+      "name": "inf-05-07",
+      "source": "skills/inf-05-07/SKILL.md"
+    },
+    {
+      "name": "mk-001",
+      "source": "skills/mk-001/SKILL.md"
+    },
+    {
+      "name": "mk-002",
+      "source": "skills/mk-002/SKILL.md"
+    },
+    {
+      "name": "mk-003",
+      "source": "skills/mk-003/SKILL.md"
+    },
+    {
+      "name": "mk-004",
+      "source": "skills/mk-004/SKILL.md"
+    },
+    {
+      "name": "mk-005",
+      "source": "skills/mk-005/SKILL.md"
+    },
+    {
+      "name": "mk-006",
+      "source": "skills/mk-006/SKILL.md"
+    },
+    {
+      "name": "mk-007",
+      "source": "skills/mk-007/SKILL.md"
+    },
+    {
+      "name": "mk-008",
+      "source": "skills/mk-008/SKILL.md"
+    },
+    {
+      "name": "mk-009",
+      "source": "skills/mk-009/SKILL.md"
+    },
+    {
+      "name": "mk-010",
+      "source": "skills/mk-010/SKILL.md"
+    },
+    {
+      "name": "mk-011",
+      "source": "skills/mk-011/SKILL.md"
+    },
+    {
+      "name": "mk-012",
+      "source": "skills/mk-012/SKILL.md"
+    },
+    {
+      "name": "mk-013",
+      "source": "skills/mk-013/SKILL.md"
+    },
+    {
+      "name": "mk-014",
+      "source": "skills/mk-014/SKILL.md"
+    },
+    {
+      "name": "mk-015",
+      "source": "skills/mk-015/SKILL.md"
+    },
+    {
+      "name": "mk-016",
+      "source": "skills/mk-016/SKILL.md"
+    },
+    {
+      "name": "mk-017",
+      "source": "skills/mk-017/SKILL.md"
+    },
+    {
+      "name": "mk-018",
+      "source": "skills/mk-018/SKILL.md"
+    },
+    {
+      "name": "mk-019",
+      "source": "skills/mk-019/SKILL.md"
+    },
+    {
+      "name": "mk-020",
+      "source": "skills/mk-020/SKILL.md"
+    },
+    {
+      "name": "mk-021",
+      "source": "skills/mk-021/SKILL.md"
+    },
+    {
+      "name": "mk-022",
+      "source": "skills/mk-022/SKILL.md"
+    },
+    {
+      "name": "mk-023",
+      "source": "skills/mk-023/SKILL.md"
+    },
+    {
+      "name": "mk-024",
+      "source": "skills/mk-024/SKILL.md"
+    },
+    {
+      "name": "mk-025",
+      "source": "skills/mk-025/SKILL.md"
+    },
+    {
+      "name": "mk-026",
+      "source": "skills/mk-026/SKILL.md"
+    },
+    {
+      "name": "mk-027",
+      "source": "skills/mk-027/SKILL.md"
+    },
+    {
+      "name": "mk-028",
+      "source": "skills/mk-028/SKILL.md"
+    },
+    {
+      "name": "mk-029",
+      "source": "skills/mk-029/SKILL.md"
+    },
+    {
+      "name": "mk-030",
+      "source": "skills/mk-030/SKILL.md"
+    },
+    {
+      "name": "mk-031",
+      "source": "skills/mk-031/SKILL.md"
+    },
+    {
+      "name": "mk-032",
+      "source": "skills/mk-032/SKILL.md"
+    },
+    {
+      "name": "mk-033",
+      "source": "skills/mk-033/SKILL.md"
+    },
+    {
+      "name": "mk-034",
+      "source": "skills/mk-034/SKILL.md"
+    },
+    {
+      "name": "mk-035",
+      "source": "skills/mk-035/SKILL.md"
+    },
+    {
+      "name": "mk-036",
+      "source": "skills/mk-036/SKILL.md"
+    },
+    {
+      "name": "mk-037",
+      "source": "skills/mk-037/SKILL.md"
+    },
+    {
+      "name": "mk-038",
+      "source": "skills/mk-038/SKILL.md"
+    },
+    {
+      "name": "mk-039",
+      "source": "skills/mk-039/SKILL.md"
+    },
+    {
+      "name": "mk-040",
+      "source": "skills/mk-040/SKILL.md"
+    },
+    {
+      "name": "mk-041",
+      "source": "skills/mk-041/SKILL.md"
+    },
+    {
+      "name": "mk-042",
+      "source": "skills/mk-042/SKILL.md"
+    },
+    {
+      "name": "mk-043",
+      "source": "skills/mk-043/SKILL.md"
+    },
+    {
+      "name": "mk-044",
+      "source": "skills/mk-044/SKILL.md"
+    },
+    {
+      "name": "mk-046",
+      "source": "skills/mk-046/SKILL.md"
+    },
+    {
+      "name": "mk-047",
+      "source": "skills/mk-047/SKILL.md"
+    },
+    {
+      "name": "mk-048",
+      "source": "skills/mk-048/SKILL.md"
+    },
+    {
+      "name": "mk-049",
+      "source": "skills/mk-049/SKILL.md"
+    },
+    {
+      "name": "mk-050",
+      "source": "skills/mk-050/SKILL.md"
+    },
+    {
+      "name": "mk-051",
+      "source": "skills/mk-051/SKILL.md"
+    },
+    {
+      "name": "mk-052",
+      "source": "skills/mk-052/SKILL.md"
+    },
+    {
+      "name": "mk-053",
+      "source": "skills/mk-053/SKILL.md"
+    },
+    {
+      "name": "mk-054",
+      "source": "skills/mk-054/SKILL.md"
+    },
+    {
+      "name": "mk-055",
+      "source": "skills/mk-055/SKILL.md"
+    },
+    {
+      "name": "mk-056",
+      "source": "skills/mk-056/SKILL.md"
+    },
+    {
+      "name": "mk-057",
+      "source": "skills/mk-057/SKILL.md"
+    },
+    {
+      "name": "mk-058",
+      "source": "skills/mk-058/SKILL.md"
+    },
+    {
+      "name": "mk-059",
+      "source": "skills/mk-059/SKILL.md"
+    },
+    {
+      "name": "mk-060",
+      "source": "skills/mk-060/SKILL.md"
+    },
+    {
+      "name": "mk-061",
+      "source": "skills/mk-061/SKILL.md"
+    },
+    {
+      "name": "mk-062",
+      "source": "skills/mk-062/SKILL.md"
+    },
+    {
+      "name": "mk-063",
+      "source": "skills/mk-063/SKILL.md"
+    },
+    {
+      "name": "mk-064",
+      "source": "skills/mk-064/SKILL.md"
+    },
+    {
+      "name": "mk-065",
+      "source": "skills/mk-065/SKILL.md"
+    },
+    {
+      "name": "mk-066",
+      "source": "skills/mk-066/SKILL.md"
+    },
+    {
+      "name": "mk-067",
+      "source": "skills/mk-067/SKILL.md"
+    },
+    {
+      "name": "mk-068",
+      "source": "skills/mk-068/SKILL.md"
+    },
+    {
+      "name": "mk-069",
+      "source": "skills/mk-069/SKILL.md"
+    },
+    {
+      "name": "mk-070",
+      "source": "skills/mk-070/SKILL.md"
+    },
+    {
+      "name": "mk-071",
+      "source": "skills/mk-071/SKILL.md"
+    },
+    {
+      "name": "mk-072",
+      "source": "skills/mk-072/SKILL.md"
+    },
+    {
+      "name": "mk-073",
+      "source": "skills/mk-073/SKILL.md"
+    },
+    {
+      "name": "mk-074",
+      "source": "skills/mk-074/SKILL.md"
+    },
+    {
+      "name": "mk-075",
+      "source": "skills/mk-075/SKILL.md"
+    },
+    {
+      "name": "mk-076",
+      "source": "skills/mk-076/SKILL.md"
+    },
+    {
+      "name": "mk-077",
+      "source": "skills/mk-077/SKILL.md"
+    },
+    {
+      "name": "mk-078",
+      "source": "skills/mk-078/SKILL.md"
+    },
+    {
+      "name": "mk-079",
+      "source": "skills/mk-079/SKILL.md"
+    },
+    {
+      "name": "mk-080",
+      "source": "skills/mk-080/SKILL.md"
+    },
+    {
+      "name": "mk-081",
+      "source": "skills/mk-081/SKILL.md"
+    },
+    {
+      "name": "mk-082",
+      "source": "skills/mk-082/SKILL.md"
+    },
+    {
+      "name": "mk-083",
+      "source": "skills/mk-083/SKILL.md"
+    },
+    {
+      "name": "mk-084",
+      "source": "skills/mk-084/SKILL.md"
+    },
+    {
+      "name": "mk-085",
+      "source": "skills/mk-085/SKILL.md"
+    },
+    {
+      "name": "mk-086",
+      "source": "skills/mk-086/SKILL.md"
+    },
+    {
+      "name": "mk-087",
+      "source": "skills/mk-087/SKILL.md"
+    },
+    {
+      "name": "mk-088",
+      "source": "skills/mk-088/SKILL.md"
+    },
+    {
+      "name": "mk-089",
+      "source": "skills/mk-089/SKILL.md"
+    },
+    {
+      "name": "mk-090",
+      "source": "skills/mk-090/SKILL.md"
+    },
+    {
+      "name": "mk-091",
+      "source": "skills/mk-091/SKILL.md"
+    },
+    {
+      "name": "mk-092",
+      "source": "skills/mk-092/SKILL.md"
+    },
+    {
+      "name": "mk-093",
+      "source": "skills/mk-093/SKILL.md"
+    },
+    {
+      "name": "mk-094",
+      "source": "skills/mk-094/SKILL.md"
+    },
+    {
+      "name": "mk-095",
+      "source": "skills/mk-095/SKILL.md"
+    },
+    {
+      "name": "mk-096",
+      "source": "skills/mk-096/SKILL.md"
+    },
+    {
+      "name": "mk-097",
+      "source": "skills/mk-097/SKILL.md"
+    },
+    {
+      "name": "mk-098",
+      "source": "skills/mk-098/SKILL.md"
+    },
+    {
+      "name": "mk-099",
+      "source": "skills/mk-099/SKILL.md"
+    },
+    {
+      "name": "mk-100",
+      "source": "skills/mk-100/SKILL.md"
+    },
+    {
+      "name": "mk-101",
+      "source": "skills/mk-101/SKILL.md"
+    },
+    {
+      "name": "mk-102",
+      "source": "skills/mk-102/SKILL.md"
+    },
+    {
+      "name": "mk-103",
+      "source": "skills/mk-103/SKILL.md"
+    },
+    {
+      "name": "mk-104",
+      "source": "skills/mk-104/SKILL.md"
+    },
+    {
+      "name": "mk-105",
+      "source": "skills/mk-105/SKILL.md"
+    },
+    {
+      "name": "mk-106",
+      "source": "skills/mk-106/SKILL.md"
+    },
+    {
+      "name": "mk-107",
+      "source": "skills/mk-107/SKILL.md"
+    },
+    {
+      "name": "mk-108",
+      "source": "skills/mk-108/SKILL.md"
+    },
+    {
+      "name": "mk-109",
+      "source": "skills/mk-109/SKILL.md"
+    },
+    {
+      "name": "mk-110",
+      "source": "skills/mk-110/SKILL.md"
+    },
+    {
+      "name": "mk-111",
+      "source": "skills/mk-111/SKILL.md"
+    },
+    {
+      "name": "mk-112",
+      "source": "skills/mk-112/SKILL.md"
+    },
+    {
+      "name": "mk-113",
+      "source": "skills/mk-113/SKILL.md"
+    },
+    {
+      "name": "mk-114",
+      "source": "skills/mk-114/SKILL.md"
+    },
+    {
+      "name": "mk-115",
+      "source": "skills/mk-115/SKILL.md"
+    },
+    {
+      "name": "mk-116",
+      "source": "skills/mk-116/SKILL.md"
+    },
+    {
+      "name": "mk-117",
+      "source": "skills/mk-117/SKILL.md"
+    },
+    {
+      "name": "mk-118",
+      "source": "skills/mk-118/SKILL.md"
+    },
+    {
+      "name": "mk-119",
+      "source": "skills/mk-119/SKILL.md"
+    },
+    {
+      "name": "mk-120",
+      "source": "skills/mk-120/SKILL.md"
+    },
+    {
+      "name": "mk-121",
+      "source": "skills/mk-121/SKILL.md"
+    },
+    {
+      "name": "mk-122",
+      "source": "skills/mk-122/SKILL.md"
+    },
+    {
+      "name": "mk-123",
+      "source": "skills/mk-123/SKILL.md"
+    },
+    {
+      "name": "mk-124",
+      "source": "skills/mk-124/SKILL.md"
+    },
+    {
+      "name": "mk-125",
+      "source": "skills/mk-125/SKILL.md"
+    },
+    {
+      "name": "mk-126",
+      "source": "skills/mk-126/SKILL.md"
+    },
+    {
+      "name": "mk-127",
+      "source": "skills/mk-127/SKILL.md"
+    },
+    {
+      "name": "mk-128",
+      "source": "skills/mk-128/SKILL.md"
+    },
+    {
+      "name": "mk-129",
+      "source": "skills/mk-129/SKILL.md"
+    },
+    {
+      "name": "mk-130",
+      "source": "skills/mk-130/SKILL.md"
+    },
+    {
+      "name": "mk-131",
+      "source": "skills/mk-131/SKILL.md"
+    },
+    {
+      "name": "mk-132",
+      "source": "skills/mk-132/SKILL.md"
+    },
+    {
+      "name": "mk-133",
+      "source": "skills/mk-133/SKILL.md"
+    },
+    {
+      "name": "mk-134",
+      "source": "skills/mk-134/SKILL.md"
+    },
+    {
+      "name": "mk-135",
+      "source": "skills/mk-135/SKILL.md"
+    },
+    {
+      "name": "mk-136",
+      "source": "skills/mk-136/SKILL.md"
+    },
+    {
+      "name": "mk-137",
+      "source": "skills/mk-137/SKILL.md"
+    },
+    {
+      "name": "mk-138",
+      "source": "skills/mk-138/SKILL.md"
+    },
+    {
+      "name": "mk-139",
+      "source": "skills/mk-139/SKILL.md"
+    },
+    {
+      "name": "mk-140",
+      "source": "skills/mk-140/SKILL.md"
+    },
+    {
+      "name": "mk-141",
+      "source": "skills/mk-141/SKILL.md"
+    },
+    {
+      "name": "mk-142",
+      "source": "skills/mk-142/SKILL.md"
+    },
+    {
+      "name": "mk-143",
+      "source": "skills/mk-143/SKILL.md"
+    },
+    {
+      "name": "mk-144",
+      "source": "skills/mk-144/SKILL.md"
+    },
+    {
+      "name": "mk-145",
+      "source": "skills/mk-145/SKILL.md"
+    },
+    {
+      "name": "mk-146",
+      "source": "skills/mk-146/SKILL.md"
+    },
+    {
+      "name": "mk-147",
+      "source": "skills/mk-147/SKILL.md"
+    },
+    {
+      "name": "mk-148",
+      "source": "skills/mk-148/SKILL.md"
+    },
+    {
+      "name": "mk-149",
+      "source": "skills/mk-149/SKILL.md"
+    },
+    {
+      "name": "mk-150",
+      "source": "skills/mk-150/SKILL.md"
+    },
+    {
+      "name": "mk-151",
+      "source": "skills/mk-151/SKILL.md"
+    },
+    {
+      "name": "mk-152",
+      "source": "skills/mk-152/SKILL.md"
+    },
+    {
+      "name": "mk-153",
+      "source": "skills/mk-153/SKILL.md"
+    },
+    {
+      "name": "mk-154",
+      "source": "skills/mk-154/SKILL.md"
+    },
+    {
+      "name": "mk-155",
+      "source": "skills/mk-155/SKILL.md"
+    },
+    {
+      "name": "mk-156",
+      "source": "skills/mk-156/SKILL.md"
+    },
+    {
+      "name": "mk-157",
+      "source": "skills/mk-157/SKILL.md"
+    },
+    {
+      "name": "mk-158",
+      "source": "skills/mk-158/SKILL.md"
+    },
+    {
+      "name": "mk-159",
+      "source": "skills/mk-159/SKILL.md"
+    },
+    {
+      "name": "mk-160",
+      "source": "skills/mk-160/SKILL.md"
+    },
+    {
+      "name": "mk-161",
+      "source": "skills/mk-161/SKILL.md"
+    },
+    {
+      "name": "mk-162",
+      "source": "skills/mk-162/SKILL.md"
+    },
+    {
+      "name": "mk-163",
+      "source": "skills/mk-163/SKILL.md"
+    },
+    {
+      "name": "mk-164",
+      "source": "skills/mk-164/SKILL.md"
+    },
+    {
+      "name": "mk-165",
+      "source": "skills/mk-165/SKILL.md"
+    },
+    {
+      "name": "mk-166",
+      "source": "skills/mk-166/SKILL.md"
+    },
+    {
+      "name": "mk-167",
+      "source": "skills/mk-167/SKILL.md"
+    },
+    {
+      "name": "mk-172",
+      "source": "skills/mk-172/SKILL.md"
+    },
+    {
+      "name": "mk-173",
+      "source": "skills/mk-173/SKILL.md"
+    },
+    {
+      "name": "mk-174",
+      "source": "skills/mk-174/SKILL.md"
+    },
+    {
+      "name": "mk-181",
+      "source": "skills/mk-181/SKILL.md"
+    },
+    {
+      "name": "mk-182",
+      "source": "skills/mk-182/SKILL.md"
+    },
+    {
+      "name": "mk-183",
+      "source": "skills/mk-183/SKILL.md"
+    },
+    {
+      "name": "mk-184",
+      "source": "skills/mk-184/SKILL.md"
+    },
+    {
+      "name": "mk-185",
+      "source": "skills/mk-185/SKILL.md"
+    },
+    {
+      "name": "mk-186",
+      "source": "skills/mk-186/SKILL.md"
+    },
+    {
+      "name": "mk-187",
+      "source": "skills/mk-187/SKILL.md"
+    },
+    {
+      "name": "mk-204",
+      "source": "skills/mk-204/SKILL.md"
+    },
+    {
+      "name": "mk-205",
+      "source": "skills/mk-205/SKILL.md"
+    },
+    {
+      "name": "mk-206",
+      "source": "skills/mk-206/SKILL.md"
+    },
+    {
+      "name": "mk-207",
+      "source": "skills/mk-207/SKILL.md"
+    },
+    {
+      "name": "mk-208",
+      "source": "skills/mk-208/SKILL.md"
+    },
+    {
+      "name": "mk-209",
+      "source": "skills/mk-209/SKILL.md"
+    },
+    {
+      "name": "mk-211",
+      "source": "skills/mk-211/SKILL.md"
+    },
+    {
+      "name": "mk-232",
+      "source": "skills/mk-232/SKILL.md"
+    },
+    {
+      "name": "mk-233",
+      "source": "skills/mk-233/SKILL.md"
+    },
+    {
+      "name": "mk-234",
+      "source": "skills/mk-234/SKILL.md"
+    },
+    {
+      "name": "mk-235",
+      "source": "skills/mk-235/SKILL.md"
+    },
+    {
+      "name": "mk-236",
+      "source": "skills/mk-236/SKILL.md"
+    },
+    {
+      "name": "mk-237",
+      "source": "skills/mk-237/SKILL.md"
+    },
+    {
+      "name": "mk-238",
+      "source": "skills/mk-238/SKILL.md"
+    },
+    {
+      "name": "mk-239",
+      "source": "skills/mk-239/SKILL.md"
+    },
+    {
+      "name": "mk-240",
+      "source": "skills/mk-240/SKILL.md"
+    },
+    {
+      "name": "mk-241",
+      "source": "skills/mk-241/SKILL.md"
+    },
+    {
+      "name": "mk-242",
+      "source": "skills/mk-242/SKILL.md"
+    },
+    {
+      "name": "mk-243",
+      "source": "skills/mk-243/SKILL.md"
+    },
+    {
+      "name": "mk-250",
+      "source": "skills/mk-250/SKILL.md"
+    },
+    {
+      "name": "mk-251",
+      "source": "skills/mk-251/SKILL.md"
+    },
+    {
+      "name": "mk-252",
+      "source": "skills/mk-252/SKILL.md"
+    },
+    {
+      "name": "mk-253",
+      "source": "skills/mk-253/SKILL.md"
+    },
+    {
+      "name": "mk-254",
+      "source": "skills/mk-254/SKILL.md"
+    },
+    {
+      "name": "mk-255",
+      "source": "skills/mk-255/SKILL.md"
+    },
+    {
+      "name": "mk-256",
+      "source": "skills/mk-256/SKILL.md"
+    },
+    {
+      "name": "mk-257",
+      "source": "skills/mk-257/SKILL.md"
+    },
+    {
+      "name": "mk-261",
+      "source": "skills/mk-261/SKILL.md"
+    },
+    {
+      "name": "mk-262",
+      "source": "skills/mk-262/SKILL.md"
+    },
+    {
+      "name": "mk-263",
+      "source": "skills/mk-263/SKILL.md"
+    },
+    {
+      "name": "mk-264",
+      "source": "skills/mk-264/SKILL.md"
+    },
+    {
+      "name": "mk-265",
+      "source": "skills/mk-265/SKILL.md"
+    },
+    {
+      "name": "mk-267",
+      "source": "skills/mk-267/SKILL.md"
+    },
+    {
+      "name": "mk-268",
+      "source": "skills/mk-268/SKILL.md"
+    },
+    {
+      "name": "mk-269",
+      "source": "skills/mk-269/SKILL.md"
+    },
+    {
+      "name": "mk-270",
+      "source": "skills/mk-270/SKILL.md"
+    },
+    {
+      "name": "mk-271",
+      "source": "skills/mk-271/SKILL.md"
+    },
+    {
+      "name": "mk-272",
+      "source": "skills/mk-272/SKILL.md"
+    },
+    {
+      "name": "mk-273",
+      "source": "skills/mk-273/SKILL.md"
+    },
+    {
+      "name": "mk-274",
+      "source": "skills/mk-274/SKILL.md"
+    },
+    {
+      "name": "mk-275",
+      "source": "skills/mk-275/SKILL.md"
+    },
+    {
+      "name": "mk-276",
+      "source": "skills/mk-276/SKILL.md"
+    },
+    {
+      "name": "mk-277",
+      "source": "skills/mk-277/SKILL.md"
+    },
+    {
+      "name": "mk-279",
+      "source": "skills/mk-279/SKILL.md"
+    },
+    {
+      "name": "mk-280",
+      "source": "skills/mk-280/SKILL.md"
+    },
+    {
+      "name": "mk-281",
+      "source": "skills/mk-281/SKILL.md"
+    },
+    {
+      "name": "mk-282",
+      "source": "skills/mk-282/SKILL.md"
+    },
+    {
+      "name": "mk-283",
+      "source": "skills/mk-283/SKILL.md"
+    },
+    {
+      "name": "mk-284",
+      "source": "skills/mk-284/SKILL.md"
+    },
+    {
+      "name": "mk-285",
+      "source": "skills/mk-285/SKILL.md"
+    },
+    {
+      "name": "mk-286",
+      "source": "skills/mk-286/SKILL.md"
+    },
+    {
+      "name": "mk-287",
+      "source": "skills/mk-287/SKILL.md"
+    },
+    {
+      "name": "mk-288",
+      "source": "skills/mk-288/SKILL.md"
+    },
+    {
+      "name": "mk-289",
+      "source": "skills/mk-289/SKILL.md"
+    },
+    {
+      "name": "mk-290",
+      "source": "skills/mk-290/SKILL.md"
+    },
+    {
+      "name": "mk-291",
+      "source": "skills/mk-291/SKILL.md"
+    },
+    {
+      "name": "mk-292",
+      "source": "skills/mk-292/SKILL.md"
+    },
+    {
+      "name": "mk-308",
+      "source": "skills/mk-308/SKILL.md"
+    },
+    {
+      "name": "mk-309",
+      "source": "skills/mk-309/SKILL.md"
+    },
+    {
+      "name": "mk-310",
+      "source": "skills/mk-310/SKILL.md"
+    },
+    {
+      "name": "mk-311",
+      "source": "skills/mk-311/SKILL.md"
+    },
+    {
+      "name": "mk-312",
+      "source": "skills/mk-312/SKILL.md"
+    },
+    {
+      "name": "mk-313",
+      "source": "skills/mk-313/SKILL.md"
+    },
+    {
+      "name": "mk-314",
+      "source": "skills/mk-314/SKILL.md"
+    },
+    {
+      "name": "mk-315",
+      "source": "skills/mk-315/SKILL.md"
+    },
+    {
+      "name": "mk-316",
+      "source": "skills/mk-316/SKILL.md"
+    },
+    {
+      "name": "mk-317",
+      "source": "skills/mk-317/SKILL.md"
+    },
+    {
+      "name": "mk-318",
+      "source": "skills/mk-318/SKILL.md"
+    },
+    {
+      "name": "mk-319",
+      "source": "skills/mk-319/SKILL.md"
+    },
+    {
+      "name": "mk-320",
+      "source": "skills/mk-320/SKILL.md"
+    },
+    {
+      "name": "mk-321",
+      "source": "skills/mk-321/SKILL.md"
+    },
+    {
+      "name": "mk-322",
+      "source": "skills/mk-322/SKILL.md"
+    },
+    {
+      "name": "mk-324",
+      "source": "skills/mk-324/SKILL.md"
+    },
+    {
+      "name": "mk-325",
+      "source": "skills/mk-325/SKILL.md"
+    },
+    {
+      "name": "mk-326",
+      "source": "skills/mk-326/SKILL.md"
+    },
+    {
+      "name": "mk-327",
+      "source": "skills/mk-327/SKILL.md"
+    },
+    {
+      "name": "mk-328",
+      "source": "skills/mk-328/SKILL.md"
+    },
+    {
+      "name": "mk-329",
+      "source": "skills/mk-329/SKILL.md"
+    },
+    {
+      "name": "mk-330",
+      "source": "skills/mk-330/SKILL.md"
+    },
+    {
+      "name": "mk-331",
+      "source": "skills/mk-331/SKILL.md"
+    },
+    {
+      "name": "mk-332",
+      "source": "skills/mk-332/SKILL.md"
+    },
+    {
+      "name": "mk-333",
+      "source": "skills/mk-333/SKILL.md"
+    },
+    {
+      "name": "mk-334",
+      "source": "skills/mk-334/SKILL.md"
+    },
+    {
+      "name": "mk-335",
+      "source": "skills/mk-335/SKILL.md"
+    },
+    {
+      "name": "mk-336",
+      "source": "skills/mk-336/SKILL.md"
+    },
+    {
+      "name": "mk-337",
+      "source": "skills/mk-337/SKILL.md"
+    },
+    {
+      "name": "mk-338",
+      "source": "skills/mk-338/SKILL.md"
+    },
+    {
+      "name": "mk-339",
+      "source": "skills/mk-339/SKILL.md"
+    },
+    {
+      "name": "mk-340",
+      "source": "skills/mk-340/SKILL.md"
+    },
+    {
+      "name": "mk-341",
+      "source": "skills/mk-341/SKILL.md"
+    },
+    {
+      "name": "mk-342",
+      "source": "skills/mk-342/SKILL.md"
+    },
+    {
+      "name": "mk-343",
+      "source": "skills/mk-343/SKILL.md"
+    },
+    {
+      "name": "mk-344",
+      "source": "skills/mk-344/SKILL.md"
+    },
+    {
+      "name": "mk-345",
+      "source": "skills/mk-345/SKILL.md"
+    },
+    {
+      "name": "mk-346",
+      "source": "skills/mk-346/SKILL.md"
+    },
+    {
+      "name": "mk-347",
+      "source": "skills/mk-347/SKILL.md"
+    },
+    {
+      "name": "mk-348",
+      "source": "skills/mk-348/SKILL.md"
+    },
+    {
+      "name": "mk-349",
+      "source": "skills/mk-349/SKILL.md"
+    },
+    {
+      "name": "mk-350",
+      "source": "skills/mk-350/SKILL.md"
+    },
+    {
+      "name": "mk-351",
+      "source": "skills/mk-351/SKILL.md"
+    },
+    {
+      "name": "mk-352",
+      "source": "skills/mk-352/SKILL.md"
+    },
+    {
+      "name": "mk-353",
+      "source": "skills/mk-353/SKILL.md"
+    },
+    {
+      "name": "mk-354",
+      "source": "skills/mk-354/SKILL.md"
+    },
+    {
+      "name": "mk-355",
+      "source": "skills/mk-355/SKILL.md"
+    },
+    {
+      "name": "mk-356",
+      "source": "skills/mk-356/SKILL.md"
+    },
+    {
+      "name": "mk-357",
+      "source": "skills/mk-357/SKILL.md"
+    },
+    {
+      "name": "mk-358",
+      "source": "skills/mk-358/SKILL.md"
+    },
+    {
+      "name": "mk-359",
+      "source": "skills/mk-359/SKILL.md"
+    },
+    {
+      "name": "mk-360",
+      "source": "skills/mk-360/SKILL.md"
+    },
+    {
+      "name": "mk-361",
+      "source": "skills/mk-361/SKILL.md"
+    },
+    {
+      "name": "mk-362",
+      "source": "skills/mk-362/SKILL.md"
+    },
+    {
+      "name": "mk-363",
+      "source": "skills/mk-363/SKILL.md"
+    },
+    {
+      "name": "mk-364",
+      "source": "skills/mk-364/SKILL.md"
+    },
+    {
+      "name": "mk-365",
+      "source": "skills/mk-365/SKILL.md"
+    },
+    {
+      "name": "mk-372",
+      "source": "skills/mk-372/SKILL.md"
+    },
+    {
+      "name": "mk-373",
+      "source": "skills/mk-373/SKILL.md"
+    },
+    {
+      "name": "mk-374",
+      "source": "skills/mk-374/SKILL.md"
+    },
+    {
+      "name": "mk-375",
+      "source": "skills/mk-375/SKILL.md"
+    },
+    {
+      "name": "mk-376",
+      "source": "skills/mk-376/SKILL.md"
+    },
+    {
+      "name": "mk-377",
+      "source": "skills/mk-377/SKILL.md"
+    },
+    {
+      "name": "mk-378",
+      "source": "skills/mk-378/SKILL.md"
+    },
+    {
+      "name": "mk-379",
+      "source": "skills/mk-379/SKILL.md"
+    },
+    {
+      "name": "mk-380",
+      "source": "skills/mk-380/SKILL.md"
+    },
+    {
+      "name": "mk-381",
+      "source": "skills/mk-381/SKILL.md"
+    },
+    {
+      "name": "mk-382",
+      "source": "skills/mk-382/SKILL.md"
+    },
+    {
+      "name": "mk-383",
+      "source": "skills/mk-383/SKILL.md"
+    },
+    {
+      "name": "mk-384",
+      "source": "skills/mk-384/SKILL.md"
+    },
+    {
+      "name": "mk-385",
+      "source": "skills/mk-385/SKILL.md"
+    },
+    {
+      "name": "mk-386",
+      "source": "skills/mk-386/SKILL.md"
+    },
+    {
+      "name": "mk-387",
+      "source": "skills/mk-387/SKILL.md"
+    },
+    {
+      "name": "mk-388",
+      "source": "skills/mk-388/SKILL.md"
+    },
+    {
+      "name": "mk-389",
+      "source": "skills/mk-389/SKILL.md"
+    },
+    {
+      "name": "mk-390",
+      "source": "skills/mk-390/SKILL.md"
+    },
+    {
+      "name": "mk-391",
+      "source": "skills/mk-391/SKILL.md"
+    },
+    {
+      "name": "mk-392",
+      "source": "skills/mk-392/SKILL.md"
+    },
+    {
+      "name": "mk-393",
+      "source": "skills/mk-393/SKILL.md"
+    },
+    {
+      "name": "mk-394",
+      "source": "skills/mk-394/SKILL.md"
+    },
+    {
+      "name": "mk-395",
+      "source": "skills/mk-395/SKILL.md"
+    },
+    {
+      "name": "mk-396",
+      "source": "skills/mk-396/SKILL.md"
+    },
+    {
+      "name": "mk-397",
+      "source": "skills/mk-397/SKILL.md"
+    },
+    {
+      "name": "mk-398",
+      "source": "skills/mk-398/SKILL.md"
+    },
+    {
+      "name": "mk-399",
+      "source": "skills/mk-399/SKILL.md"
+    },
+    {
+      "name": "mk-400",
+      "source": "skills/mk-400/SKILL.md"
+    },
+    {
+      "name": "mk-401",
+      "source": "skills/mk-401/SKILL.md"
+    },
+    {
+      "name": "mk-402",
+      "source": "skills/mk-402/SKILL.md"
+    },
+    {
+      "name": "mk-403",
+      "source": "skills/mk-403/SKILL.md"
+    },
+    {
+      "name": "mk-404",
+      "source": "skills/mk-404/SKILL.md"
+    },
+    {
+      "name": "mk-405",
+      "source": "skills/mk-405/SKILL.md"
+    },
+    {
+      "name": "mk-406",
+      "source": "skills/mk-406/SKILL.md"
+    },
+    {
+      "name": "mk-407",
+      "source": "skills/mk-407/SKILL.md"
+    },
+    {
+      "name": "mk-408",
+      "source": "skills/mk-408/SKILL.md"
+    },
+    {
+      "name": "mk-409",
+      "source": "skills/mk-409/SKILL.md"
+    },
+    {
+      "name": "mk-410",
+      "source": "skills/mk-410/SKILL.md"
+    },
+    {
+      "name": "mk-411",
+      "source": "skills/mk-411/SKILL.md"
+    },
+    {
+      "name": "mk-412",
+      "source": "skills/mk-412/SKILL.md"
+    },
+    {
+      "name": "mk-413",
+      "source": "skills/mk-413/SKILL.md"
+    },
+    {
+      "name": "mk-414",
+      "source": "skills/mk-414/SKILL.md"
+    },
+    {
+      "name": "mk-415",
+      "source": "skills/mk-415/SKILL.md"
+    },
+    {
+      "name": "mk-416",
+      "source": "skills/mk-416/SKILL.md"
+    },
+    {
+      "name": "mk-417",
+      "source": "skills/mk-417/SKILL.md"
+    },
+    {
+      "name": "mk-418",
+      "source": "skills/mk-418/SKILL.md"
+    },
+    {
+      "name": "mk-419",
+      "source": "skills/mk-419/SKILL.md"
+    },
+    {
+      "name": "mk-420",
+      "source": "skills/mk-420/SKILL.md"
+    },
+    {
+      "name": "mk-421",
+      "source": "skills/mk-421/SKILL.md"
+    },
+    {
+      "name": "mk-422",
+      "source": "skills/mk-422/SKILL.md"
+    },
+    {
+      "name": "mk-423",
+      "source": "skills/mk-423/SKILL.md"
+    },
+    {
+      "name": "mk-424",
+      "source": "skills/mk-424/SKILL.md"
+    },
+    {
+      "name": "mk-425",
+      "source": "skills/mk-425/SKILL.md"
+    },
+    {
+      "name": "mk-426",
+      "source": "skills/mk-426/SKILL.md"
+    },
+    {
+      "name": "mk-427",
+      "source": "skills/mk-427/SKILL.md"
+    },
+    {
+      "name": "mk-428",
+      "source": "skills/mk-428/SKILL.md"
+    },
+    {
+      "name": "mk-429",
+      "source": "skills/mk-429/SKILL.md"
+    },
+    {
+      "name": "mk-430",
+      "source": "skills/mk-430/SKILL.md"
+    },
+    {
+      "name": "mk-431",
+      "source": "skills/mk-431/SKILL.md"
+    },
+    {
+      "name": "mk-432",
+      "source": "skills/mk-432/SKILL.md"
+    },
+    {
+      "name": "mk-433",
+      "source": "skills/mk-433/SKILL.md"
+    },
+    {
+      "name": "mk-434",
+      "source": "skills/mk-434/SKILL.md"
+    },
+    {
+      "name": "mk-435",
+      "source": "skills/mk-435/SKILL.md"
+    },
+    {
+      "name": "mk-436",
+      "source": "skills/mk-436/SKILL.md"
+    },
+    {
+      "name": "mk-440",
+      "source": "skills/mk-440/SKILL.md"
+    },
+    {
+      "name": "mk-441",
+      "source": "skills/mk-441/SKILL.md"
+    },
+    {
+      "name": "mk-444",
+      "source": "skills/mk-444/SKILL.md"
+    },
+    {
+      "name": "mk-448",
+      "source": "skills/mk-448/SKILL.md"
+    },
+    {
+      "name": "mk-450",
+      "source": "skills/mk-450/SKILL.md"
+    },
+    {
+      "name": "pmax-copy",
+      "source": "extensions/pmax-copy/SKILL.md"
+    },
+    {
+      "name": "write-marketing-rollout-plan",
+      "source": "extensions/write-marketing-rollout-plan/SKILL.md"
+    },
+    {
+      "name": "forecast-event-profit",
+      "source": "extensions/forecast-event-profit/SKILL.md"
+    },
+    {
+      "name": "simplify-member-rules",
+      "source": "extensions/simplify-member-rules/SKILL.md"
+    }
+  ],
+  "sha256": {
+    ".github/workflows/prepare-thinkwithblack-release.yml": "0185db26535b4abe8a20f9264b13a6321c6e93721d61aa2c1f3e338a95036fcb",
+    ".gitignore": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793",
+    "CHANGELOG.md": "d2254509410fe7413512c75522d20cca1c1bbe0f46bd5220e012f371c75c1466",
+    "CONTRIBUTING.md": "1ca02ec1ec74d505dc2f3685c25b47e7d4e56c1a0a6137696665926617fc05bc",
+    "INDEX.md": "79a11636361ec8a7d9b2ab537decfa327bc2cac8c1f981abee17c99b420bc5ac",
+    "LICENSE": "0dd9c1e09bdbbfe49f715446548606d467c5678de5d0f1a3b8f8c36555711411",
+    "PUBLIC_BOUNDARY.md": "a89b94bc87ea8fc85ad492cd97fa945254100b93d34ae83b22fd618bd6bac788",
+    "PUBLIC_SKILL_RULES.md": "e134647c7effa6ff0e08c66b0c31bad13d230a05ebbb6f593fe8912c13a1839a",
+    "README.md": "db449831468baf51657d9ccd5172015d9785f50c1db4058d73a7566082cd8784",
+    "RELEASE.md": "09219aaedaf37bc3ce5a60d4173751a96834ed0678dc7789e24e8430b89bbb97",
+    "START_HERE.md": "c612cb49034e14d38d80aea30251ab3e002a7f87d413758f5d8689505701a944",
+    "catalog.json": "ab2198faedef08afdbd69475fc388e7373fadb5f01f67eaaf9253bbdecf7184f",
+    "context/MARKETING_CONTEXT.template.md": "7b0e4eb69105801d7cd6fc44a78ec52b08e9845b032ba27d9c2dc4d6307f80d6",
+    "examples/README.md": "ab55bb9c1d8588586f23be9aeb07f7bfca81c848d3ecd9650db19e1436869708",
+    "examples/cookie-costs.md": "047c8060ce912c0fed3f9697651d1409cc39bad1efb2fd11484a2132a5c97d6e",
+    "examples/cookie-repeat.md": "c34da496981cb0affb2a84c600c6002725e3aba75f46a0cbd9c3bf5f3cd1bbee",
+    "examples/event-forecast.md": "7e8dea3ad8acc69413e31dc32f2b7d8155c99f2c54577028a69014999c048151",
+    "examples/member-rules.md": "262a9136701b91b7e917bd9d2191c53e4faabdeb0bd000400362b313aa4e5314",
+    "examples/product-facts.md": "bcb839b1049e900098f08209e8b5682f51f1f93d261ff5b6d9cbf1a7f3ed6181",
+    "extensions/forecast-event-profit/SKILL.md": "97b836a1ac353077c057c6cf2e59ff03d9cede87873ccae8df060990eafeb2e8",
+    "extensions/forecast-event-profit/THIRD_PARTY_NOTICES.md": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
+    "extensions/forecast-event-profit/references/sources.md": "4697242ac1b783732db6fea7bb2d6d8e4d81563149d43656061e83a1dc80dd71",
+    "extensions/pmax-copy/SKILL.md": "c5e090e9529bbe149136f1e30260661ca8ecb9e7e3f10926cfb2c6c3f22ccaac",
+    "extensions/pmax-copy/references/copy-contract.md": "e14068234b0253386c235a3400fbc9ffff4a3459c66aa06b8e68159663f55ba7",
+    "extensions/simplify-member-rules/SKILL.md": "bbaddf99c587ab207c352692f9d3f8f17536ffb6932d1572985bc050e9552e16",
+    "extensions/simplify-member-rules/THIRD_PARTY_NOTICES.md": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591",
+    "extensions/simplify-member-rules/references/sources.md": "ff3127df1eacf5ad85323f11eb0a3704ee5dbcf9597f1c3726c6e8f4e77cd966",
+    "extensions/write-marketing-rollout-plan/SKILL.md": "47864cd899099744bb7f9c1dc0c791a9b77598540e931eaf27e705501a5b2cbd",
+    "extensions/write-marketing-rollout-plan/THIRD_PARTY_NOTICES.md": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591",
+    "extensions/write-marketing-rollout-plan/references/sources.md": "1f35e48160760d503969e714c080007a9d683fa37429c00d5b3496ad6cab4d32",
+    "free-content.json": "d42c623670d841c9df85b78db051e4b674d74667cdf80616ab45b3d7a17597eb",
+    "packs/forecast-event-profit.md": "2f619360ba71c898664f1c7810350ce3533c73fb347b4c6a9db969945b05b9b3",
+    "packs/inf-05-07.md": "1185a0f3fd0373037b7bebe2fa9d265d15a49412fa567aeba9f3487c6aa301a9",
+    "packs/mk-001.md": "106f5853070d707e58b65fc77f74c5db335ff59075aaa783ad1d8f2399b2efd8",
+    "packs/mk-002.md": "2f2e2884f37079c0e0d3106af6994b391650a2944d94e4704b4233f6c3c827d0",
+    "packs/mk-003.md": "c8731b38ac1fecce2b2bfc939e627374df733828b05e8a3d304a5fd1a0b37944",
+    "packs/mk-004.md": "5ab47c360b5d238d1c4d741962b6ca7aad99edc129ee3b10b887856de88418eb",
+    "packs/mk-005.md": "d7e416a82dd337d5be94e38bffa5fb8d25a37145b56b645be12600d119c11793",
+    "packs/mk-006.md": "c944f58292b37c4810462b3f824065a9a0ead59362b183f7a7c35b50afbbf4b6",
+    "packs/mk-007.md": "97e524b9835b5735b6ceea9431d2fd797f9fb46ad94b3607e2883946595ddf60",
+    "packs/mk-008.md": "1fad4ff8a289df0d1f2b3b8bbfaca4f738790b655b2c44aeb23faf42a3aba162",
+    "packs/mk-009.md": "96e14d50a7015cef2822968887913d8a5f97bf6de4c5ccab8c79b46f51960478",
+    "packs/mk-010.md": "4de6913111645f508ea5ab99b14904254587ed7b250cfef31a74c343b71a8256",
+    "packs/mk-011.md": "81849f34925762f77601af2b951acc5dbdbfa0204f51f3cfa547108b89ea81af",
+    "packs/mk-012.md": "97530313fc7fa2cf5b1f3af4cbd65be956c3544dc8218e215e33b7627c86865a",
+    "packs/mk-013.md": "5ad529c5093b25725ecf37cb878b986ea8d5830e89ba92624b54994032c11a07",
+    "packs/mk-014.md": "5fe549f3b51aa4c09e03f062e32a9ab4fbb3b3d914604d86df2cb4d91e19ebea",
+    "packs/mk-015.md": "01ecf037181ee0c66d82e5777bfe73968bdc5de83eade1bce7ab79df22f2efc1",
+    "packs/mk-016.md": "2fc2cde42678b19dde0e38123cdd54feb11d02ac8624c297e6c447b6162bca11",
+    "packs/mk-017.md": "e58ef31d9da10190d28b4edbca5617be74b006881594ec86ed415d9ff98ec012",
+    "packs/mk-018.md": "d81c970a0a356143810805bc6d33272bd10f159a6390368d71b0c014cf0df710",
+    "packs/mk-019.md": "c7bfd117d0f3e1ba01e0f0ea4b4f3e8f27a6f76e4c02610ab329c1dd6b2d896a",
+    "packs/mk-020.md": "0188e2cf9d5c1100e670a58007191568fe1c8a67f6adf174af27e36c1e3c552d",
+    "packs/mk-021.md": "43eddd60565e98c8e4efe102d022e178bece59de1a0f25d2dc083b0f14bd1bfd",
+    "packs/mk-022.md": "be8991e6ba0841ac947f03b36c85af97077356fbc6937624a1919e1ce614abca",
+    "packs/mk-023.md": "32a7a93983b5fe79824e403b26c348431ed7cc5a504e5ef88edbca0f6ae5a0de",
+    "packs/mk-024.md": "3dd13ff536c539a435a1d160b19884e9504718016b936040a0e34d25b3dd8be5",
+    "packs/mk-025.md": "c86ddc6cc90036f682f1a32cefb078e4b1822c237b973661aff379d892983c6e",
+    "packs/mk-026.md": "701ffea6e107012858e7f6a5bf848225bee874c300162f3bdc879572bb50578f",
+    "packs/mk-027.md": "172a25e1fd7609cfa97b01fbbef08ceb799f8a1e22693a657ca294c5083788ed",
+    "packs/mk-028.md": "2eac472b25ca1e04df42227ae134bdd7826a7baedbab71f655d5ca9e3abbc243",
+    "packs/mk-029.md": "55e5c31b1e84a6a1a547aa1162c9f756e0378a0a382b2dbf51793f2ba632f33b",
+    "packs/mk-030.md": "e461582ed06e7095795b996fbcdafe16c6b0aead86007b616069548cb91d276a",
+    "packs/mk-031.md": "e022e06b17e66b7f4bc22f873529c51e45ba1461ef4ef87bc6e93fb5736e864e",
+    "packs/mk-032.md": "8a2e07c8bc16804ca394117311a2901b9b31a0d0bb7ebadfbbf82a95906aa70f",
+    "packs/mk-033.md": "a3ffa377a9cb7ddc78cb560c8e4b25297e565d717155d49b3a8d800f07118c6e",
+    "packs/mk-034.md": "a2485225125ca8abda634440c036fbdd58c0583163105e6c01705ffbabd5c50e",
+    "packs/mk-035.md": "f54678f7e2d800bbac6a9eff18e10094d6f46a24045f5a390fd9aba21a26f6a7",
+    "packs/mk-036.md": "064e36973279ec9690abb40dc812a0bb833fd697e93778f99e2f48df065a7bcd",
+    "packs/mk-037.md": "be34064a87ba63b15c0a02852adcab290cf58bbaa48358bd01f5e2dfcc998668",
+    "packs/mk-038.md": "b5c7ef2203f2155b4d07c2310cb8eb8726ea3660aecf9c4f558335a812b5656c",
+    "packs/mk-039.md": "3da7a6f8f7bac92e437031e93b03bcc2126dcc6741d799c7f2f22cce17b95add",
+    "packs/mk-040.md": "fcc3ce4482447033b2f3dfa74fd823bc30db79ccd33f5544a603d1f85b00fb23",
+    "packs/mk-041.md": "a077a1736065288c34d8c1c41609b5096aee6844aab3ea6a09ed5cc269624a74",
+    "packs/mk-042.md": "a9635c68855e95f2efeb8bd20afd99cc5a392011437c32836b811569c507baf9",
+    "packs/mk-043.md": "16bd01a84799a683df659bc7ecf973615a29ef31c84dab7f9cd351864f37f727",
+    "packs/mk-044.md": "aff36b44a8a88b59b348325b9ac94ed9f5b8d5ccc4b0e01bee578a1b02f080a1",
+    "packs/mk-046.md": "c5d167a73847cb16b2b9ff8c93e24db55f9e15e26058e045f1f8df04b9bfe577",
+    "packs/mk-047.md": "293731dcbd55356f3e265d7c6fc2b7f8df2a857f876f2b3a50d0e5a1196efdd1",
+    "packs/mk-048.md": "5ace96ce2afc30bb81c75cfa9b83f99583d14ada2bfc51a72c6e247089bb033d",
+    "packs/mk-049.md": "368df4447b7573cb7de9d2f64c7e3893c9002bb0adfc2c01d04a3ed5cdf3fb3c",
+    "packs/mk-050.md": "7771f87b6c956a979c1ea7001cc8fd7e344a872aaafff1886350f67bfb7848b8",
+    "packs/mk-051.md": "1fd5abd46fc2f6c2c390a212a2d6e5e3123fab9198fb43e790e7f0ae481f2fe3",
+    "packs/mk-052.md": "62100027cdddf65eff98337213fe64d805502a7fc4b422cae769a437b95bfa84",
+    "packs/mk-053.md": "1e0af1b84f874d92f32294ff778c2b8b225d0367542f62f9eaaf084b25251869",
+    "packs/mk-054.md": "54ad8b0c0a4a6d1d5382ce7771e6773e6f3451d88c9ac493c3ac255a20e94fb5",
+    "packs/mk-055.md": "d20d778ed9f7c6417212b931bf90ee7ca4ce20caa8a9c929001f0cc12e9bb716",
+    "packs/mk-056.md": "f36e6a02ace19aa18239096f89d1a9a1efbee97b4369bee15ac0b8f6a6450a42",
+    "packs/mk-057.md": "fd1dddefad4ecfbc91e8600057e6fbfdba6c0b41beddf5d03fe02aa76be99958",
+    "packs/mk-058.md": "333582b3e28226b44b376cb38240cffe0c7ccb5658f6944d6600897d4d8d1593",
+    "packs/mk-059.md": "11c2f0e96ae25c427d5be1f6da68c0d1ef80333605ce50f19c3e11a4465ba1e5",
+    "packs/mk-060.md": "93cdcf501bdcde60ced2e54e6986a38ba01c9804950b0c4d24e7f1008d05a2f4",
+    "packs/mk-061.md": "42b7d91047e084a383b7d88d3240cf313dd6f178792f0e43a82200a3b196a83b",
+    "packs/mk-062.md": "3aa006feef8b3b2b1b31f4f938eadd2d2f28c2c261f2718badeba7f3e87b911e",
+    "packs/mk-063.md": "a5aca2b24af3166ac98505e8ba9af7675259a2e1245f42b793ed07555e434d45",
+    "packs/mk-064.md": "f9b1aa8595f7f32517e460dd0db474f4c922a90b9e3205d45ee0f22599856ac9",
+    "packs/mk-065.md": "0ba64717b1e33ded4b5c7de1aafd21913d1c26db4b82926cc479efde30fcc793",
+    "packs/mk-066.md": "afe9310953d8789b64ec42d4ebcec33094634167dcfffc1805249aaac99c772a",
+    "packs/mk-067.md": "2f4192474053ce19baafe872c9aa4c536740b1c14e0a4e81b1dda9aa8ad67b13",
+    "packs/mk-068.md": "98bde5deefd04957a3d0d04e722250012652d55155f53f07f27853b1f7f862bf",
+    "packs/mk-069.md": "a626879f4db4ea18216e532a7284d9916f74e5265eb6296e87b946824bf4a169",
+    "packs/mk-070.md": "fbd92fe70890e54d6c484bfe9f07bb3b82b8285238d88faf318c99df00a01019",
+    "packs/mk-071.md": "e5a786bb531458806adc069a2b09319f1f612d57958b7b5ff653ec4f4fde70f3",
+    "packs/mk-072.md": "a13b54aa03bca7fc8de1ed9a4b69fd102764df8df84bd43b81582867816d3405",
+    "packs/mk-073.md": "1521156c6ce7200ec2488ec62c39c2f10b7a833230c5b05cd905268d7ec73df5",
+    "packs/mk-074.md": "04c85d2f8faf1b59551538b414f13334da7d12519b91ea07aac09b16a2f21978",
+    "packs/mk-075.md": "d85af81cc7ef57528a6f8f922b4d3afe4f824127ada7738c28251472af939674",
+    "packs/mk-076.md": "4582f5b8d47808920d69e21c68b0c1dcedc2ce82827eb1e1f6702b8b568462d2",
+    "packs/mk-077.md": "69f147ee4d746e1b9ab3839ac0fdbce0c47ac43e85ff8a245fb29f57af226a25",
+    "packs/mk-078.md": "6cae8f969b9a72d8fed17e4ca6b788be7bf695072db9e3a96ce718b8e4037d9a",
+    "packs/mk-079.md": "292c33f08f12f769de38e82ddb20b79e3206ff90f0f3dafe8bf50ff2b2b5521c",
+    "packs/mk-080.md": "e4b0a14f2ec9b5fe06c530341326a48d7152c7d6cfbdb3cb9dcfbcc2753e3870",
+    "packs/mk-081.md": "aedcf71a9359727f1c83eeccd8d5662e4e48ebbcde1db981e44d24f8c8a735e1",
+    "packs/mk-082.md": "d9987e580fadcdbb6a1cc6da85efe251b759a31d239ae9ef484b34da5c472173",
+    "packs/mk-083.md": "b907a357993f07e158881a96fe90ce1c02c0dcaffa34ec9caa81b8ff5aadfc58",
+    "packs/mk-084.md": "a5d59f0b5d107705802b89946246873ee1f81987a94c10431cd85d522eae6d2c",
+    "packs/mk-085.md": "de1d76fa0099a2b1a924e6ab7b235436caad95e3322869e0de0ce747c9c81fd0",
+    "packs/mk-086.md": "b7904de1674f61b3c09e89f621c04f7042ac6811c6e5ec990790ef0a9a3e6524",
+    "packs/mk-087.md": "8c85b6b6f64a4e3405a31015da8a35946bbd31a1ad2f80193ed0dea5c01ba2d3",
+    "packs/mk-088.md": "cb03ed84fcc34c97e833608f0be6b0a9b209a356fc7142ca167fb992a1496799",
+    "packs/mk-089.md": "18c8dbd3965c981d25c01276acb8217ba43064ca15c5dc09441636140b53264a",
+    "packs/mk-090.md": "5610ea724f934240eebec1d5126d59fa5ce99d15fff1a755a9cc111c7dd16d22",
+    "packs/mk-091.md": "5efab442e33f001ce5e959c52daf7b14aa728f396cb0b663d83ed38ea571cba7",
+    "packs/mk-092.md": "ff039777ff6aa7ccf2a3e3e53c4ea518e8d041fd65fce1af900c2d52dda11db6",
+    "packs/mk-093.md": "bc651dc24f928b73a19b0a8ecf29857c905a154fd56f860c6130ab174c0fb80d",
+    "packs/mk-094.md": "779adca672f758e3eafafe4ecd06bdee2b344a8df886ae3675b3e8b26db21ac5",
+    "packs/mk-095.md": "5cca97a712f63aef480a927d93457151a0efa577c6f6cf7addbf6cb4f456ae16",
+    "packs/mk-096.md": "132c7a286ed0cd0aa09111446518a7687cb5a9a8d9597d83fde9fab3b6eb8f42",
+    "packs/mk-097.md": "abee595961cd2c6a23b038d5e07aaf3b149be02d25b00620f80ef2baeb57d4a2",
+    "packs/mk-098.md": "bf83be7dd79399355052a93cac82da48cc2a975204ba0259e3a102443292106a",
+    "packs/mk-099.md": "09dfc578d6b91301f8aac12deed8bbef74d614096688fd523361a2665acf09b7",
+    "packs/mk-100.md": "2a26fba66d5f6ba22998e84bcc0bd63ede376a96ecbfd631723ce2d0412571f1",
+    "packs/mk-101.md": "ee0592c0a34f7936c61cd90605d4a8bf9bdaff89535fdfd52e4f16cdb3a490d4",
+    "packs/mk-102.md": "fdcc6e7b0b0c5270c929b4d64320724b410cf1af8d50f2003b7bae408417995e",
+    "packs/mk-103.md": "a17eaf6a5dbbf548b9f82b06a30d20a4281cdcb26dafca65d71cb5d0287e324f",
+    "packs/mk-104.md": "d24d556cb785f899f8d9b76c1b7bcfd3597c92ed9749343c43b5169acf63b78a",
+    "packs/mk-105.md": "4ae6d98dfb88ca7ee2682c2d38a73e31738b107f557fc642e8158b62219b45d9",
+    "packs/mk-106.md": "6ddcc9d6f2cd788782f28076be1c69dd8cec99240f71a57a09c3a2f4d77f24e4",
+    "packs/mk-107.md": "862a4c6a332f659ab5d7d69a7368fedeb69cdce87a8b9bf0b2c7bcd1330cd96c",
+    "packs/mk-108.md": "5e9d3fd9eb20987b593b62ee4a8fa609591de969bab103f3ac3e2d2dc55bd099",
+    "packs/mk-109.md": "2f242c5507310356d25720c20a1b4e359be9c96d410681304b2ccec9774ba8b9",
+    "packs/mk-110.md": "20f271112a60e75033bd55cec8e71e69a9d1b2cba949c90c48ca2988f896d467",
+    "packs/mk-111.md": "68a851a25e9a9c4a0aba3dc163ca710d1fbbfbdac997cb5e61b5a33fe9f006a0",
+    "packs/mk-112.md": "cea5dad12f8fd6395b47d814ba76668f79f6695693dc2fcecce0464e856168dc",
+    "packs/mk-113.md": "9b8541ad61234f23a1e9b6d064b3e8b2b07d640c3cd34ccd7d6202113445a10e",
+    "packs/mk-114.md": "51dd95bfc5e0c3064de78885826dbbfe0dcabf4591fa0a7744654d0aa31f2260",
+    "packs/mk-115.md": "2cfd5e97c27893bda27983a643f8ad9d279dae085291d6d882321475e03a9582",
+    "packs/mk-116.md": "047391a344140e51374d649d841b278d975591885977e7ad17d3a1e5c421da07",
+    "packs/mk-117.md": "202a0dac21cab895db2625356e77bb43afeebefc6ebde954240f9962fe52018b",
+    "packs/mk-118.md": "32db2602d4bd9f6613a34817b56b1edb5bcfa9cbab6d4dce8df898e09ecf6be4",
+    "packs/mk-119.md": "593921029fb356069c166e1a5d215dfdb858597a8799b179d6fa842f1281b30b",
+    "packs/mk-120.md": "ff3cff789c09f71960e4932f2b4e83daa6663071dba2fb9756d0520c9f2e9406",
+    "packs/mk-121.md": "4c339a46a5ea5f8a40f2523a68705dc960828eba690a163a00a6052947dd2dcd",
+    "packs/mk-122.md": "692adb49c7925e2c57b252be8c0c10e214f12339d8d18210e2b9162f12db2189",
+    "packs/mk-123.md": "cf4e7536c8d3a322462a324c33b4474a70bf738b7c350cd099dab616ac4e70a6",
+    "packs/mk-124.md": "e5d1ce2ca9acd824957958d1a16b2dc4bd99a18b6799f45520564b8639962d31",
+    "packs/mk-125.md": "635a2e56ac4eca55dc1122ab2065661b8bfad34d67518ee2c731ddaf84131fb5",
+    "packs/mk-126.md": "56d14bfd982a2ba155278e8c20acd632904ba861c3b9c22b41a8129f197f44a5",
+    "packs/mk-127.md": "3237b75b4ca6e5068be20ee35cb8c1486f509da186f8e862e72bd33f2df3098f",
+    "packs/mk-128.md": "ba3d7a0b825329317e171d9bb065670b6d4dc7f966953d766b423da887cf56cc",
+    "packs/mk-129.md": "2361740696b69b02c352fa73f12be14d54b87679d4a7e1dde6d3c9d6b8050c5b",
+    "packs/mk-130.md": "d7755299fc346b2ca69abd5d2792251caf99ed5ddf67f24910ddc50280f36982",
+    "packs/mk-131.md": "7001e57b95a7cc23a28d49405972c496a48b19ba81207727ace8c2beafe3d6b9",
+    "packs/mk-132.md": "d96a1da615f9aac8bd370448a9e7c5a295e3ca2f1e2924ce23ee22286b3597c9",
+    "packs/mk-133.md": "1903d4d1ed5a5f01fcdc9fca313ef47b5d9907c0e4db505c3b04ca28cd100ef9",
+    "packs/mk-134.md": "730985919e014e86a727c34c268219d6248dc46b2a15ba95966c8a74c91e5b66",
+    "packs/mk-135.md": "fddf1daea7311ddeac393271405e99cebb928ff1ac1148b8f70e68cf320b51be",
+    "packs/mk-136.md": "962bf59ca235e51694225eec099517bd2a8a3db41dafe41188a0109a2f7cb209",
+    "packs/mk-137.md": "adeb0a7b15cb42fac80bfd5d05269e959ea7715efe8b1dded597d79196643d48",
+    "packs/mk-138.md": "797fb378a32312e4a55e93a3934972a609f77cf46d62831275a253b8e3fd6f49",
+    "packs/mk-139.md": "29c780d71100d24f3276dbda48fffb3451c497a423872b2ccf0992842b64018c",
+    "packs/mk-140.md": "da9c1e904ba3fe40e61b75c1d0aad8732c9544cc05092117774cec364e0167a4",
+    "packs/mk-141.md": "48aca41051325d4f0dd93e7ca63be4a8d9d4f8581793ab36d04da549c8bf6e1b",
+    "packs/mk-142.md": "3ed4e1ad63599a2455316a063f165a01a29fc38a4819c3fe35ea9cd7279e1edd",
+    "packs/mk-143.md": "55ac801f0361265f499e542f32e285e8aa9ff22e759dfbea0d2a2efd965d195e",
+    "packs/mk-144.md": "e4a048d1a778758313e4fb1d4037f72808f77010ae7384afd71ecaa69d40fe71",
+    "packs/mk-145.md": "be5c9bfe58b67c39c679f77dbf533527bd7a8bb61bff8d05e85fbedc9b055eba",
+    "packs/mk-146.md": "53d882722a9a8d51ce89b0973760fc01b2b52f75f2ed5793cb8404891bfabc4c",
+    "packs/mk-147.md": "039a3832c77506ee5b83705664eaf263d5206262250cf6175c248f01aaaab305",
+    "packs/mk-148.md": "4e21ad21627c12fef48499a24ca0f1a34ecb4836630c7d65d1009782f5899e64",
+    "packs/mk-149.md": "fcc63cfcc4ae9ee2b31221cb3be7d6f1b2b7e72abdce4a65e905784aa0bf1779",
+    "packs/mk-150.md": "93708eb4fb505f284795637c02f58557e27761146c2448c8fae72ccc6741850a",
+    "packs/mk-151.md": "504236daf4af0aad844821fc5e0ff5db0d93e3bac3e3494eea4925578a688e37",
+    "packs/mk-152.md": "9c09adaaed06310b6bcd7aa4fa13f13856b21a7ebf65e22449c07102cdbdfe1f",
+    "packs/mk-153.md": "3cb717550aa2abc2fdc3170296e12521198644663c18cb80b2d24ec3eb769a55",
+    "packs/mk-154.md": "f5bf0928c15218cc614aa46513cbacc7fb001a63969cca2b2728cc824b4636e5",
+    "packs/mk-155.md": "b9a718c47401fa30fbb3e6951ecfa06fb5145782e9ab7f8a7957df098f80bcfd",
+    "packs/mk-156.md": "37606c5cdffdf0ef27ff62c07ae1c56158eec9c9bad4daa8e7cf931c96cd45f3",
+    "packs/mk-157.md": "0e4f5fd1e60eed3c0bb4e1314320729b6d9ed3be895ca7b9c058ec3b995c2342",
+    "packs/mk-158.md": "64bb3ec86f11cf2e8b88596bd44944e629f40ed2feacdad08e46adb96aa9a4ed",
+    "packs/mk-159.md": "c5be2689708aaa387cfcf306d5b04d53c46f7de6f0c65326dce759fd14d80ecc",
+    "packs/mk-160.md": "0e0fc89fda6221d90ce68eef61a7b995ff1e7f4e9096766e8e211328fa5a045c",
+    "packs/mk-161.md": "7a7d4d5e3f76ddaca139df724729681ecc29769369cea5d1621b042c69352a2b",
+    "packs/mk-162.md": "420f84e689e7d4c4b2b427f2e2df870155b26060a2df6d5faa30f33b24b113b0",
+    "packs/mk-163.md": "581c26c1af40850a55a928f881223cdf3286e80453b66ba7078f22e6e6fc8fe4",
+    "packs/mk-164.md": "2e0e82c39a741f4f5c301e056521a99af0a08d5c9ad252f0c4adeabf6d30581d",
+    "packs/mk-165.md": "8c8e0df4a1ddf1342c7548c8f09b7d182e30d22371db3b7f37f4333fe8e05844",
+    "packs/mk-166.md": "11257cf40fb4ae44f1ef56cab8bf11edfa38a853fcb937285c1bee625b7ba3e4",
+    "packs/mk-167.md": "c15abd250d8e7e54a54d1436502d72c5f215f33e4daf6dd4c0d20bc516164c9b",
+    "packs/mk-172.md": "5319931a7656948958452f1f2c689bbf9a13adac67598cf67ca2c02e41864907",
+    "packs/mk-173.md": "79087adb3ae5abeaa17e9805a4cec7fe7fb1565989fc602d037aa1b4899ac33b",
+    "packs/mk-174.md": "66784e065619d1eef1e718e20abceb719e21e1f12e016253aae6ff1874c59626",
+    "packs/mk-181.md": "369eb5ebfdf3da9b4ed66017bdb9c19af9bc76261cf6139e73d5fded823df520",
+    "packs/mk-182.md": "d34062a8c1c235485647f2b23bd0cbe28c3e533c0baab4ccfbf0702ec29d8751",
+    "packs/mk-183.md": "db75fa0e3ac772bc1b9c3c89fed7455ac286b6c7d203858d257a6ae7f6168331",
+    "packs/mk-184.md": "9d56d63229488e1deaf0f54503ad43f7f843100915a86c10c58f2d82cfbc8bdb",
+    "packs/mk-185.md": "30f6037a0ec9bb1348b50cb6930745d37ad05e084e691bc10f42805fab1bc8d5",
+    "packs/mk-186.md": "0c0352de474f97145df5ab628ca0c1a55aeafb7b644a68fb391fddeba2f40742",
+    "packs/mk-187.md": "c4d3db97242412c3604fd189c52e9c269d354e44d393dd51523e48e10229ba03",
+    "packs/mk-204.md": "fd6ae3eb34fa96b93775863b2db668473cf7d53e5d2b47f3bf5cc9fb7025f065",
+    "packs/mk-205.md": "d83afc364c30494848602d71632f31ff1e906e251cbe58cd18f4a067fca5c8fe",
+    "packs/mk-206.md": "3ad6c71a1ac9b8938839c6ee7fa068e82e31961100b9c9c2e814e35975f0c090",
+    "packs/mk-207.md": "6f57ee8b807ba215c362c802ca573caca80229fdc691a1f4f3615ab87bbd9b47",
+    "packs/mk-208.md": "a308b51d31af48e431356f9557fce9469c22eeafcd448eddd76305579b2e3772",
+    "packs/mk-209.md": "af32c46a8d7e863a89a55695bc1eb10e8486bd5b1740ad72f7389b862f8b7679",
+    "packs/mk-211.md": "e58fe479e56f569cbd19fbe29243db2071d716beb0cd9b89489920e0eae366c8",
+    "packs/mk-232.md": "34ad831c70198abb973ee239828cd1ad49d5edfb33b2eef21a367d4c42631408",
+    "packs/mk-233.md": "fc5e8edcad1482da8e15f17f3c74b4d1a01a255f0498ae40ba4b73125fc9da06",
+    "packs/mk-234.md": "c07929705df5a1fea95d4f873ff7808a60aa0d82d7e91d9f16064636e8e0ae37",
+    "packs/mk-235.md": "581c5e1a57f857c51272d25e28f30448c4816b9ce2bee28846e1a15b354e72fc",
+    "packs/mk-236.md": "3858d050488fad07ea3c7bd8bfa8c2b4c8837e3c7486aafd19d33db80d45c21a",
+    "packs/mk-237.md": "5957abefb7de69f9996961d08adfb48901fd8419c04c2936042ce798791fb2fb",
+    "packs/mk-238.md": "2fb9b5efc65c4b48195dacbe1fae6e2a80d736ed6be26480e7625467fc15c7f0",
+    "packs/mk-239.md": "ab6094ffdfb315712f55f85d625ef08f18870d1e974c44753404db472596f924",
+    "packs/mk-240.md": "583c78ee43da28b143329f7b9eb3e39e2957612d8fb9386fe1cf15ec0aa1290d",
+    "packs/mk-241.md": "09820bc37e5bab19a6b39e4574200b867dce9110982096f8249b702a8a10d037",
+    "packs/mk-242.md": "68ef98884ee015047b711b9d2d548eb3292275fa8d37b7cc9a7c58ce1e659487",
+    "packs/mk-243.md": "2a5ea447860ef048c910cb70dc3439c17c00b23a487163caf01fcd9f210c4800",
+    "packs/mk-250.md": "96f6aebc6629048a529193f049a0692b48fc2ecff361455cc732916b5927d0fa",
+    "packs/mk-251.md": "5f287a3777c2a14dee71988848c870f61efa541a16a083767c3d49ff02cf8137",
+    "packs/mk-252.md": "1577f3d0769ef5f4c570a0b65e8403a7c97325d005967411ddfc96c618601c54",
+    "packs/mk-253.md": "c57c2d2c03cfbbbfb2b33c1c0a593e327e6a497e9d5372c7a2c5f093b94e51dd",
+    "packs/mk-254.md": "7f60bd34b11d645660c1433dce2db5bd08ea687bc664e5f39be82d6f5b5e0d09",
+    "packs/mk-255.md": "210cb66800e58978fe40c2cece03daea6fd67873271e4bb0513872fb410f7b31",
+    "packs/mk-256.md": "d55c442ba5d27d9d387c4435fdcb8bfe763100d2eec364a7a9cfe1aeb52b6d95",
+    "packs/mk-257.md": "6a506da6a5671955fdeb924532630d03c7195416d39e213215ad1c0b8dfacc7b",
+    "packs/mk-261.md": "dad7177aa28328d25793afce45fe0a5a398f36325063a29059e2354cbedad5b8",
+    "packs/mk-262.md": "5bbed523e60084cd2bdd2144cad4e37c5772909c9beea791cd3053f6b4b990bd",
+    "packs/mk-263.md": "47bd8940b5d9e26ed764049a0f063e5fd58212bfbded62face8581066861be3c",
+    "packs/mk-264.md": "5ae209bb8afc3853a4ee196575248fd050dbeb9501a217fa383a957ad5c12991",
+    "packs/mk-265.md": "213c92f8fd6bae3ab1954c7d7fc20b0fa9b5c8b5c4eea0937b906451ec94acfd",
+    "packs/mk-267.md": "e0fc17817cab125a7fb24347f465b7c42ac3998ed525f55348f9ce5d12f40b46",
+    "packs/mk-268.md": "be21161e401a95e3472c4220dcf5f927923774bbe7e140032682544635bf85f0",
+    "packs/mk-269.md": "64fe3d3ccece08003bab91d350afef65bf06991d4b9a853a0ac3f82698f51d8c",
+    "packs/mk-270.md": "f90833cb3f6dfe13b2bd44c2071cc24eb8f3987ef2914a85b25eefa36f3fa6a3",
+    "packs/mk-271.md": "9a8f264ea3ceac5eacee6fb9888e0997dea73d7a54df125d5be32da2d0dca620",
+    "packs/mk-272.md": "9d82f85ebed6fba63615771a25dbe9b9fcb2edc2bf42b89b9f353ed7467ef163",
+    "packs/mk-273.md": "4b7f1a657368be0921d1661e4e7e3a2ede96b5f8f283768fad7b4e602ec4236c",
+    "packs/mk-274.md": "ed9911a5de363a0d58c1f48463c2d39a55071f5f1671bf2a252ed63fa665a9a6",
+    "packs/mk-275.md": "05d7295180e9c8a550ddebe3fe4345f923dd87044cbb83b3e955b4baedb7ad72",
+    "packs/mk-276.md": "f62d21000dd1a7408d5013e613325f3ad1a6f0df43b17ceb560b1410405c8030",
+    "packs/mk-277.md": "61af8fb2d5285f60e4661d942d08a50ba52d519a9bf513edc428773ffbad4570",
+    "packs/mk-279.md": "66e6657443a18df47eb0c45e8ac672bf268df3440ed4d592bd2250168d677805",
+    "packs/mk-280.md": "b0589b3cc1b51662507df166144e9ca3835a058d3b7fc0714b8298f05e8785d8",
+    "packs/mk-281.md": "324c45fd8c9d4d6fca748e57f6c702a41789629c4ac18a62e7fa700743b57d14",
+    "packs/mk-282.md": "dbe1a12a7dd95e1d1f878b6a36e26a1f5c3edea7f895530d5ee0d03a3407bdb2",
+    "packs/mk-283.md": "f0408fe3ec850d56358bf1687487206f559b229f63853ffa98287d49a06fb3c9",
+    "packs/mk-284.md": "98fe860e4ad655ec73f37b2c4feb369b81b86ec647734d9ee7a21cee93d12594",
+    "packs/mk-285.md": "0fb1df5125f05c8a1ff2fb6339c43a8eedf39ede2bd0251030bb97813e453fc5",
+    "packs/mk-286.md": "00126668a8ac99cdc6de94c3c79a9bcc644faca537119ff9ed716c6fd5d668ec",
+    "packs/mk-287.md": "225c9f28c28b3a35ada35c892bf0e8d5517865e1bec5e462e7e52467142d0081",
+    "packs/mk-288.md": "1108c71d7deb9811289a9ce0ba7289f54ba4215aa6ea1a540a697494a36cbfd4",
+    "packs/mk-289.md": "c7483a096a5f57e9c59a7d9a4276a4232c4ba186654a7eee29816173389affa3",
+    "packs/mk-290.md": "812845b40fb72c4f0bb9aa9ceb9a7a4d152bb02fe81ef0c2c98690b67006ff78",
+    "packs/mk-291.md": "4f399b20ddede360c821db1da34f455f15801061f6fe5ff5a0c015650dc82ce7",
+    "packs/mk-292.md": "41281d3c9f4448ba593acf7c34e8c1c0fb060aa0f94ff1de27450f0d2161294f",
+    "packs/mk-308.md": "147a851c96fd7e9344ad6399f352d1f93802522e57f9abf6638936a34b1ff5d0",
+    "packs/mk-309.md": "4061d9b8dc56c02281087441f3a4a939368bede98fcda02dec6e06870c296f46",
+    "packs/mk-310.md": "a78f8de7eeb731d499bff4ae07166fb9e7e04313785289df4b80430feedd5bc9",
+    "packs/mk-311.md": "1159541c50a934c4442bfd5a246041d0186d25ab2d5228b239208bebc57e464b",
+    "packs/mk-312.md": "923293c023af431e01021da93796d6f96cf3654d304c474dea07360599302f0c",
+    "packs/mk-313.md": "8ab6c2c4b4952e8c917d73d51b6ecff467793813a397e3e4cabb80857dbb87de",
+    "packs/mk-314.md": "d5fd35d900f7b4670f2947e00e1b4496f893b414c8117f06e0d10cf0cd075ba7",
+    "packs/mk-315.md": "e1df4074c6f423824ed034c83735ebd416c3ba54c03418d107162fb8e7cd43ef",
+    "packs/mk-316.md": "e9c2c5b33cf57b9c3b20d4c055b43190b5a1e5fd12fed6febd49b82ffeb5d152",
+    "packs/mk-317.md": "4f2bba25b6017c4a60c9ad31622c1ac405926fd22aff3ab283ecafabdc7cfa13",
+    "packs/mk-318.md": "fb509470f0a1867407760b3e5bd35352f8967b4446efc88715351b66fce201d5",
+    "packs/mk-319.md": "909a783a7d69c0ccef11326e9848863cb1665c932b0044ce7d5ac0facae08e87",
+    "packs/mk-320.md": "f30c4cfdf42f4f38d8a105858c907de2945a3389b1e70ac364355d37667a5f53",
+    "packs/mk-321.md": "47d3778788f89c97823cf5e38c8bd41f94833eeca10ce06fee3f9407d98b8c4f",
+    "packs/mk-322.md": "ab6109a32a5254872e4134362198f0de0de2e1b8504b26240edd976a02801859",
+    "packs/mk-324.md": "f5244cea2a884c1e37d95e51b63625d5c7aafba2c48bee3018ce24a98a864255",
+    "packs/mk-325.md": "f4e33537b912efea4001ab9a318b31bbff34f4416f93fa43d1a041477fb2fedd",
+    "packs/mk-326.md": "0e1b4c3ed3936d2a7e7a8b848e46ad5f50d28e0c61a883f2697415a2c09b53fb",
+    "packs/mk-327.md": "71d9cba238db1ee56a81c4aa51ffce829b39e13663840b682b4c7e1f3da05cc0",
+    "packs/mk-328.md": "22ea285f69386838e3f2ad8ac3f7b9df0fbfb361c7e13d4ea4e80bc79c70247f",
+    "packs/mk-329.md": "4da9f61d787ac08594dd521390161b380bad1afc8c38a8c41dfa2a3df95693ff",
+    "packs/mk-330.md": "f02b877f915df3867cc8ae1ca51ed38d757577e616a31287e3b25323510da379",
+    "packs/mk-331.md": "f3bf151c1145dc238b22e278e46896e5fbcb42ad801536e22a411292acc48c14",
+    "packs/mk-332.md": "76b7f620afbe00c2eaf6af02686b6afe694c165f59f4acc57f0e900aa23e2976",
+    "packs/mk-333.md": "22dbfc40a9bf9048996f16e40ec90536f2ad55b658b6f334a986dad98c9ecba9",
+    "packs/mk-334.md": "6c1b5056a04310856ba9d031aa08ea4fe6118a20b67dffa14763b742da567a10",
+    "packs/mk-335.md": "12a8f48be9514db0b8eb5b722864836c864afb2ada39e4ec39e8da5d9803520a",
+    "packs/mk-336.md": "729218f14cf16cc7b05771e41594d1863add901ca3129e36de22dfaa0e2610c1",
+    "packs/mk-337.md": "c0e03db29e785752b4a8719aaf7b8e70a0cce8ae5c205ad18ebabf00c0d404d3",
+    "packs/mk-338.md": "a8fd3110ffddc29688382755df5f7076bcb7d2e62c8a3ac35e0a9a741bc91821",
+    "packs/mk-339.md": "5472d53d50203e2f4a18469f7a9bfb5e0b728241c7927573ce4dc69974e766d1",
+    "packs/mk-340.md": "5e93d7e3fc074162012808669a71531f55fbfb62bd9f978b138531c3b3b0018e",
+    "packs/mk-341.md": "71c9e2a27d4d860f15a016c4ab6be25407c1381e3d55585daeb254e4f11e2d46",
+    "packs/mk-342.md": "4a834d268ea0a4bc857f0f9419f9ac41e132ee3332446e44e19c7366c1ff6c58",
+    "packs/mk-343.md": "07139186642d085fac9f324e9e252f748029ee11754745b627ebda086bcb1930",
+    "packs/mk-344.md": "fc75ad0f29dd4aa179608b207480dcd297ebcf30317dade8f08d0cc95facde32",
+    "packs/mk-345.md": "6e4575b3ae7f26c75b24bb386577dfb9ae2f5f01f3f13c40195aba320033ccc5",
+    "packs/mk-346.md": "74b78405b4d8365bc8b6d45a6a3397abffe3bdb17e5dc6af31defb48d75461fd",
+    "packs/mk-347.md": "e72f13e34b07449300407eba55ec4c0a1e30dacff75bb4146ed48c4148945aeb",
+    "packs/mk-348.md": "9a45932b1dd46aae050a648c9e3812c3d3a83b0190bca0711952e39c090cccb5",
+    "packs/mk-349.md": "35f5bad94a75f039600b45f6f6a6d389ea9f17d1d352679dfae62e200d5ac129",
+    "packs/mk-350.md": "7562a1782f1c6338c73cfd3df7134b890e562888bd0ad2deba5c8317155bd127",
+    "packs/mk-351.md": "19aa576f6b40d75f9e25da8fe11f6f822192571f402d44008aba2fcc46164606",
+    "packs/mk-352.md": "addc4f9b39d7fee75d8257d9b2beeca3388bfbdce34feda12d1a6a6573291826",
+    "packs/mk-353.md": "6256f66a6ff6a1526dc613a26853c16001786484fb283d94c94c6f54fae521fe",
+    "packs/mk-354.md": "b59e189a9529395e65f4d0b10fe76076bab8cc3756bf1e4c39db7fb92f4499f5",
+    "packs/mk-355.md": "393fd4a5121ec7a647fa4daa9683fba26fb0dd7821614e82dd73674e4e412b6e",
+    "packs/mk-356.md": "fad0de2c636cc267618b81a5c06273ec52871fe2f93e6e1c9ee7d45c1769ed13",
+    "packs/mk-357.md": "b88abeb1690cd87757f9e12822db8d26ec844954b3134f9b98aca552c38b4427",
+    "packs/mk-358.md": "d0e3ab8f2a95a74243cd7bfeb46ad34e497af80ad0ec53bf225a77ac01398202",
+    "packs/mk-359.md": "49808c1885d91be07993be2705cd2fd7460ce70f8d2294541b4060bc6daeafa9",
+    "packs/mk-360.md": "53860140d7fd609d787565057fc43055ffaedc331f23fd9f41508abb1d86ce8b",
+    "packs/mk-361.md": "0c28fff68cbef892c648a4de3574cff9fe070249afac5a32541f74a65f4040a5",
+    "packs/mk-362.md": "c6c5aef5dbb4174bdfcc9d30ae4199535d0ab2f2e1827560c17cde71a11a1217",
+    "packs/mk-363.md": "265a29b9306d94cc7eb6df4b87febd135c9841374a340b22a62c0249789b718a",
+    "packs/mk-364.md": "962f87ad8a23685aa66b2a36b0b4a152e0b2665d61d6b91aa96fb6e266d3926e",
+    "packs/mk-365.md": "b42d9b91772ece8579d241aa2d6d37957fa01685c59196f98a164f3731a02193",
+    "packs/mk-372.md": "67e27e06b8ba1e75988553a5ef017c7af65e2c10d31cec20ecff3abdfe3c4b06",
+    "packs/mk-373.md": "41fbe37be8704129544563ebaa2dcd5576d6778f4b81bc6ccbf3e99aabfd7c93",
+    "packs/mk-374.md": "de7e7f200a739df33e74ca601790372be3e849db12c29aa89b7dbc967b5441e8",
+    "packs/mk-375.md": "08bd07246d8108a2f91441bd3a04a6bbd8c78e9285414b7114d58bb3b48bd4e9",
+    "packs/mk-376.md": "f4ae99e6a43a2e9d7725973d278f93c48aea21bb9159d2cf4024e83aeb0eca9d",
+    "packs/mk-377.md": "7cc0f7f2da028e7087165c5290dc93cb7503ceef51da7d0b7657a92af2a9b1e3",
+    "packs/mk-378.md": "b9b8ae05bd4673ac8821cd82ecffbf3024ea269f6413334422786fc52b6f0723",
+    "packs/mk-379.md": "2cc2a662a6b9c786a6312c5a21197e0bb48c0e9e97279929c896e3d3cafd6a57",
+    "packs/mk-380.md": "f32c1cb70d1d81121c26448da53f3af9d0f01814f8ba3eb3714c68f72f7de285",
+    "packs/mk-381.md": "69f5e96dc67d539f2fe1cfc9eacdc341517751bd90cceede0f6df30c60429008",
+    "packs/mk-382.md": "62fc0c3b0873eb3252d125f9917767bec207901808c40ab631e5feec0dd02283",
+    "packs/mk-383.md": "6da3c9c0881ce2eef5bd93caaa3317ff4495ac44f3f1a1240a618e4fb43d5639",
+    "packs/mk-384.md": "cf74b34151db1dcec4213b36d09929ded58f9d7ae21b5ec5c44918879b43a08a",
+    "packs/mk-385.md": "9d563174a7d0016b39ceb3d33f556eafd47370f977e59bde9345138a98b0ff99",
+    "packs/mk-386.md": "b368188d1867af5069327b4fcb64091dbc394a338bbbd2062e21166b19d7a61b",
+    "packs/mk-387.md": "6e3d4bdbd75031fcbb5d75d1d17a9bf0d16b65aa5c578513d353463ddc4d522c",
+    "packs/mk-388.md": "a6175a64ac2829f43f9d5fa0aae26292d534a412752b3a910418ffefb58369e1",
+    "packs/mk-389.md": "704fd142db5c6cd49c81fd04be87058c383e9a5162051e35eff29cf6874e7158",
+    "packs/mk-390.md": "dbed3bc03154330da1ce4d06ae03df6c7232c9e7d41a2a8291f13b4946c24d3c",
+    "packs/mk-391.md": "00c7ce9fc38b05ac222ec0080ef814be1837666718cfebcd284fbd1910eec3c1",
+    "packs/mk-392.md": "e6b589744fd619daf79d07896cbfc3ae89fbc23e6dcaf68dabfaf708caf7591d",
+    "packs/mk-393.md": "30e35570eb4306578f0738944fe5b92ed11fcbdbf7a1d6d88763d7901e7be16a",
+    "packs/mk-394.md": "af4209f8fa31f6767941f3aa45fc509222092ac1708eb69e4fc78413c60b4279",
+    "packs/mk-395.md": "797fc5c0aa627c872660be1ec4261d239121f07f93d9c9c6e84e37206309b616",
+    "packs/mk-396.md": "d568e60c5292c330e047cc1f1956c6b4951b1c3e11231328b6ecce85c5a3c72f",
+    "packs/mk-397.md": "e7b535719eaaa54a1893dd6c8aac6376c3c4278185feb4718c2bfe98ebfab7c1",
+    "packs/mk-398.md": "2f58d5b084377c0a4a7fd64481feba0351d58ad8d868574dd037adb75504a4c4",
+    "packs/mk-399.md": "26532f82d8c8d6ae84179439ff793d3835c0c2b2b8e9c196cdf873fea27552a6",
+    "packs/mk-400.md": "bbf7ec13e357b45c43a9225d41afa2b196c46f9fcac72dd9a09e1cc70f2e6745",
+    "packs/mk-401.md": "0ef3ffb5c7a7712021a19497ec2e2068a09d59bd5c06286bb4d96caca59b6257",
+    "packs/mk-402.md": "b69a5c10d9b7a542e43380830e19abcc028336f1abe37a19646c658d0032f8c0",
+    "packs/mk-403.md": "7d1a4d67921785a8d8ae0e0333ccb82f049425316569563eb4b3a327734861d6",
+    "packs/mk-404.md": "87b831b958f2d064e778d6f4fc2d073dba2fcfab99315e456d5b9852f4671d9c",
+    "packs/mk-405.md": "b58610068244870c1c91e1ea1c34a1e251f5005fe05e74786b8366899d382e8d",
+    "packs/mk-406.md": "1349fc0cea6ea70f06f44a51b5bb6bca44c83447cabb2d93a84d79e1e5ce2577",
+    "packs/mk-407.md": "c7e28797051d68b2d4bf6092d75fe24bfa22ccaf2c3efbd558cbf8dfd686c3a1",
+    "packs/mk-408.md": "d98136a5d8a5e1d71834c8a33838b5e6b0993a10c5a9bb65e139ddfc29183e1e",
+    "packs/mk-409.md": "8f99642e0fb453e4155377fee5dfbeefcb2d1a89819ac5fc0d3b6c4672b549ec",
+    "packs/mk-410.md": "4a5a215b77b7b012dd63a40c2ce804b76f5008b817bbbc52128630c6a29451a8",
+    "packs/mk-411.md": "63e0f7f484a9c3c61cad0f30aafe8aacc98034bb803306b4b5e9d9cf9efefedc",
+    "packs/mk-412.md": "ffd3aa99617d061142e03b50d9da5ef2b8410a29c5d7726b517cadacf0c712b9",
+    "packs/mk-413.md": "e740d8bb49048474dbf48b3a702f60bf093d1635d4fd65e745b6fe06bbe5077b",
+    "packs/mk-414.md": "e0c8b1dcb84dcbfa90a62d0ab04c65b318431b05c3637e8494fdabe01becbad3",
+    "packs/mk-415.md": "11307a77e8088990a928d197d8af4b775f3186f8df2e1d9b98bda9540202f9f1",
+    "packs/mk-416.md": "5983d7664d196d511f8b8729553829d41a4f3ee20f721d0e3fbce413e3bfade2",
+    "packs/mk-417.md": "93b46c4a5a0dd86ead2a560b59e3f8bf53cf52f76a6c62f0342f9f2d2b680092",
+    "packs/mk-418.md": "d31b49221e9a1cf3c4c838e948e24152d8e30a1bf9bd515b058d1c50ec8f7970",
+    "packs/mk-419.md": "3e86fc6d26430bfd3ed6f5347f88fa25604714e14e059de3b16198227e1ceb6f",
+    "packs/mk-420.md": "f080b45f3d4bfc6468b2914a72ec8804a3cf73df30be11e32ae60e1cb532b830",
+    "packs/mk-421.md": "051f24bdef0c82928cbe05a78397e5d298f6c27943bc9d75cb2d365805f5f653",
+    "packs/mk-422.md": "5f034bff13e9373c422c9bf6d8f99e131aba703497ca5163cab9c8451f2ee041",
+    "packs/mk-423.md": "db66222ca9e7f4eadde7fa525f3918e5b9c3aad61c6f9fb4a6ebc14c5488124a",
+    "packs/mk-424.md": "63bdda249146f38daeac5b3c5fed5e89a3e0e9776190ebcda4c76b5bd66c8a9a",
+    "packs/mk-425.md": "8a2eb4a1d8ac3e73a38b12ab7998bfc7bef197c5e592b47313e44530696975f7",
+    "packs/mk-426.md": "057f05164bbf41997de1bd8cfb67ab99ac3fe0ecb9c2a33f84621044f7edbc4e",
+    "packs/mk-427.md": "77476f34369bab3cac748cc9d3b5434ba3fc86aef637c26bc65ef67dabf761e6",
+    "packs/mk-428.md": "5fdcaa9045e7de214727c198ebef3e76c681ea0e83f77ab7c7dd91398f413ec6",
+    "packs/mk-429.md": "9612b1dca13d136a635e67ed6f8f113929a894cb76ad4f6ec36e4d896e01faa5",
+    "packs/mk-430.md": "b7f3f708666802fc05c64480c6fa9ff5aad2e2d0c4c141c5fd543ff7c168930f",
+    "packs/mk-431.md": "5550a91073e2660d674ba2a9610ccb3c86abce1dea8a0d712905e565381d0255",
+    "packs/mk-432.md": "98503d9f1d93e92eeaee22d0adc4cf0041c746b06cd31313db91a1f518314e68",
+    "packs/mk-433.md": "dd8458fc2d6fd3c2b9b46b4064c2ea6fe45576332b8984c2ea90b90ed4e0ef2f",
+    "packs/mk-434.md": "2759e0dc510d33109400745fe5b4f3e635f60e03de255a34d4dbb5f84e657cfd",
+    "packs/mk-435.md": "8aedc0cf56590044c896d41998b43c6c9030cf226e8a524219d84b79cd378fdb",
+    "packs/mk-436.md": "9b0ffa316b4bf944eaaa89c08464c430027fb5158ac5a5a0b710a6d2b85c30ff",
+    "packs/mk-440.md": "bbc4be1f3eb3ce540bc8b6a644d2be6e264b4191b908afb216eb1ce092fda7ba",
+    "packs/mk-441.md": "232be61fb2a057dd184fe2d65aec03ad9f42b29096cb9c3e3ac0f2819b2ca994",
+    "packs/mk-444.md": "72000db70aea4bc80a658d78bcad242ba59ac356c206d274b8c473f5789f08c7",
+    "packs/mk-448.md": "9a30b57efdb63b53d775e35be98c2aa9b8c8997c4074d0257664f271af69da8a",
+    "packs/mk-450.md": "a8e3b750e0f38164ed8a425bc6ed26b90c0f26b66ee9b56cc0ff9e26411d7ff5",
+    "packs/pmax-copy.md": "982eb8dbcbc3487bec50ca674c894a67cf55a401d6b155f2a70bbdd45ea9f58e",
+    "packs/simplify-member-rules.md": "be99282403e16d813fc8fa9f1e94515df16cc2c7e1c626fd1820c7501a6af4c5",
+    "packs/write-marketing-rollout-plan.md": "f260849e982da6256c9e38d135038b04fa3fccba8aae4618e5fcb29e912cc226",
+    "scripts/build-english-edition.py": "b2e9b173b3ea05db6325975e6d5906c0a0bed29d3b8c63e7ad06bb18b09033db",
+    "scripts/build-free-edition.py": "9c669887f49a15ab64694497e0e7bac1b020d95e187409118a0b253c6e0176cb",
+    "scripts/verify-public-skills.py": "70ec8cf78e2d4026f2b2d601875b7e4370990f685b111619418f587cb86da903",
+    "skills/inf-05-07/SKILL.md": "f3ce55e361cd90425013437c63605a2ebf6b8b4a45c285b79c4e7a68da04c566",
+    "skills/mk-001/SKILL.md": "9a6755cf10b5cd5b9da82002e07cc565151a43a7f4f9170fa0e9ae695dc94b1e",
+    "skills/mk-002/SKILL.md": "87864cc1ed84085c8f764f403a3d4e67068216ba076c02a1dd7eda674c772993",
+    "skills/mk-003/SKILL.md": "0ce785239c4c581392754a6519db87ec80eea6c6760ef9c33c94738997a98e60",
+    "skills/mk-004/SKILL.md": "0b5112d7f977e6fc06e21c6932e2624bfe0de5f77a90104545549706d7bc16af",
+    "skills/mk-005/SKILL.md": "bf820fc8fa65e8479e1289184d9d4cce6e8ece95662ca707f00e5c4e593ed411",
+    "skills/mk-006/SKILL.md": "e04b0adbc2fc9393bcb31ee511571685404925cb3df09a9ecfc1f66e869f5878",
+    "skills/mk-007/SKILL.md": "92e422149f036b8d3ccaa738d0c5ef8b51e8f35a85c8965b480292c140985ed8",
+    "skills/mk-008/SKILL.md": "21d4a851f1c04ffbd4daaeafecd33e5048d26be40ec626def7963b6d6be3a5be",
+    "skills/mk-009/SKILL.md": "c1d03c923f038c0f35764f798bc7c6342217fcd24951f2639792e8d7dd4b11c9",
+    "skills/mk-010/SKILL.md": "a4da8901f747a99f59fe5e97773f4c4ad063352df3b9c84e64682baa64be05ff",
+    "skills/mk-011/SKILL.md": "ba35a842e9515ab9201f2a4d1a6ef32bfb9ac6cbafe150e58ac045d742d81e74",
+    "skills/mk-012/SKILL.md": "2bfd41f207dff46a0643c00dae471d33e8cf475973f82036ad0e78f20276a809",
+    "skills/mk-013/SKILL.md": "96b6fed7d9456588b4a9d881677d862e80b692c37a127bc0061b52a94dd9de48",
+    "skills/mk-014/SKILL.md": "bdd5b58fbcfcb7d5e0f44e10c695aed6b016eeab7515cc92d393ca991c8dcc69",
+    "skills/mk-015/SKILL.md": "c8996008c5a890d4a2b0e2267b4f62d2e138c68a712ce952cf5c4722c6df7ddc",
+    "skills/mk-016/SKILL.md": "1c97d36ef43e0494ad27e7b6722d34790b0c90ccb6d9ff28e31f4aecb7127ec1",
+    "skills/mk-017/SKILL.md": "b62fb60cbad72377e56e59b0328e032e4b7e582125775ccf666b7f422cf46274",
+    "skills/mk-018/SKILL.md": "ec82ca7e43fd9c60003039554a4be263c92117faab88f76dc7831eedc23815c4",
+    "skills/mk-019/SKILL.md": "871f84cb51a6e5b38ebd93a1b74b46bf3ac04cb6007ce1cb18585fe033dd4622",
+    "skills/mk-020/SKILL.md": "13da6834a4c5f4a0da14fee47484f1dbcb821adc16486a64eadb34c5c1238017",
+    "skills/mk-021/SKILL.md": "ada8650221166b451a13b721517cca4a826f7113a1e7f0475595dd3e0489af21",
+    "skills/mk-022/SKILL.md": "b62827e7b2016d84bc2730503cef87358d7d4c4ead017290d16fbca20a6867d6",
+    "skills/mk-023/SKILL.md": "0ec1ed6e5bf7cc7c2cb38fb620dae6fa985f51824c2be92f64a64bc385f97834",
+    "skills/mk-024/SKILL.md": "309a128dbee134fa8fa2fe9ea54e848a29751f84148dadb6d70ec4088e66d3d1",
+    "skills/mk-025/SKILL.md": "78ac1b26d54f0b2160cf2fe6c38b9991a0e2616325c26a5548f05b0b8d18a7fe",
+    "skills/mk-026/SKILL.md": "5be4b59a8dea753423aae1adc6cd5e3c3d70178a829b2a8a5c306305575525b8",
+    "skills/mk-027/SKILL.md": "a13c87f61af5476d5a1a06ce0a7bcfd41615e7e02cac39f3f0ac27571e58fcea",
+    "skills/mk-028/SKILL.md": "8c1ac77c054637dc36e0edaf9654f0ee17d26e68ce002e2a376de9c47456373b",
+    "skills/mk-029/SKILL.md": "cfb87a5421062b7d8c155493f1cccb665162aa4442be1be31354f1ac0ee7a88f",
+    "skills/mk-030/SKILL.md": "72286dc438eb37a2ebd823ce58bd5f475212f611866679dc37da909416efa54f",
+    "skills/mk-031/SKILL.md": "0aa42cab22cea0f1a6de9a83f7a63dc4c4d2f00f4186fca1a0ac73e4fe4339b1",
+    "skills/mk-032/SKILL.md": "9bcbe42b3e4e44ad792e5c99988730db94291eb3cb101870309250d62cabe737",
+    "skills/mk-033/SKILL.md": "465ec30d18d369260bbb78ae4b1735c90d0f8069dde794f87c7f0c9337febd5b",
+    "skills/mk-034/SKILL.md": "d3f05c4799d9fef3ff1dde05648d3dff082fbea4e9b101a6cf801d91e1342943",
+    "skills/mk-035/SKILL.md": "68ca3ad55e0859ff45a71512f91b147b90f13adcb548d4bc7682221b895f7105",
+    "skills/mk-036/SKILL.md": "aa5a1e0ad50a915dc905e88b4b338052bb57f0f2b562412151a77aeecd8068a7",
+    "skills/mk-037/SKILL.md": "d8d8a243ca5be5fd367ae8870115e702ca3e8dca08f5b981f8b7ae82c55c0519",
+    "skills/mk-038/SKILL.md": "9116f746e82563a0714a5058452a9cb23697c6a698a9071727e5c20cbe751957",
+    "skills/mk-039/SKILL.md": "31e7533af99c430789a186705643733606414437f51cae189bffe08b26961424",
+    "skills/mk-040/SKILL.md": "f61cab929847f56182e000dfd71c6913a9b6a85976412dbd23b2bdd977fd16f7",
+    "skills/mk-041/SKILL.md": "46c0119e6bfafe0f3a6f562a700193afa9a1f7625846fdc531c7dc7a513e4066",
+    "skills/mk-042/SKILL.md": "f8c988fa7f4d91a6f25ffe852746910640c4a47cc8b84a7f3b661fdd1f424f8c",
+    "skills/mk-043/SKILL.md": "c88e003e98c294697e235e750b32484266ed699b32c8346f5534c4afeb27c8d8",
+    "skills/mk-044/SKILL.md": "e42fe7ff0a9a7b53103b81330cbe4d1a71969494615c516dbaa8879d9760fcf9",
+    "skills/mk-046/SKILL.md": "fa61cea6022a6981db1c3543cb4c0249898be4f8d94df97c94b499cf43f4e92f",
+    "skills/mk-047/SKILL.md": "6d3814b03daaa734bedff0a534803e0f7b7d26ce5afa047dddea974c1f880a20",
+    "skills/mk-048/SKILL.md": "572d93f6ffafb48311df6660b15fa740dbccde89263462fb17bc041c3cd51e3d",
+    "skills/mk-049/SKILL.md": "c54682b847d0195fe1933fa8b8a6d2ee850ae8b74c6761464ecedea06926a547",
+    "skills/mk-050/SKILL.md": "8fb09949b252d7ce36ac02183ae3c0c539fd0a766f025ea57d77bd63b0c7a3f3",
+    "skills/mk-051/SKILL.md": "ac4a6ec91d021883916046b2484e99682847e2572e1d3c3b62fddac6ccc8b656",
+    "skills/mk-052/SKILL.md": "7bac787cab741ec263694b62114af5513f8b389bcd3d4296ab98ce60f416f84e",
+    "skills/mk-053/SKILL.md": "7b5704155202488f6f6c34cc6890f537031872e7f3e5f00693bfcc01f4d95d83",
+    "skills/mk-054/SKILL.md": "c553dd7a180abb259a5e3c3faddfc03871d606daded90c96fd76bb4e94b656f2",
+    "skills/mk-055/SKILL.md": "e2f00edb8a11b0d806da57e2fecbbd76d8dd39324e7ba316a1221e557bdc92f5",
+    "skills/mk-056/SKILL.md": "64955c1106aa4282ced71c2309b81f52dac595217cfebde1a6cfeff0c36f1262",
+    "skills/mk-057/SKILL.md": "65ac671360a66c6ad95ece03a16ea5b60cc93a035033db18f68fbed67260ef85",
+    "skills/mk-058/SKILL.md": "f533e776aeee74d12dc87d3aaae6896d2d07644bad63738082ab4d7d49490e74",
+    "skills/mk-059/SKILL.md": "ff2a942f12ac7d406dd2cd7c77634ae86336504002462dc9081a48e755e45c06",
+    "skills/mk-060/SKILL.md": "bad85efd7c6722a2eb3af4f724bad0b9df79ee78af5e00a5ed08df5da1384aa3",
+    "skills/mk-061/SKILL.md": "03d19c3386ed1449c1aa5f0ee1222381de507b6ac4414912536df1389d806a85",
+    "skills/mk-062/SKILL.md": "416fb5f8b862e8588f6ce6c691c9f69114f3e452a122aacdcdeb4793b5538c42",
+    "skills/mk-063/SKILL.md": "b6887ddb0b8ffed6d703e92da3401ebfc514b830304546ce029d06a6b2b095fa",
+    "skills/mk-064/SKILL.md": "2850bb7b4196934db6ce1ec36f2ad3123fc76bd56fc36c90863b9ad20325047b",
+    "skills/mk-065/SKILL.md": "655c5f81780042d61fbfdc5fe4d0bd3237db4836c28a8ed4b0aef95a731b15bd",
+    "skills/mk-066/SKILL.md": "7189b68ea1ca507ed536c04d6e2199fdfbe6a833835bb1dd80326b230f16e8ba",
+    "skills/mk-067/SKILL.md": "4fd77def0654924509ddf892ca237909a66d4b19b13b5638dc93bcd031dedbea",
+    "skills/mk-068/SKILL.md": "f896e1c6bae532d5b69cb057b0cb8906168042218f8ecc4148110fe0fcd8fca7",
+    "skills/mk-069/SKILL.md": "fc5a9ae903f77132cd8b1ccad6d727b5849f9a6b40e427d1cfe95de61fa8adc9",
+    "skills/mk-070/SKILL.md": "4858ada86f8962996db36b5c5a6b2ae35c6034a89c6ba91f99ecd32024cc9ecb",
+    "skills/mk-071/SKILL.md": "1442b793b33af211921770d851901bf9300c9f3dfb19cd33a0b2233def4bc487",
+    "skills/mk-072/SKILL.md": "3e38bc10c4f90acaeb892f7ad9fb5806c7c7b5db2e46eaf805db9bcc5efd0671",
+    "skills/mk-073/SKILL.md": "ce5d8dc3c68f24893e2f5d817191210cd1a68888cd58ebbcb07d76bb6a5ebbfa",
+    "skills/mk-074/SKILL.md": "940b0010f5dac1e1963a0571a742d11ae673523ca3db25d646d3152c11a980cb",
+    "skills/mk-075/SKILL.md": "d739f2cfb59ab9175676497db1184fd5a76c356ffeb15e6edc8b7404dc45656b",
+    "skills/mk-076/SKILL.md": "8b1d16997bef240fce01df4b2f2e6903c386a44ca62a0961254fbfff143fbf1b",
+    "skills/mk-077/SKILL.md": "9fb19226c8b87bf972e2d578992ad5d33888c5412526d15ced10f727ff590a50",
+    "skills/mk-078/SKILL.md": "170f06814395cc2e95daf6b7132c8e5f221530ea8eba7795254f64bf998fd8a7",
+    "skills/mk-079/SKILL.md": "38554f0c86c973d9c2ecac013a4f587db35eaa9f07b3c9d846b291625690829a",
+    "skills/mk-080/SKILL.md": "b929c6437dc2d1c7294dfb8af20a589cd123320a6ea9de3c4b7747bc60e2ddc5",
+    "skills/mk-081/SKILL.md": "c5117a7518ab347f472331867994a662ec7d94b7f159b441f599d7acd9df44df",
+    "skills/mk-082/SKILL.md": "700220f5aec6b26d045a919922f9c20a41fff27fa63d085af42ce164154694b8",
+    "skills/mk-083/SKILL.md": "156e416f0d10b8350b1ffa2c0ddf9f73df47ec8b78531442df2d72489996c6bf",
+    "skills/mk-084/SKILL.md": "e7b504cba038b084187417e31a1c0b50b460d6710ccfb9bd7b2864f075269942",
+    "skills/mk-085/SKILL.md": "a6284e541d5e92d4e82adf96b8cd0226f03ba1049f009d8d222f2b23e639668f",
+    "skills/mk-086/SKILL.md": "7851110360875ff1c1b75e09ecdfea77636b99042da898f46a841f8a77585e8e",
+    "skills/mk-087/SKILL.md": "b27a85355d71c54f90d9b23c5ae4e3b79375b588a1836f1e449ecd729c06efbe",
+    "skills/mk-088/SKILL.md": "8ca41fae51dd6d678b2aabb39961300476a9d8d9f2328523459d25d5f460fc63",
+    "skills/mk-089/SKILL.md": "4c63e70f3f569af700a675fb25fc491b2fc6993fc29f04df8998b4182ed02693",
+    "skills/mk-090/SKILL.md": "a0715cc4a1dd4b5ee7370b97bfd6884c2905ff33eb9fb0ce058c85c4f6fb1f5d",
+    "skills/mk-091/SKILL.md": "b3e7ed4b8c7f78fb0caa9a488da785d3bee9fe10b1325971d98e10335499f5ef",
+    "skills/mk-092/SKILL.md": "3dfcd3a897bc7fb63d0e01be827ddba5882ec9fc4c522a85b882f6dce03c60ae",
+    "skills/mk-093/SKILL.md": "987479e1e832658a203cdfb78e58bef09754bbb9573f00344235424611c2de21",
+    "skills/mk-094/SKILL.md": "723da82ec6db77ef772090331da204fb18c0bb18b2d174b237372df69019c87d",
+    "skills/mk-095/SKILL.md": "9cccec983d74d8c4dfaf08345886897045931666b4c4ab9d489c5d397bfab574",
+    "skills/mk-096/SKILL.md": "d67d0de0ab601692200801c154cce6d10bd6f7ed70193155506a9d70555add03",
+    "skills/mk-097/SKILL.md": "7cb9d4f209d068d2d1a883747bd0682a13a644ae427936813b7776295803621f",
+    "skills/mk-098/SKILL.md": "c12b83d8dac3943c4f46f37f3b3635eaa3bbeeaef70b6802184d0a75c107c5d4",
+    "skills/mk-099/SKILL.md": "53796aef6e9499c4475007d5afaad459971360d30d337c9f8c93373aff5ba693",
+    "skills/mk-100/SKILL.md": "9af277fc2ab57737a8452d68cc4588a30b2072f70faabcce0827b92115244ba1",
+    "skills/mk-101/SKILL.md": "680402761871ab4b8638662ad39afda9ffb474eb9aa605b7ec6d82119f47434a",
+    "skills/mk-102/SKILL.md": "e0a46327572fbf8a54ad20da7790ecb0983a8799be725767c98c7d5fc9b7e837",
+    "skills/mk-103/SKILL.md": "e07183eb385675384f68a520f4886921169cf19101c4148743a38869d4df3ad3",
+    "skills/mk-104/SKILL.md": "32a07e1070a3203bf5caff7075e0ebd8b1a33e3b124226ca488cd79f8db8a078",
+    "skills/mk-105/SKILL.md": "cadfd02e4ec10c736ae7435035924ea72497bdf179a316c75e75f731da482676",
+    "skills/mk-106/SKILL.md": "7b638f6578f59de9c73416e9814028c30ad9d404ac1ce85ce51fc986810d3a00",
+    "skills/mk-107/SKILL.md": "eaf6ce56f8ea531b9118107752904134705df9ef4baf597c3778ed17682bd511",
+    "skills/mk-108/SKILL.md": "fece462b44b88e3855b38bbeb294e0c47b973da9e23a833a17d1a8064955c59d",
+    "skills/mk-109/SKILL.md": "7c8b58d1e7e7aabf26887971a29518cd1449c9e7af2d91b4bd5e4ec942cad698",
+    "skills/mk-110/SKILL.md": "ad58832f0484b98f1a2079b9a1e6eb20eca5e70c13c6bb3559656d382372cc7f",
+    "skills/mk-111/SKILL.md": "12d5600540947e30a16383bcd7c1eeb60dde963ae468a02f00a007cbf5a75744",
+    "skills/mk-112/SKILL.md": "46d730af325a91539af7dcf9e24548114e0b7f1a113ecd347ee67f3e46aeda0f",
+    "skills/mk-113/SKILL.md": "d770b83593a69651d2ffa220fbad49d9548c8ee9aac87e2e53d40d122461ea65",
+    "skills/mk-114/SKILL.md": "030119fbc8a37376aa6c6e0f3801ad0ae80b1eb86e18a73bc69cfd869a1ea092",
+    "skills/mk-115/SKILL.md": "c7de054357c52758225ed1da7cc03a6a67e8828d681b686224499b59d93ac72f",
+    "skills/mk-116/SKILL.md": "e5f79852d77074d2607f9064095bbb27fbacf9cc9b29379ec1487d76a4842c9b",
+    "skills/mk-117/SKILL.md": "454e6e9e825a8d2b51c6ec6a883a796077031a4e9f4522045c190b6a7a35a551",
+    "skills/mk-118/SKILL.md": "49dcda759b0a522c5387a8343e059a78161dbd2ded2d8015961e242724c02268",
+    "skills/mk-119/SKILL.md": "8da1843ff973c97709bf753801e2f52f0ff15372370a3210baa9b56125de834d",
+    "skills/mk-120/SKILL.md": "31e2f5683459a6b353ad1d3cad7468f8ad6eeac1459690b873a597e8976639e1",
+    "skills/mk-121/SKILL.md": "3ba6ae86ce80cbe951cc084f6b82585c9681e9fa5c57b3f7c96ebc95b3f4ef24",
+    "skills/mk-122/SKILL.md": "091e3a03a6863b713af71291274f12f94619214aa2eede575da05bdefe2ce308",
+    "skills/mk-123/SKILL.md": "cc65af796591411ed9f2d1a74a8424c60e00537ba696f5ecad8a5bb16c2cbf25",
+    "skills/mk-124/SKILL.md": "1c938ce548391cd584b3f4599b05f386e0a6b6800dca7a4a8890dd422d0ee521",
+    "skills/mk-125/SKILL.md": "397f52899c204ddf92459e512f28a3de3292c1f7e45b58e8a4b1589e2bf7d872",
+    "skills/mk-126/SKILL.md": "22d21514a96c01969208166aa995e6ff0fb164c0eff92cf8badbc3a92495bdcf",
+    "skills/mk-127/SKILL.md": "30c351f88f55d7d0a734b32ced6e6dd5d8a01028803af17b49fd5fb3bd980fee",
+    "skills/mk-128/SKILL.md": "9505fa8e92e7d7aab32a24a885d879b505a482b2379b67a7c27984fdb3396f7a",
+    "skills/mk-129/SKILL.md": "8ea92ba04738e2fee2f5282ddee50be05c1ceef8b15b0d88d38024986e966972",
+    "skills/mk-130/SKILL.md": "954075e3f83f72ce3b9aada11dd27d88e1c96a02178a7f3dfe6f9b44dda9cf20",
+    "skills/mk-131/SKILL.md": "e998915a0265c37e03562103f4ebc34ec4c58d455904c95344d44a2519c7d588",
+    "skills/mk-132/SKILL.md": "064422aff3f5f4f25e70f2d9dec91ee4717684920ac89de182611aad550ec3c1",
+    "skills/mk-133/SKILL.md": "59a5f69578eac259467d42e7ecb3190c38382cfbbb16204b6cf9cc89d4511166",
+    "skills/mk-134/SKILL.md": "f1380462f7486c9cc75e81dcabd2b04e595d5bc2ed41145b2bb860bcfa185475",
+    "skills/mk-135/SKILL.md": "6ff1fc797a80e30dc86b03faef38a6e8ebe0f71750d01f119af5d16c21669113",
+    "skills/mk-136/SKILL.md": "b034f6dd84626d37440ca2890af3e6b1a5ec04bf9f0d18a7be1ae56e850d9194",
+    "skills/mk-137/SKILL.md": "fc609966b9d8c2564bf27d561566465c6343667c33356070f3dae78f0b605671",
+    "skills/mk-138/SKILL.md": "8463995840a2c92dec0bb01601a15465b5de0aece2ca0b37d4e5376990860dd1",
+    "skills/mk-139/SKILL.md": "b7d36852acb63603dfb21874e9924e8c884809f3d041b0a74791e22d7f02eac3",
+    "skills/mk-140/SKILL.md": "a5ed95ae9b0f9ce95274ac06f0450042ce10c2b8f7ced7879291da662b031ca1",
+    "skills/mk-141/SKILL.md": "18ec207b9307663df926bcb9e70e61ade578438ff7e4af4ead947a7e493f64d2",
+    "skills/mk-142/SKILL.md": "7222ba6cb96dd7a065c2b51036d1c6b12037d29555a737681730545efe8bd6b8",
+    "skills/mk-143/SKILL.md": "dc26aff12886a7aacc0796713810f2d79b8f2e13fa8065bf023a1e4eb7ae2113",
+    "skills/mk-144/SKILL.md": "008afe7f92ecacd1e465e4fb1daf66df66d1d09a2ba4b7223b8b42f3b85af013",
+    "skills/mk-145/SKILL.md": "0e882180e966d22cf0fe7b7196969a00aafc640eeae5e269838d33e2899aad3d",
+    "skills/mk-146/SKILL.md": "a397aed4752dbea44e12043b7789923e24c39e858b223b5a5f9546251ee37382",
+    "skills/mk-147/SKILL.md": "9ff4ded2e5f7f329f78191f5687a9d1651bfea309586242f875b6310b2e8b394",
+    "skills/mk-148/SKILL.md": "9cd15c836523447cd7c73810506f777b4b3dbef932d47929ff5b5aa36c2e451b",
+    "skills/mk-149/SKILL.md": "f860f136d56ed2fc25e780a90d852ac83ab13c2f539c82cda06892ebd3b64dfd",
+    "skills/mk-150/SKILL.md": "29ad44b9fad0643178c414922f465d86e462144ab4a28bf7e1e707dc9e0dd5f5",
+    "skills/mk-151/SKILL.md": "e024cc266797be81b12ba0edeaf4b7f8abc3858d6a3fc9b84ce4f215e2a4186a",
+    "skills/mk-152/SKILL.md": "9aee0d45fddf0b2aa84dc1bb6a5bbf61992084f081b247ede6e72064e2d2316a",
+    "skills/mk-153/SKILL.md": "9b3a7e7479e9ed398b3c10aad9435ec74dfd470c444871fb4409ca7591c43f7a",
+    "skills/mk-154/SKILL.md": "1870e30126606581d1638ff452ed79c9d9fb5191bd01aa414b3d2d28c13b75f0",
+    "skills/mk-155/SKILL.md": "c47ea0ca7013fec7e11b1e8d9fb5ff5704919d62c35c50690d05e7c9f74a6c22",
+    "skills/mk-156/SKILL.md": "a21c4ad90e3bbfcdc97ff031edd4c6f55a14a35587e2774f3cd6d6b8a08dbc5b",
+    "skills/mk-157/SKILL.md": "31c455d537162af7fc6fdcdb510c9f41b9209f98b9ca15cfc871a418aba51071",
+    "skills/mk-158/SKILL.md": "87da659aab0912b5fc06ffe6fce14e06d4bfeee8260133026ba6a6ca75d5dc3a",
+    "skills/mk-159/SKILL.md": "b82ffef3822ebc51f7084bfc323b56f7fbcabad52e708f8e98eac6594ea11b5a",
+    "skills/mk-160/SKILL.md": "55dca250de596193f4a172a11cc36cb3f67dc842962f82614d6f69a2c6f54aaa",
+    "skills/mk-161/SKILL.md": "51f241598f8f25def832f394a98daf1a07edcc273bb22a8c6ac1771cd26b585c",
+    "skills/mk-162/SKILL.md": "9d87c840da674c0c5b29eba2d1b95e88eefbb3cafe7bdcaf90be1c0f32773947",
+    "skills/mk-163/SKILL.md": "64e0d11e9481997d85e6b708214e43d61020df3fc8c53616614e0bb394534ec4",
+    "skills/mk-164/SKILL.md": "a876e087dd1a34aaee6d425207e2814e03da60b8b6154f4d4fd87fe35dc4619e",
+    "skills/mk-164/assets/eachspy-302-interests.csv": "c8692632cc397ffbb4317247bc26c05acdca1c36690b2ebb12e772e5d3e0cbf6",
+    "skills/mk-164/assets/interest-reference.md": "13787f6dcd050bcce31112005050c435f24e3e79d0c6d20198d761edfeeaf101",
+    "skills/mk-164/assets/primenumbers-interests.csv": "986053ca123c7ea0accc6b192201deb24b40e1c21265c38a9d1cd506b564f45a",
+    "skills/mk-165/SKILL.md": "8ee72601cb405da66e25c4a89dc2b0215dd6a1adf2b74a322d28358547500563",
+    "skills/mk-166/SKILL.md": "6416eb74ef2894aa495e99fd61bcb5570c3762f8263b6628e6aa2c74da3005c0",
+    "skills/mk-167/SKILL.md": "3ea11017855a1aca014de79d44d7e5c97cebe6c6433cd528593fd7b1c7f292e5",
+    "skills/mk-172/SKILL.md": "130053d95437cd866f9803550cfbefc87c3526858d03d807ea1287db403e855e",
+    "skills/mk-173/SKILL.md": "3c2d58f6b74b868dcc4e11c8180d263597065fdfb645565e9130e028e2110ef2",
+    "skills/mk-174/SKILL.md": "a0e1b7df39f31a0c4b3a0dc32a10384670c639f40248fca5f8e9bf841e070a94",
+    "skills/mk-181/SKILL.md": "bc8f008899f1e7b1787a6d2062e44befea747fbf3f676d16acfa8f0eead3d12f",
+    "skills/mk-182/SKILL.md": "d1bf07a8f08ffd33a10c30feb25280e9bd58ec84107a98ed055c21b201e8e7b2",
+    "skills/mk-183/SKILL.md": "5f6afd2ffc566edbaeed8d1ab451a112ddcecfbb2e4c9ca1c19102e99fd31aa6",
+    "skills/mk-184/SKILL.md": "3635b92c9e2153ec0173fea09b34e0054d52fb0aa2db6318a8a5653555cb9a77",
+    "skills/mk-185/SKILL.md": "8cfe23dfb7360fc991bff5477f2b2763e2ec7661b2ccf2b987b35a09b3f9f41d",
+    "skills/mk-186/SKILL.md": "0961454583a71f05dba59da79d1aa8796aa6a95c0d91043b5dde27e9aa2eb42f",
+    "skills/mk-187/SKILL.md": "3035dc5f07a2a15475f25c4a45a02239b5ae8a90dc37ce1b9da4ee496ad48add",
+    "skills/mk-204/SKILL.md": "93eff7ece10566e67c57521369edf416266ce32d3620caf04e5e20b67a8551f4",
+    "skills/mk-205/SKILL.md": "9615f42839fe2cf2b4c77f0e802dc663504f57410c3a3cc413204f464602fd85",
+    "skills/mk-206/SKILL.md": "583987e822e070232480c98cd9bb997eb9f0667284f18ee71985257bd6c6a101",
+    "skills/mk-207/SKILL.md": "9e1281c94563c0a5d6d2d75642504fe2ef9d3f6e95b56501836fc46bd717baaf",
+    "skills/mk-208/SKILL.md": "7238ec582ebbeb86f07ba2c01a3cc6fee18c3b697a2dd2f62b01d3bff3da64e7",
+    "skills/mk-209/SKILL.md": "9012c0cdb7f19f5442e88554cdc7950c892235056f70dfc3e4376aea924bf87a",
+    "skills/mk-211/SKILL.md": "477e83e2881b058db42d8abf68a8507c36151d3ea0c61f33f063526618e0437e",
+    "skills/mk-232/SKILL.md": "71400083e0e95f71921f683a48a1434aad18f1e74aeec62a20b82020c570c34b",
+    "skills/mk-233/SKILL.md": "76754e2dc369020c460899f904c1ca6bdeea0007f462d970fd989e6e2f71f851",
+    "skills/mk-234/SKILL.md": "49355fd8f1412893c925dbf7d3d741b017c53ed2d0f219ab6139df28ea34c680",
+    "skills/mk-235/SKILL.md": "30817c824d94fbdfc355f0062fb45c55e090f15909d244395afc9f1c4a3b99f5",
+    "skills/mk-236/SKILL.md": "9c191f4bedcb3580c77efccd55b78a77f2479c0a5e77cddc7c501f6c8358af72",
+    "skills/mk-237/SKILL.md": "ab22cdca418f2df75e9a10d86f2ad860474eeed4cde08c846b9f2af60844875d",
+    "skills/mk-238/SKILL.md": "6caf116e8105aa1c6afb91f40f853606aafd9a271eabca6bd1f0e1c3f7c3d8ac",
+    "skills/mk-239/SKILL.md": "bbc1fe3f121d13b7fa4c05ac5103c62db164a1ae32f9eb00ba9968d2fe5fa27f",
+    "skills/mk-240/SKILL.md": "e93368d1353275797f251fc3f23a1eea872e4bae4851b6676d1a1915f3f9cdc2",
+    "skills/mk-241/SKILL.md": "14a31909986525208d16a284e74fc16a87988886a86b3ae65c3e8398b89b7dfc",
+    "skills/mk-242/SKILL.md": "94c9ca2e0dac56cbb7b812d318a2a42596e113e6965fe05076f475d0434b2808",
+    "skills/mk-243/SKILL.md": "6417fcbceab1917ebb5d5dd54e0cf5e2aedc7dc474eb6ad3282cefad30410cff",
+    "skills/mk-250/SKILL.md": "c4416146c077c621cfd7f214fa8a883b3c50b422bee7e2d510f4feb60072f3ae",
+    "skills/mk-251/SKILL.md": "85fc2dec64426e927f4e44a241fbdd7f29159a6a6f1c5504345bcdc60f1eb8b4",
+    "skills/mk-252/SKILL.md": "dac7d8554d140809bb2f08d241a2922487b7a6afcd5d2f0945d90ac528d34fd9",
+    "skills/mk-253/SKILL.md": "557170eb30c33f1f56fb32fd28408421851cdeb6dea7c7637a9186b1ac08db8b",
+    "skills/mk-254/SKILL.md": "ef7580fd797b9a35e5ab55f2d0f30443069df00edff5ab099739e98f08d77397",
+    "skills/mk-255/SKILL.md": "7cab6ceac358ceb2e8deeda9c2795f4d639efc25e183e4502f278c3c71202762",
+    "skills/mk-256/SKILL.md": "4e19293232d2f33043b0ec47549805326039a8eac559407eaec1343c9ea78581",
+    "skills/mk-257/SKILL.md": "87c5eeade8d3e019822c15a6a0045d1e29f3951a25977804e6d5415dadee3b85",
+    "skills/mk-261/SKILL.md": "e5c2923aa1ebc83b2a6d5a44ef984d82777dabebc0dd2b8eef528714591e34f6",
+    "skills/mk-262/SKILL.md": "189d4b2a25330aaaa1cecfa797809a7b8ec7fdea0633c6f8c4e8aaf52ccb42ab",
+    "skills/mk-263/SKILL.md": "e04477acc542dd8ab6b74f992452978a27a936bd3ab1183945ddd8d7825d883e",
+    "skills/mk-264/SKILL.md": "5cdd6b72a8e6f18908ce30d1c677e5e5c14b577c13e081eb31d5c03f82b3811e",
+    "skills/mk-265/SKILL.md": "a84293da3f414d339196c41cd13267a5159570565aa860fa4fcd195a8b45396f",
+    "skills/mk-267/SKILL.md": "75418dbc1ce692e9274c6f484825033c1d1152ad741971513a34c4e00c1a192b",
+    "skills/mk-268/SKILL.md": "b628bb49da12e4b08560b39a5d3bb064889325fb09924fac90c7174202055b4a",
+    "skills/mk-269/SKILL.md": "14cf27a2325bd90922c02c89eaaa96aa73aab6bb7b11ee4537b7e28620da72d2",
+    "skills/mk-270/SKILL.md": "351cb37d6eb035579da4778e279da058a8cf8c13b270ba8c7e77dfa84e31742f",
+    "skills/mk-271/SKILL.md": "6e5607841d058ccf44655ec383d91b79fca5ece1a2ffb4e28dd171965fa620fd",
+    "skills/mk-272/SKILL.md": "7e025692b0be429cdefbbb59ce169042fdcdb0b57b0e723740787a5efa8b4de5",
+    "skills/mk-273/SKILL.md": "3d285622bbcdb3867c28a7eab8b77e150513fecaa37442a7498fc84a161e260b",
+    "skills/mk-274/SKILL.md": "27e67c2c92eb26459db6acb7572139155d70927df0e713b7d84a4af8893afbaf",
+    "skills/mk-275/SKILL.md": "3b5efbe0f0deab6131ae9c8e2c8cbfe8f7d20c9d58281907af553301ed3180c1",
+    "skills/mk-276/SKILL.md": "37ceb1d92b3119cf744365908774a74e429fd41a831345332765e975358eeb30",
+    "skills/mk-277/SKILL.md": "1e5e48feeb255490701b188159c981476795c50038037012271fdae9a8153e97",
+    "skills/mk-279/SKILL.md": "a39b022a05f07212257e77fc71394523aa39a6c658c51052957ca34e5c04c5e8",
+    "skills/mk-280/SKILL.md": "22fb4da0ce4f54fed0ae41b1d2f19c6be21e38a5434199618df25d7dbae7243a",
+    "skills/mk-281/SKILL.md": "812133017a9b73cb1d42992e17190f083fa2d2a282d07f26e353a62c4de4d43c",
+    "skills/mk-282/SKILL.md": "6245a8b998445e430da42380b5dffa0e090c9a8dc4166f3a29defa4dc6471296",
+    "skills/mk-283/SKILL.md": "d3bc4035f3c9ef929d2c5fa89d3aeb908144be75f6f86ebf8aae02ece8bedae0",
+    "skills/mk-284/SKILL.md": "40ac4014b2bdf1dc8aeaa4a96e05001f8760df140f6e93b9cb7cf65675f2d481",
+    "skills/mk-285/SKILL.md": "6e21514c4597f1be067c77eb042fb6dedd03e446de7777d578a6c92366c7a9bb",
+    "skills/mk-286/SKILL.md": "9bf16f95327d52e7392462dde70423e64ffcb940867074876bb1c1fcb9d3bc8a",
+    "skills/mk-287/SKILL.md": "96c606e55fbc8f37ee037e885dc5e196eb0ee27794f5486cd257b3875eaec9a1",
+    "skills/mk-288/SKILL.md": "5b4609a1088b27edd0ffd79a86c1b4986345fdc1730b6857312b8c264994dca1",
+    "skills/mk-289/SKILL.md": "a1cbe27e4401dbeb9391a7b0f92373e9e428558f0faf18ecda309975a79718d3",
+    "skills/mk-290/SKILL.md": "dc0c6f4d5f9872f9571a640650642520d20662e1a4addc495ce5d7bbceb2cd80",
+    "skills/mk-291/SKILL.md": "75f66b83eb23503a86f296616d899dd2b86e72914ca0899eae12db2901344791",
+    "skills/mk-292/SKILL.md": "7b011e7f26a4e5f984b2654ca73a473b665a6fc0dd8795f3c8566dcb426648fd",
+    "skills/mk-308/SKILL.md": "66f3fb302a6ba9aa8236e928757e85bfebd0c7d95c712dd7e36dd8f39b49ae16",
+    "skills/mk-309/SKILL.md": "7f16bd61bb3cf0648c213e6d96aceb336623fbfe0abec5fdba7fdaaf108aa6be",
+    "skills/mk-310/SKILL.md": "e5d8d821bf4ecf691709b0529a74b09185fdbe742ff1baaa9e1a222d1d3cd126",
+    "skills/mk-311/SKILL.md": "17d355e8c1a56096c9048687887bec396944ff4ef2dc8100d64629a43e5993b5",
+    "skills/mk-312/SKILL.md": "7f1aaa0c9b28fd3a151eea122827023d03eb7907667b445ae7592d869b35083e",
+    "skills/mk-313/SKILL.md": "3f156e694c055978d098f98e729c619021b4dd316243f61ccdf28f3ce0c856dc",
+    "skills/mk-314/SKILL.md": "eb86b8d81cd3e9e3da8456b482c18e2370e051213563d98cce488c4cc34d3919",
+    "skills/mk-315/SKILL.md": "26a818c4f7eb4538d4e79480bc75cbcfa6b4d5c0be866c11bad451a99486cbd1",
+    "skills/mk-316/SKILL.md": "e6e2353b6dde6692a501009103a1e647fa367c225f9d7d5c09aab4f9f66e04b0",
+    "skills/mk-317/SKILL.md": "5260541472de7120c055e1ee93c87c2f43d322f6521af2f6b8da07f100dc57f4",
+    "skills/mk-318/SKILL.md": "6383fe9ff7be4f5a1633aeb3bdc1759b6dfec555c3621a81c9667ab0a12f9527",
+    "skills/mk-319/SKILL.md": "fbc3064a17c97ce2dba6b59d90c00df45e1bcf2d1f704968402f3c1469488c85",
+    "skills/mk-320/SKILL.md": "686e9c74d6ee38d9c82cbb37a5df0579149b4b69f96d1d4b92ec6da48eeacbef",
+    "skills/mk-321/SKILL.md": "c6d2b7be42fd4904f8fc7c85ecf991d61921e104d1e8491320a1e09b71a631dc",
+    "skills/mk-322/SKILL.md": "c535e2838e35a661b0cce6ea70969b52e72e4800b12a634aed7bf852465d881e",
+    "skills/mk-324/SKILL.md": "7a42ab1737f3994cf120b38a76a3ecf749a1bf3af4413fcf2aeb6523fb7cdb9a",
+    "skills/mk-325/SKILL.md": "b7f1f7178f6d102d8d3d2368eeafe4d2d5a0f38cad8a70f6355ee14b08bedf42",
+    "skills/mk-326/SKILL.md": "5054dc0566e82d5d71a6265921819f1814b6f65a53c39735c4670c446a6c9be4",
+    "skills/mk-327/SKILL.md": "b4cc7e156c20f50dffdf688cc5e877315fc5198b76eaff2acdd88a01d68c8e35",
+    "skills/mk-328/SKILL.md": "3d965d54cd2fc82a527ac919a9282e899ed64f0e9a18edb102a8d9e3a4473b8d",
+    "skills/mk-329/SKILL.md": "60322a3e2f03da5bce4d36252e5dae25cf010a2c5c7d6d94f402c15434013f3b",
+    "skills/mk-330/SKILL.md": "7e6d0ec7f3d0f6087dd6a71d56d4e0c0506e7be116b9bfae59d81ad4d06aeb62",
+    "skills/mk-331/SKILL.md": "074e665a4eb718970ca566c15655e595e010f09f9f4c11d4412cb9666c4ebcbb",
+    "skills/mk-332/SKILL.md": "cd2679505086357e361a2dff4586c5078d411c59b673003ab0b5952b20060c80",
+    "skills/mk-333/SKILL.md": "d91087e580b3be26a112f9462622da0ff32132b9257191e53b4bfbd0b2eb6178",
+    "skills/mk-334/SKILL.md": "7395c5033dc9ffcefe64e759368c54bd0880322eee2908cced616d4471359d96",
+    "skills/mk-335/SKILL.md": "3339c4e8a36255b799edc5b13ceaf7e2890324e54d792b9b1e4ca5b58917144c",
+    "skills/mk-336/SKILL.md": "05bb97cf49c7837cf64b55f07da8dd7f171233e5198b462497b1f43e1445e55e",
+    "skills/mk-337/SKILL.md": "ae5a8ce0c724a156cb6c934a3b7d663ca3d6c9cfb8aab07ef36fff33d8b88ffa",
+    "skills/mk-338/SKILL.md": "1c6d661d30a20552b86a5d74110dae2004e78d5d3838d10eac4b7b6034c1252f",
+    "skills/mk-339/SKILL.md": "0a97a3faeec88e31ba7746cb21b6c85a22f240df5be1b25948718cc4478f3a8c",
+    "skills/mk-340/SKILL.md": "b6616e285c4f8d9e0d404f99c6e29c220174965599ff9aa6e89767f483bc333c",
+    "skills/mk-341/SKILL.md": "a4ef8995a7fcd6d2685ce8323a3d074556e0c89a96000668c53e286aa6d59453",
+    "skills/mk-342/SKILL.md": "2ea0740d870b6f8150e52afaf796da2509f91a8debae484a6601fdf42cbcaf67",
+    "skills/mk-343/SKILL.md": "b7d3c13e526bc1e9b9daed99374a520bac99441be6aa84c349f437970766f054",
+    "skills/mk-344/SKILL.md": "3be0eee2285f9b08a94d000feb5d463929b809314a0307d308969f724efd0168",
+    "skills/mk-345/SKILL.md": "86ad5198a168266e9f2a7ab2990027c9f115391028d1570069ad5e33894cee8c",
+    "skills/mk-346/SKILL.md": "6647556de64784f478906ae0d7ae585030b3290720b02dbfc5a2273b123b72c7",
+    "skills/mk-347/SKILL.md": "7de293c934e894a56cefb17f04d10f8b979566f7e3dce6045a13754cd7e7065c",
+    "skills/mk-348/SKILL.md": "6e90f479b8d4c26f40495aaf6a441ca3354821f7a83ad75530755a3629eacc4a",
+    "skills/mk-349/SKILL.md": "96fdfbc0ec914c2b42b0a2ee9a57183e1ec24e2ec056b99dacc3dac2dd5ed8cc",
+    "skills/mk-350/SKILL.md": "12bd007ca4e67efdd955c45d6120a34de174dadcd1defd956c5545ea8d08932b",
+    "skills/mk-351/SKILL.md": "e408c98ab340aa7de076a6dfd599e0c7a3ef70e4c68bbb476f1bcf9357a0d396",
+    "skills/mk-352/SKILL.md": "672c328dad37d9ce3029a37c9773f8d9d94b7a5f7bbe78a5a4a4e8e3de9c01d4",
+    "skills/mk-353/SKILL.md": "ac54f6e6d9e6ebd4df952758228a02fce44c57777346a59ed469f52f9d806aeb",
+    "skills/mk-354/SKILL.md": "24964a3cc417ba79b0777ba6a2cd5c21b502bceb310d9cbeeca8f007a3bd5a27",
+    "skills/mk-355/SKILL.md": "6acc9ee26c7e665ece1f61db859bef69d465c7fea546e757cb015a69b440345d",
+    "skills/mk-356/SKILL.md": "6f0f0f629b79e571fd4b3f4879318b096fa7e4e22b77e649d42ec351a88d1eec",
+    "skills/mk-357/SKILL.md": "4b2ad444893b7497dece84779cb8abce6136b2cee4daf37221faeb89c323a579",
+    "skills/mk-358/SKILL.md": "0caf86a935eae8aaac2b760e1e0120cee110fcfd122f3c195a42056d040cf2a9",
+    "skills/mk-359/SKILL.md": "d1801d974287ef793381f3f272a596324f6ad026148dbba63a264c7bb4f161b8",
+    "skills/mk-360/SKILL.md": "09e040311d09b5067251f34ad589f202e47d6dc8fa9b44831ab8dc52185ab486",
+    "skills/mk-361/SKILL.md": "c6181fa6e64952ffb586ab8578b5a90b979fea711e99beef1a2fc1f00a63e9b4",
+    "skills/mk-362/SKILL.md": "2c192bb71ecf1a7db5fdddbcac1abfe7bdc23ad717f31002e5a35ccd1beb2d13",
+    "skills/mk-363/SKILL.md": "91463375c72fd21e5a34eccf38ee6a10be882ab63c8774f9c333744d7da5eac3",
+    "skills/mk-364/SKILL.md": "5cab2f112d8899f5463f1e9b19e01db9eec459b704ed4b2e03fa18329e035a0b",
+    "skills/mk-365/SKILL.md": "fde2043e25e830b199be293e8c8bfc471cb8b53732a7724581e9d322391d34f3",
+    "skills/mk-372/SKILL.md": "350d1ed12c507c5518900ef3d95851ff3a4c47555f235c6b428fff35a375d37c",
+    "skills/mk-373/SKILL.md": "e0ae6167980930b676dc276cc222686b90c07a9b75d1bd91d45e6383e4e0dd6b",
+    "skills/mk-374/SKILL.md": "de62c123e60b0f9deb624f1692888911a3b65e6d9596a4c50de586ab3ec7c110",
+    "skills/mk-375/SKILL.md": "a3657f3cff64ac059579318252cc5a3854d8937c1266fc40d893349c5c3bc1ca",
+    "skills/mk-376/SKILL.md": "84987bf01fcc6a2bdceb7919bd0e373f2cd879f094bf97eec5ed79fd3bd3258f",
+    "skills/mk-377/SKILL.md": "8cc6e85b66d0197ba1c3e0f5f0e826405a6a6b11bd27d6fc9543bb6c976ce11f",
+    "skills/mk-378/SKILL.md": "092e2f69cc9f73b2c7133387db4fd0c609fdb62f2e21a8999008402981cb881a",
+    "skills/mk-379/SKILL.md": "38bcd2a9501a12b76ea511734edd5be9435a2b0ed416b41b2572cd82079424a3",
+    "skills/mk-380/SKILL.md": "7255af831a5235c3de5add7610155e2ef53be6a1a6a541f8e1081eeb34b06d71",
+    "skills/mk-381/SKILL.md": "79fb55942e63f2f53fa0eb8e0250e5bdffab8523cda0cadfdc78db08bd137ec9",
+    "skills/mk-382/SKILL.md": "1454d074b7a4b64d95a4bd37855621b9c7a7f67edf644f19fa256069de67dcee",
+    "skills/mk-383/SKILL.md": "ddb57bf99bcf6b332c04da24a59bb0ff4e0c15c5f45e8b66b5de8fbc396498a9",
+    "skills/mk-384/SKILL.md": "155351f107441d4f418bbd6ae467a241de56642a1f6a07ede06b37e97126744e",
+    "skills/mk-385/SKILL.md": "2273af51e8288cae28d86b483347610d60ca27466dd2690cac136147a270e98e",
+    "skills/mk-386/SKILL.md": "04313346c5f4bde74da8c5d14e52c422bc3bedbb0cb4162ee7fec21e3981189d",
+    "skills/mk-387/SKILL.md": "0e6e3aad9d2f7da3766e9565e7798330f9ee75f5ea7bddc9637bd20c0c253107",
+    "skills/mk-388/SKILL.md": "edff4a4b66388c6f4d0f75cd775a9920256034938535f9922b3f7d4bc9314cb7",
+    "skills/mk-389/SKILL.md": "e518f07f29223fedaf3fb2a2f72c8fe03f93441f37b3de5e8a02963f029bcb9b",
+    "skills/mk-390/SKILL.md": "2ccb539bc644ae275318b08d8e710aacd9afe6bfd6b879502a8f09ea05fab714",
+    "skills/mk-391/SKILL.md": "4d55734b582c399bebe96315ac385f366f10ff5d5613c941b9fb6b0fa8eda0a9",
+    "skills/mk-392/SKILL.md": "7e9fa0e214ac1a96c14b992ca379cf32292ac38fd90f92d6f9726120584eea55",
+    "skills/mk-393/SKILL.md": "30b279fb34fc874bc7b2a6b724d9708ab6fe3c3627113453255e272600191966",
+    "skills/mk-394/SKILL.md": "b07de8830b43f5427884ea330ac379502ae1cde112db161a7f36d501564c9f52",
+    "skills/mk-395/SKILL.md": "8e32e444dc17fc66764031f74d9ba3ae6ce24fbe8bc3bf9475dbe638962f450c",
+    "skills/mk-396/SKILL.md": "8c274bb59c28d860aa97f8e33b7a32a134fe7a3cdcc8679319f484b660ac77b4",
+    "skills/mk-397/SKILL.md": "cfefcf459e2ecf21dcc647cf83a8b2d91297af1b9bbccc6419ff04653b9efba9",
+    "skills/mk-398/SKILL.md": "aa4c35cef0439aca56f15b57870569c88197a5bf977a94bda443b2691e45dc00",
+    "skills/mk-399/SKILL.md": "1e743496ce7931cea7cb774197c03a1b81ca17d0b80da191665be4b4f89e504e",
+    "skills/mk-400/SKILL.md": "870d42c607df3aeab783cf37beab56ee7a6393b1cf5ac9474b76360cf6510b31",
+    "skills/mk-401/SKILL.md": "f22313fd81e614dd10873541d5d4b6801cba7baa1ad55bdb5b9f4f77fada1fed",
+    "skills/mk-402/SKILL.md": "e6e5f036a6aa27ff801a9ed8417a20487d9df5ec8ea4ad890bd2dc97c6cf9042",
+    "skills/mk-403/SKILL.md": "d1a74267e27948bbf122ec2d5a9e85202f1a9ef5cc0bf9fdc46a039a0219d447",
+    "skills/mk-404/SKILL.md": "f03e73eee3ddbabe66c9249c553c69181f19699446530081b6a9340861afc447",
+    "skills/mk-405/SKILL.md": "b2757a1c88ffbafa156c2e1d8d11e104cf134cef644202d93e13f5785bb3cc45",
+    "skills/mk-406/SKILL.md": "17afe8bb73a5f345da2fca715c686b8062d0382d0e6e800db193e1727c817c9d",
+    "skills/mk-407/SKILL.md": "7e26cf0d7083c0ac4c0a85e318b41f953015201d0992803e293bcd413f0ec291",
+    "skills/mk-408/SKILL.md": "315fa504d754aa30e72a3a10ae4b246a163ec9c6d0a531c9923326ff2663010b",
+    "skills/mk-409/SKILL.md": "1a4c2d2885965ed82c2f1025b8aa8dc675c9c82cc427a01a5872314858e08bc1",
+    "skills/mk-410/SKILL.md": "cbe9262cd3d57070d7a7507f19a01122498bdc5bfd1708bafe27e4ba0ed27b74",
+    "skills/mk-411/SKILL.md": "0b311c5f01056db36992e9805a47d785cab1cd82c233979ede65d770c2378a99",
+    "skills/mk-412/SKILL.md": "167cfe7c7cbee8d6aa98b000bdeb50ef5ad66d3ca875617099b80ad6c72d0802",
+    "skills/mk-413/SKILL.md": "3c595c4438b4f806ec21c575bb1e462466db2ac37bebed33c86a58b55520da80",
+    "skills/mk-414/SKILL.md": "10ecd35a96529347ee824d8a5fad8f49c1da54d03e03326d7bdf6b755e8db885",
+    "skills/mk-415/SKILL.md": "e2b6e2e129f02b1191b8105353f7f5a6507896870625fad0ce6c7feff216d8c8",
+    "skills/mk-416/SKILL.md": "9ee5997c6dfb4ece1a80229ebebef3a99f8c18dec68e967b157ee0850214d50b",
+    "skills/mk-417/SKILL.md": "3a41260d04684d921448fc610c62ebd4f9f9254c419c1d14185ecc0ac2bce02c",
+    "skills/mk-418/SKILL.md": "d7e978f92f603ef321a23d20388924deebac2ce4f9e5359fe410773097dee8e7",
+    "skills/mk-419/SKILL.md": "d71d74d52866edfd7e316c0dacd9726dafa9431a5ca446cc3ec5285cf80d16ca",
+    "skills/mk-420/SKILL.md": "0348a6be605f6e8e130ee2a87a18259f04f47c05fe44146b488e5d60ca683d90",
+    "skills/mk-421/SKILL.md": "5fdb7cbc3d07cdbeabb4cfe836fa2d08036ae9ede365784d3ffdde286701c67c",
+    "skills/mk-422/SKILL.md": "0848e57b6e5621a42919c75b53cd35dab78a583e36bee1bf1950b4b4c3910f66",
+    "skills/mk-423/SKILL.md": "9e8f1bb4d9320410b65c5e5d097eedcb8244c39fa64be87f144452babb7277f9",
+    "skills/mk-424/SKILL.md": "079df22ed9c26947bfb7172b10e9dfe4258b01e27d587b2c547450b7c3c2fc6c",
+    "skills/mk-425/SKILL.md": "6a21299dbddf21062a90c6cf54d39d763b70c4fcd7f0f81abf046745e06cb04b",
+    "skills/mk-426/SKILL.md": "d60ca50253c6ca378a8812f98bf8f0cfe6c60c4bfc5f6deccb873152675890e0",
+    "skills/mk-427/SKILL.md": "a3be19b54ecaa62a5a4ca35293a82e3492918688ab054b541fb666bf2568e1c2",
+    "skills/mk-428/SKILL.md": "b0d5394a0c4cccb87f996412c41f4431fe6b21a3cf64b1d70b067ba06de6a385",
+    "skills/mk-429/SKILL.md": "421977222cf640a68d07a1b370cdc10619746f1c986caecf2c78159e804769f8",
+    "skills/mk-430/SKILL.md": "b6d4be3104fa443559b807f6dae08947f70947a895800cb4daefcde5f1705af5",
+    "skills/mk-431/SKILL.md": "551ea507eae0e3170f01e9b2c7f4c93e933339d398dd3175be98c1244c0edb7b",
+    "skills/mk-432/SKILL.md": "7b08d0c404d654e3ec25bafbbd0ff4bf922f8d339ae0b2aaee318eb798cd1784",
+    "skills/mk-433/SKILL.md": "81b19274040fbad098ff89a27896ef78f8335a342a5c458b4212c2697c3f98f8",
+    "skills/mk-434/SKILL.md": "6b1ea67b70e9430efe69c7e2ffa082711ac8b5d79d0a1f4e96796477d716c8f7",
+    "skills/mk-435/SKILL.md": "56f30176460e1bb04a8f8862b8e3648cd98a37799cc021c83932d44fee792b2a",
+    "skills/mk-436/SKILL.md": "936245e1c64cac2186b8044f306f0b876189ac63eb9a123a638cf6a7e182afe7",
+    "skills/mk-440/SKILL.md": "c1066c617efdf2ebd84a20b5b15bdb91bbcdfd3a20a7ed1b26fe5d945f608a19",
+    "skills/mk-441/SKILL.md": "64a5ccf6b938d0d3d61656427b94dd48824e22e65c10f7ab20e7df77a0cd3959",
+    "skills/mk-444/SKILL.md": "32f5921c91306af47885c0da6d20a2b6dda4ba0d6dbf52cd83d79efab3fbdf80",
+    "skills/mk-448/SKILL.md": "215766d776e050d47220c18863d5d7aee8961798d599e2b44e7e397e8a633bd5",
+    "skills/mk-450/SKILL.md": "ee82483918d2144696f113fefe57fc862b723a7774b92094a6dad93536944ab3",
+    "tests/test_english_edition.py": "467e686f9ea23a8d960b429e711a28ab4391665ade40960590db0fb39098e1c9",
+    "tests/test_free_edition.py": "e6bd8069dd3ca3b9c8750b369b97147d2fac1080e4de33ed4154ef89750a2eea"
+  }
+}

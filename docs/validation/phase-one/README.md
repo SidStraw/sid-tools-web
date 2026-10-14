@@ -32,4 +32,16 @@
 
 ## 遠端驗收
 
-待本次部署完成後補記 CI run、commit 與公開站實測結果。功能交付不代表 SEO 搜尋量、排名、流量或使用者價值已驗證；本輪未擴張候選池。
+PASS：功能 commit `ceb5f508decc8c1f1c5d95cc5184674c76db9e18` 已由 [GitHub Actions run 38577696921](https://github.com/SidStraw/sid-tools-web/actions/runs/38577696921) 完成 Linux／macOS 驗收及 GitHub Pages 發佈。
+
+2026-10-14 14:10:33 UTC 在 [公開站](https://sidstraw.github.io/sid-tools-web/) 用獨立無頭 Chromium 實測：
+
+- 四個 route 直接 HTTP 請求皆 200，回傳含完整 H1 與工具內容的 SSG HTML。
+- 頁面選單循序使用四工具，document 保持同一份；前後頁與 Cron 深層網址重整正常。
+- 真實 PNG 處理與下載成功；真實 mobile／desktop Lighthouse 報告輸出 +16 分且明示三種條件不同，沒有把差異稱為改善。
+- JSON 下載保留 `9007199254740993` 原始數值與忽略路徑；Cron 下載與剪貼簿均含排程時區，DST 缺時 UTC `2026-03-08T07:30:00.000Z` 符合期望。
+- 手機 390 px 無頁面水平溢出；無 pageerror、無上傳請求、無瀏覽器持久儲存。
+
+原始紀錄：[public-smoke.json](public-smoke.json)；畫面：[公開站 JSON 桌面](public-json-desktop.png)、[公開站 Cron 手機](public-cron-mobile.png)。
+
+功能交付不代表 SEO 搜尋量、排名、流量或使用者價值已驗證；本輪未擴張候選池。

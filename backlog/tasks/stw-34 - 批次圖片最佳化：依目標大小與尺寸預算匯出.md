@@ -5,7 +5,7 @@ status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 13:34'
+updated_date: '2026-10-14 14:11'
 labels:
   - keyword-research
   - proposal
@@ -129,6 +129,8 @@ Compress Picture的100KB流程輸出102,170／102,268／76,356 bytes，全部小
 2026-10-14 實作驗收：依 mono-starter c6d6f32 建立 @sid-tools/web 與 @sid-tools/core，project-local Node 24.21.0／pnpm 12.8.2／Vite+。完成 Worker 本機批次圖片處理、KB/KiB、尺寸／格式、透明背景同意、EXIF 方向、動畫拒絕、未達標下載與原因、前後比較、ZIP、容量／像素限制、取消與清除。pnpm verify 完整通過：13項單元／公開套件測試、7項 production Playwright E2E（含 /sid-tools-web/ 子路徑）、格式／lint／型別／建置與production audit（無已知弱點）。四項AC依客觀測試勾選。詳見 docs/validation/stw-34/README.md 與 verify.txt。GitHub Pages workflow 已建立，僅發佈 apps/web/dist；目標 repository 尚待使用者確認，未推送或部署，故維持 In Progress，不把本機通過當公開上線。
 
 2026-10-14 21:33 Asia/Taipei：使用者明確授權建立公開 SidStraw/sid-tools-web 並部署 Pages。已推送 4e07da8；Actions run 38572215704 的 Linux、macOS完整驗收與Pages部署皆success。公開 https://sidstraw.github.io/sid-tools-web/ HTTP200，獨立無頭Chromium實跑三張真實圖，WebP輸出99,066／99,968／55,656 bytes，皆符合100,000 bytes及1000×1000上限；透明背景、前後預覽、ZIP下載解壓、手機寬度及無圖片HTTP上傳皆驗證通過。先前部署中404已由部署完成後實測取代。證據見 docs/validation/stw-34/pages-smoke.json、github-first-deployment.json 與公開站截圖。
+
+圖片工具已整合到四工具共用 SSG + SPA，保留原網址與既有功能；切換會停止編碼/ZIP 並釋放資料。原 7 個圖片 E2E 全數回歸通過，公開站 PNG 下載已實測。部署 ceb5f50 / workflow 38577696921，證據 docs/validation/phase-one/README.md。
 <!-- SECTION:NOTES:END -->
 
 ## Final Summary

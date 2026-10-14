@@ -1,11 +1,11 @@
 ---
 id: STW-16
 title: Lighthouse 報告比較：區分指標變化與測試條件差異
-status: In Progress
+status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-14 14:07'
+updated_date: '2026-10-14 14:11'
 labels:
   - keyword-research
   - proposal
@@ -132,3 +132,9 @@ ordinal: 2
 
 本機 pnpm verify PASS：27 個單元/套件測試、18 個 production E2E，無格式/lint/型別錯誤與已知 production 漏洞。四工具共用 SSG + SPA；直接網址、前後頁、切換清理、動態載入、斷線恢復、快速切換、下載與無上傳已實測。細節 docs/validation/phase-one/README.md。維持 In Progress，等待遠端 CI/Pages 公開站驗收。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+已部署 Lighthouse 11–13 原始 JSON 比較，提供條件警告、分類分數、核心指標、audit 差異及完整 JSON 匯出。真實 mobile A/B 與 mobile/desktop 樣本通過；缺值、不同單位、版本及錯誤報告均有測試。共用單一 SSG + SPA 與依需求載入。 本機及 Linux/macOS CI：27 單元/套件測試、18 production E2E PASS；公開站實測亦 PASS。部署 commit ceb5f50，workflow 38577696921。證據 docs/validation/phase-one/README.md、public-smoke.json。此完成狀態代表功能交付，不代表流量假設已驗證。
+<!-- SECTION:FINAL_SUMMARY:END -->

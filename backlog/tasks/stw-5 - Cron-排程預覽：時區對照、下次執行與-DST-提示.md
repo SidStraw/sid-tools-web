@@ -1,11 +1,11 @@
 ---
 id: STW-5
 title: Cron 排程預覽：時區對照、下次執行與 DST 提示
-status: In Progress
+status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-14 14:07'
+updated_date: '2026-10-14 14:11'
 labels:
   - keyword-research
   - proposal
@@ -116,3 +116,9 @@ ordinal: 4
 
 本機 pnpm verify PASS：27 個單元/套件測試、18 個 production E2E，無格式/lint/型別錯誤與已知 production 漏洞。四工具共用 SSG + SPA；直接網址、前後頁、切換清理、動態載入、斷線恢復、快速切換、下載與無上傳已實測。細節 docs/validation/phase-one/README.md。維持 In Progress，等待遠端 CI/Pages 公開站驗收。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+已部署五欄 Unix Cron 預覽，提供逐欄說明、未來十次、兩個 IANA 時區及 UTC 對照、複製與 TXT 下載。DST 缺時/重複、月底、閏年、OR 規則及不支援方言均有固定測試與公開範例。共用單一 SSG + SPA；計算套件僅執行時載入。 本機及 Linux/macOS CI：27 單元/套件測試、18 production E2E PASS；公開站實測亦 PASS。部署 commit ceb5f50，workflow 38577696921。證據 docs/validation/phase-one/README.md、public-smoke.json。此完成狀態代表功能交付，不代表流量假設已驗證。
+<!-- SECTION:FINAL_SUMMARY:END -->

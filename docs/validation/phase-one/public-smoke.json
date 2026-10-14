@@ -1,0 +1,174 @@
+{
+  "testedAt": "2026-10-14T14:10:33.901Z",
+  "base": "https://sidstraw.github.io/sid-tools-web/",
+  "commit": "ceb5f508decc8c1f1c5d95cc5184674c76db9e18",
+  "ci": "https://github.com/SidStraw/sid-tools-web/actions/runs/38577696921",
+  "routeHTML": [
+    {
+      "path": "",
+      "status": 200,
+      "ssg": true
+    },
+    {
+      "path": "tools/lighthouse/",
+      "status": 200,
+      "ssg": true
+    },
+    {
+      "path": "tools/json-diff/",
+      "status": 200,
+      "ssg": true
+    },
+    {
+      "path": "tools/cron/",
+      "status": 200,
+      "ssg": true
+    }
+  ],
+  "singleDocumentMenu": true,
+  "backForwardAndReload": true,
+  "image": {
+    "format": "image/png",
+    "width": 1024,
+    "height": 1024
+  },
+  "lighthouse": {
+    "performanceDelta": 16,
+    "conditionWarnings": [
+      "單次測試只顯示觀測差異，不能推論程式修改造成改善或退步；請以相同條件重複測量。",
+      "formFactor 不同：測試條件不一致。",
+      "throttling 不同：測試條件不一致。",
+      "screenEmulation 不同：測試條件不一致。"
+    ]
+  },
+  "json": {
+    "exactIntegerExport": true,
+    "ignoredPaths": true
+  },
+  "cron": {
+    "tenInstants": true,
+    "dstGapUTC": "2026-03-08T07:30:00.000Z",
+    "clipboard": true
+  },
+  "mobileOverflow": false,
+  "uploads": 0,
+  "persistedEntries": 0,
+  "pageErrors": [],
+  "requests": [
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/",
+      "method": "GET",
+      "type": "document"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/router-CP6VfD7Z.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/router-BWk8QqRR.css",
+      "method": "GET",
+      "type": "stylesheet"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/images-Dk7rmdXL.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/image.worker-DMxDepy_.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "blob:https://sidstraw.github.io/2269fc46-37c2-4a4f-9b94-55d2c7ae50c0",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/lighthouse-BwkqKTwL.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/tools-BARMSkMv.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/tools.worker-BEywqUg-.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/lighthouse-DBHGv_b0.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/json-diff-QOvXWamV.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/tools.worker-BEywqUg-.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/json-diff-COoMCUYn.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/cron-DTh7mWv8.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/tools.worker-BEywqUg-.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/cron-BWKkJZUD.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/tools/cron/",
+      "method": "GET",
+      "type": "document"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/router-CP6VfD7Z.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/router-BWk8QqRR.css",
+      "method": "GET",
+      "type": "stylesheet"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/cron-DTh7mWv8.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/tools-BARMSkMv.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/tools.worker-BEywqUg-.js",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/cron-BWKkJZUD.js",
+      "method": "GET",
+      "type": "script"
+    }
+  ]
+}

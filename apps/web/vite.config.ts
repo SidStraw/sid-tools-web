@@ -1,8 +1,27 @@
 import { defineConfig } from 'vite-plus';
+import { fileURLToPath } from 'node:url';
+import { renderPage } from './scripts/ssg';
 
 export default defineConfig({
   base: './',
+  worker: { format: 'es' },
+  build: {
+    rollupOptions: {
+      input: Object.fromEntries(
+        [
+          'index.html',
+          'tools/lighthouse/index.html',
+          'tools/json-diff/index.html',
+          'tools/cron/index.html',
+        ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
+      ),
+    },
+  },
   plugins: [
+    {
+      name: 'tool-ssg',
+      transformIndexHtml: { order: 'pre', handler: (_html, ctx) => renderPage(ctx.filename) },
+    },
     {
       name: 'development-connections',
       apply: 'serve',

@@ -1,10 +1,11 @@
 ---
 id: STW-3
 title: API JSON 差異比較：忽略動態欄位並依識別鍵對齊陣列
-status: Needs Refinement
-assignee: []
+status: In Progress
+assignee:
+  - '@codex'
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-14 12:08'
+updated_date: '2026-10-14 14:07'
 labels:
   - keyword-research
   - proposal
@@ -79,12 +80,18 @@ ordinal: 3
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 比較結果區分新增、移除、值改變與型別改變，物件鍵順序不造成差異。
-- [ ] #2 忽略欄位規則可預覽且匯出報告會列出被忽略的路徑，避免把被排除的變更說成完全相同。
-- [ ] #3 陣列可依指定鍵對齊；重複或缺少識別鍵必須提示，不得任意配對。
-- [ ] #4 錯誤 JSON 能定位問題；大數字不因解析精度遺失被誤判相同，並提供可重現範例。
-- [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
+- [x] #1 比較結果區分新增、移除、值改變與型別改變，物件鍵順序不造成差異。
+- [x] #2 忽略欄位規則可預覽且匯出報告會列出被忽略的路徑，避免把被排除的變更說成完全相同。
+- [x] #3 陣列可依指定鍵對齊；重複或缺少識別鍵必須提示，不得任意配對。
+- [x] #4 錯誤 JSON 能定位問題；大數字不因解析精度遺失被誤判相同，並提供可重現範例。
+- [x] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+使用 lossless-json 保留數字精度，實作本機雙 JSON 比較、忽略路徑預覽、陣列 ID 配對與錯誤定位；加入獨立頁面與共用選單；以大整數、重複 ID、下載與無上傳測試驗證，隨四工具一起部署。
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -100,4 +107,8 @@ ordinal: 3
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-existing-core.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+納入單一 SSG + SPA，工具與背景計算依需求載入；新增路由切換清理與載入驗收。
+
+本機 pnpm verify PASS：27 個單元/套件測試、18 個 production E2E，無格式/lint/型別錯誤與已知 production 漏洞。四工具共用 SSG + SPA；直接網址、前後頁、切換清理、動態載入、斷線恢復、快速切換、下載與無上傳已實測。細節 docs/validation/phase-one/README.md。維持 In Progress，等待遠端 CI/Pages 公開站驗收。
 <!-- SECTION:NOTES:END -->

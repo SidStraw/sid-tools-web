@@ -1,0 +1,76 @@
+<main class="utility-main">
+  <section class="tool-intro">
+    <p class="eyebrow">少一點繁瑣，多一點完成。<span>LIGHTHOUSE / 02</span></p>
+    <h1>先看條件，再看差異。</h1>
+    <p class="intro-copy">匯入兩份 Lighthouse JSON，核對測試條件、分類分數與原始指標。</p>
+    <div class="intro-tags"><span>免登入</span><span>資料不上傳</span><span>離開即清除</span></div>
+  </section>
+  <section id="workspace" class="utility-panel" aria-label="Lighthouse 報告比較">
+    <div class="panel-heading">
+      <h2>Lighthouse 報告比較</h2>
+      <button id="demo" class="text-button">載入示範</button>
+    </div>
+    <div class="input-pair">
+      <div>
+        <label for="before">比較前 JSON</label
+        ><textarea
+          id="before"
+          spellcheck="false"
+          autocomplete="off"
+          placeholder="貼上 JSON，或從下方載入檔案"
+        ></textarea
+        ><label class="file-label"
+          >載入比較前檔案<input
+            id="before-file"
+            type="file"
+            accept=".json,application/json" /></label
+        ><span id="before-name" class="help"></span>
+      </div>
+      <div>
+        <label for="after">比較後 JSON</label
+        ><textarea
+          id="after"
+          spellcheck="false"
+          autocomplete="off"
+          placeholder="貼上 JSON，或從下方載入檔案"
+        ></textarea
+        ><label class="file-label"
+          >載入比較後檔案<input
+            id="after-file"
+            type="file"
+            accept=".json,application/json" /></label
+        ><span id="after-name" class="help"></span>
+      </div>
+    </div>
+    <p class="help">
+      支援 Lighthouse 11–13 原始 JSON，每份最多 10 MB；缺少值顯示「無法取得」，不補成
+      0。匯出包含所有稽核原始值與條件。
+    </p>
+    <div class="tool-actions">
+      <button id="run" class="button primary">開始比較</button
+      ><button id="clear" class="button secondary">清除資料</button
+      ><span id="status" role="status" aria-live="polite">準備好後即可開始。</span>
+    </div>
+    <p id="error" class="notice" role="alert" hidden></p>
+  </section>
+  <section id="output" class="utility-panel output-panel" hidden aria-label="結果">
+    <div class="panel-heading">
+      <h2>結果</h2>
+      <div class="export-actions">
+        <button id="export" class="button secondary">下載結果 JSON</button>
+      </div>
+    </div>
+    <div id="result"></div>
+  </section>
+  <section class="tool-guide">
+    <h2>使用前先知道</h2>
+    <p>
+      Lighthouse
+      分數會受網路、裝置及執行環境影響。單次差異不能證明修改成效，請以相同條件重複測量。數值差均為「後
+      − 前」；數值變小或分數變大不一定能直接歸因。
+    </p>
+    <p>
+      所有輸入只在這個頁面的記憶體中處理，不會自動上傳、儲存到裝置或產生分享連結。清除、重新整理或離開頁面後，請重新加入資料。
+    </p>
+  </section>
+</main>

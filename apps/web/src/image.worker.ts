@@ -1,4 +1,4 @@
-import { fitDimensions, inspectImage, LIMITS, validateOptions } from '@sid-tools/core';
+import { fitDimensions, inspectImage, LIMITS, validateOptions } from '@sid-tools/core/images';
 import type { ProcessRequest, ProcessResponse, ImageResult } from './types';
 
 async function processImage({ file, options }: ProcessRequest): Promise<ImageResult> {

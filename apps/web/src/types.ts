@@ -1,4 +1,4 @@
-import type { BudgetOptions, ImageFormat } from '@sid-tools/core';
+import type { BudgetOptions, ImageFormat } from '@sid-tools/core/images';
 export interface ProcessRequest {
   file: File;
   options: BudgetOptions;

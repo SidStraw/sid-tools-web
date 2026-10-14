@@ -1,0 +1,67 @@
+<main class="utility-main">
+  <section class="tool-intro">
+    <p class="eyebrow">少一點繁瑣，多一點完成。<span>CRON / 04</span></p>
+    <h1>下一次，幾點執行？</h1>
+    <p class="intro-copy">用排程時區解讀五欄 Cron，同時查看另一個時區的執行時間。</p>
+    <div class="intro-tags"><span>免登入</span><span>資料不上傳</span><span>離開即清除</span></div>
+  </section>
+  <section id="workspace" class="utility-panel" aria-label="Cron 排程預覽">
+    <div class="panel-heading">
+      <h2>Cron 排程預覽</h2>
+      <button id="demo" class="text-button">載入示範</button>
+    </div>
+    <div class="field-grid">
+      <label class="wide"
+        >Cron 表達式<input
+          id="expression"
+          value="0 9 * * 1-5"
+          spellcheck="false"
+          autocomplete="off" /></label
+      ><label>排程時區<input id="zone" value="Asia/Taipei" list="zones" autocomplete="off" /></label
+      ><label>對照時區<input id="display-zone" value="UTC" list="zones" autocomplete="off" /></label
+      ><label class="wide"
+        >從這個時間之後（UTC）<input
+          id="start-time"
+          placeholder="2026-01-01T00:00:00Z"
+          autocomplete="off"
+      /></label>
+    </div>
+    <datalist id="zones">
+      <option value="Asia/Taipei"></option>
+      <option value="Asia/Tokyo"></option>
+      <option value="America/New_York"></option>
+      <option value="Europe/London"></option>
+      <option value="UTC"></option>
+    </datalist>
+    <p class="help">
+      依序為「分 時 日 月 星期」。支援數字與 * , - /；星期 0 或 7 為日。不支援秒、Quartz 或 AWS
+      方言。
+    </p>
+    <div class="tool-actions">
+      <button id="run" class="button primary">預覽未來 10 次</button
+      ><button id="clear" class="button secondary">清除資料</button
+      ><span id="status" role="status" aria-live="polite">準備好後即可開始。</span>
+    </div>
+    <p id="error" class="notice" role="alert" hidden></p>
+  </section>
+  <section id="output" class="utility-panel output-panel" hidden aria-label="結果">
+    <div class="panel-heading">
+      <h2>結果</h2>
+      <div class="export-actions">
+        <button id="copy" class="text-button">複製排程</button
+        ><button id="export" class="button secondary">下載排程 TXT</button>
+      </div>
+    </div>
+    <div id="result"></div>
+  </section>
+  <section class="tool-guide">
+    <h2>使用前先知道</h2>
+    <p>
+      此工具採 cron-parser 5.10.2：日與星期同時受限時採
+      OR。夏令時間跳時可能延後，重複時段的固定鐘點只列一次；每分鐘等排程仍可能跨越兩次重複時段。預覽不會建立排程，實際行為請核對部署平台。
+    </p>
+    <p>
+      所有輸入只在這個頁面的記憶體中處理，不會自動上傳、儲存到裝置或產生分享連結。清除、重新整理或離開頁面後，請重新加入資料。
+    </p>
+  </section>
+</main>

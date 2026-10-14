@@ -1,10 +1,11 @@
 ---
 id: STW-5
 title: Cron 排程預覽：時區對照、下次執行與 DST 提示
-status: Needs Refinement
-assignee: []
+status: In Progress
+assignee:
+  - '@codex'
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-14 12:08'
+updated_date: '2026-10-14 14:07'
 labels:
   - keyword-research
   - proposal
@@ -83,12 +84,18 @@ ordinal: 4
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 有效五欄 Cron 顯示逐欄說明及未來 10 次執行時間，兩個時區的時間代表相同時刻。
-- [ ] #2 非法欄位、Quartz／AWS 等不支援方言明確提示，不能當成 Unix Cron 默默解析。
-- [ ] #3 DST 缺時與重複時間、月底及閏年有公開且可重現的計算規則與範例。
-- [ ] #4 可複製排程及時區資訊，說明預覽規則與真實排程器實作可能不同。
-- [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
+- [x] #1 有效五欄 Cron 顯示逐欄說明及未來 10 次執行時間，兩個時區的時間代表相同時刻。
+- [x] #2 非法欄位、Quartz／AWS 等不支援方言明確提示，不能當成 Unix Cron 默默解析。
+- [x] #3 DST 缺時與重複時間、月底及閏年有公開且可重現的計算規則與範例。
+- [x] #4 可複製排程及時區資訊，說明預覽規則與真實排程器實作可能不同。
+- [x] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+使用固定版本 cron-parser，限制五欄數字 Unix Cron，提供 IANA 時區與未來十次雙時區預覽、複製及下載；驗證 DST、月底、閏年與不支援方言，隨四工具一起部署。
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -104,4 +111,8 @@ ordinal: 4
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-existing-core.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+納入單一 SSG + SPA，Cron parser 只在操作 Cron 時載入；新增路由切換清理與載入驗收。
+
+本機 pnpm verify PASS：27 個單元/套件測試、18 個 production E2E，無格式/lint/型別錯誤與已知 production 漏洞。四工具共用 SSG + SPA；直接網址、前後頁、切換清理、動態載入、斷線恢復、快速切換、下載與無上傳已實測。細節 docs/validation/phase-one/README.md。維持 In Progress，等待遠端 CI/Pages 公開站驗收。
 <!-- SECTION:NOTES:END -->

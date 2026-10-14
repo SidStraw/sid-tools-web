@@ -1,10 +1,11 @@
 ---
 id: STW-16
 title: Lighthouse 報告比較：區分指標變化與測試條件差異
-status: Needs Refinement
-assignee: []
+status: In Progress
+assignee:
+  - '@codex'
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-14 12:35'
+updated_date: '2026-10-14 14:07'
 labels:
   - keyword-research
   - proposal
@@ -81,12 +82,18 @@ ordinal: 2
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 比較指定支援版本的 category、metric 與 audit，缺少欄位標為 unavailable 而非 0。
-- [ ] #2 明顯不同的 URL、form factor、throttling 或 major version 顯示可比性警告。
-- [ ] #3 區分數值變化與因果推論，不宣稱單次報告已證實效能提升。
-- [ ] #4 可匯出含量測條件、原始值與差值的報告，以固定 JSON 範例驗證。
-- [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
+- [x] #1 比較指定支援版本的 category、metric 與 audit，缺少欄位標為 unavailable 而非 0。
+- [x] #2 明顯不同的 URL、form factor、throttling 或 major version 顯示可比性警告。
+- [x] #3 區分數值變化與因果推論，不宣稱單次報告已證實效能提升。
+- [x] #4 可匯出含量測條件、原始值與差值的報告，以固定 JSON 範例驗證。
+- [x] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. 建立四工具共用選單與 GitHub Pages 可直達的靜態頁面，保留現有圖片工具。2. 實作 Lighthouse 11–13 JSON 本機比較：量測條件、category、metrics、audit、缺欄位 unavailable 與可匯出報告。3. 使用先前真實 Lighthouse 報告與邊界樣本驗證，檢查多頁路徑、手機版、清除與無上傳。4. 經 pnpm verify 後保存階段 commit，三工具完成後一起部署並驗證公開站。
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -118,4 +125,10 @@ ordinal: 2
 決策：維持Medium、Needs Refinement、ordinal 2，排STW-34之後。下一門檻為實際報告使用者／可觸及分發途徑，及條件提示是否實際改變判讀／省時；尚不能以SEO機會啟動。AI操作比較未測，不宣稱AI不可替代。沒有實作、AC勾選或新卡。
 
 完整方法、來源、截圖、樣本與限制：research/competitor-validation-2026-10-14/README.md；樣本生成：samples-lighthouse.md；月量來源與原始資料：search-demand.md、search-demand-api.json。
+
+使用者已授權完成第一階段推薦的全部工具（STW-34、16、3、5）並加上切換工具選單。維持各卡原有首版邊界。
+
+使用者追加架構要求：四工具須共用單一 SPA，並以 SSG 產生每個路由的完整 HTML。改採共用 History 路由、依工具動態載入、載入失敗重試、切換時清理工作與資料；驗證直接網址、前後頁、快速切換及懶載入。
+
+本機 pnpm verify PASS：27 個單元/套件測試、18 個 production E2E，無格式/lint/型別錯誤與已知 production 漏洞。四工具共用 SSG + SPA；直接網址、前後頁、切換清理、動態載入、斷線恢復、快速切換、下載與無上傳已實測。細節 docs/validation/phase-one/README.md。維持 In Progress，等待遠端 CI/Pages 公開站驗收。
 <!-- SECTION:NOTES:END -->

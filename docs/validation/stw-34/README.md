@@ -29,4 +29,14 @@
 
 已建立 GitHub Actions workflow：Linux／macOS 完整驗收通過後上傳 `apps/web/dist` 並部署 Pages；PR不部署。官方Actions以SHA鎖定。
 
-**遠端：待確認目標 repository。** 目前目錄原本沒有 remote，已詢問是否建立公開 `SidStraw/sid-tools-web`。在目標確認與實際部署成功之前，不將公開網址、遠端CI或Pages標為通過，STW-34保持In Progress。
+**遠端已通過：2026-10-14 21:33（Asia/Taipei）。** 使用者明確授權建立公開 repository 並部署。
+
+- Repository：[SidStraw/sid-tools-web](https://github.com/SidStraw/sid-tools-web)。
+- 公開工具：[GitHub Pages](https://sidstraw.github.io/sid-tools-web/)。
+- 首次發布來源：`4e07da8a2be3a14141285cc062c32e1afde78731`。
+- [首次 Actions run](https://github.com/SidStraw/sid-tools-web/actions/runs/38572215704)：Linux／macOS 完整驗收與 Pages 部署全部 success；[原始 job 狀態](github-first-deployment.json)。
+- 部署進行中曾回404；發布完成後重新實測 HTTP 200，不以先前404或job開始當成成功。
+- 公開站獨立 Chromium 實測：三張真實圖片，100,000 bytes／1000×1000／WebP；ZIP 實際下載解壓檢查。輸出分別99,066、99,968、55,656 bytes，全部符合大小與尺寸；透明圖仍有alpha。前後預覽已載入，390px手機無橫向溢出，無pageerror。處理期間HTTP請求只有靜態Worker程式，沒有圖片上傳。
+- [公開站實測 JSON](pages-smoke.json)、[桌面畫面](pages-live-desktop.png)、[手機畫面](pages-live-mobile.png)。
+
+STW-34 四項AC與公開部署驗證完成，透過Backlog CLI移至Done。GitHub官方Pages Actions目前仍出現Node20 runtime被強制切至Node24的棄用提示，但本次實際執行成功；不將提示隱藏或誤記為失敗。

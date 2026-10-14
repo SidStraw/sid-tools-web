@@ -1,5 +1,7 @@
 # Sid Tools
 
+**[開啟工具：sidstraw.github.io/sid-tools-web](https://sidstraw.github.io/sid-tools-web/)**
+
 多合一工具站的第一個工具：**批次圖片壓縮**。指定大小、尺寸與格式，逐檔顯示是否達標，支援比較預覽與 ZIP 下載。圖片只在瀏覽器處理。
 
 採用 [SidStraw/mono-starter](https://github.com/SidStraw/mono-starter) commit `c6d6f32854f6a8fd9f5d6cd4076475e4e9170af0` 初始化，沿用 TypeScript、Vite+、pnpm workspace、嚴格檢查、跨平台 CI、Renovate 與選用 Pi 診斷。保留本專案既有 Backlog 與研究，沒有複製範本任務。

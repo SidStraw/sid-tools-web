@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-14T13:33:14.807Z",
+  "url": "https://sidstraw.github.io/sid-tools-web/",
+  "httpStatus": 200,
+  "browser": "153.0.8010.12",
+  "result": "PASS",
+  "results": [
+    {
+      "name": "01-photo.webp",
+      "bytes": 99066,
+      "format": "image/webp",
+      "width": 1000,
+      "height": 669
+    },
+    {
+      "name": "02-transparent.webp",
+      "bytes": 99968,
+      "format": "image/webp",
+      "width": 490,
+      "height": 1000
+    },
+    {
+      "name": "03-icon.webp",
+      "bytes": 55656,
+      "format": "image/webp",
+      "width": 1000,
+      "height": 1000
+    }
+  ],
+  "alphaPreserved": true,
+  "zipBytes": 255028,
+  "previewNaturalWidth": 1000,
+  "mobileOverflow": false,
+  "requestsDuringProcessing": [
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/image.worker-K26h9Emr.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/image.worker-K26h9Emr.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://sidstraw.github.io/sid-tools-web/assets/image.worker-K26h9Emr.js",
+      "method": "GET"
+    }
+  ],
+  "pageErrors": []
+}

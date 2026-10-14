@@ -1,11 +1,11 @@
 ---
 id: STW-34
 title: 批次圖片最佳化：依目標大小與尺寸預算匯出
-status: In Progress
+status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 13:24'
+updated_date: '2026-10-14 13:34'
 labels:
   - keyword-research
   - proposal
@@ -31,6 +31,8 @@ references:
   - 'https://compress-picture.com/compress-image-to-100kb'
   - 'https://www.seodata.dev/llms.txt'
   - 'https://compress-picture.com/compress-png'
+  - 'https://sidstraw.github.io/sid-tools-web/'
+  - 'https://github.com/SidStraw/sid-tools-web/actions/runs/38572215704'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
@@ -125,4 +127,12 @@ Compress Picture的100KB流程輸出102,170／102,268／76,356 bytes，全部小
 2026-10-14：使用者明確要求停止逐卡研究，採 mono-starter 初始化並完成第一順位 STW-34，以 GitHub Pages 可用為目標。此授權取代先前僅研究、不實作的階段限制。
 
 2026-10-14 實作驗收：依 mono-starter c6d6f32 建立 @sid-tools/web 與 @sid-tools/core，project-local Node 24.21.0／pnpm 12.8.2／Vite+。完成 Worker 本機批次圖片處理、KB/KiB、尺寸／格式、透明背景同意、EXIF 方向、動畫拒絕、未達標下載與原因、前後比較、ZIP、容量／像素限制、取消與清除。pnpm verify 完整通過：13項單元／公開套件測試、7項 production Playwright E2E（含 /sid-tools-web/ 子路徑）、格式／lint／型別／建置與production audit（無已知弱點）。四項AC依客觀測試勾選。詳見 docs/validation/stw-34/README.md 與 verify.txt。GitHub Pages workflow 已建立，僅發佈 apps/web/dist；目標 repository 尚待使用者確認，未推送或部署，故維持 In Progress，不把本機通過當公開上線。
+
+2026-10-14 21:33 Asia/Taipei：使用者明確授權建立公開 SidStraw/sid-tools-web 並部署 Pages。已推送 4e07da8；Actions run 38572215704 的 Linux、macOS完整驗收與Pages部署皆success。公開 https://sidstraw.github.io/sid-tools-web/ HTTP200，獨立無頭Chromium實跑三張真實圖，WebP輸出99,066／99,968／55,656 bytes，皆符合100,000 bytes及1000×1000上限；透明背景、前後預覽、ZIP下載解壓、手機寬度及無圖片HTTP上傳皆驗證通過。先前部署中404已由部署完成後實測取代。證據見 docs/validation/stw-34/pages-smoke.json、github-first-deployment.json 與公開站截圖。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+以 mono-starter c6d6f32 初始化 TypeScript/Vite+ monorepo，交付瀏覽器本機批次圖片預算工具並部署 GitHub Pages。四項AC已驗證；本機與GitHub Linux/macOS的pnpm verify通過（13單元／套件＋7瀏覽器測試，production audit無已知弱點）。公開站實際處理、透明度、預覽、ZIP及手機布局驗證通過。工具：https://sidstraw.github.io/sid-tools-web/；證據：docs/validation/stw-34/README.md。
+<!-- SECTION:FINAL_SUMMARY:END -->

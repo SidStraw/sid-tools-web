@@ -1,0 +1,65 @@
+$ vp run --no-cache verify-all
+~/packages/core$ vp pack ⊘ cache disabled
+ℹ entry: src/index.ts
+ℹ tsconfig: tsconfig.json
+ℹ Build start
+ℹ Cleaning 2 files
+warn: TypeScript 7.0 does not yet have a stable API and is experimental. Some options will be unavailable.
+ℹ Emit types with typescript@7.0.2
+ℹ dist/index.mjs    5.14 kB │ gzip: 2.08 kB
+ℹ dist/index.d.mts  1.04 kB │ gzip: 0.45 kB
+ℹ 2 files, total: 6.19 kB
+✔ Build complete in 63ms
+
+~/apps/web$ vp build ⊘ cache disabled
+$ vp check ⊘ cache disabled
+transforming...
+✓ 7 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/assets/image.worker-K26h9Emr.js   5.11 kB
+dist/index.html                       11.17 kB │ gzip: 4.16 kB
+dist/assets/index-1oxDncN8.css        15.33 kB │ gzip: 4.35 kB
+dist/assets/index-B-_W7jqI.js         20.06 kB │ gzip: 9.36 kB
+
+✓ built in 39ms
+
+$ vp test run ⊘ cache disabled
+pass: All 30 files are correctly formatted (164ms, 12 threads)
+
+ RUN  v5.0.1 /Users/sid/Developer/sid-tools-web
+
+
+ Test Files  2 passed (2)
+      Tests  13 passed (13)
+   Start at  21:23:31
+   Duration  84ms (transform 60%, import 20%, tests 14%, worker 6%)
+
+
+$ playwright test ⊘ cache disabled
+pass: Found no warnings, lint errors, or type errors in 11 files (205ms, 12 threads)
+
+[WebServer] (node:35564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35586) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:35594) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/web.spec.ts:44:1 › real batch obeys decimal byte budget and dimensions; ZIP contains decoded images; no uploads (1.7s)
+  ✓  2 tests/e2e/web.spec.ts:89:1 › unattainable PNG budget is honest, downloadable and does not shrink beyond requested dimensions (2.8s)
+  ✓  3 tests/e2e/web.spec.ts:107:1 › transparent JPEG requires explicit consent; consenting produces white background (754ms)
+  ✓  4 tests/e2e/web.spec.ts:125:1 › small original is kept without growth and EXIF rotation is applied to resized output (732ms)
+  ✓  5 tests/e2e/web.spec.ts:146:1 › rejects animation, corrupt image and oversized headers without silently decoding frame one (246ms)
+  ✓  6 tests/e2e/web.spec.ts:170:1 › batch count and byte limits, cancellation, and clearing during work (1.4s)
+  ✓  7 tests/e2e/web.spec.ts:207:1 › mobile layout remains usable and has no horizontal overflow (241ms)
+
+  7 passed (8.6s)
+
+$ pnpm audit --prod --audit-level high ⊘ cache disabled
+No known vulnerabilities found
+
+---
+vp run: 0/6 cache hit (0%). (Run `vp run --last-details` for full details)

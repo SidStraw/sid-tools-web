@@ -2,15 +2,34 @@
   "name": "sid-tools-web",
   "version": "0.0.0",
   "private": true,
-  "description": "Monorepo planning for developer tools, with Web delivery first",
-  "packageManager": "pnpm@10.33.2",
+  "type": "module",
   "scripts": {
-    "tasks": "backlog task list --plain",
+    "dev": "vp run develop",
+    "check": "vp run check-all",
+    "test": "vp run test-all",
+    "build": "vp run --filter './apps/*' --filter './packages/*' --fail-if-no-match build",
+    "verify": "vp run --no-cache verify-all",
+    "tasks": "backlog",
     "tasks:board": "backlog board",
-    "tasks:web": "backlog browser",
+    "tasks:web": "backlog browser --no-open",
     "tasks:doctor": "backlog doctor"
   },
   "devDependencies": {
-    "backlog.md": "1.53.0"
-  }
+    "@earendil-works/pi-coding-agent": "1.0.0",
+    "@playwright/test": "1.63.0",
+    "@sid-tools/core": "workspace:*",
+    "@types/node": "catalog:",
+    "backlog.md": "1.53.0",
+    "fflate": "0.8.3",
+    "typescript": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "24.21.0",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.8.2"
 }

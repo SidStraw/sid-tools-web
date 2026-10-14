@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
+  "rangeStrategy": "pin",
+  "minimumReleaseAge": "3 days",
+  "minimumReleaseAgeBehaviour": "timestamp-required",
+  "automerge": false,
+  "prConcurrentLimit": 3,
+  "timezone": "Asia/Taipei",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 5am on monday"]
+  },
+  "packageRules": [
+    {
+      "matchPackageNames": ["vite-plus", "vitest", "@voidzero-dev/vite-plus-core"],
+      "groupName": "Vite+ toolchain"
+    },
+    {
+      "matchPackageNames": ["node", "@types/node"],
+      "allowedVersions": ">=24.0.0 <25.0.0"
+    }
+  ]
+}

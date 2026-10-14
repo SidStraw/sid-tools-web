@@ -4,7 +4,7 @@ title: Git diff 檢視與可分享的確定性變更摘要
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
@@ -12,6 +12,8 @@ labels:
   - delivery-web
   - web-first
   - extension-cli
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
@@ -20,13 +22,17 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/15_032722.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/17_034242.md
+  - 'https://github.com/rtfpessoa/diff2html/blob/master/README.md'
+  - 'https://github.com/rtfpessoa/diff2html-cli/blob/master/README.md'
 documentation:
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
   - docs/product-direction.md
-priority: medium
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-pruning.md
+priority: low
 type: feature
-ordinal: 10
+ordinal: 110
 ---
 
 ## Description
@@ -77,3 +83,19 @@ ordinal: 10
 - [ ] #4 使用者可在匯出前排除敏感路徑與 hunk；不自動公開分享或上傳 patch。
 - [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+撤回先前把本卡當 AI 摘要的理由；本卡是確定性檢視，Low 保留窄驗證。 成熟開源工具提供 unified diff、導航相關顯示與 HTML 匯出；本輪沒有取得遮蔽交接的獨立用戶需求證據。
+
+提升／重新納入條件：3 個真實跨團隊 patch 交接，與 diff2html 匯出比較，量測排除敏感 hunk 的操作量與審查成本；若無額外收益就排除。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

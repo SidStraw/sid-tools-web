@@ -4,7 +4,7 @@ title: Lighthouse 報告比較：區分指標變化與測試條件差異
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:35'
 labels:
   - keyword-research
   - proposal
@@ -13,17 +13,30 @@ labels:
   - web-first
   - extension-cli
   - extension-ci
+  - demand-reviewed-2026-10-14
+  - validate-next
+  - competitor-tested-2026-10-14
 dependencies: []
 references:
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/05_032812.md
+  - 'https://github.com/GoogleChrome/lighthouse-ci/issues/1101'
+  - 'https://github.com/GoogleChrome/lighthouse-ci/issues/1132'
+  - 'https://googlechrome.github.io/lighthouse-ci/difftool/'
+  - 'https://github.com/googlechrome/lighthouse-ci'
+  - 'https://www.seodata.dev/llms.txt'
+  - 'https://www.lighthouse-aimetrics.com/compare-lighthouse-runs'
 documentation:
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
   - docs/product-direction.md
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-existing-core.md
+  - research/competitor-validation-2026-10-14/README.md
+  - research/competitor-validation-2026-10-14/search-demand.md
 priority: medium
 type: feature
-ordinal: 16
+ordinal: 2
 ---
 
 ## Description
@@ -74,3 +87,35 @@ ordinal: 16
 - [ ] #4 可匯出含量測條件、原始值與差值的報告，以固定 JSON 範例驗證。
 - [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Medium / validate。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+八項中值得優先細化的需求之一。改驗證多頁矩陣／報告相容與比較可信度，不能只重做官方兩檔 diff。 競品覆蓋程度高： two-report diff；多頁彙整有明確近期請求，競品完整覆蓋待測。
+
+提升／重新納入條件：先驗證原有兩報告相容與可比性提示是否省時；多頁矩陣是新線索，另作範圍決策，不自動擴充 AC。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-existing-core.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+## 2026-10-14 真實樣本競品實測與搜尋量補查
+
+本段更新同日上一輪「競品未實測／搜尋量未知」的範圍；舊紀錄保留。獨立無頭瀏覽器實測官方Lighthouse CI Diff Tool，沒有使用個人Chrome profile。用研究目錄本地Lighthouse12.6.1真跑Chrome官方文件頁的mobile A/B與desktop，原始JSON未手改。
+
+同設定mobile A/B可正常匯入並顯示Performance69→67（−2）、Best practices96→79（−17）及audit差異。相同網站改比較mobile A/desktop時顯示Performance85（+16），本輪完整頁面／控制項／title未直接提示formFactor與throttling不同。支持「先檢查可比性」的差異假說，不是聲稱競品明確宣告程式改善。兩份mobile沒有本站程式改動；分數差不是程式回歸證據。
+
+報告限制：mobile終端有Lantern dependency-cycle訊息、三份均有語系轉址warning，但無runtimeError；只能作匯入／條件提示測試，不作可靠效能因果實驗。跨major版本、缺欄位與不同URL尚未實測；官方fixtures另存但不冒充本輪真實執行。頁面未見原生比較摘要匯出控制，但不排除其他保存方式。
+
+替代方案：Lighthouse AI Metrics公開頁宣稱同monitor比較、noise及median處理；登入後功能NOT RUN，未建立帳號。故只確認匿名既有JSON比較器的本輪缺口，不能宣稱全市場獨家。排除重做基本兩檔分數／audit diff，維持既有兩報告邊界，不因多頁線索擴成監控服務。
+
+搜尋量：seodata.dev US lighthouse report 720/月、lighthouse ci 170/月均屬廣意圖；compare lighthouse reports、lighthouse diff、lighthouse comparison、lighthouse report comparison未取得正向量。API回0語義不明，Trends比較詞53週0且資料不足；都不能當零需求。沒有直接Google Ads匯出或第二份精確詞量，不能把report720歸給比較工具。
+
+決策：維持Medium、Needs Refinement、ordinal 2，排STW-34之後。下一門檻為實際報告使用者／可觸及分發途徑，及條件提示是否實際改變判讀／省時；尚不能以SEO機會啟動。AI操作比較未測，不宣稱AI不可替代。沒有實作、AC勾選或新卡。
+
+完整方法、來源、截圖、樣本與限制：research/competitor-validation-2026-10-14/README.md；樣本生成：samples-lighthouse.md；月量來源與原始資料：search-demand.md、search-demand-api.json。
+<!-- SECTION:NOTES:END -->

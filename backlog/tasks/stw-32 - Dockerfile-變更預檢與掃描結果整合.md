@@ -4,12 +4,15 @@ title: Dockerfile 變更預檢與掃描結果整合
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-cli-ci
   - later-delivery
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
@@ -22,13 +25,16 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/18_035246.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/16_033245.md
+  - 'https://github.com/hadolint/hadolint'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-other-cards.md
 priority: low
 type: feature
-ordinal: 35
+ordinal: 132
 ---
 
 ## Description
@@ -70,3 +76,19 @@ Dockerfile 靜態問題、image 掃描與實際體積結果常散落在不同工
 - [ ] #3 靜態輸入不自動執行 Docker build；需要建置時先明示執行範圍。
 - [ ] #4 輸出可審查報告與建議，保留誤判註記及可重現樣本。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+Hadolint 已有 CLI 與官方線上版本；整合掃描和可追溯修正不是 AI 文案，但無工具站新增價值證據。
+
+提升／重新納入條件：用真實 Dockerfile 對照現成 lint/scan，證明錯誤優先排序或核對省時。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

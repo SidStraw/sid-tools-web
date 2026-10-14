@@ -1,0 +1,44 @@
+[
+  {
+    "file": "research/competitor-validation-2026-10-14/outputs/imagekit-100kb/imagekit.lzw.me/icon-large.png",
+    "bytes": 26322,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "format": "PNG",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "9dc273a02d15dc84ae1734556183dd093d90a53ec97404b7b281327b011df787"
+  },
+  {
+    "file": "research/competitor-validation-2026-10-14/outputs/imagekit-100kb/imagekit.lzw.me/demo-device-screen.png",
+    "bytes": 466039,
+    "dimensions": [
+      706,
+      1442
+    ],
+    "format": "PNG",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "82715d3debc0fdcc6625078ae63df788846371f40a6a13763c4ad2dd672f1506"
+  },
+  {
+    "file": "research/competitor-validation-2026-10-14/outputs/imagekit-100kb/imagekit.lzw.me/demo-large-photo.jpg",
+    "bytes": 101096,
+    "dimensions": [
+      3872,
+      2592
+    ],
+    "format": "JPEG",
+    "alphaRange": [
+      255,
+      255
+    ],
+    "sha256": "9ec87cf433131441911783ebeded8c273a180826e9b2063d952e971be6da0384"
+  }
+]

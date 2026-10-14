@@ -1,0 +1,15 @@
+{
+  "file": "research/competitor-validation-2026-10-14/outputs/cp-screen-alpha.webp",
+  "bytes": 130530,
+  "dimensions": [
+    706,
+    1442
+  ],
+  "format": "WEBP",
+  "alphaRange": [
+    0,
+    255
+  ],
+  "alphaPixelsIdentical": true,
+  "sha256": "662e4f86cec20cf3f78c955250ee3bc8370f33ebc9ed53bc0c2b7ed68a198531"
+}

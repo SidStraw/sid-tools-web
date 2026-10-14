@@ -4,7 +4,7 @@ title: PostgreSQL EXPLAIN 計畫檢視：估計與實際執行差距
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
@@ -12,19 +12,25 @@ labels:
   - delivery-web
   - web-first
   - extension-cli
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/28_044441.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/12_042852.md
+  - 'https://github.com/dalibo/pev2'
+  - 'https://pev2.pages.dev/'
 documentation:
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
   - docs/product-direction.md
-priority: medium
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-pruning.md
+priority: low
 type: feature
-ordinal: 12
+ordinal: 112
 ---
 
 ## Description
@@ -75,3 +81,19 @@ ordinal: 12
 - [ ] #4 以固定 PostgreSQL 計畫範例驗證估計誤差提示，輸出不把建議冒充已實測改善。
 - [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+Low 保留比較門檻；不能將此卡稱為 AI SQL optimizer，它實際解析計畫。若只複製 viewer 則停止。 PEV2 官方持續提供計畫視覺化與單 HTML 完全離線模式；免費／本機本身不是差異。
+
+提升／重新納入條件：以至少 3 個真實計畫比較 PEV2，證明某種診斷理解任務的時間／正確率改善；補對應特定 query 的需求。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

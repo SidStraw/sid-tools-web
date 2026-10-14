@@ -1,0 +1,265 @@
+{
+  "date": "2026-10-14",
+  "method": "一般網頁搜尋抽樣，非固定地區 Google SERP；官方資料證明供給，不代表搜尋量。每項深度不同，未取證不是無需求。",
+  "cards": [
+    {
+      "id": "STW-1",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "env file compare missing variables dotenv validator online",
+        "env 範本 比對 缺少 變數 工具"
+      ],
+      "reason": "範本比對、缺漏與值差異已有瀏覽器及 VS Code 產品；本輪未找到獨立使用者願意改用本站的證據。",
+      "sources": [
+        "https://www.utility-grid.com/tools/developer/env-file-compare",
+        "https://marketplace.visualstudio.com/items?itemName=takeaseat-venture.env-diff"
+      ],
+      "reentry": "以真實部署案例證明既有工具無法處理的語法或重跑流程；本機／遮蔽本身不算差異。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null
+    },
+    {
+      "id": "STW-7",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "CSS selector specificity test HTML matches online",
+        "CSS 權重 選擇器 測試 工具"
+      ],
+      "reason": "權重計算與 DOM match 工具供給密集；未取得需要整合兩者的獨立需求，亦未實跑競品。",
+      "sources": [
+        "https://toolhuben.com/css-specificity-calculator/",
+        "https://www.toolhuben.com/css-selector-tester/"
+      ],
+      "reentry": "取得真實錯誤定位任務，證明比瀏覽器 DevTools／既有 tester 更省步驟。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null
+    },
+    {
+      "id": "STW-8",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site.docs.docker.com compose config validate"
+      ],
+      "reason": "官方 config 已含合併、插值與驗證；圖形仍可能有價值，但靜態 Web 與真實 Compose 環境語意差距未解除。",
+      "sources": [
+        "https://docs.docker.com/reference/cli/docker/compose/config",
+        "https://www.reddit.com/r/docker/comments/1cm97c0"
+      ],
+      "reentry": "取得不方便執行 Docker 的真實案例，驗證視覺圖是否比 config 輸出可理解。",
+      "demandEvidence": "有限直接回報",
+      "volume": null
+    },
+    {
+      "id": "STW-11",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "GraphQL schema diff breaking changes online",
+        "site:the-guild.dev graphql inspector diff breaking changes"
+      ],
+      "reason": "Inspector 已含 breaking/dangerous/safe 分類、使用量規則與 CI；現卡影響導航的使用者增量未證實。",
+      "sources": [
+        "https://the-guild.dev/graphql/inspector/docs/commands/diff"
+      ],
+      "reentry": "找實際 schema 審查，證明獨立 Web 導航比 Inspector／Hive 多完成一個必要任務。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null
+    },
+    {
+      "id": "STW-14",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "OpenAPI sample generator deterministic seed browser"
+      ],
+      "reason": "Redocly sampler 與 seeded mock 產品已有樣本生成；卡片的受限且經驗證 fixture 尚有品質假說，但無可比較流量證據。",
+      "sources": [
+        "https://github.com/Redocly/openapi-sampler",
+        "https://mock-server.com/versions/7.6.0/apidocs/org/mockserver/openapi/examples/SampleDataGenerator.html"
+      ],
+      "reentry": "用原 AC 範圍的 schema 比較有效率與錯誤定位；fixture 與 STW-24 server 保持區分。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null
+    },
+    {
+      "id": "STW-18",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:nx.dev project graph dependencies"
+      ],
+      "reason": "Nx 已提供圖、依賴路徑與靜態輸出；跨 package-manager 重複套件追蹤需 repo 整合，流量入口未證實。",
+      "sources": [
+        "https://nx.dev/docs/features/explore-graph"
+      ],
+      "reentry": "取得 Nx 現有流程不能完成且使用者要獨立工具的跨 workspace 案例。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null
+    },
+    {
+      "id": "STW-19",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:relative-ci.com bundle stats compare",
+        "site:bundlejs.com compare bundle size"
+      ],
+      "reason": "RelativeCI 已有跨 build 資產與模組、重複套件分析；需要 build metadata 的導入成本不能當成搜尋流量。",
+      "sources": [
+        "https://relative-ci.com/documentation/metrics-and-data"
+      ],
+      "reentry": "以同一組 build 報告證明歸因品質或比較成本的增量；不要用單套件體積取代真實 build。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null
+    },
+    {
+      "id": "STW-20",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:knip.dev unused dependencies exports",
+        "site:github.com knip false positives issues"
+      ],
+      "reason": "真實 issue #589（2024-04-08，已關閉）及 #1732（2026-05-08，已關閉）顯示誤報問題；Knip 已有 entry/plugin 診斷，不能把舊 bug 視為現行未解市場缺口。",
+      "sources": [
+        "https://knip.dev/guides/handling-issues",
+        "https://github.com/webpro-nl/knip/issues/589",
+        "https://github.com/webpro-nl/knip/issues/1732"
+      ],
+      "reentry": "證明現行版本可重現的複核負擔，先評估整合現成分析器，而非重寫。",
+      "demandEvidence": "有限直接回報",
+      "volume": null
+    },
+    {
+      "id": "STW-22",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:storybook.js.org docs automatic documentation props controls"
+      ],
+      "reason": "Storybook Autodocs 已從 metadata 產生 props/controls/stories；同步需求屬專案工作流，尚無獨立站入口證據。",
+      "sources": [
+        "https://storybook.js.org/docs/writing-docs/autodocs"
+      ],
+      "reentry": "取得特定框架文件漂移與現成工具無法處理案例，保留原同步 AC。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null
+    },
+    {
+      "id": "STW-23",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:docs.webhook.site replay requests"
+      ],
+      "reason": "Webhook.site 已有擷取、篩選與 replay；服務營運與敏感資料責任高。需求可能真實，但本站差異與獲客成本未證實。",
+      "sources": [
+        "https://docs.webhook.site/custom-actions",
+        "https://docs.webhook.site/news.html"
+      ],
+      "reentry": "證明特定事件調查或可覆核遮蔽流程優於既有工具，並估算每次使用成本。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null
+    },
+    {
+      "id": "STW-24",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:github.com stoplight prism mock OpenAPI",
+        "site:github.com stoplightio prism deterministic mock issues"
+      ],
+      "reason": "Prism 已有可呼叫 mock server 與驗證；#2723 為 Node 版本相容問題，不是另造服務需求。",
+      "sources": [
+        "https://github.com/stoplightio/prism/blob/main/docs/guides/01-mocking.md",
+        "https://github.com/stoplightio/prism/issues/2723"
+      ],
+      "reentry": "取得 Prism／既有 hosted mock 的實際未解流程，與 fixture 卡分開計算營運成本。",
+      "demandEvidence": "有限直接回報",
+      "volume": null
+    },
+    {
+      "id": "STW-25",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:github.com louislam uptime kuma features"
+      ],
+      "reason": "Uptime Kuma 已支援 HTTP/JSON query 等監控及通知；需要持續執行服務，無證據支持作工具站首波。",
+      "sources": [
+        "https://github.com/louislam/uptime-kuma"
+      ],
+      "reentry": "取得特殊監控工作與分發管道，證明既有 self-hosted／hosted 方案無法滿足。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null
+    },
+    {
+      "id": "STW-26",
+      "priority": "Low",
+      "action": "archive",
+      "queries": [
+        "rate limit simulator token bucket sliding window online",
+        "rate limit 模擬器 限流"
+      ],
+      "reason": "The Infinity 已有三種演算法、burst 流量與允許／拒絕預覽；互動本身不足差異，本輪未找到本站增量需求。",
+      "sources": [
+        "https://theinfinity.dev/simulators/rate-limiter",
+        "https://github.com/request-routing/ratelimit-simulator"
+      ],
+      "reentry": "重新納入須有真實流量案例與現成 simulator 缺口，不能只做動畫／演算法解說。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null
+    },
+    {
+      "id": "STW-30",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:getsops.io encrypted files dotenv"
+      ],
+      "reason": "SOPS 已支援 dotenv 與 exec-env；交接／部署前檢查仍可能成立，但信任、金鑰與 runtime 整合負擔高。",
+      "sources": [
+        "https://getsops.io/docs/",
+        "https://getsops.io/docs/usage/advanced/"
+      ],
+      "reentry": "取得有界交接失敗案例與採用意願，沿用成熟格式，不新增自製密碼格式。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null
+    },
+    {
+      "id": "STW-32",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:github.com hadolint hadolint Dockerfile linter"
+      ],
+      "reason": "Hadolint 已有 CLI 與官方線上版本；整合掃描和可追溯修正不是 AI 文案，但無工具站新增價值證據。",
+      "sources": [
+        "https://github.com/hadolint/hadolint"
+      ],
+      "reentry": "用真實 Dockerfile 對照現成 lint/scan，證明錯誤優先排序或核對省時。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null
+    },
+    {
+      "id": "STW-36",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:lychee.cli.rs markdown fragments anchors",
+        "site:github.com lychee markdown anchors issues"
+      ],
+      "reason": "Lychee 已支援 Markdown 相對檔案與 fragment 檢查；目前文件亦明示 renderer-specific 限制。以原卡 CLI/CI 整合範圍保留，非流量主力。",
+      "sources": [
+        "https://lychee.cli.rs/recipes/anchors/",
+        "https://lychee.cli.rs/guides/cli/"
+      ],
+      "reentry": "取得指定 renderer 的現行可重現漏判，以及願意改用工具的使用者。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null
+    }
+  ]
+}

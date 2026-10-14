@@ -4,12 +4,15 @@ title: 驗證截圖轉元件草稿與視覺差異檢查的可行性
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-web-ai
   - later-delivery
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
@@ -20,13 +23,17 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_06/05_044726.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/30_035819.md
+  - 'https://v0.app/docs/screenshots'
+  - 'https://screenshottocode.com/'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-pruning.md
 priority: low
 type: spike
-ordinal: 36
+ordinal: 133
 ---
 
 ## Description
@@ -68,3 +75,19 @@ Web 操作優先，以固定樣本取得元件草稿並比較渲染結果；先�
 - [ ] #3 記錄模型／工具版本、成本與重現限制，錯誤不能用人工補圖掩蓋。
 - [ ] #4 生成內容只能在隔離環境預覽，交付繼續／縮小／停止的研究結論。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+Low 延後研究 spike；不投入泛截圖生成器，不刪除既有評估義務，也不宣稱視覺差異等於功能正確。 v0 官方文件已有截圖生成，專業服務供給存在；這不是本卡評估矩陣已被實現的證據。
+
+提升／重新納入條件：合法固定樣本實測 v0 等基準，分別量測四種結果及成本；只有在特定缺口有可重現改善及需求證據時再開發。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

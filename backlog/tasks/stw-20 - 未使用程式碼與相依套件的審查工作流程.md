@@ -4,12 +4,15 @@ title: 未使用程式碼與相依套件的審查工作流程
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-cli-ci
   - later-delivery
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
@@ -18,13 +21,18 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/20_040225.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/28_042816.md
+  - 'https://knip.dev/guides/handling-issues'
+  - 'https://github.com/webpro-nl/knip/issues/589'
+  - 'https://github.com/webpro-nl/knip/issues/1732'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-other-cards.md
 priority: low
 type: feature
-ordinal: 27
+ordinal: 120
 ---
 
 ## Description
@@ -66,3 +74,19 @@ ordinal: 27
 - [ ] #3 支援基準與忽略原因，能區分新增問題和已接受的舊問題。
 - [ ] #4 預設不刪檔；任何修正另有預覽、可回復操作與建置驗證。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+真實 issue #589（2024-04-08，已關閉）及 #1732（2026-05-08，已關閉）顯示誤報問題；Knip 已有 entry/plugin 診斷，不能把舊 bug 視為現行未解市場缺口。
+
+提升／重新納入條件：證明現行版本可重現的複核負擔，先評估整合現成分析器，而非重寫。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

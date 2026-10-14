@@ -4,7 +4,7 @@ title: YAML 轉 .env：預覽扁平化規則與鍵名衝突
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
@@ -12,6 +12,8 @@ labels:
   - delivery-web
   - web-first
   - extension-cli
+  - demand-reviewed-2026-10-14
+  - excluded-standalone
 dependencies: []
 references:
   - >-
@@ -20,13 +22,17 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/28_055526.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/21_035139.md
+  - 'https://github.com/shirocola/yaml-to-env-converter'
+  - 'https://jsonkit.com/yaml-to-env'
 documentation:
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
   - docs/product-direction.md
-priority: high
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-pruning.md
+priority: low
 type: feature
-ordinal: 2
+ordinal: 902
 ---
 
 ## Description
@@ -77,3 +83,19 @@ ordinal: 2
 - [ ] #4 匯出結果可用選定的 dotenv 語法重新解析；變數內容不當作 shell 指令執行。
 - [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / archive。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+排除獨立開發排程；可能併入 STW-1 的設定前處理，但不擴充其 AC。不是判定無需求，也不是泛稱 AI 全面替代。 核心搜尋找到多個直接轉換產品及開源 repo；沒有取得獨立使用者頻率或搜尋量。
+
+提升／重新納入條件：至少 3 個真實部署轉換案例，證明免費基準發生可重現資料遺失／碰撞且願重複使用；再補對應 query 需求證據。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

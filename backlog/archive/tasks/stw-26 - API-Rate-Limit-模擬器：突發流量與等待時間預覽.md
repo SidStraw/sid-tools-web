@@ -4,12 +4,15 @@ title: API Rate Limit 模擬器：突發流量與等待時間預覽
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-web
   - web-first
+  - demand-reviewed-2026-10-14
+  - excluded-standalone
 dependencies: []
 references:
   - >-
@@ -18,13 +21,17 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/21_042241.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/10_041242.md
+  - 'https://theinfinity.dev/simulators/rate-limiter'
+  - 'https://github.com/request-routing/ratelimit-simulator'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
-priority: medium
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-other-cards.md
+priority: low
 type: feature
-ordinal: 18
+ordinal: 926
 ---
 
 ## Description
@@ -66,3 +73,19 @@ ordinal: 18
 - [ ] #3 參數非法、極端數量與同時到達請求有明確限制及規則。
 - [ ] #4 可匯出情境設定，結果標示 synthetic 且不發送任何測試請求。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / archive。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+The Infinity 已有三種演算法、burst 流量與允許／拒絕預覽；互動本身不足差異，本輪未找到本站增量需求。
+
+提升／重新納入條件：重新納入須有真實流量案例與現成 simulator 缺口，不能只做動畫／演算法解說。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

@@ -4,12 +4,15 @@ title: 驗證 TypeScript 型別展開與錯誤解釋工具的價值
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-ide
   - later-delivery
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
@@ -18,13 +21,19 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_06/10_044805.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/18_035246.md
+  - >-
+    https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-9.html
+  - 'https://github.com/microsoft/vscode/issues/94679'
+  - 'https://github.com/zed-industries/zed/issues/47360'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-pruning.md
 priority: low
 type: spike
-ordinal: 28
+ordinal: 121
 ---
 
 ## Description
@@ -66,3 +75,19 @@ conditional／mapped／generic 型別難以從 hover 看懂；IDE 可利用真�
 - [ ] #3 比較可理解性、回應時間與 tsconfig／版本差異並保存重現資料。
 - [ ] #4 產出繼續／縮小／停止建議及第一個可驗收場景，研究完成不等於 IDE 外掛已完成。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+Low 延後研究 spike，不把研究驗收當功能完成，也不因生成式 AI 而刪除。原生能力削弱泛用展開器差異，IDE 開發成本對流量站較高。 VS Code 舊使用者 issue 有明確需求；TypeScript 5.9 已預覽 expandable hovers；2026 Zed issue 指向特定 IDE 差異。
+
+提升／重新納入條件：原卡至少 5 個真實複雜型別案例；比較指定版本 VS Code/TS 原生展開與候選流程，能證明理解時間改善且有可取得的流量入口。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

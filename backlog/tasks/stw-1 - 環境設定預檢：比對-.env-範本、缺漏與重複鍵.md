@@ -4,7 +4,7 @@ title: 環境設定預檢：比對 .env 範本、缺漏與重複鍵
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
@@ -13,6 +13,8 @@ labels:
   - web-first
   - extension-cli
   - extension-ci
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
@@ -23,13 +25,18 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/25_033207.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/24_034550.md
+  - 'https://www.utility-grid.com/tools/developer/env-file-compare'
+  - >-
+    https://marketplace.visualstudio.com/items?itemName=takeaseat-venture.env-diff
 documentation:
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
   - docs/product-direction.md
-priority: high
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-other-cards.md
+priority: low
 type: feature
-ordinal: 1
+ordinal: 101
 ---
 
 ## Description
@@ -80,3 +87,19 @@ ordinal: 1
 - [ ] #4 提供可重現的正常、缺漏、重複與格式錯誤範例，說明 empty 與 missing 的差別。
 - [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+範本比對、缺漏與值差異已有瀏覽器及 VS Code 產品；本輪未找到獨立使用者願意改用本站的證據。
+
+提升／重新納入條件：以真實部署案例證明既有工具無法處理的語法或重跑流程；本機／遮蔽本身不算差異。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

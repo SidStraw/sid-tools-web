@@ -4,25 +4,32 @@ title: Webhook 收件、遮蔽與受控重送工作台
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-web-service
   - later-delivery
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/21_044613.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/23_040806.md
+  - 'https://docs.webhook.site/custom-actions'
+  - 'https://docs.webhook.site/news.html'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-other-cards.md
 priority: low
 type: feature
-ordinal: 30
+ordinal: 123
 ---
 
 ## Description
@@ -64,3 +71,19 @@ Web 介面加接收服務；先提供單人、自架或本機範圍，另行決�
 - [ ] #3 限制允許的目標與請求量，不把內部網路或任意公開位址當作無限制代理。
 - [ ] #4 能清除事件並記錄接收端曝露範圍；自架模式與公開託管的成本分開評估。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+Webhook.site 已有擷取、篩選與 replay；服務營運與敏感資料責任高。需求可能真實，但本站差異與獲客成本未證實。
+
+提升／重新納入條件：證明特定事件調查或可覆核遮蔽流程優於既有工具，並估算每次使用成本。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

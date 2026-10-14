@@ -1,0 +1,149 @@
+Lighthouse AI Metrics
+
+ProductReal usersRegionsPricingLearnBlogAPI
+
+Sign inStart free
+
+ProductReal usersRegionsPricingLearnBlogAPI
+
+Sign inStart free
+
+HomeCompare runs
+
+Run against run
+
+# Compare Lighthouse runs side by side, down to the request
+
+A score that fell twelve points is a question. Comparing the two runs turns it into a list: which metrics moved, which audits flipped, which requests appeared or grew, and what shipped in between.
+
+Start freeHow monitoring works
+
+2 monitors and 1 real-user site. No card. Compare any two completed runs on the same monitor, as far back as your plan keeps history.
+
+ScoresAll four categories, before, after and the change
+
+MetricsEvery metric with its delta, and noise labelled as noise
+
+AuditsThe ones that flipped or worsened, with what each measured
+
+RequestsAdded, removed and grown, by transfer size
+
+WeightPage weight and request count, by resource type
+
+ReleasesAny deploy marker recorded between the two runs
+
+The comparison
+
+## Where twelve points went
+
+Pick a before and an after. The scores come first as rings, then every metric as a row. A change too small to mean anything is labelled as noise instead of being dressed up as a delta, which keeps the rows that did move easy to find.
+
+- Performance 92 to 42, and the metric rows that account for it
+
+- Page weight 125 KB to 1.68 MB, with the resource type responsible
+
+- The audits that flipped, with the saving each one measured
+
+app.lighthouse-aimetrics.com/monitors/home-en/compare
+
+## How to compare two Lighthouse reports
+
+- Open the monitor for the page you care about.
+
+- Choose a run from before the change and a run from after it.
+
+- Read the rows marked as moved: the metrics first, then the audits that flipped and the requests that grew.
+
+Without picking anything
+
+## The run explains itself before you ask
+
+Choosing two runs is for when you want to look. When a run drops eight points or more on its own, it arrives already compared: the report carries a panel written against the median of recent runs, so the reason is on the page when you open it.
+
+Performance fell from 92 to 42 against the run of 5 Sept. LCP went from 2.6 s to 10.7 s, TBT from 0 ms to 2.5 s. Image grew by 1.57 MB. Audits that flipped: Improve image delivery, Reduce JavaScript execution time, Minimize main-thread work.The panel as it appeared on the demo workspace, unedited.
+
+Start freeAnd what to do about it
+
+app.lighthouse-aimetrics.com/monitors/home-en/runs
+
+## Your LCP is happening right now. Do you know the number?
+
+Add a URL and the first result is back within two minutes. Two monitors are free for as long as you like.
+
+Start freeSee the plans
+
+2 monitors and 1 real-user site. No card.
+
+Lighthouse AI Metrics
+
+Scheduled Lighthouse audits from 30 real server regions, with every report kept and a ranked fix list when a score drops.
+
+### Product
+
+- All features
+
+- Lighthouse monitoring
+
+- Real user monitoring
+
+- Core Web Vitals monitoring
+
+- Verified fixes
+
+- Compare runs
+
+- Chrome UX Report
+
+- Weekly report
+
+- Automated audits and CI
+
+- Web performance monitoring
+
+- Pricing
+
+- API reference
+
+### Learn
+
+- Core Web Vitals explained
+
+- Largest Contentful Paint
+
+- Total Blocking Time
+
+- Cumulative Layout Shift
+
+- First Contentful Paint
+
+- Time to First Byte
+
+- Speed Index
+
+- Blog
+
+### Compare
+
+- vs PageSpeed Insights
+
+- vs WebPageTest
+
+- vs DebugBear
+
+### Company and legal
+
+- Contact
+
+- Sign in
+
+- Create account
+
+- Privacy
+
+- Terms
+
+- Data processing
+
+- Refund policy
+
+© 2026 Lighthouse AI Metrics. All rights reserved.Lighthouse is a trademark of Google LLC. This service is not affiliated with Google.

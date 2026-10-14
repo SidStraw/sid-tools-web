@@ -4,12 +4,15 @@ title: API 範例推導 TypeScript／Zod：呈現型別依據與不確定性
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-web
   - web-first
+  - demand-reviewed-2026-10-14
+  - excluded-standalone
 dependencies: []
 references:
   - >-
@@ -20,13 +23,17 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_06/24_044317.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/31_033132.md
+  - 'https://quicktype.io/'
+  - 'https://github.com/weitaishan/schemato'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
-priority: medium
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-pruning.md
+priority: low
 type: feature
-ordinal: 21
+ordinal: 929
 ---
 
 ## Description
@@ -68,3 +75,19 @@ Web 貼上多份 JSON，展示 inferred 型別、missing／null 差異與使用�
 - [ ] #3 輸出可通過所選版本的型別／schema 驗證，且標明推導假設。
 - [ ] #4 原始範例只在瀏覽器處理；提供使用者確認選項與可重現輸出。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / archive。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+排除獨立生成器排程；保留樣本追溯研究線索，可未來與 STW-3 schema drift 評估整合。 quicktype 官方直接涵蓋多樣本、missing/null、union、Zod；Schemato 亦宣告多樣本瀏覽器輸出。
+
+提升／重新納入條件：至少 3 組真實 API 樣本能展示基準誤推造成實際返工，且來源追溯比現成工具可量測改善；不能只重述多樣本。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

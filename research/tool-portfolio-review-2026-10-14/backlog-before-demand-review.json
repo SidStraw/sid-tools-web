@@ -1,0 +1,3420 @@
+[
+  {
+    "id": "STW-1",
+    "title": "環境設定預檢：比對 .env 範本、缺漏與重複鍵",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "high",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "configuration",
+      "delivery-web",
+      "web-first",
+      "extension-cli",
+      "extension-ci"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/18_033023.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/31_033132.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/25_033207.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/24_034550.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 1,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-1 - 環境設定預檢：比對-.env-範本、缺漏與重複鍵.md",
+    "description": "## 使用情境與保留理由\n\n部署時常因少一個變數、重複鍵或空值失敗；單看 .env 語法無法知道是否符合專案範本。原始關鍵字支持驗證需求，雙檔比對是本次提出的產品切角。\n\n## 首版邊界\n\n貼上範本與待檢查的 .env，產生鍵名為主的預檢結果。首版以明確宣告的 dotenv 語法為準；不做加密、金鑰保管或遠端環境同步。\n\n## 差異與待驗證假設\n\n將範本比對、語法錯誤與敏感值遮蔽放在同一個免安裝流程；這是待驗證的使用價值，並非已證實市場缺口。\n\n## 關鍵字證據與合併\n\n- `env file validator online`：8 份報告出現。\n- `env validator online`：8 份報告出現。\n- `validate env vars`：5 份報告出現。\n\n本卡合併 16 個唯一關鍵字，來自 37 份報告、76 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: env-check）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/24_034550.md 至 logs/2026_08/31_033132.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI／CI 部署前檢查。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-1",
+      "nodes": [
+        {
+          "id": "STW-1",
+          "title": "環境設定預檢：比對 .env 範本、缺漏與重複鍵",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "兩份 .env 能辨識缺漏鍵、多餘鍵、重複鍵及空字串，結果可定位原始行號。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "引號、註解、等號與多行值依公開的支援規則處理；不支援的插值或語法明確標示，不執行輸入。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "畫面預設遮蔽值，匯出的檢查報告只含鍵名與問題，不含秘密值。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "提供可重現的正常、缺漏、重複與格式錯誤範例，說明 empty 與 missing 的差別。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-2",
+    "title": "YAML 轉 .env：預覽扁平化規則與鍵名衝突",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "high",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "configuration",
+      "delivery-web",
+      "web-first",
+      "extension-cli"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/08_032927.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/28_055526.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/21_035139.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 2,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-2 - YAML-轉-.env：預覽扁平化規則與鍵名衝突.md",
+    "description": "## 使用情境與保留理由\n\n把巢狀設定改為環境變數時，手動轉換容易遺失型別、引號或覆寫同名鍵，單純文字替換無法可靠完成。\n\n## 首版邊界\n\n本機輸入 YAML，預覽原始路徑到環境變數鍵名的對照後匯出 .env；不宣稱能把 Conda environment.yml 直接變成部署設定。\n\n## 差異與待驗證假設\n\n先呈現命名衝突和有損轉換，讓使用者能檢查再匯出，而不是只給轉換結果。\n\n## 關鍵字證據與合併\n\n- `yaml to environment variables converter`：17 份報告出現。\n- `yaml to env converter`：8 份報告出現。\n- `yaml to env online`：8 份報告出現。\n\n本卡合併 8 個唯一關鍵字，來自 17 份報告、64 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: yaml-env）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/21_035139.md 至 logs/2026_09/08_032927.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI 批次設定轉換。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-2",
+      "nodes": [
+        {
+          "id": "STW-2",
+          "title": "YAML 轉 .env：預覽扁平化規則與鍵名衝突",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "支援巢狀 mapping、字串、數字、布林與陣列的明確輸出規則，預覽每個來源路徑及鍵名。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "a.b 與 a_b 等扁平化衝突阻擋匯出，不能默默覆寫。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "空字串、null、換行、引號與特殊字元有可驗證的編碼規則；不支援的 YAML tag 或循環 alias 明確拒絕。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "匯出結果可用選定的 dotenv 語法重新解析；變數內容不當作 shell 指令執行。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-3",
+    "title": "API JSON 差異比較：忽略動態欄位並依識別鍵對齊陣列",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "high",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "api",
+      "delivery-web",
+      "web-first",
+      "extension-cli",
+      "extension-ci"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/18_035246.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/24_033520.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 3,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-3 - API-JSON-差異比較：忽略動態欄位並依識別鍵對齊陣列.md",
+    "description": "## 使用情境與保留理由\n\n比較兩次 API 回應時，timestamp、request ID 與陣列順序會淹沒真正的欄位變更。來源的回應差異需求很明確，但樣本不多，需求強度仍待驗證。\n\n## 首版邊界\n\n輸入兩份 JSON，設定忽略路徑與單一陣列識別鍵，產生結構化差異；不代呼叫遠端 API。\n\n## 差異與待驗證假設\n\n以 API 回歸檢查為切角；泛用 JSON diff 已有成熟工具，必須驗證可設定對齊與可匯出規則是否省時。\n\n## 關鍵字證據與合併\n\n- `json formatter and diff checker`：1 份報告出現。\n- `api response difference`：2 份報告出現。\n- `api same request different response`：2 份報告出現。\n\n本卡合併 5 個唯一關鍵字，來自 3 份報告、8 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: api-diff）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/18_035246.md 至 logs/2026_08/24_033520.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI／CI 回應 fixture 比較。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-3",
+      "nodes": [
+        {
+          "id": "STW-3",
+          "title": "API JSON 差異比較：忽略動態欄位並依識別鍵對齊陣列",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "比較結果區分新增、移除、值改變與型別改變，物件鍵順序不造成差異。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "忽略欄位規則可預覽且匯出報告會列出被忽略的路徑，避免把被排除的變更說成完全相同。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "陣列可依指定鍵對齊；重複或缺少識別鍵必須提示，不得任意配對。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "錯誤 JSON 能定位問題；大數字不因解析精度遺失被誤判相同，並提供可重現範例。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-4",
+    "title": "Markdown 表格整理與 JSON／試算表文字互轉",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "high",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "content",
+      "delivery-web",
+      "web-first",
+      "extension-cli"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/15_034940.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/08_042300.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/19_040534.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/22_042333.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 4,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-4 - Markdown-表格整理與-JSON／試算表文字互轉.md",
+    "description": "## 使用情境與保留理由\n\n文件與 issue 常要在試算表、API 範例與 Markdown 表格間搬資料，手工排版容易破壞欄位及特殊字元。\n\n## 首版邊界\n\n首版支援貼上 TSV、JSON 物件陣列與 GitHub Flavored Markdown 表格，提供表格預覽與複製；不讀取雲端試算表帳號。\n\n## 差異與待驗證假設\n\n同時處理貼上資料、欄位預覽與有損轉換提示，減少複製到 issue 後才發現表格壞掉的情況。\n\n## 關鍵字證據與合併\n\n- `markdown table formatter online`：1 份報告出現。\n- `markdown table to json`：1 份報告出現。\n- `markdown table generator from excel`：1 份報告出現。\n\n本卡合併 8 個唯一關鍵字，來自 4 份報告、8 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: markdown-table）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/15_034940.md 至 logs/2026_07/22_042333.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI 文件批次轉換。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-4",
+      "nodes": [
+        {
+          "id": "STW-4",
+          "title": "Markdown 表格整理與 JSON／試算表文字互轉",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "TSV 與 JSON 物件陣列可轉為 Markdown 表格，欄位順序可檢查，輸出符合指定的 GFM 子集。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "Markdown 表格可轉 JSON；重複或空白欄名、不同列長度會要求使用者處理。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "管線符號、反引號、空值、換行及前導零有明確保留或警告規則，不能默默改寫內容。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "提供預覽與複製／下載，正常與特殊字元範例可重現轉換結果。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-5",
+    "title": "Cron 排程預覽：時區對照、下次執行與 DST 提示",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "high",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "developer-tools",
+      "delivery-web",
+      "web-first",
+      "extension-cli",
+      "extension-ide"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/26_042516.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/29_032627.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/03_042558.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/19_035446.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/30_032855.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 5,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-5 - Cron-排程預覽：時區對照、下次執行與-DST-提示.md",
+    "description": "## 使用情境與保留理由\n\n看懂 Cron 的文字說明仍可能選錯伺服器時區或遇到 DST 缺時／重複時間。來源涵蓋 builder、validator、translator 與 visualizer，可合為一個排程檢查情境。\n\n## 首版邊界\n\n首版僅支援明確標示的五欄 Unix Cron，顯示指定 IANA 時區與使用者時區的下次執行時間；其他方言不混用。\n\n## 差異與待驗證假設\n\n繁中說明加上雙時區及 DST 邊界案例；一般 Cron 翻譯已有 crontab.guru，不能只複製基本轉譯。\n\n## 關鍵字證據與合併\n\n- `cron expression validator online`：2 份報告出現。\n- `cron expression visualizer`：3 份報告出現。\n- `cron to english online`：2 份報告出現。\n\n本卡合併 48 個唯一關鍵字，來自 33 份報告、90 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: cron）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/19_035446.md 至 logs/2026_08/30_032855.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI／IDE 的排程檢查。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-5",
+      "nodes": [
+        {
+          "id": "STW-5",
+          "title": "Cron 排程預覽：時區對照、下次執行與 DST 提示",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "有效五欄 Cron 顯示逐欄說明及未來 10 次執行時間，兩個時區的時間代表相同時刻。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "非法欄位、Quartz／AWS 等不支援方言明確提示，不能當成 Unix Cron 默默解析。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "DST 缺時與重複時間、月底及閏年有公開且可重現的計算規則與範例。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "可複製排程及時區資訊，說明預覽規則與真實排程器實作可能不同。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-6",
+    "title": "OpenAPI 合約差異檢查：區分 request 與 response 的相容性",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "high",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "api",
+      "delivery-web",
+      "web-first",
+      "extension-cli",
+      "extension-ci"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/07_041229.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/29_035902.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 6,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-6 - OpenAPI-合約差異檢查：區分-request-與-response-的相容性.md",
+    "description": "## 使用情境與保留理由\n\nAPI 規格改動需要知道消費端可能在哪裡壞掉，而不是只看 YAML 行差異；request 與 response 的 required 或 enum 變動方向也不同。\n\n## 首版邊界\n\n首版比較兩份 OpenAPI 3.0.x 文件的 path、operation、parameter、schema 與 response；3.1 和遠端 $ref 在確認支援前明確列為限制。\n\n## 差異與待驗證假設\n\n可定位原規格的相容性分類與原因，輸出方便放進變更審查；沒有完整判斷依據時顯示需人工判讀。\n\n## 關鍵字證據與合併\n\n- `openapi diff online`：2 份報告出現。\n- `openapi diff checker`：1 份報告出現。\n\n本卡合併 2 個唯一關鍵字，來自 2 份報告、3 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: openapi-diff）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/29_035902.md 至 logs/2026_04/07_041229.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI／CI 合約變更 gate。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-6",
+      "nodes": [
+        {
+          "id": "STW-6",
+          "title": "OpenAPI 合約差異檢查：區分 request 與 response 的相容性",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "辨識 endpoint 移除、參數必填改變、型別／enum／response 改動並保留 JSON Pointer 定位。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "request 與 response 分別採明示規則分類 breaking、non-breaking 或需人工判讀，不能只靠文字 diff。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "內部 $ref、循環引用與不支援版本有明確行為；缺少外部引用時不宣告完整相容。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "提供代表性相容／不相容 fixture 與可下載摘要，輸入文件的格式順序變動不產生假變更。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-7",
+    "title": "CSS selector 比較：特異性拆解與 HTML 命中預覽",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "frontend",
+      "delivery-web",
+      "web-first",
+      "extension-ide"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/24_042253.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/26_042516.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/24_034550.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/01_033208.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 7,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-7 - CSS-selector-比較：特異性拆解與-HTML-命中預覽.md",
+    "description": "## 使用情境與保留理由\n\n樣式衝突常混淆 selector 沒有命中與特異性不足，單一分數無法區分這兩種原因。\n\n## 首版邊界\n\n輸入小段 HTML 與數個 selector，同時查看命中元素與特異性拆解；首版不宣稱模擬完整 cascade、layer、動畫與瀏覽器樣式。\n\n## 差異與待驗證假設\n\n同頁連動 selector 命中與繁中解釋；既有 specificity calculator 已支援 Selectors Level 4，這裡需驗證教學與排錯流程的額外價值。\n\n## 關鍵字證據與合併\n\n- `css specificity calculator online`：12 份報告出現。\n- `css selector specificity calculator`：7 份報告出現。\n- `css selector tester online`：1 份報告出現。\n\n本卡合併 13 個唯一關鍵字，來自 18 份報告、42 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: css-specificity）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/24_034550.md 至 logs/2026_09/01_033208.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：IDE selector 診斷。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-7",
+      "nodes": [
+        {
+          "id": "STW-7",
+          "title": "CSS selector 比較：特異性拆解與 HTML 命中預覽",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "各 selector 顯示特異性三元組與貢獻來源，包含 :is、:not、:has、:where 的案例。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "在隔離的 HTML 預覽中標示命中元素，空命中與無效 selector 有不同提示。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "說明 specificity 不代表完整 cascade 結果，遇到未支援語法不能給出假精確排名。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "使用者提供的 HTML 不執行 script、不載入外部資源，可複製對照結果。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-8",
+    "title": "Docker Compose 靜態預檢與服務相依圖",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "configuration",
+      "delivery-web",
+      "web-first",
+      "extension-cli",
+      "extension-ci"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_03/24_040400.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_06/17_045338.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/31_044854.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/21_035139.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/03_043208.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 8,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-8 - Docker-Compose-靜態預檢與服務相依圖.md",
+    "description": "## 使用情境與保留理由\n\nCompose YAML 能解析不代表 service、network、volume 或 depends_on 引用合理；部署前看清引用關係可以提早找出漏寫名稱。\n\n## 首版邊界\n\n本機檔案的結構與引用檢查及相依圖；不連 Docker daemon、不拉 image、不宣稱服務一定啟動成功。\n\n## 差異與待驗證假設\n\n把 schema 問題與相依位置連到同一份原始檔；若支援規格過廣，先以單一 Compose 規格版本驗證。\n\n## 關鍵字證據與合併\n\n- `docker compose validator online`：3 份報告出現。\n- `docker compose yaml validator online`：1 份報告出現。\n- `docker compose visualizer online`：4 份報告出現。\n\n本卡合併 12 個唯一關鍵字，來自 9 份報告、23 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: compose）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/21_035139.md 至 logs/2026_07/03_043208.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI／CI Compose 預檢。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-8",
+      "nodes": [
+        {
+          "id": "STW-8",
+          "title": "Docker Compose 靜態預檢與服務相依圖",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "標示使用的 Compose 規格版本，結構問題可定位 YAML 路徑或行號。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "列出 service、network、volume 與 depends_on 關係，缺少引用對象及循環依賴有提示。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "未提供的環境變數與多檔合併需求明確顯示為未解析，不以空字串冒充有效設定。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "比較官方 Compose CLI 的固定範例結果，說明靜態通過不等於執行或健康檢查通過。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-9",
+    "title": "CSS 轉 Tailwind v4：支援範圍內轉換與未轉換項目清單",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "frontend",
+      "delivery-web",
+      "web-first",
+      "extension-cli",
+      "extension-ide"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/08_032927.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/16_034816.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 9,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-9 - CSS-轉-Tailwind-v4：支援範圍內轉換與未轉換項目清單.md",
+    "description": "## 使用情境與保留理由\n\n來源多次出現 CSS 到 Tailwind 轉換，但完整 CSS 語意不能靠逐字替換保證一致。值得探索的範圍是明確、可預覽的小段樣式搬移。\n\n## 首版邊界\n\n首版限定單一規則內的靜態 spacing、size、color 與基本 layout 宣告，明確標示 Tailwind v4；不自動搬整站。\n\n## 差異與待驗證假設\n\n完整列出已轉換、需 arbitrary value 與不支援項目，避免給出看似完成卻改變畫面的結果。\n\n## 關鍵字證據與合併\n\n- `css to tailwind converter online`：35 份報告出現。\n- `css to tailwind v4`：1 份報告出現。\n- `css to tailwind class converter`：56 份報告出現。\n\n本卡合併 13 個唯一關鍵字，來自 61 份報告、161 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: tailwind）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/16_034816.md 至 logs/2026_09/08_032927.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI 批次樣式轉換與 IDE 輔助。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-9",
+      "nodes": [
+        {
+          "id": "STW-9",
+          "title": "CSS 轉 Tailwind v4：支援範圍內轉換與未轉換項目清單",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "對支援的 CSS 宣告產生可用於指定 Tailwind v4 版本的 class，顯示逐項映射。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "selector、媒體查詢、變數、!important 或其他未支援特性不被靜默丟棄。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "衝突宣告與 arbitrary value 有明確處理，提供轉換前後可比較的固定範例。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "結果附 Tailwind 版本、限制與未轉換清單；不得宣稱任意 CSS 都能等價轉換。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-10",
+    "title": "Git diff 檢視與可分享的確定性變更摘要",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "developer-tools",
+      "delivery-web",
+      "web-first",
+      "extension-cli"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/19_035446.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/15_032722.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/17_034242.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 10,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-10 - Git-diff-檢視與可分享的確定性變更摘要.md",
+    "description": "## 使用情境與保留理由\n\n分享 patch 做討論時，對方未必有相同 checkout，原始 unified diff 又不容易快速掌握變動位置。\n\n## 首版邊界\n\n貼上 unified diff，提供檔案列表、hunk 導覽及由實際差異計算的摘要；不讀私人 repo、不依 AI 猜測改動意圖。\n\n## 差異與待驗證假設\n\n免帳號且能匯出遮蔽後的審查摘要；一般 diff viewer 已有很多，需先驗證這個交接流程。\n\n## 關鍵字證據與合併\n\n- `git diff viewer online`：1 份報告出現。\n- `git diff visualizer online`：1 份報告出現。\n- `git diff summary`：4 份報告出現。\n\n本卡合併 9 個唯一關鍵字，來自 11 份報告、36 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: git-diff）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/17_034242.md 至 logs/2026_08/15_032722.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI 產生 patch 審查摘要。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-10",
+      "nodes": [
+        {
+          "id": "STW-10",
+          "title": "Git diff 檢視與可分享的確定性變更摘要",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "依 diff 內容列出新增、刪除、修改與重新命名檔案及可對應的 hunk。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "二進位檔、截斷輸入與不支援 diff 格式明確提示，統計不冒充完整。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "摘要只描述可從 diff 證實的檔案與行數變化，能回到來源位置。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "使用者可在匯出前排除敏感路徑與 hunk；不自動公開分享或上傳 patch。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-11",
+    "title": "GraphQL schema 差異檢查與影響型別導覽",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "api",
+      "delivery-web",
+      "web-first",
+      "extension-cli",
+      "extension-ci"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_06/12_045343.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/04_033127.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_06/20_044432.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/26_040253.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 11,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-11 - GraphQL-schema-差異檢查與影響型別導覽.md",
+    "description": "## 使用情境與保留理由\n\nGraphQL schema 的欄位刪除、nullability 與 enum 改動可能影響既有查詢，單純 SDL 文字差異不容易審查。\n\n## 首版邊界\n\n比較兩份 SDL，列出變更與相關型別引用；只針對 schema 靜態相容性，不模擬 resolver 或連線至正式 API。\n\n## 差異與待驗證假設\n\n把變更、引用路徑與判斷原因一起呈現，保留需人工判讀的 directive 影響。\n\n## 關鍵字證據與合併\n\n- `graphql schema diff online`：1 份報告出現。\n- `graphql schema diff`：2 份報告出現。\n- `graphql schema checker online`：3 份報告出現。\n\n本卡合併 11 個唯一關鍵字，來自 9 份報告、25 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: graphql-diff）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_02/26_040253.md 至 logs/2026_09/04_033127.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI／CI schema 變更檢查。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-11",
+      "nodes": [
+        {
+          "id": "STW-11",
+          "title": "GraphQL schema 差異檢查與影響型別導覽",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "有效 SDL 可比較 type、field、argument、enum 與 nullability 的增刪改。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "分開 input 與 output 的相容性規則，標示 breaking／dangerous／non-breaking 及原因。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "無效 SDL、未解析 extension 或自訂 directive 的影響不能宣告安全。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "可依型別與欄位導覽並匯出結果，提供固定相容性範例核對。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-12",
+    "title": "PostgreSQL EXPLAIN 計畫檢視：估計與實際執行差距",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "database",
+      "delivery-web",
+      "web-first",
+      "extension-cli"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/28_044441.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/12_042852.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 12,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-12 - PostgreSQL-EXPLAIN-計畫檢視：估計與實際執行差距.md",
+    "description": "## 使用情境與保留理由\n\n只貼 SQL 無法可靠判斷瓶頸；實際 EXPLAIN ANALYZE 輸出能提供 rows、loops 與時間，適合做有根據的診斷輔助。\n\n## 首版邊界\n\n首版解析 PostgreSQL EXPLAIN FORMAT JSON 的既有輸出；不連資料庫、不執行查詢、不自動建立索引。\n\n## 差異與待驗證假設\n\n強調估計 rows 與 actual rows 的差距、loops 與節點關係；來源中的泛用 SQL optimizer 詞不等於能承諾自動最佳化。\n\n## 關鍵字證據與合併\n\n- `sql explain analyze visualizer`：1 份報告出現。\n- `sql explain analyze postgres`：1 份報告出現。\n- `sql query plan visualizer`：1 份報告出現。\n\n本卡合併 5 個唯一關鍵字，來自 2 份報告、5 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: sql-plan）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_05/12_042852.md 至 logs/2026_05/28_044441.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：本機 CLI 匯入既有 EXPLAIN 輸出。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-12",
+      "nodes": [
+        {
+          "id": "STW-12",
+          "title": "PostgreSQL EXPLAIN 計畫檢視：估計與實際執行差距",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "有效 plan 顯示節點樹、cost、rows、loops 與可用的 timing／buffer 欄位並回連原始 JSON。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "區分只有 EXPLAIN 與含 ANALYZE 的輸出；缺少實測資訊時不補造實際時間。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "明確說明 timing 與 loops 的呈現方式，不能直接相加重複計算父子節點時間。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "以固定 PostgreSQL 計畫範例驗證估計誤差提示，輸出不把建議冒充已實測改善。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-13",
+    "title": "SQL DDL 轉 ER 關聯圖與可匯出的資料表文件",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "database",
+      "delivery-web",
+      "web-first",
+      "extension-cli"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_06/30_044113.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_03/10_035755.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/30_035819.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/18_033023.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 13,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-13 - SQL-DDL-轉-ER-關聯圖與可匯出的資料表文件.md",
+    "description": "## 使用情境與保留理由\n\n已有建表 DDL 卻缺少可讀的關聯圖時，開發者需要快速看清外鍵與表結構，手工重畫容易跟原始 schema 不一致。\n\n## 首版邊界\n\n首版限定 PostgreSQL CREATE TABLE 與明示外鍵的子集；不連 DB、不猜測無外鍵的關聯、不處理 migration 執行。\n\n## 差異與待驗證假設\n\n從原始欄位定位到圖與文件，未支援 DDL 明確列出；是否優於現有 ERD 工具仍需以實際匯入案例驗證。\n\n## 關鍵字證據與合併\n\n- `database schema visualizer online`：7 份報告出現。\n- `database schema visualization tools`：5 份報告出現。\n- `sql schema visualizer online`：1 份報告出現。\n\n本卡合併 20 個唯一關鍵字，來自 11 份報告、37 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: schema-erd）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/30_035819.md 至 logs/2026_08/18_033023.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI 匯出 ERD 與文件。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-13",
+      "nodes": [
+        {
+          "id": "STW-13",
+          "title": "SQL DDL 轉 ER 關聯圖與可匯出的資料表文件",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "解析支援範圍內的資料表、欄位、主鍵與外鍵，圖上的關聯均能回到原始定義。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "複合鍵、自我引用與 schema-qualified 名稱有固定範例，無外鍵不自動編造關聯。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "未知方言或未支援 DDL 逐項顯示，不產生看似完整的錯誤 schema。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "可匯出 SVG 與資料表摘要；匯出保留表名、欄位與關聯的可讀性。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-14",
+    "title": "OpenAPI 回應範例產生器：可驗證、可重現的 mock fixture",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "api",
+      "delivery-web",
+      "web-first",
+      "extension-cli",
+      "extension-ci",
+      "extension-service"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/03_042558.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/01_033208.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/26_035558.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 14,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-14 - OpenAPI-回應範例產生器：可驗證、可重現的-mock-fixture.md",
+    "description": "## 使用情境與保留理由\n\n前端開發與測試需要符合 schema 的固定回應範例；架一個 mock server 常比取得一份可用 fixture 更費工。\n\n## 首版邊界\n\n首版限定 OpenAPI 3.0.x 選定 operation、status 與 JSON schema 子集，輸出本機 JSON fixture；不提供託管 API 或真正的網路模擬。\n\n## 差異與待驗證假設\n\n輸出對照 schema 的驗證結果與固定 seed；mock server 關鍵字僅提供鄰近意圖，不能當成離線 fixture 已有需求的證據。\n\n## 關鍵字證據與合併\n\n- `openapi mock data generator`：3 份報告出現。\n- `openapi mock generator`：2 份報告出現。\n- `api mock data generator`：4 份報告出現。\n\n本卡合併 10 個唯一關鍵字，來自 24 份報告、31 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: mock-fixtures）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/26_035558.md 至 logs/2026_09/01_033208.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI／CI fixture 產生；Mock API runtime 另有候選。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-14",
+      "nodes": [
+        {
+          "id": "STW-14",
+          "title": "OpenAPI 回應範例產生器：可驗證、可重現的 mock fixture",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "選擇 operation 與 response status 後可產生 JSON fixture，優先使用有效 example 並說明資料來源。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "相同文件、選項與 seed 得到相同結果；必填、enum、array 與基本限制在支援範圍內被驗證。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "遇到循環 $ref、未支援 oneOf／格式或外部引用時明確提示，不聲稱產物一定符合完整規格。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "可下載 fixture 與驗證摘要，所有資料為 synthetic 且不代替真實 API 契約測試。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-15",
+    "title": "Markdown 轉 HTML Email：表格、程式碼與複製預覽",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "content",
+      "delivery-web",
+      "web-first",
+      "extension-cli"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/06_032904.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/05_042144.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/29_035902.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 15,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-15 - Markdown-轉-HTML-Email：表格、程式碼與複製預覽.md",
+    "description": "## 使用情境與保留理由\n\n技術公告常先寫 Markdown，再貼到郵件時丟失表格或程式碼排版；需求與一般網頁 Markdown renderer 的輸出不同。\n\n## 首版邊界\n\n將有限 Markdown 子集轉為適合郵件貼上的 HTML 與純文字，提供預覽；不寄信、不整合信箱、不承諾所有郵件客戶端一致。\n\n## 差異與待驗證假設\n\n以技術公告的表格與程式碼為核心，列出 Gmail／Outlook 實測結果及不支援項目。\n\n## 關鍵字證據與合併\n\n- `markdown to email html`：8 份報告出現。\n- `markdown to email converter`：7 份報告出現。\n- `markdown email template`：3 份報告出現。\n\n本卡合併 12 個唯一關鍵字，來自 13 份報告、50 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: markdown-email）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/29_035902.md 至 logs/2026_09/06_032904.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI 技術公告內容產生。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-15",
+      "nodes": [
+        {
+          "id": "STW-15",
+          "title": "Markdown 轉 HTML Email：表格、程式碼與複製預覽",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "標題、段落、清單、連結、表格與程式碼區塊能輸出 HTML 與純文字。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "外部 script、危險連結與原始 HTML 有明確清理規則；預覽不執行使用者內容。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "提供複製 HTML 與下載結果，保留表格文字與程式碼空白。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "完成前在選定 Gmail／Outlook 版本驗證代表性範例，記錄差異及限制；未驗證平台不得宣稱相容。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-16",
+    "title": "Lighthouse 報告比較：區分指標變化與測試條件差異",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "performance",
+      "delivery-web",
+      "web-first",
+      "extension-cli",
+      "extension-ci"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/05_032812.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 16,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-16 - Lighthouse-報告比較：區分指標變化與測試條件差異.md",
+    "description": "## 使用情境與保留理由\n\n兩份 Lighthouse 分數不同可能來自測試環境或版本，而非程式改動；需要先確認可比性再看 audit 變化。\n\n## 首版邊界\n\n上傳兩份既有 Lighthouse JSON，檢查版本、URL、裝置及節流設定後比較指標與 audit；不執行遠端掃描、不建立持續監控服務。\n\n## 差異與待驗證假設\n\n先揭露量測條件差異，避免把單次分數上升當成改善證據，並讓使用者匯出可審查的對照。\n\n## 關鍵字證據與合併\n\n- `lighthouse report diff tool`：1 份報告出現。\n- `lighthouse report compare`：1 份報告出現。\n- `lighthouse comparison`：1 份報告出現。\n\n本卡合併 3 個唯一關鍵字，來自 1 份報告、3 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: lighthouse-diff）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_09/05_032812.md 至 logs/2026_09/05_032812.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI／CI 既有 Lighthouse 報告比較。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-16",
+      "nodes": [
+        {
+          "id": "STW-16",
+          "title": "Lighthouse 報告比較：區分指標變化與測試條件差異",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "比較指定支援版本的 category、metric 與 audit，缺少欄位標為 unavailable 而非 0。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "明顯不同的 URL、form factor、throttling 或 major version 顯示可比性警告。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "區分數值變化與因果推論，不宣稱單次報告已證實效能提升。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "可匯出含量測條件、原始值與差值的報告，以固定 JSON 範例驗證。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-17",
+    "title": "Sitemap XML 預檢與站點結構瀏覽",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "seo",
+      "delivery-web",
+      "web-first",
+      "extension-cli",
+      "extension-ci"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/06_042236.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/14_041904.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/31_035735.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 17,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-04T15:33:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-17 - Sitemap-XML-預檢與站點結構瀏覽.md",
+    "description": "## 使用情境與保留理由\n\n網站部署前需要檢查 sitemap 格式、重複網址與路徑分布；只有 XML 語法驗證不容易發現產生器輸出異常。\n\n## 首版邊界\n\n本機輸入 sitemap 或 sitemap index，顯示靜態問題與 URL 路徑樹；不爬站、不保證收錄、不以檔案內容判斷 HTTP 狀態。\n\n## 差異與待驗證假設\n\n將格式問題與路徑分布一起呈現，適合部署前的人工檢查；需再驗證相較既有免費工具的便利性。\n\n## 關鍵字證據與合併\n\n- `sitemap validator online`：1 份報告出現。\n- `sitemap validator file`：2 份報告出現。\n- `visual sitemap from xml`：1 份報告出現。\n\n本卡合併 7 個唯一關鍵字，來自 3 份報告、9 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: sitemap）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/31_035735.md 至 logs/2026_08/06_042236.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI／CI sitemap 產物預檢。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-17",
+      "nodes": [
+        {
+          "id": "STW-17",
+          "title": "Sitemap XML 預檢與站點結構瀏覽",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "依明示 sitemap 規格檢查結構、必要欄位與 URL，問題可定位原始條目。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "重複 URL、無效 lastmod、混合 host 或超出支援大小有可理解的提示與限制。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "提供路徑樹與過濾列表，sitemap index 的子檔未載入時明確標示未檢查。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "XML 不解析外部實體、不自動請求列出的 URL，匯出報告不宣稱 Google 已收錄。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-26",
+    "title": "API Rate Limit 模擬器：突發流量與等待時間預覽",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-web",
+      "web-first"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/02_033041.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/21_042241.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/10_041242.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 18,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-26 - API-Rate-Limit-模擬器：突發流量與等待時間預覽.md",
+    "description": "## 使用情境與發展空間\n\n選擇 token bucket／window 參數前，開發者需要了解突發流量、拒絕比例與等待時間，這可先做純 Web 模擬。\n\n## 交付形式與首版邊界\n\n主要形式：web。順序：Web 優先候選。\n\n輸入合成請求時序及限流參數，明示演算法假設並顯示結果；不向真實 API 壓測。\n\n## 延伸方向與相鄰題目\n\n後續可匯出設定範例或匯入去識別的流量摘要；不把模擬直接視為供應商的實際行為。\n\n## 關鍵字來源與合併\n\n代表原始詞：`api rate limit calculator`; `api rate limit tester`; `api rate limit threshold`。\n\n本題合併 13 個相關唯一詞，來自 9 份報告、23 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: rate-limit-sim）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-26",
+      "nodes": [
+        {
+          "id": "STW-26",
+          "title": "API Rate Limit 模擬器：突發流量與等待時間預覽",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "至少兩種明示的限流演算法能重現固定請求序列的接受／拒絕結果。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "圖表顯示 token／window 狀態、等待時間與邊界行為。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "參數非法、極端數量與同時到達請求有明確限制及規則。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "可匯出情境設定，結果標示 synthetic 且不發送任何測試請求。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-27",
+    "title": "Markdown 到 Confluence 的格式損失預檢與匯入輔助",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-web-integration",
+      "web-first"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/22_044158.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/09_041123.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/13_055344.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 19,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-27 - Markdown-到-Confluence-的格式損失預檢與匯入輔助.md",
+    "description": "## 使用情境與發展空間\n\n轉換價值在表格、程式碼區塊、連結及版本差異的可預測性；有既有轉換器不代表所有交接需求已滿足。\n\n## 交付形式與首版邊界\n\n主要形式：web-integration。順序：Web 優先候選。\n\nWeb 預覽與損失清單優先，先選 Cloud 或 Data Center 的一種目標；帳號寫入作為後續明確操作。\n\n## 延伸方向與相鄰題目\n\n可發展批次文件移轉與內容同步；與 STW-4 的一般表格整理分開，這張承擔目標平台語意。\n\n## 關鍵字來源與合併\n\n代表原始詞：`markdown to confluence converter online`; `markdown to confluence table converter`。\n\n本題合併 11 個相關唯一詞，來自 8 份報告、22 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: confluence-import）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-27",
+      "nodes": [
+        {
+          "id": "STW-27",
+          "title": "Markdown 到 Confluence 的格式損失預檢與匯入輔助",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "明示目標 Confluence 版本／內容表示法，產出對應轉換與逐項損失清單。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "以表格、code block、相對連結與圖片案例對照實際目標平台結果。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "unsupported macro 或格式不宣告保真，保留原始資料及定位。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "若提供直接匯入，必須預覽目的頁、變更及授權範圍，再由使用者明確送出。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-28",
+    "title": "Markdown 到 Notion 的批次結構與連結保留檢查",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-web-integration",
+      "web-first"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/27_050301.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_03/15_041152.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 20,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-28 - Markdown-到-Notion-的批次結構與連結保留檢查.md",
+    "description": "## 使用情境與發展空間\n\nNotion 已支援匯入；可發展空間是批次文件間連結、附件與不支援 block 的損失檢查，而非再做普通上傳器。\n\n## 交付形式與首版邊界\n\n主要形式：web-integration。順序：Web 優先候選。\n\nWeb 先預覽文件樹與預計 block 映射，對照原生匯入結果；只保留證實額外省時的步驟。\n\n## 延伸方向與相鄰題目\n\n可延伸受控 API 匯入與可重試的移轉作業；與 Confluence 共用哪些解析能力留待驗證，不強行共用目標格式。\n\n## 關鍵字來源與合併\n\n代表原始詞：`markdown to notion blocks`; `markdown to notion api`; `markdown to notion converter`。\n\n本題合併 7 個相關唯一詞，來自 9 份報告、28 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: notion-import）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-28",
+      "nodes": [
+        {
+          "id": "STW-28",
+          "title": "Markdown 到 Notion 的批次結構與連結保留檢查",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "以至少 3 個含相對連結、圖片與巢狀文件的樣本比較原生匯入。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "逐項標示保留、降級與無法處理的 block，保留來源路徑對照。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "API 匯入若啟用，須有目的地預覽、已匯入項目對照與避免重複建立的策略。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "若沒有可證明的額外價值，交付停止或縮小範圍的結論，不以原生功能包裝冒充新能力。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-29",
+    "title": "API 範例推導 TypeScript／Zod：呈現型別依據與不確定性",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-web",
+      "web-first"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/07_041011.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/13_042419.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_06/24_044317.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/31_033132.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 21,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-29 - API-範例推導-TypeScript／Zod：呈現型別依據與不確定性.md",
+    "description": "## 使用情境與發展空間\n\n從一份 JSON 猜 schema 容易把偶然出現的值視為必填或 enum；可發展多份樣本對照及推導依據，與單純程式碼產生器區分。\n\n## 交付形式與首版邊界\n\n主要形式：web。順序：Web 優先候選。\n\nWeb 貼上多份 JSON，展示 inferred 型別、missing／null 差異與使用者確認的限制，再匯出 TypeScript 或 Zod。\n\n## 延伸方向與相鄰題目\n\n後續可提供 CLI 與 CI schema drift 檢查；quicktype 等既有工具是基準，不能假設本題已填補市場缺口。\n\n## 關鍵字來源與合併\n\n代表原始詞：`json to typescript interface`; `json to typescript type generator`; `typescript interface to zod`。\n\n本題合併 29 個相關唯一詞，來自 12 份報告、33 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: sample-types）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-29",
+      "nodes": [
+        {
+          "id": "STW-29",
+          "title": "API 範例推導 TypeScript／Zod：呈現型別依據與不確定性",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "每個推導欄位可追到樣本，區分 absent、null、空陣列及異質型別。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "不可只因單一樣本推定 enum、字串格式或商業驗證限制。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "輸出可通過所選版本的型別／schema 驗證，且標明推導假設。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "原始範例只在瀏覽器處理；提供使用者確認選項與可重現輸出。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-34",
+    "title": "批次圖片最佳化：依目標大小與尺寸預算匯出",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-web",
+      "web-first"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/17_042019.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/15_043727.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/23_042955.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/12_041935.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 22,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-34 - 批次圖片最佳化：依目標大小與尺寸預算匯出.md",
+    "description": "## 使用情境與發展空間\n\n上架素材常受檔案大小、尺寸與透明背景限制；以輸出預算為目標比單純換副檔名更有操作價值。\n\n## 交付形式與首版邊界\n\n主要形式：web。順序：Web 優先候選。\n\n先在瀏覽器批次處理常見靜態圖片，提供前後預覽、每檔結果及 ZIP 下載。\n\n## 延伸方向與相鄰題目\n\n未來可提供 CLI 處理大量素材；保持同一產品候選，不依 Web／CLI 重複開卡。\n\n## 關鍵字來源與合併\n\n代表原始詞：`batch webp converter`; `bulk webp converter free`; `webp compression settings`。\n\n本題合併 11 個相關唯一詞，來自 4 份報告、12 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: batch-images）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-34",
+      "nodes": [
+        {
+          "id": "STW-34",
+          "title": "批次圖片最佳化：依目標大小與尺寸預算匯出",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "使用者設定尺寸、格式及檔案大小預算，結果逐檔顯示是否符合。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "透明度、方向與動畫的支援範圍明示，不能默默丟掉畫格或背景。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "無法達到預算時保留結果和原因，不假報成功；可比較壓縮前後畫面。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "批次有容量限制、取消與清除功能，原始圖片不自動上傳。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-35",
+    "title": "圖片色盤到可讀的介面配色與 token 匯出",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-web",
+      "web-first"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/22_032903.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/09_041123.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/27_035349.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 23,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-35 - 圖片色盤到可讀的介面配色與-token-匯出.md",
+    "description": "## 使用情境與發展空間\n\n從品牌圖取色後仍需決定文字／背景搭配並檢查對比；可整合成從素材到介面 token 的流程。\n\n## 交付形式與首版邊界\n\n主要形式：web。順序：Web 優先候選。\n\nWeb 取色與手動調整，明示對比計算規則，匯出 CSS variables 及可選的框架 token。\n\n## 延伸方向與相鄰題目\n\n可延伸亮／暗主題與設計系統整合；不是把單一對比值宣稱為整站無障礙合格。\n\n## 關鍵字來源與合併\n\n代表原始詞：`color palette extractor from image`; `color contrast checker wcag`; `tailwind color palette generator`。\n\n本題合併 36 個相關唯一詞，來自 18 份報告、72 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: palette-a11y）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-35",
+      "nodes": [
+        {
+          "id": "STW-35",
+          "title": "圖片色盤到可讀的介面配色與 token 匯出",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "色盤與選取的前景／背景能即時預覽，透明度及混色條件明確。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "對比結果列出所用標準與文字條件，提供已知參考值核對。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "匯出具可讀名稱的 token 並保持與預覽一致，未通過的組合不隱藏。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "來源圖片留在瀏覽器，說明色彩對比檢查無法代替完整無障礙驗證。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-37",
+    "title": "SemVer 範圍與升級條件的互動式檢查",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-web",
+      "web-first"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/08_042300.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/03_040231.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/21_035139.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 24,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-37 - SemVer-範圍與升級條件的互動式檢查.md",
+    "description": "## 使用情境與發展空間\n\ncaret、tilde、0.x 與 prerelease 的匹配規則容易被誤解，適合以版本集合和具體差異做 Web 說明。\n\n## 交付形式與首版邊界\n\n主要形式：web。順序：Web 優先候選。\n\n輸入版本清單與範圍，顯示匹配／不匹配及條件變更；不把版本號等同實際相容性。\n\n## 延伸方向與相鄰題目\n\n可延伸套件管理器規則比較與 CLI；先選定一種規則實作及版本。\n\n## 關鍵字來源與合併\n\n代表原始詞：`semantic version checker online`; `semantic version validator`; `npm semantic version checker`。\n\n本題合併 9 個相關唯一詞，來自 3 份報告、10 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: semver）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-37",
+      "nodes": [
+        {
+          "id": "STW-37",
+          "title": "SemVer 範圍與升級條件的互動式檢查",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "以已知版本集合驗證精確版本、範圍、caret、tilde 及 prerelease 行為。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "0.x、無效版本與不支援語法給出明確解釋，不猜測匹配結果。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "比較兩個範圍時列出新增／移除的匹配版本及理由。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "清楚區分 SemVer 宣告與實際 API 相容性，所有計算可在瀏覽器重現。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-18",
+    "title": "Monorepo 相依圖與重複套件追蹤",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "low",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-local-cli-web",
+      "later-delivery"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_06/17_045338.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/16_033245.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/17_033251.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/08_041306.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/08_032927.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 25,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-18 - Monorepo-相依圖與重複套件追蹤.md",
+    "description": "## 使用情境與發展空間\n\n大型專案難以追查套件為何被引入、重複版本來自哪些 workspace。需要讀取 repo 不再是排除理由。\n\n## 交付形式與首版邊界\n\n主要形式：local-cli-web。順序：後續交付／較高成本探索。\n\n先支援一種明示版本的 lockfile 與 workspace 設定；本機 CLI 收集，Web 檢視直接／間接相依與重複版本。\n\n## 延伸方向與相鄰題目\n\n後續可加入版本升級影響與 CI 差異報告；未使用程式碼另見對應候選，這張只回答相依關係。\n\n## 關鍵字來源與合併\n\n代表原始詞：`monorepo dependency graph`; `npm find duplicate packages`; `dependency graph visualization online`。\n\n本題合併 30 個相關唯一詞，來自 26 份報告、63 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: dependency-graph）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-18",
+      "nodes": [
+        {
+          "id": "STW-18",
+          "title": "Monorepo 相依圖與重複套件追蹤",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "每條邊可追到 manifest／lockfile，能查出某套件由哪些 workspace 引入。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "同名多版本與 peer context 有清楚區分，不直接把每個重複版本判定為可刪。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "遇到不支援 lockfile 或不完整資料顯示限制；不執行 repo 內任意 script。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "本機輸出可由 Web 開啟並移除機密路徑；不預設上傳整個 repo。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-19",
+    "title": "Bundle 變化分析：從體積增加追到套件與入口",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "low",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-local-cli-web",
+      "later-delivery"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/03_043208.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/17_034242.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/08_034536.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 26,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-19 - Bundle-變化分析：從體積增加追到套件與入口.md",
+    "description": "## 使用情境與發展空間\n\n只有 build 大小警告無法知道是哪個 import 或共用 chunk 造成成長；這是需真實 build 資料的工具機會。\n\n## 交付形式與首版邊界\n\n主要形式：local-cli-web。順序：後續交付／較高成本探索。\n\n先支援一個 bundler 的固定報告格式，比較 base／candidate 兩次產物並用 Web 呈現。\n\n## 延伸方向與相鄰題目\n\n可延伸 CI 體積預算與 PR 報告；與 Lighthouse 的 runtime audit 比較分開。\n\n## 關鍵字來源與合併\n\n代表原始詞：`bundle size analyzer vite`; `bundle size analyzer online`; `npm package size comparison`。\n\n本題合併 12 個相關唯一詞，來自 7 份報告、19 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: bundle-diff）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-19",
+      "nodes": [
+        {
+          "id": "STW-19",
+          "title": "Bundle 變化分析：從體積增加追到套件與入口",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "區分 raw、gzip 與可取得的其他壓縮大小，明列量測環境與入口。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "變化能追到 module／package／chunk，無法歸因的部分明確保留。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "不同 build 設定或缺少 metadata 時提示不可直接比較。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "先提供唯讀差異與預算判定，不自動移除套件或重寫 imports。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-20",
+    "title": "未使用程式碼與相依套件的審查工作流程",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "low",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-cli-ci",
+      "later-delivery"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/22_035403.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/20_040225.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/28_042816.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 27,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-20 - 未使用程式碼與相依套件的審查工作流程.md",
+    "description": "## 使用情境與發展空間\n\n清理專案需要可追溯候選與誤判處理，不只是一份 unused 名單。既有 Knip 等引擎可作為整合候選。\n\n## 交付形式與首版邊界\n\n主要形式：cli-ci。順序：後續交付／較高成本探索。\n\n先聚焦 JS／TS repo 的唯讀分析；CSS 若無 runtime coverage 只列候選，不宣告可安全刪除。\n\n## 延伸方向與相鄰題目\n\n延伸為 baseline、忽略原因、CI 增量審查與 IDE 導覽；先驗證整合價值，不重造所有分析引擎。\n\n## 關鍵字來源與合併\n\n代表原始詞：`dead code detector typescript`; `unused code detector`; `detect unused css`。\n\n本題合併 5 個相關唯一詞，來自 3 份報告、5 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: unused-review）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-20",
+      "nodes": [
+        {
+          "id": "STW-20",
+          "title": "未使用程式碼與相依套件的審查工作流程",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "每個候選包含來源、分析引擎版本、入口設定及判定依據。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "dynamic import、框架隱式入口及外部消費的 exports 顯示限制。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "支援基準與忽略原因，能區分新增問題和已接受的舊問題。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "預設不刪檔；任何修正另有預覽、可回復操作與建置驗證。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-21",
+    "title": "驗證 TypeScript 型別展開與錯誤解釋工具的價值",
+    "status": "Needs Refinement",
+    "type": "spike",
+    "priority": "low",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-ide",
+      "later-delivery"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/13_042615.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_06/10_044805.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/18_035246.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 28,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-21 - 驗證-TypeScript-型別展開與錯誤解釋工具的價值.md",
+    "description": "## 使用情境與發展空間\n\nconditional／mapped／generic 型別難以從 hover 看懂；IDE 可利用真實專案設定取得比孤立片段更有用的上下文。\n\n## 交付形式與首版邊界\n\n主要形式：ide。順序：後續交付／較高成本探索。\n\n先用一種固定 TypeScript 版本比較既有 hover 與候選的展開／定位成果；不承諾自動改正型別。\n\n## 延伸方向與相鄰題目\n\n可發展 Web Playground 示範與 IDE 深入檢視；是否共用能力要由原型證據決定。\n\n## 關鍵字來源與合併\n\n代表原始詞：`typescript type expansion`; `typescript type debug`; `typescript debug type inference`。\n\n本題合併 6 個相關唯一詞，來自 6 份報告、11 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: ts-type-explorer）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-21",
+      "nodes": [
+        {
+          "id": "STW-21",
+          "title": "驗證 TypeScript 型別展開與錯誤解釋工具的價值",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "整理至少 5 個真實複雜型別案例與既有工具基準。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "展開結果以 TypeScript compiler 的實際結果為準，無法解析不得補造。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "比較可理解性、回應時間與 tsconfig／版本差異並保存重現資料。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "產出繼續／縮小／停止建議及第一個可驗收場景，研究完成不等於 IDE 外掛已完成。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-22",
+    "title": "元件 Props 文件與使用範例的同步檢查",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "low",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-cli-ci",
+      "later-delivery"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/11_041145.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 29,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-22 - 元件-Props-文件與使用範例的同步檢查.md",
+    "description": "## 使用情境與發展空間\n\nProps 型別更新後文件與範例容易落後；此題適合讀取專案，原先純瀏覽器限制不應阻擋。\n\n## 交付形式與首版邊界\n\n主要形式：cli-ci。順序：後續交付／較高成本探索。\n\n先選一種元件框架與明示語法子集，提取 Props 並比對既有文件，Web 提供唯讀預覽。\n\n## 延伸方向與相鄰題目\n\n可延伸設計系統文件、Story 範例與 IDE 導覽；框架選擇留待首個實際專案決定。\n\n## 關鍵字來源與合併\n\n代表原始詞：`react extract component props`; `props-extract`。\n\n本題合併 2 個相關唯一詞，來自 1 份報告、2 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: component-docs）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-22",
+      "nodes": [
+        {
+          "id": "STW-22",
+          "title": "元件 Props 文件與使用範例的同步檢查",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "Props 名稱、型別、必填與可靜態確認的預設值能回連原始定義。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "動態或無法解析的值顯示未知，不能捏造預設值。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "新增、刪除與變更 Props 的文件差異可檢視，使用者決定是否套用。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "提供固定案例驗證輸出；首版不載入或執行未受信任的元件程式碼。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-23",
+    "title": "Webhook 收件、遮蔽與受控重送工作台",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "low",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-web-service",
+      "later-delivery"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/21_044613.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/23_040806.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 30,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-23 - Webhook-收件、遮蔽與受控重送工作台.md",
+    "description": "## 使用情境與發展空間\n\n整合外部事件時需要保存原始請求、檢查格式並重現失敗。已有 Webhook.site，應驗證本機／自架與可控重送的工作流程差異。\n\n## 交付形式與首版邊界\n\n主要形式：web-service。順序：後續交付／較高成本探索。\n\nWeb 介面加接收服務；先提供單人、自架或本機範圍，另行決定外部服務如何安全到達接收端。\n\n## 延伸方向與相鄰題目\n\n可發展事件情境組、簽章驗證 adapter、團隊協作；不是 STW-3 的兩份靜態回應比較。\n\n## 關鍵字來源與合併\n\n代表原始詞：`webhook test server`; `webhook test site`; `webhook testing free`。\n\n本題合併 5 個相關唯一詞，來自 3 份報告、6 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: webhook-debug）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-23",
+      "nodes": [
+        {
+          "id": "STW-23",
+          "title": "Webhook 收件、遮蔽與受控重送工作台",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "顯示收件時間、method、headers 與 body，敏感欄位可遮蔽並有保留期限。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "重送先預覽目標與內容並由使用者明確觸發，結果保留對應來源事件。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "限制允許的目標與請求量，不把內部網路或任意公開位址當作無限制代理。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "能清除事件並記錄接收端曝露範圍；自架模式與公開託管的成本分開評估。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-24",
+    "title": "可切換情境的 OpenAPI Mock API 服務",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "low",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-web-service",
+      "later-delivery"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/09_035100.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/06_044458.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/11_040629.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/03_040231.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/01_033208.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 31,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-24 - 可切換情境的-OpenAPI-Mock-API-服務.md",
+    "description": "## 使用情境與發展空間\n\n前端整合需要真的可呼叫 endpoint，以及延遲、錯誤與不同 response 情境，這超過下載 fixture 的需求。\n\n## 交付形式與首版邊界\n\n主要形式：web-service。順序：後續交付／較高成本探索。\n\n先跑本機單一 OpenAPI 合約的 mock service，Web 選擇情境；Prism 等既有引擎列為優先比較基準。\n\n## 延伸方向與相鄰題目\n\n與 STW-14 的 fixture 能力可協作；後續可加入 CI 啟動與團隊分享，先不承諾多租戶平台。\n\n## 關鍵字來源與合併\n\n代表原始詞：`openapi mock server generator`; `openapi to mock server`; `api mock server online`。\n\n本題合併 13 個相關唯一詞，來自 15 份報告、28 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: mock-runtime）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-24",
+      "nodes": [
+        {
+          "id": "STW-24",
+          "title": "可切換情境的 OpenAPI Mock API 服務",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "依 operation／status 選擇固定 fixture 或可重現產生規則。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "延遲與錯誤情境可切換並記錄當次設定，重啟後可重現。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "不支援規格、未解析引用與無匹配路由明確回報。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "本機服務有明確啟停與監聽範圍，不默默轉發真實 API 或公開敏感 schema。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-25",
+    "title": "API 回應時間與可用性的輕量監測",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "low",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-web-service",
+      "later-delivery"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/12_042502.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/27_040031.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 32,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-25 - API-回應時間與可用性的輕量監測.md",
+    "description": "## 使用情境與發展空間\n\n持續量測能回答回應是否變慢、何時失敗；需要排程和歷史資料，不應因不是靜態網頁就排除。\n\n## 交付形式與首版邊界\n\n主要形式：web-service。順序：後續交付／較高成本探索。\n\n先以少量使用者明確指定的 endpoint 進行受控週期測試，Web 顯示趨勢與失敗事件。\n\n## 延伸方向與相鄰題目\n\n可發展自架 runner、區域比較與告警；單次 JSON diff 或 Lighthouse 報告不能代替這類持續量測。\n\n## 關鍵字來源與合併\n\n代表原始詞：`api response time test`; `api response time standards`。\n\n本題合併 2 個相關唯一詞，來自 1 份報告、2 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: api-monitor）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-25",
+      "nodes": [
+        {
+          "id": "STW-25",
+          "title": "API 回應時間與可用性的輕量監測",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "清楚記錄量測地點、時間、timeout、狀態碼及回應時間定義。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "限制頻率與並行數，不重試到形成突發大量請求。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "憑證、headers 與回應內容有遮蔽和保留規則，不預設長存完整 payload。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "趨勢能區分實際失敗、排程未執行與資料缺漏；告警通道另行選擇與授權。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-30",
+    "title": "加密環境設定的本機交接與部署預檢",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "low",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-cli-ci",
+      "later-delivery"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/05_032812.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/12_041935.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/02_042352.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/11_041145.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/06_032904.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 33,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-30 - 加密環境設定的本機交接與部署預檢.md",
+    "description": "## 使用情境與發展空間\n\n有價值的切角是確認交接時檔案、環境、金鑰引用與解密能力一致；不需要自建加密演算法或中央 vault。\n\n## 交付形式與首版邊界\n\n主要形式：cli-ci。順序：後續交付／較高成本探索。\n\n優先整合一種既有加密格式的本機工作流程，顯示交接所需條件與部署預檢結果。\n\n## 延伸方向與相鄰題目\n\n可擴充 CI readiness、金鑰輪替檢查與受控環境交接；與 STW-1 的明文鍵名／語法檢查互補。\n\n## 關鍵字來源與合併\n\n代表原始詞：`env file encryption`; `encrypt .env file`; `environment variable encryption`。\n\n本題合併 18 個相關唯一詞，來自 35 份報告、55 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: env-handoff）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-30",
+      "nodes": [
+        {
+          "id": "STW-30",
+          "title": "加密環境設定的本機交接與部署預檢",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "選定既有 provider 與格式，輸出環境和所需 key reference，不在報告輸出金鑰或明文。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "用已知測試資料驗證正確金鑰、錯誤金鑰、缺少設定及檔案損壞行為。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "操作前說明會修改哪些檔案，失敗不留下無法復原的半完成狀態。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "不自創密碼學方案，恢復／輪替與秘密傳遞需求有明確邊界。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-31",
+    "title": "Git 變更紀錄整理與可審查的 Release Notes 草稿",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "low",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-cli-ci",
+      "later-delivery"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/21_033414.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_06/30_044113.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_03/30_041811.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/28_035225.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/01_033208.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 34,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-31 - Git-變更紀錄整理與可審查的-Release-Notes-草稿.md",
+    "description": "## 使用情境與發展空間\n\n把 commit、版本範圍與破壞性變更整理成可讀 release 草稿，適合在 repo／CI 取得可信來源。\n\n## 交付形式與首版邊界\n\n主要形式：cli-ci。順序：後續交付／較高成本探索。\n\n先接受指定 git 範圍並產生分組草稿，處理 merge／revert 與不符合規範的訊息；不自動發布 release。\n\n## 延伸方向與相鄰題目\n\n可延伸 monorepo package 分組、版本建議與 Web 審查；STW-10 看單份 diff，這張處理一段版本歷史。\n\n## 關鍵字來源與合併\n\n代表原始詞：`changelog generator conventional commit`; `generate changelog from commits`; `git commit message format validation`。\n\n本題合併 42 個相關唯一詞，來自 24 份報告、77 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: release-notes）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-31",
+      "nodes": [
+        {
+          "id": "STW-31",
+          "title": "Git 變更紀錄整理與可審查的 Release Notes 草稿",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "草稿每項可回連 commit，列明 base／head 和來源完整性。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "feat／fix／breaking、revert 與不合格式的訊息採公開規則分類。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "不能只依 commit 字詞推測已完成產品效果；不確定內容標為待審查。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "可匯出草稿與需補寫清單，版本變更及遠端發布需另行明確操作。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-32",
+    "title": "Dockerfile 變更預檢與掃描結果整合",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "low",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-cli-ci",
+      "later-delivery"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/19_040534.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/18_041554.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/11_035210.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/18_035246.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/16_033245.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 35,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-32 - Dockerfile-變更預檢與掃描結果整合.md",
+    "description": "## 使用情境與發展空間\n\nDockerfile 靜態問題、image 掃描與實際體積結果常散落在不同工具；可發展可追溯的變更審查流程。\n\n## 交付形式與首版邊界\n\n主要形式：cli-ci。順序：後續交付／較高成本探索。\n\n先整合一種 linter 與可選的 image scan 結果，分開靜態建議、已掃描發現與尚未執行項目。\n\n## 延伸方向與相鄰題目\n\n可延伸 CI gate 和修正前後的真實 image 比較；不重造漏洞資料庫或宣稱改寫必定最佳化。\n\n## 關鍵字來源與合併\n\n代表原始詞：`dockerfile linter online`; `dockerfile optimization tool`; `dockerfile vulnerability scanner`。\n\n本題合併 20 個相關唯一詞，來自 16 份報告、52 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: dockerfile-review）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-32",
+      "nodes": [
+        {
+          "id": "STW-32",
+          "title": "Dockerfile 變更預檢與掃描結果整合",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "每項結果列出規則／掃描器版本、位置與判定依據。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "沒有 image 或 scan 證據時，不宣告無漏洞或體積已改善。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "靜態輸入不自動執行 Docker build；需要建置時先明示執行範圍。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "輸出可審查報告與建議，保留誤判註記及可重現樣本。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-33",
+    "title": "驗證截圖轉元件草稿與視覺差異檢查的可行性",
+    "status": "Needs Refinement",
+    "type": "spike",
+    "priority": "low",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-web-ai",
+      "later-delivery"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/12_042852.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/26_033603.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_06/05_044726.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/30_035819.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 36,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-33 - 驗證截圖轉元件草稿與視覺差異檢查的可行性.md",
+    "description": "## 使用情境與發展空間\n\n值得保留較長期的 AI 輔助 UI 方向，但圖像相似不等於 DOM、互動與可維護性正確，先以評估題目納入。\n\n## 交付形式與首版邊界\n\n主要形式：web-ai。順序：後續交付／較高成本探索。\n\nWeb 操作優先，以固定樣本取得元件草稿並比較渲染結果；先不決定 provider 或承諾完整應用程式產生。\n\n## 延伸方向與相鄰題目\n\n若評估成立再拆成輸入、草稿產生及人工修正循環，可能需要 AI 服務和隔離渲染環境。\n\n## 關鍵字來源與合併\n\n代表原始詞：`screenshot to react component`; `screenshot to html css`; `figma to react components`。\n\n本題合併 20 個相關唯一詞，來自 7 份報告、23 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: screenshot-eval）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-33",
+      "nodes": [
+        {
+          "id": "STW-33",
+          "title": "驗證截圖轉元件草稿與視覺差異檢查的可行性",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "建立含不同版型、狀態與解析度的合法參考樣本及評分方式。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "分開量測視覺相似、語意結構、互動完整性及人工修正時間。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "記錄模型／工具版本、成本與重現限制，錯誤不能用人工補圖掩蓋。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "生成內容只能在隔離環境預覽，交付繼續／縮小／停止的研究結論。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  },
+  {
+    "id": "STW-36",
+    "title": "Markdown 文件的相對連結與 anchor 批次檢查",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "low",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-cli-ci",
+      "later-delivery"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_06/12_045343.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/08_034536.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/25_041218.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/13_040708.md"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 37,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": null,
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-36 - Markdown-文件的相對連結與-anchor-批次檢查.md",
+    "description": "## 使用情境與發展空間\n\nmonorepo 文件改名或搬移後，相對路徑與 heading anchor 容易失效，需要 repo 上下文及 renderer 規則。\n\n## 交付形式與首版邊界\n\n主要形式：cli-ci。順序：後續交付／較高成本探索。\n\n先本機檢查 Markdown 檔案、相對路徑、圖片與 anchor，外部連結檢查作為可選步驟。\n\n## 延伸方向與相鄰題目\n\n可延伸 CI baseline、IDE 提示與 Web 報告；STW-17 檢查 sitemap XML，不負責 repo 文件連結。\n\n## 關鍵字來源與合併\n\n代表原始詞：`markdown link validator`; `markdown link check pre commit`; `markdown linter online`。\n\n本題合併 12 個相關唯一詞，來自 4 份報告、15 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: markdown-links）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-36",
+      "nodes": [
+        {
+          "id": "STW-36",
+          "title": "Markdown 文件的相對連結與 anchor 批次檢查",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "每個錯誤可定位來源檔案及目標，區分不存在檔案、缺少 anchor 與無法判斷。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "明示 heading anchor 產生規則，code block 內的範例不當成真實連結。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "支援忽略規則與增量結果，外部請求需可停用並限制頻率。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "不自動重寫文件；修正若提供，先顯示差異與回復方式。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": null,
+    "comments": [],
+    "finalSummary": null
+  }
+]

@@ -4,7 +4,7 @@ title: Docker Compose 靜態預檢與服務相依圖
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
@@ -13,6 +13,8 @@ labels:
   - web-first
   - extension-cli
   - extension-ci
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
@@ -25,13 +27,17 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/21_035139.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_07/03_043208.md
+  - 'https://docs.docker.com/reference/cli/docker/compose/config'
+  - 'https://www.reddit.com/r/docker/comments/1cm97c0'
 documentation:
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
   - docs/product-direction.md
-priority: medium
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-other-cards.md
+priority: low
 type: feature
-ordinal: 8
+ordinal: 108
 ---
 
 ## Description
@@ -82,3 +88,19 @@ Compose YAML 能解析不代表 service、network、volume 或 depends_on 引用
 - [ ] #4 比較官方 Compose CLI 的固定範例結果，說明靜態通過不等於執行或健康檢查通過。
 - [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+官方 config 已含合併、插值與驗證；圖形仍可能有價值，但靜態 Web 與真實 Compose 環境語意差距未解除。
+
+提升／重新納入條件：取得不方便執行 Docker 的真實案例，驗證視覺圖是否比 config 輸出可理解。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

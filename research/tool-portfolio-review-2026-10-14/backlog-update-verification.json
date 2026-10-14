@@ -1,0 +1,382 @@
+{
+  "result": "PASS",
+  "scope": "Backlog metadata and preservation only; no product/runtime/demand-volume verification",
+  "active": 31,
+  "archived": 6,
+  "added": 0,
+  "high": 0,
+  "medium": 6,
+  "lowActive": 25,
+  "allActiveNeedsRefinement": true,
+  "acChecked": 0,
+  "doctor": "PASS: no duplicate IDs, self-referential dependencies or dependency cycles",
+  "checks": [
+    {
+      "id": "STW-1",
+      "path": "backlog/tasks/stw-1 - 環境設定預檢：比對-.env-範本、缺漏與重複鍵.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-2",
+      "path": "backlog/archive/tasks/stw-2 - YAML-轉-.env：預覽扁平化規則與鍵名衝突.md",
+      "archived": true,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true
+    },
+    {
+      "id": "STW-3",
+      "path": "backlog/tasks/stw-3 - API-JSON-差異比較：忽略動態欄位並依識別鍵對齊陣列.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-4",
+      "path": "backlog/archive/tasks/stw-4 - Markdown-表格整理與-JSON／試算表文字互轉.md",
+      "archived": true,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true
+    },
+    {
+      "id": "STW-5",
+      "path": "backlog/tasks/stw-5 - Cron-排程預覽：時區對照、下次執行與-DST-提示.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-6",
+      "path": "backlog/tasks/stw-6 - OpenAPI-合約差異檢查：區分-request-與-response-的相容性.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-7",
+      "path": "backlog/tasks/stw-7 - CSS-selector-比較：特異性拆解與-HTML-命中預覽.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-8",
+      "path": "backlog/tasks/stw-8 - Docker-Compose-靜態預檢與服務相依圖.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-9",
+      "path": "backlog/archive/tasks/stw-9 - CSS-轉-Tailwind-v4：支援範圍內轉換與未轉換項目清單.md",
+      "archived": true,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true
+    },
+    {
+      "id": "STW-10",
+      "path": "backlog/tasks/stw-10 - Git-diff-檢視與可分享的確定性變更摘要.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-11",
+      "path": "backlog/tasks/stw-11 - GraphQL-schema-差異檢查與影響型別導覽.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-12",
+      "path": "backlog/tasks/stw-12 - PostgreSQL-EXPLAIN-計畫檢視：估計與實際執行差距.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-13",
+      "path": "backlog/tasks/stw-13 - SQL-DDL-轉-ER-關聯圖與可匯出的資料表文件.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-14",
+      "path": "backlog/tasks/stw-14 - OpenAPI-回應範例產生器：可驗證、可重現的-mock-fixture.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-15",
+      "path": "backlog/tasks/stw-15 - Markdown-轉-HTML-Email：表格、程式碼與複製預覽.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-16",
+      "path": "backlog/tasks/stw-16 - Lighthouse-報告比較：區分指標變化與測試條件差異.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-17",
+      "path": "backlog/tasks/stw-17 - Sitemap-XML-預檢與站點結構瀏覽.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-26",
+      "path": "backlog/archive/tasks/stw-26 - API-Rate-Limit-模擬器：突發流量與等待時間預覽.md",
+      "archived": true,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true
+    },
+    {
+      "id": "STW-27",
+      "path": "backlog/tasks/stw-27 - Markdown-到-Confluence-的格式損失預檢與匯入輔助.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-28",
+      "path": "backlog/tasks/stw-28 - Markdown-到-Notion-的批次結構與連結保留檢查.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-29",
+      "path": "backlog/archive/tasks/stw-29 - API-範例推導-TypeScript／Zod：呈現型別依據與不確定性.md",
+      "archived": true,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true
+    },
+    {
+      "id": "STW-34",
+      "path": "backlog/tasks/stw-34 - 批次圖片最佳化：依目標大小與尺寸預算匯出.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-35",
+      "path": "backlog/tasks/stw-35 - 圖片色盤到可讀的介面配色與-token-匯出.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-37",
+      "path": "backlog/tasks/stw-37 - SemVer-範圍與升級條件的互動式檢查.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-18",
+      "path": "backlog/tasks/stw-18 - Monorepo-相依圖與重複套件追蹤.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-19",
+      "path": "backlog/tasks/stw-19 - Bundle-變化分析：從體積增加追到套件與入口.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-20",
+      "path": "backlog/tasks/stw-20 - 未使用程式碼與相依套件的審查工作流程.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-21",
+      "path": "backlog/tasks/stw-21 - 驗證-TypeScript-型別展開與錯誤解釋工具的價值.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-22",
+      "path": "backlog/tasks/stw-22 - 元件-Props-文件與使用範例的同步檢查.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-23",
+      "path": "backlog/tasks/stw-23 - Webhook-收件、遮蔽與受控重送工作台.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-24",
+      "path": "backlog/tasks/stw-24 - 可切換情境的-OpenAPI-Mock-API-服務.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-25",
+      "path": "backlog/tasks/stw-25 - API-回應時間與可用性的輕量監測.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-30",
+      "path": "backlog/tasks/stw-30 - 加密環境設定的本機交接與部署預檢.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-31",
+      "path": "backlog/archive/tasks/stw-31 - Git-變更紀錄整理與可審查的-Release-Notes-草稿.md",
+      "archived": true,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true
+    },
+    {
+      "id": "STW-32",
+      "path": "backlog/tasks/stw-32 - Dockerfile-變更預檢與掃描結果整合.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-33",
+      "path": "backlog/tasks/stw-33 - 驗證截圖轉元件草稿與視覺差異檢查的可行性.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    },
+    {
+      "id": "STW-36",
+      "path": "backlog/tasks/stw-36 - Markdown-文件的相對連結與-anchor-批次檢查.md",
+      "archived": false,
+      "descriptionPreserved": true,
+      "acPreserved": true,
+      "sourceReferencesPreserved": true,
+      "statusPreserved": true,
+      "priorityAndOrdinalVerified": true
+    }
+  ],
+  "researchLocalLinks": "PASS",
+  "researchJson": "PASS",
+  "finalActivePreservation": "PASS"
+}

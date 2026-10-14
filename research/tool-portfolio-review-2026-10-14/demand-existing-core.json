@@ -1,0 +1,716 @@
+{
+  "schemaVersion": 1,
+  "researchDate": "2026-10-14",
+  "timezone": "Asia/Taipei",
+  "method": "每候選至少英文精確意圖及繁中各一次 web search，再開啟第一手產品／人類需求來源。",
+  "limits": [
+    "結果為工具此次回傳，非固定地區 Google 排名。",
+    "無月搜尋量、CPC、CTR、站內數據、付費工具登入或 AI 實測。",
+    "產品頁自述未等同實際運作驗證。",
+    "Low 表示不列近期主力，不代表已授權刪卡。"
+  ],
+  "candidates": [
+    {
+      "candidateId": "STW-3",
+      "name": "API JSON diff",
+      "demandStrength": "Medium",
+      "competitionCoverage": "High：ID 配對、忽略路徑、本機處理、匯出皆已有產品頁明示。",
+      "aiSubstitution": "小份 JSON 摘要高；精確重跑與大型差異探索中。尚未實測 AI。",
+      "recommendedDecision": "Medium",
+      "reason": "保留需求研究，原版功能沒有證實差異；先測複合鍵、各層不同配對規則與大整數保真是否形成具體缺口。",
+      "sources": [
+        {
+          "url": "https://github.com/benjamine/jsondiffpatch/issues/436",
+          "date": "2026-01-28",
+          "sourceType": "first_party_user_issue",
+          "finding": "使用者以 JSON 表示 OOXML；插入段落造成後續巨量差異，資料缺乏穩定 ID，objectHash 套所有陣列仍不合需求。",
+          "evidenceLimit": "具體且近期，但屬 OOXML 深巢狀資料，不等同一般 API 的 ID 配對需求，也未證明願意使用新網站。"
+        },
+        {
+          "url": "https://www.reddit.com/r/json/comments/1olq5tz/json_comparer_that_correctly_matches_arrays/",
+          "date": null,
+          "dateNote": "頁面只顯示 1y ago；未精確化",
+          "sourceType": "first_person_maker_post",
+          "finding": "作者自述工作常比 JSON，現有工具對重排陣列產生錯誤差異，因此自己製作工具；貼文含可重述範例。",
+          "evidenceLimit": "有自身痛點亦有產品宣傳偏誤，不是獨立市場規模證據。"
+        },
+        {
+          "url": "https://ravensmove.com/tools/json-diff",
+          "date": null,
+          "sourceType": "official_product_page",
+          "finding": "產品已提供 record ID、wildcard 忽略路徑、重複 ID 錯誤、規則與差異匯出、本機處理；報告上限 1,000 列。",
+          "evidenceLimit": "官方功能聲明與頁面欄位，未執行正確性及網路測試。"
+        },
+        {
+          "url": "https://www.m2toolkit.com/tools/json-diff",
+          "date": "2026-10-10",
+          "sourceType": "official_product_page",
+          "finding": "提供依鍵配對、忽略路徑、三種檢視、文字／PDF 匯出、本機處理及大整數警告。",
+          "evidenceLimit": "更新日是頁面自述；未驗證效能。"
+        }
+      ],
+      "queryRecords": [
+        {
+          "query": "JSON diff ignore fields match array by id online tool user issue",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "JSON Diff Tool - Compare JSON Online | RavensMove",
+              "url": "https://ravensmove.com/tools/json-diff",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "Compare JSON Online – JSON Diff Checker | NeatJSON",
+              "url": "https://neatjson.com/json-diff-checker",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "JSON Diff — Compare Two JSON Files Online | M2Toolkit",
+              "url": "https://www.m2toolkit.com/tools/json-diff",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        },
+        {
+          "query": "JSON 比較 忽略 欄位 陣列 ID 工具",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "JSON 比對線上 - 兩份 JSON 差異比較（JSON Diff，忽略欄位順序）| 奧特線上工具",
+              "url": "https://autoagent.com.tw/tools/json-compare",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "JSON Compare - Diff Two JSON Files Online | JSON Lab",
+              "url": "https://www.thejsonlab.com/",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "JSON Compare / Diff + Patch | 僅瀏覽器語意比較與補丁匯出",
+              "url": "https://finitefield.org/zhtw/tools/data/json-diff-viewer/",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidateId": "STW-5",
+      "name": "Cron 時區與 DST 預覽",
+      "demandStrength": "Medium",
+      "competitionCoverage": "High：時區、下次執行與 DST 邊界已有專門產品；跨 runtime 正確性尚不能視為已解決。",
+      "aiSubstitution": "基本解釋高；跨時區互動與可重現邊界檢查中。",
+      "recommendedDecision": "Medium",
+      "reason": "保留特定 scheduler／版本驗證方向，通用時區加日曆版降級。近期 runtime 錯誤是真痛點，但預覽工具必須能說明適用範圍。",
+      "sources": [
+        {
+          "url": "https://github.com/NousResearch/hermes-agent/issues/66436",
+          "date": "2026-07-17",
+          "sourceType": "first_party_user_issue",
+          "finding": "回報 IANA 時區下跨 DST 計算使預定 09:00 變成 10:00，附 croniter 重現程式與實際 jobs.json。",
+          "evidenceLimit": "單一 runtime 的錯誤，不能推定所有 scheduler 仍有問題，也不直接證明獨立網站需求。"
+        },
+        {
+          "url": "https://cronwizard.com/dst",
+          "date": "2026-08-05",
+          "sourceType": "official_product_page",
+          "finding": "有 Cron expression、時區、Unix／Quartz 選項及春秋 DST 邊界預覽；明示只反映自身 parser 政策。",
+          "evidenceLimit": "官方功能說明；未實跑每種 runtime。"
+        },
+        {
+          "url": "https://cron.dag.io/",
+          "date": null,
+          "sourceType": "official_product_search_result",
+          "finding": "搜尋回傳可選時區、起始日期及 local／UTC next runs 的產品頁。",
+          "evidenceLimit": "只作結果型態紀錄，未另開頁實測。"
+        }
+      ],
+      "queryRecords": [
+        {
+          "query": "cron timezone daylight saving preview next execution user issue",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "Cron · dag.io — Preview cron schedules across time zones",
+              "url": "https://cron.dag.io/",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "Desktop automations ignore timezone for RRULE scheduling / next execution · Issue #26633 · openai/codex · GitHub",
+              "url": "https://github.com/openai/codex/issues/26633",
+              "pageType": "GitHub issue"
+            },
+            {
+              "title": "bug: cron wall-clock hour shifts across DST boundary · Issue #66436 · NousResearch/hermes-agent · GitHub",
+              "url": "https://github.com/NousResearch/hermes-agent/issues/66436",
+              "pageType": "GitHub issue"
+            }
+          ]
+        },
+        {
+          "query": "cron 時區 夏令時間 下次執行 工具",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "Cron Calculator & Editor - visualize, debug & build cron expressions | CronTool",
+              "url": "https://tool.crontap.com/",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "免費 Cron 表達式產生器 - 視覺化建構 Crontab 排程任務 · ClockZone",
+              "url": "https://clockzone.net/zh-TW/tools/cron-generator",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "免費 Cron 表達式編輯器與下次執行時間 - Design Drifter Tools",
+              "url": "https://design-drifter.com/zh-tw/tools/cron-editor/",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidateId": "STW-6",
+      "name": "OpenAPI breaking changes",
+      "demandStrength": "Medium for correctness; Weak for new web demand",
+      "competitionCoverage": "High：oasdiff 已有 Web、報告匯出與 CI；另有本機處理產品聲明，但本輪未驗證。",
+      "aiSubstitution": "小規格摘要高；有版本化規則與可定位結果中低，維護成本高。",
+      "recommendedDecision": "Low",
+      "reason": "先排除泛用 Web wrapper 作近期主力。若要升級，需用真實 consumer／規格證明既有引擎漏判或流程成本。",
+      "sources": [
+        {
+          "url": "https://github.com/OpenAPITools/openapi-diff/issues/192",
+          "date": "2020-10-23",
+          "sourceType": "first_party_user_issue",
+          "finding": "使用者回報只將 schema 重構為 $ref／allOf，語意不變卻被判 breaking，附新舊規格與期望結果。",
+          "evidenceLimit": "舊問題，只能證明正確性需求，不能宣稱現今未修復或另引擎有相同錯誤。"
+        },
+        {
+          "url": "https://www.oasdiff.com/diff",
+          "date": null,
+          "sourceType": "official_product_page",
+          "finding": "提供貼上／上傳兩份規格、breaking change 比對及 text/YAML/JSON/Markdown/HTML 匯出，FAQ 宣稱 entirely in browser。",
+          "evidenceLimit": "與首頁 server-side 說明矛盾；處理位置待網路實測，不能以本機處理作已確認差異。"
+        },
+        {
+          "url": "https://www.oasdiff.com/",
+          "date": null,
+          "sourceType": "official_product_page",
+          "finding": "首頁宣稱 Web 結果在伺服器處理且不儲存，同引擎亦提供 CLI 與 GitHub Action。",
+          "evidenceLimit": "與 /diff FAQ 不一致。"
+        },
+        {
+          "url": "https://a2z.tools/openapi-specification-diff-checker",
+          "date": null,
+          "sourceType": "official_product_search_result",
+          "finding": "搜尋摘錄聲稱瀏覽器端比對、Markdown changelog、限制 2 MB 與本機 $ref。",
+          "evidenceLimit": "直接開頁逾時，僅線索，不用於確認 runtime 能力。"
+        }
+      ],
+      "queryRecords": [
+        {
+          "query": "OpenAPI breaking changes compare online tool issue false positive",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "OpenAPI Diff Tool: Compare Specs Online & Find Breaking Changes",
+              "url": "https://www.oasdiff.com/diff",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "OpenAPI Diff — Compare Specs & Breaking Changes, Free Online | space4.dev",
+              "url": "https://space4.dev/openapi-diff",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "OpenAPI & JSON Schema Diff — Free Online Tool — Chaitanya Prabuddha",
+              "url": "https://tools.chaitanyaprabuddha.com/tools/openapi-breaking-changes",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        },
+        {
+          "query": "OpenAPI 差異 比較 breaking changes 工具",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "Compare two OpenAPI specifications · utils/tools",
+              "url": "https://utils.tools/openapi-diff",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "OpenAPI Diff Tool: Compare Specs Online & Find Breaking Changes",
+              "url": "https://www.oasdiff.com/diff",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "OpenAPI Diff Checker — Free Online Tool | DevLab",
+              "url": "https://devlab.tools/tool/openapi-diff-checker",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidateId": "STW-16",
+      "name": "Lighthouse 報告比較",
+      "demandStrength": "Medium-Strong for reporting workflow",
+      "competitionCoverage": "High for two-report diff；多頁彙整有明確近期請求，競品完整覆蓋待測。",
+      "aiSubstitution": "單份報告說明高；多份檔案標準化、異常定位與視覺比較中。",
+      "recommendedDecision": "Medium",
+      "reason": "八項中值得優先細化的需求之一。改驗證多頁矩陣／報告相容與比較可信度，不能只重做官方兩檔 diff。",
+      "sources": [
+        {
+          "url": "https://github.com/GoogleChrome/lighthouse-ci/issues/1101",
+          "date": "2025-04-24",
+          "sourceType": "first_party_user_issue",
+          "finding": "使用者選取兩份 JSON 後白畫面，期望得到可比較的 PDF 報告。",
+          "evidenceLimit": "未附完整 fixture，本輪未重現，不能宣稱現今官方工具普遍失效。"
+        },
+        {
+          "url": "https://github.com/GoogleChrome/lighthouse-ci/issues/1132",
+          "date": "2026-02-27",
+          "sourceType": "first_party_user_feature_request",
+          "finding": "要求多頁 scores 矩陣、跨專案聚合與摘要；明言現有介面較適合單 URL 與 before/after。",
+          "evidenceLimit": "單一使用者提案，沒有市場規模或付費訊號。"
+        },
+        {
+          "url": "https://googlechrome.github.io/lighthouse-ci/difftool/",
+          "date": null,
+          "sourceType": "official_product_page",
+          "finding": "Google 官方已有兩份 Lighthouse 報告比較工具；直接文字讀取要求 JavaScript。",
+          "evidenceLimit": "未操作 UI；功能存在由官方 repo／搜尋頁支撐，不能確認目前每個版本相容性。"
+        },
+        {
+          "url": "https://github.com/googlechrome/lighthouse-ci",
+          "date": null,
+          "sourceType": "official_product_docs",
+          "finding": "官方描述 CI 比較、歷史追蹤、budget 與多次執行降低變異。",
+          "evidenceLimit": "代表產品基準，未做 runtime 驗證。"
+        }
+      ],
+      "queryRecords": [
+        {
+          "query": "Lighthouse compare two reports online tool performance regression issue",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "GitHub - texastribune/lighthouse-compare: Compare the Lighthouse performance of two URLs · GitHub",
+              "url": "https://github.com/texastribune/lighthouse-compare",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "Lighthouse Report Viewer",
+              "url": "https://googlechrome.github.io/lighthouse/viewer/",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "Lighthouse Diff: Comparing Two Website Speed Tests | PageSpeed.ONE",
+              "url": "https://pagespeed.one/en/know-how/lighthouse-diff",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        },
+        {
+          "query": "Lighthouse 報告 比較 前後 效能 工具",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "Lighthouse：优化网站  |  Chrome DevTools  |  Chrome for Developers",
+              "url": "https://developer.chrome.google.cn/docs/devtools/lighthouse?hl=zh-cn",
+              "pageType": "官方文件"
+            },
+            {
+              "title": "Lighthouse：最佳化網站  |  Chrome DevTools  |  Chrome for Developers",
+              "url": "https://developer.chrome.google.cn/docs/devtools/lighthouse?hl=zh-tw",
+              "pageType": "官方文件"
+            },
+            {
+              "title": "Compare two Lighthouse runs and see exactly what changed | Lighthouse AI Metrics",
+              "url": "https://www.lighthouse-aimetrics.com/compare-lighthouse-runs",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidateId": "STW-17",
+      "name": "Sitemap 驗證",
+      "demandStrength": "Weak-Medium",
+      "competitionCoverage": "High for XML、重複 URL 與報告；本機規則驗證不是搜尋收錄診斷。",
+      "aiSubstitution": "小段 XML 找錯高；大檔、批次 URL 與可定位報告中。",
+      "recommendedDecision": "Low",
+      "reason": "排除只有格式驗證／去重的近期主力版本。較深網站上線健檢須另證需求、抓取成本與邊界，不能直接擴大實作。",
+      "sources": [
+        {
+          "url": "https://www.drupal.org/project/simple_sitemap/issues/3178229",
+          "date": "2020-10-21",
+          "sourceType": "first_party_user_issue",
+          "finding": "使用者要保留同 path 不同 query 的合法 URL，現有去重錯刪；另一使用者提供測試與自身嵌入頁用途。",
+          "evidenceLimit": "歷史問題已有修正紀錄，說明誤去重風險，不證明現今缺少獨立驗證器。"
+        },
+        {
+          "url": "https://ai-chain.tw/tools/sitemap-validator/",
+          "date": null,
+          "sourceType": "official_product_page",
+          "finding": "繁中產品已有 urlset／index、錯誤警告列表、URL 預覽與複製報告；明示不保證收錄。",
+          "evidenceLimit": "未操作所有檢查。"
+        },
+        {
+          "url": "https://freetooldev.com/tools/sitemap-validator.html",
+          "date": null,
+          "sourceType": "official_product_search_result",
+          "finding": "搜尋回傳批次多 sitemap 的規則驗證產品頁。",
+          "evidenceLimit": "僅搜尋摘錄，未確認實際批次解析正確性。"
+        }
+      ],
+      "queryRecords": [
+        {
+          "query": "sitemap validator bulk duplicate urls user problem",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "Sitemap Validator: Check Your XML Sitemap Free | Veritas",
+              "url": "https://www.getveritas.io/tools/sitemap-validator",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "Bulk Sitemap Validator — Check Multiple sitemap.xml at Once | FreeToolDev",
+              "url": "https://freetooldev.com/tools/sitemap-validator.html",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "XML Sitemap Validator — Find Sitemap Errors Free | SEOJuicer",
+              "url": "https://seojuicer.com/sitemap-checker",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        },
+        {
+          "query": "sitemap 驗證 重複網址 工具",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "Sitemap 驗證器 - 檢查 XML 結構、重複 URL 與索引建議 | AI-Chain Tools",
+              "url": "https://ai-chain.tw/tools/sitemap-validator/",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "Sitemap 驗證器 | Searvora",
+              "url": "https://searvora.com/tw/tools/sitemap-validator",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "Sitemap Validator — Check XML URLs, lastmod, and Duplicates | ToolsKit",
+              "url": "https://toolskit.cc/tools/sitemap-validator",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidateId": "STW-34",
+      "name": "批次圖片目標大小壓縮",
+      "demandStrength": "Strong for concrete pain; market size unknown",
+      "competitionCoverage": "High：繁中產品已標示批次、指定 KB、無需安裝與本機處理。",
+      "aiSubstitution": "純問如何壓縮高；多檔產物、達標檢查、可預覽流程中低，但 AI 執行環境也能處理。",
+      "recommendedDecision": "Medium",
+      "reason": "需求最具體之一，但差異已被覆蓋。保留限時比較測試，須證明同大小畫質、透明／方向保留、批次失敗回報或操作效率勝過現有工具。",
+      "sources": [
+        {
+          "url": "https://github.com/GoogleChromeLabs/squoosh/issues/1422",
+          "date": "2024-07-09",
+          "sourceType": "first_party_user_feature_request",
+          "finding": "使用者明確要求 100 KB 或原圖百分比目標，自動找 quality，避免跨 codec 手動反覆試誤；達不到需回報。",
+          "evidenceLimit": "單一產品中的需求，未證明現今其他工具無解；2024 年來源需重新訪談。"
+        },
+        {
+          "url": "https://github.com/GoogleChromeLabs/squoosh/issues/1153",
+          "date": "2021-09-13",
+          "sourceType": "first_party_user_feature_request",
+          "finding": "使用者批次處理多資料夾，每個尺寸×格式×資料夾需分別執行 script。",
+          "evidenceLimit": "CLI 歷史流程需求，不直接等於 Web 批次 KB 需求；已 closed as not planned。"
+        },
+        {
+          "url": "https://imagekit.lzw.me/zh-TW/compress-image-to-kb",
+          "date": null,
+          "sourceType": "official_product_page",
+          "finding": "繁中產品頁明示批次指定 KB／MB、JPG/PNG/BMP、免費與本機處理。",
+          "evidenceLimit": "應用區顯示 Loading，未驗證實際達標、品質與網路行為。"
+        },
+        {
+          "url": "https://compress-picture.com/compress-image-to-100kb",
+          "date": null,
+          "sourceType": "official_product_search_result",
+          "finding": "搜尋回傳 100 KB 目標、最多 30 張批次、本機 Canvas 的產品頁。",
+          "evidenceLimit": "僅結果線索，未做檔案實測。"
+        }
+      ],
+      "queryRecords": [
+        {
+          "query": "batch image compress target file size 100kb user need",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "Compress Image to Exact KB — Free, Private, No Upload | Zorqio",
+              "url": "https://zorqio.com/compress-image-to-kb/",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "How to Compress an Image to 100KB (Free, In Browser)",
+              "url": "https://mumenlabs.com/blog/how-to-compress-an-image-to-100kb",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "Compress Image to 100KB Online for Free — Compress Picture",
+              "url": "https://compress-picture.com/compress-image-to-100kb",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        },
+        {
+          "query": "批次 圖片 壓縮 指定大小 KB 工具",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "图片压缩到指定大小 - 按指定 KB 压缩图片到目标大小 | PXBO工具箱",
+              "url": "https://pxbo.com/tools/image-kb/",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "壓縮照片到指定大小 - Image Kit | 圖片批次處理工具箱",
+              "url": "https://imagekit.lzw.me/zh-TW/compress-image-to-kb",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "图片指定大小压缩 - 压到指定KB/MB | 智能便民工具箱",
+              "url": "https://www.itptg.com/tools/target-size-compressor.html",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidateId": "STW-35",
+      "name": "色票、對比與 design tokens",
+      "demandStrength": "Weak-Medium",
+      "competitionCoverage": "High：對比矩陣、CSS/JSON/DTCG 匯出與本機保存已有產品。",
+      "aiSubstitution": "隨機配色與建議高；互動角色對比和確定性 export 中。",
+      "recommendedDecision": "Low",
+      "reason": "原通用流程已有直接覆蓋；目前需求主要來自工具作者自身敘述。可保留工具站輔助功能，但不當獨立優先流量項目。",
+      "sources": [
+        {
+          "url": "https://github.com/5t3ph/a11y-color-tokens",
+          "date": null,
+          "sourceType": "first_person_maker_readme",
+          "finding": "作者自述每次挑可及配色拖慢 side project，因此建立 token 及對比文件產生流程。",
+          "evidenceLimit": "有自身痛點但屬產品作者、無可確認發表日期，不是獨立使用者訪談。"
+        },
+        {
+          "url": "https://colortable.org/palette/",
+          "date": null,
+          "sourceType": "official_product_page",
+          "finding": "提供所有色對矩陣、CSS/SCSS/JSON/DTCG 匯出、URL 分享、本機保存與對比修復入口。",
+          "evidenceLimit": "文件功能已覆蓋主張；未驗證公式或輸出符合規範。"
+        },
+        {
+          "url": "https://palette.ikit.app/?lang=zh_TW",
+          "date": null,
+          "sourceType": "official_product_search_result",
+          "finding": "繁中搜尋回傳 OKLCH、品牌色階、WCAG 與 Tailwind 色票產品。",
+          "evidenceLimit": "僅搜尋結果，未驗證介面與匯出。"
+        }
+      ],
+      "queryRecords": [
+        {
+          "query": "color palette contrast matrix design tokens export user need",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "Palette Builder — Contrast and Export — ColorTable",
+              "url": "https://colortable.org/palette/",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "Color Palette Generator and Design Token Export | HexCheck",
+              "url": "https://hexcheck.app/palette/",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "Color Chart Tool | Ted Tschopp",
+              "url": "https://tedt.org/tools/color-chart/",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        },
+        {
+          "query": "色票 對比 檢查 design tokens 匯出 工具",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "Color Palette Generator — 線上 OKLCH 品牌與 Tailwind 色票產生器",
+              "url": "https://palette.ikit.app/?lang=zh_TW",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "UI配色与Design Token工具 - 设计辅助/主题色生成在线",
+              "url": "https://www.xingdian.net/app/color/design/",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "螢幕取色器 — 吸取螢幕任何位置的顏色 — ByteScope",
+              "url": "https://bytescope.dev/zh-Hant/eyedropper/",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidateId": "STW-37",
+      "name": "SemVer 視覺化",
+      "demandStrength": "Medium for explanation; Weak for standalone site",
+      "competitionCoverage": "High for range testing；交集工具亦出現在搜尋，完整語意待驗證。",
+      "aiSubstitution": "^/~ 解說高；npm 精確規則運算與互動邊界中，但 CLI 已可執行。",
+      "recommendedDecision": "Low",
+      "reason": "不要因有真實困惑就升級主力。原版列為輔助／教學頁；只有相依衝突案例證明可減少誤判才重評。",
+      "sources": [
+        {
+          "url": "https://github.com/npm/node-semver/issues/721",
+          "date": "2024-06-17",
+          "sourceType": "first_party_user_issue",
+          "finding": "使用者多次讀文件仍不理解 prerelease range，附實際命令；2025 年維護者指出外部視覺化工具與 node-semver 行為不一致。",
+          "evidenceLimit": "證實理解與可信度痛點，不證明新網站需求或搜尋量；不代表 AI 必定答錯。"
+        },
+        {
+          "url": "https://semver.npmjs.com/",
+          "date": null,
+          "sourceType": "official_product_page",
+          "finding": "npm 官方已有套件名稱與 version range 的版本列表工具。",
+          "evidenceLimit": "本次未送出查詢；不推定涵蓋所有互動教學需求。"
+        },
+        {
+          "url": "https://www.devtools.tools/semver-range-intersection",
+          "date": null,
+          "sourceType": "official_product_search_result",
+          "finding": "搜尋回傳 SemVer range intersection 產品頁。",
+          "evidenceLimit": "只證實候選競品存在，不能確認功能品質。"
+        }
+      ],
+      "queryRecords": [
+        {
+          "query": "semver range visualizer intersection prerelease user issue",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "[BUG]semver.Range returns pre-release version even when includePrerelease is set to false · Issue #396 · npm/node-semver · GitHub",
+              "url": "https://github.com/npm/node-semver/issues/396",
+              "pageType": "GitHub issue"
+            },
+            {
+              "title": "[QUESTION] Very confusing behavior for pre-release range matching · Issue #721 · npm/node-semver · GitHub",
+              "url": "https://github.com/npm/node-semver/issues/721",
+              "pageType": "GitHub issue"
+            },
+            {
+              "title": "Check Version Against Semver Range · public.tools",
+              "url": "https://public.tools/semver-checker",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        },
+        {
+          "query": "SemVer 版本 範圍 視覺化 工具",
+          "queryTimeWindow": {
+            "start": "2026-10-14T19:58:10+08:00",
+            "end": "2026-10-14T20:00:51+08:00"
+          },
+          "locale": "未設定國家／城市，繁中 query 不代表台灣 Google SERP",
+          "representativeResults": [
+            {
+              "title": "SemVer 版本范围测试器 — 校验 ^ 与 ~ 范围 | Souus Tools",
+              "url": "https://toolbox.souus.com/zh/semver-range-tester/",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "Semver 工具（解析、比较、版本号递增） · AZ Tools",
+              "url": "https://aztools.app/zh/t/semver-tools/",
+              "pageType": "產品或內容頁"
+            },
+            {
+              "title": "SemVer 语义化版本工具 - npm 版本范围检查、比较排序、版本递增 | 祈灵工具箱",
+              "url": "https://qilingtools.com/zh/semver",
+              "pageType": "產品或內容頁"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

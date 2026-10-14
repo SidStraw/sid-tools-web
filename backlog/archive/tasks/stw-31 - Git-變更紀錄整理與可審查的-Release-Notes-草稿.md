@@ -4,12 +4,15 @@ title: Git 變更紀錄整理與可審查的 Release Notes 草稿
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-cli-ci
   - later-delivery
+  - demand-reviewed-2026-10-14
+  - excluded-standalone
 dependencies: []
 references:
   - >-
@@ -22,13 +25,18 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/28_035225.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/01_033208.md
+  - 'https://github.com/orhun/git-cliff'
+  - >-
+    https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-pruning.md
 priority: low
 type: feature
-ordinal: 34
+ordinal: 931
 ---
 
 ## Description
@@ -70,3 +78,19 @@ ordinal: 34
 - [ ] #3 不能只依 commit 字詞推測已完成產品效果；不確定內容標為待審查。
 - [ ] #4 可匯出草稿與需補寫清單，版本變更及遠端發布需另行明確操作。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / archive。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+排除獨立流量工具投資；本卡為確定性 CLI/CI 工作，不能用純 AI 摘要理由排除。 GitHub 原生與 git-cliff 已提供來源連結、分組／設定／草稿等流程；沒有本專案額外取得使用者證據。
+
+提升／重新納入條件：至少 3 個真實 release 範圍能證明 git-cliff／原生流程造成可重現錯漏，且專用審查能省下顯著維護成本。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

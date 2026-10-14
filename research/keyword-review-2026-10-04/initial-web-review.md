@@ -60,14 +60,14 @@ High 的 6 張優先驗證操作情境與首版範圍；Medium 題目通常有�
 | 卡片 | 優先 | 題目 | 詞數／報告數 |
 |---|---|---|---:|
 | [STW-1](../../backlog/tasks/stw-1%20-%20環境設定預檢：比對-.env-範本、缺漏與重複鍵.md) | High | 環境設定預檢：比對 .env 範本、缺漏與重複鍵 | 16／37 |
-| [STW-2](../../backlog/tasks/stw-2%20-%20YAML-轉-.env：預覽扁平化規則與鍵名衝突.md) | High | YAML 轉 .env：預覽扁平化規則與鍵名衝突 | 8／17 |
+| [STW-2](../../backlog/archive/tasks/stw-2%20-%20YAML-轉-.env：預覽扁平化規則與鍵名衝突.md) | High | YAML 轉 .env：預覽扁平化規則與鍵名衝突 | 8／17 |
 | [STW-3](../../backlog/tasks/stw-3%20-%20API-JSON-差異比較：忽略動態欄位並依識別鍵對齊陣列.md) | High | API JSON 差異比較：忽略動態欄位並依識別鍵對齊陣列 | 5／3 |
-| [STW-4](../../backlog/tasks/stw-4%20-%20Markdown-表格整理與-JSON／試算表文字互轉.md) | High | Markdown 表格整理與 JSON／試算表文字互轉 | 8／4 |
+| [STW-4](../../backlog/archive/tasks/stw-4%20-%20Markdown-表格整理與-JSON／試算表文字互轉.md) | High | Markdown 表格整理與 JSON／試算表文字互轉 | 8／4 |
 | [STW-5](../../backlog/tasks/stw-5%20-%20Cron-排程預覽：時區對照、下次執行與-DST-提示.md) | High | Cron 排程預覽：時區對照、下次執行與 DST 提示 | 48／33 |
 | [STW-6](../../backlog/tasks/stw-6%20-%20OpenAPI-合約差異檢查：區分-request-與-response-的相容性.md) | High | OpenAPI 合約差異檢查：區分 request 與 response 的相容性 | 2／2 |
 | [STW-7](../../backlog/tasks/stw-7%20-%20CSS-selector-比較：特異性拆解與-HTML-命中預覽.md) | Medium | CSS selector 比較：特異性拆解與 HTML 命中預覽 | 13／18 |
 | [STW-8](../../backlog/tasks/stw-8%20-%20Docker-Compose-靜態預檢與服務相依圖.md) | Medium | Docker Compose 靜態預檢與服務相依圖 | 12／9 |
-| [STW-9](../../backlog/tasks/stw-9%20-%20CSS-轉-Tailwind-v4：支援範圍內轉換與未轉換項目清單.md) | Medium | CSS 轉 Tailwind v4：支援範圍內轉換與未轉換項目清單 | 13／61 |
+| [STW-9](../../backlog/archive/tasks/stw-9%20-%20CSS-轉-Tailwind-v4：支援範圍內轉換與未轉換項目清單.md) | Medium | CSS 轉 Tailwind v4：支援範圍內轉換與未轉換項目清單 | 13／61 |
 | [STW-10](../../backlog/tasks/stw-10%20-%20Git-diff-檢視與可分享的確定性變更摘要.md) | Medium | Git diff 檢視與可分享的確定性變更摘要 | 9／11 |
 | [STW-11](../../backlog/tasks/stw-11%20-%20GraphQL-schema-差異檢查與影響型別導覽.md) | Medium | GraphQL schema 差異檢查與影響型別導覽 | 11／9 |
 | [STW-12](../../backlog/tasks/stw-12%20-%20PostgreSQL-EXPLAIN-計畫檢視：估計與實際執行差距.md) | Medium | PostgreSQL EXPLAIN 計畫檢視：估計與實際執行差距 | 5／2 |

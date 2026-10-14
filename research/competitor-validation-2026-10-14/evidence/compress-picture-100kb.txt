@@ -1,0 +1,115 @@
+Skip to content
+
+Compress Picture
+
+How it worksFAQAbout
+
+EnglishENDeutschDEEspañolESFrançaisFR
+
+- Home/
+
+- Compress image to 100KB
+
+Hit any upload size limit
+
+# Compress image to 100 KB
+
+Drop a JPG, PNG, or WebP and get it back at or under 100 KB — or pick 20, 50, 200, or any custom limit. Quality is tuned automatically, right in your browser.
+
+- Exact size limit
+
+- 100% free
+
+- No upload
+
+- No signup
+
+- Batch up to 30
+
+Drop pictures here, click to browse, or paste with ⌘V
+
+JPG, PNG, WebP · up to 30 files at once · stays in your browser
+
+Target file size100 KB
+
+20 KB50 KB100 KB200 KB500 KB
+
+Quality is tuned automatically so each picture lands at or under this size.
+
+Resize if larger thanpx
+
+Resizing the longest edge often shrinks files dramatically.
+
+demo-large-photo.jpg
+
+2.66 MB → 99.8 KB −96% · 1499×1003
+
+CopyDownload
+
+CompressedOriginal
+
+3 files · 4.23 MB total → 274.2 KB (saved 94%)
+
+Download allClear
+
+-
+
+demo-device-screen.png
+
+1.55 MB → 99.9 KB (−94%) · 706×1442
+
+Copy.jpg✕
+
+-
+
+icon-large.png
+
+25.7 KB → 74.6 KB (−0%) · 1024×1024
+
+Copy.jpg✕
+
+## How to compress an image to 100 KB
+
+Three steps to a file that passes any size-limited upload form — without leaving your browser.
+
+- 1
+
+### Drop your image
+
+Drag a JPG, PNG, or WebP file into the upload area, or tap to pick one (or up to 30) from your device. Nothing is uploaded — everything runs in your browser. Or press ⌘V (Ctrl+V on Windows and Linux) anywhere on the page to paste one straight from the clipboard — a screenshot you just took works too.
+
+- 2
+
+### Pick 100 KB (or any size limit)
+
+100 KB is preselected. Switch to 20, 50, 200, or 500 KB with one tap, or type a custom limit in kilobytes. The tool finds the highest quality that still fits under it.
+
+- 3
+
+### Download the resized file
+
+Each picture comes back at or under your limit, ready to pass strict upload forms. Save files one by one or all at once. Rather keep it on the clipboard? Copy puts the result there as PNG, ready to paste into a chat or a document — the download itself keeps the compressed format.
+
+## Frequently asked questions
+
+How does the tool get an image under exactly 100 KB?+It re-encodes the picture at progressively tuned JPEG quality levels and, when needed, gently reduces dimensions, until the file lands at or just under 100 KB. You always get the highest quality that fits the limit.Will the result really be 100 KB or less?+Yes, in almost every case. The tool checks the real output size after each pass, so what you download genuinely fits the limit. Only extremely detailed images at very small limits (like 10 KB) may stop at the smallest achievable size — the tool tells you when that happens.Can I compress to 50 KB, 20 KB, or another size instead?+Yes. There are one-tap presets for 20, 50, 100, 200, and 500 KB, plus a custom field where you can type any limit in kilobytes — useful for portals that require, say, 40 KB or 150 KB.Why do upload forms require images under 100 KB?+Government portals, job application systems, exam registrations, and visa services often cap photo and signature uploads at 100 KB (sometimes 20–50 KB) to keep their storage and processing predictable. This tool exists to hit those caps without trial and error.What happens to PNG files?+PNG is lossless, so its size cannot be tuned to a target directly. The tool converts PNG input to high-quality JPEG, which is what size-limited upload forms expect. Transparency is flattened onto a white background. If you need to keep transparency, use the compress PNG tool instead — it re-encodes to WebP, which supports an alpha channel.Will compressing to 100 KB ruin the quality?+For a typical photo, no. 100 KB is enough for a sharp image around 1000–1500 px wide. The tool always uses the highest quality that fits, and you can compare before and after with the built-in slider.Are my images uploaded to a server?+No. Compression happens locally in your browser using the Canvas API. Your files never leave your device, which also makes the tool fast on slow connections.Can I compress many images to 100 KB at once?+Yes. Drop up to 30 files and each one is individually compressed to your size limit. Use the Download all button to save every result.Can I paste an image instead of uploading one?+Yes. Press ⌘V on a Mac or Ctrl+V on Windows and Linux anywhere on this page and the image on your clipboard is queued at once, then taken down to the size limit you picked. That is usually the quickest route here, because the thing you need to squeeze under a limit — a screenshot of a form, a photo someone sent you in a chat — tends to be on the clipboard already rather than saved on disk. Copy several images together and they all load in one go, listed as pasted-1.png, pasted-2.png and so on, since the clipboard carries no filenames. Anything that is not an image is ignored.
+
+## Built for hard size limits
+
+Exam registrations, visa applications, job portals, and government forms routinely reject photos over 100 KB — and some want 50 KB or even 20 KB. Guessing quality settings until the file fits wastes time. This tool inverts the problem: you state the limit, and it finds the best quality (and, if necessary, dimensions) that fit under it.
+
+The compression runs entirely in your browser with the Canvas API. The tool encodes your picture at several quality levels, measures the real output size each time, and keeps the highest quality that stays under your limit. If quality alone cannot get there, it scales the image down slightly and tries again. Nothing is uploaded, and your files never leave your device.
+
+Prefer to control quality by eye instead of by file size? Use the main picture compressor with its live quality slider. Working with transparent graphics? Compress PNG keeps the alpha channel by encoding to WebP.
+
+## Your files never leave your browser
+
+Compression runs locally with the Canvas API. We do not store, upload, or analyse your pictures. The tool keeps working even if you disconnect from the internet after the page loads.
+
+Compress Picture
+
+Compress pictures online for free. Reduce image size by up to 90% without losing quality. Runs entirely in your browser — no upload required.
+
+© 2026 Compress Picture. All rights reserved.
+
+GuidesAbout

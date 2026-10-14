@@ -1,0 +1,787 @@
+{
+  "retrievedAt": "2026-10-14",
+  "provider": "seodata.dev",
+  "providerClaimsUpstream": "Google Ads API",
+  "notGoogleDirectlyVerified": true,
+  "period": "monthly average; underlying start/end months and search-network/language settings not disclosed",
+  "languageSetting": "not exposed; keyword string language recorded literally",
+  "zeroMeaning": "provider undocumented; treat no positive volume evidence, not proven zero demand",
+  "responses": [
+    {
+      "keyword": "image compressor",
+      "country": "us",
+      "url": "https://api.seodata.dev/v1/keyword?q=image%20compressor&country=us",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"image compressor\",\"volume\":60500,\"cpc\":1.84,\"competition\":0.05,\"country\":\"us\",\"cached\":true,\"cached_at\":\"2026-06-01T17:59:20.299Z\",\"similar\":[{\"keyword\":\"compression picture\",\"volume\":74000,\"cpc\":2.11,\"overlap\":20},{\"keyword\":\"compress a image\",\"volume\":60500,\"cpc\":1.84,\"overlap\":20},{\"keyword\":\"compress picture\",\"volume\":60500,\"cpc\":1.62,\"overlap\":20},{\"keyword\":\"compression photo\",\"volume\":60500,\"cpc\":1.28,\"overlap\":20},{\"keyword\":\"image compression\",\"volume\":60500,\"cpc\":1.62,\"overlap\":20},{\"keyword\":\"images compress\",\"volume\":60500,\"cpc\":1.62,\"overlap\":20},{\"keyword\":\"photo compress\",\"volume\":60500,\"cpc\":1.84,\"overlap\":20},{\"keyword\":\"photo compressor\",\"volume\":60500,\"cpc\":1.84,\"overlap\":20},{\"keyword\":\"compress image\",\"volume\":22200,\"cpc\":2.05,\"overlap\":20},{\"keyword\":\"compress images\",\"volume\":22200,\"cpc\":2.08,\"overlap\":20}]}",
+      "data": {
+        "keyword": "image compressor",
+        "volume": 60500,
+        "cpc": 1.84,
+        "competition": 0.05,
+        "country": "us",
+        "cached": true,
+        "cached_at": "2026-06-01T17:59:20.299Z",
+        "similar": [
+          {
+            "keyword": "compression picture",
+            "volume": 74000,
+            "cpc": 2.11,
+            "overlap": 20
+          },
+          {
+            "keyword": "compress a image",
+            "volume": 60500,
+            "cpc": 1.84,
+            "overlap": 20
+          },
+          {
+            "keyword": "compress picture",
+            "volume": 60500,
+            "cpc": 1.62,
+            "overlap": 20
+          },
+          {
+            "keyword": "compression photo",
+            "volume": 60500,
+            "cpc": 1.28,
+            "overlap": 20
+          },
+          {
+            "keyword": "image compression",
+            "volume": 60500,
+            "cpc": 1.62,
+            "overlap": 20
+          },
+          {
+            "keyword": "images compress",
+            "volume": 60500,
+            "cpc": 1.62,
+            "overlap": 20
+          },
+          {
+            "keyword": "photo compress",
+            "volume": 60500,
+            "cpc": 1.84,
+            "overlap": 20
+          },
+          {
+            "keyword": "photo compressor",
+            "volume": 60500,
+            "cpc": 1.84,
+            "overlap": 20
+          },
+          {
+            "keyword": "compress image",
+            "volume": 22200,
+            "cpc": 2.05,
+            "overlap": 20
+          },
+          {
+            "keyword": "compress images",
+            "volume": 22200,
+            "cpc": 2.08,
+            "overlap": 20
+          }
+        ]
+      }
+    },
+    {
+      "keyword": "batch image compressor",
+      "country": "us",
+      "url": "https://api.seodata.dev/v1/keyword?q=batch%20image%20compressor&country=us",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"batch image compressor\",\"volume\":70,\"cpc\":0,\"competition\":0.03,\"country\":\"us\",\"cached\":true,\"cached_at\":\"2026-05-31T04:41:44.895Z\",\"similar\":[]}",
+      "data": {
+        "keyword": "batch image compressor",
+        "volume": 70,
+        "cpc": 0,
+        "competition": 0.03,
+        "country": "us",
+        "cached": true,
+        "cached_at": "2026-05-31T04:41:44.895Z",
+        "similar": []
+      }
+    },
+    {
+      "keyword": "compress image to 100kb",
+      "country": "in",
+      "url": "https://api.seodata.dev/v1/keyword?q=compress%20image%20to%20100kb&country=in",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"compress image to 100kb\",\"volume\":49500,\"cpc\":0.04,\"competition\":0,\"country\":\"in\",\"cached\":true,\"cached_at\":\"2026-08-09T19:27:49.785Z\",\"similar\":[{\"keyword\":\"compress jpeg to 100kb\",\"volume\":33100,\"cpc\":0.06,\"overlap\":20},{\"keyword\":\"image compressor to 100kb\",\"volume\":33100,\"cpc\":0.02,\"overlap\":20},{\"keyword\":\"jpg 100 kb\",\"volume\":27100,\"cpc\":0,\"overlap\":20},{\"keyword\":\"photo compressor to 100kb\",\"volume\":22200,\"cpc\":0.01,\"overlap\":20},{\"keyword\":\"jpg compress to 100kb\",\"volume\":14800,\"cpc\":0.01,\"overlap\":20},{\"keyword\":\"photo compress 50 to 100 kb\",\"volume\":9900,\"cpc\":0.12,\"overlap\":20},{\"keyword\":\"jpeg compressor to 100kb\",\"volume\":8100,\"cpc\":0.03,\"overlap\":20},{\"keyword\":\"photo convert into 100 kb\",\"volume\":8100,\"cpc\":0.04,\"overlap\":20},{\"keyword\":\"reduce jpg size to 100kb\",\"volume\":4400,\"cpc\":0.05,\"overlap\":20},{\"keyword\":\"jpg converter 100 kb\",\"volume\":3600,\"cpc\":0.05,\"overlap\":20}]}",
+      "data": {
+        "keyword": "compress image to 100kb",
+        "volume": 49500,
+        "cpc": 0.04,
+        "competition": 0,
+        "country": "in",
+        "cached": true,
+        "cached_at": "2026-08-09T19:27:49.785Z",
+        "similar": [
+          {
+            "keyword": "compress jpeg to 100kb",
+            "volume": 33100,
+            "cpc": 0.06,
+            "overlap": 20
+          },
+          {
+            "keyword": "image compressor to 100kb",
+            "volume": 33100,
+            "cpc": 0.02,
+            "overlap": 20
+          },
+          {
+            "keyword": "jpg 100 kb",
+            "volume": 27100,
+            "cpc": 0,
+            "overlap": 20
+          },
+          {
+            "keyword": "photo compressor to 100kb",
+            "volume": 22200,
+            "cpc": 0.01,
+            "overlap": 20
+          },
+          {
+            "keyword": "jpg compress to 100kb",
+            "volume": 14800,
+            "cpc": 0.01,
+            "overlap": 20
+          },
+          {
+            "keyword": "photo compress 50 to 100 kb",
+            "volume": 9900,
+            "cpc": 0.12,
+            "overlap": 20
+          },
+          {
+            "keyword": "jpeg compressor to 100kb",
+            "volume": 8100,
+            "cpc": 0.03,
+            "overlap": 20
+          },
+          {
+            "keyword": "photo convert into 100 kb",
+            "volume": 8100,
+            "cpc": 0.04,
+            "overlap": 20
+          },
+          {
+            "keyword": "reduce jpg size to 100kb",
+            "volume": 4400,
+            "cpc": 0.05,
+            "overlap": 20
+          },
+          {
+            "keyword": "jpg converter 100 kb",
+            "volume": 3600,
+            "cpc": 0.05,
+            "overlap": 20
+          }
+        ]
+      }
+    },
+    {
+      "keyword": "compress image to 200kb",
+      "country": "us",
+      "url": "https://api.seodata.dev/v1/keyword?q=compress%20image%20to%20200kb&country=us",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"compress image to 200kb\",\"volume\":170,\"cpc\":1.17,\"competition\":0.08,\"country\":\"us\",\"cached\":true,\"cached_at\":\"2026-07-19T17:43:32.674Z\",\"similar\":[{\"keyword\":\"image compress to 200kb\",\"volume\":70,\"cpc\":1.97,\"overlap\":14},{\"keyword\":\"compress jpeg to 200kb\",\"volume\":140,\"cpc\":1.62,\"overlap\":13},{\"keyword\":\"image compressor to 200kb\",\"volume\":70,\"cpc\":1.97,\"overlap\":12},{\"keyword\":\"convert image to jpg 200kb\",\"volume\":70,\"cpc\":1.21,\"overlap\":11},{\"keyword\":\"compress images to 200kb\",\"volume\":110,\"cpc\":1.89,\"overlap\":8},{\"keyword\":\"200 kb\",\"volume\":90,\"cpc\":0,\"overlap\":8},{\"keyword\":\"200kb photo size\",\"volume\":50,\"cpc\":2.66,\"overlap\":8},{\"keyword\":\"photo size 200kb\",\"volume\":30,\"cpc\":1.38,\"overlap\":8},{\"keyword\":\"compress image online\",\"volume\":3600,\"cpc\":1.71,\"overlap\":7},{\"keyword\":\"image compressor online\",\"volume\":3600,\"cpc\":2.3,\"overlap\":7}]}",
+      "data": {
+        "keyword": "compress image to 200kb",
+        "volume": 170,
+        "cpc": 1.17,
+        "competition": 0.08,
+        "country": "us",
+        "cached": true,
+        "cached_at": "2026-07-19T17:43:32.674Z",
+        "similar": [
+          {
+            "keyword": "image compress to 200kb",
+            "volume": 70,
+            "cpc": 1.97,
+            "overlap": 14
+          },
+          {
+            "keyword": "compress jpeg to 200kb",
+            "volume": 140,
+            "cpc": 1.62,
+            "overlap": 13
+          },
+          {
+            "keyword": "image compressor to 200kb",
+            "volume": 70,
+            "cpc": 1.97,
+            "overlap": 12
+          },
+          {
+            "keyword": "convert image to jpg 200kb",
+            "volume": 70,
+            "cpc": 1.21,
+            "overlap": 11
+          },
+          {
+            "keyword": "compress images to 200kb",
+            "volume": 110,
+            "cpc": 1.89,
+            "overlap": 8
+          },
+          {
+            "keyword": "200 kb",
+            "volume": 90,
+            "cpc": 0,
+            "overlap": 8
+          },
+          {
+            "keyword": "200kb photo size",
+            "volume": 50,
+            "cpc": 2.66,
+            "overlap": 8
+          },
+          {
+            "keyword": "photo size 200kb",
+            "volume": 30,
+            "cpc": 1.38,
+            "overlap": 8
+          },
+          {
+            "keyword": "compress image online",
+            "volume": 3600,
+            "cpc": 1.71,
+            "overlap": 7
+          },
+          {
+            "keyword": "image compressor online",
+            "volume": 3600,
+            "cpc": 2.3,
+            "overlap": 7
+          }
+        ]
+      }
+    },
+    {
+      "keyword": "compare lighthouse reports",
+      "country": "us",
+      "url": "https://api.seodata.dev/v1/keyword?q=compare%20lighthouse%20reports&country=us",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"compare lighthouse reports\",\"volume\":0,\"cpc\":0,\"competition\":0,\"country\":\"us\",\"cached\":false}",
+      "data": {
+        "keyword": "compare lighthouse reports",
+        "volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "country": "us",
+        "cached": false
+      }
+    },
+    {
+      "keyword": "lighthouse diff",
+      "country": "us",
+      "url": "https://api.seodata.dev/v1/keyword?q=lighthouse%20diff&country=us",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"lighthouse diff\",\"volume\":0,\"cpc\":0,\"competition\":0,\"country\":\"us\",\"cached\":false}",
+      "data": {
+        "keyword": "lighthouse diff",
+        "volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "country": "us",
+        "cached": false
+      }
+    },
+    {
+      "keyword": "lighthouse report",
+      "country": "us",
+      "url": "https://api.seodata.dev/v1/keyword?q=lighthouse%20report&country=us",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"lighthouse report\",\"volume\":720,\"cpc\":16.16,\"competition\":0.08,\"country\":\"us\",\"cached\":true,\"cached_at\":\"2026-06-06T13:32:27.983Z\",\"similar\":[{\"keyword\":\"google lighthouse\",\"volume\":4400,\"cpc\":11.12,\"overlap\":16},{\"keyword\":\"google lighthouse reports\",\"volume\":70,\"cpc\":8.16,\"overlap\":12},{\"keyword\":\"lighthouse google\",\"volume\":5400,\"cpc\":4.62,\"overlap\":11},{\"keyword\":\"lighthouse website\",\"volume\":260,\"cpc\":18.3,\"overlap\":11},{\"keyword\":\"lighthouse test\",\"volume\":390,\"cpc\":7.76,\"overlap\":10},{\"keyword\":\"lighthouse tool\",\"volume\":170,\"cpc\":20.06,\"overlap\":10},{\"keyword\":\"lighthouse website test\",\"volume\":170,\"cpc\":8.54,\"overlap\":10},{\"keyword\":\"lighthouse audit\",\"volume\":140,\"cpc\":24.79,\"overlap\":10},{\"keyword\":\"lighthouse performance testing\",\"volume\":140,\"cpc\":7.9,\"overlap\":10},{\"keyword\":\"lighthouse web performance\",\"volume\":50,\"cpc\":3.24,\"overlap\":10}]}",
+      "data": {
+        "keyword": "lighthouse report",
+        "volume": 720,
+        "cpc": 16.16,
+        "competition": 0.08,
+        "country": "us",
+        "cached": true,
+        "cached_at": "2026-06-06T13:32:27.983Z",
+        "similar": [
+          {
+            "keyword": "google lighthouse",
+            "volume": 4400,
+            "cpc": 11.12,
+            "overlap": 16
+          },
+          {
+            "keyword": "google lighthouse reports",
+            "volume": 70,
+            "cpc": 8.16,
+            "overlap": 12
+          },
+          {
+            "keyword": "lighthouse google",
+            "volume": 5400,
+            "cpc": 4.62,
+            "overlap": 11
+          },
+          {
+            "keyword": "lighthouse website",
+            "volume": 260,
+            "cpc": 18.3,
+            "overlap": 11
+          },
+          {
+            "keyword": "lighthouse test",
+            "volume": 390,
+            "cpc": 7.76,
+            "overlap": 10
+          },
+          {
+            "keyword": "lighthouse tool",
+            "volume": 170,
+            "cpc": 20.06,
+            "overlap": 10
+          },
+          {
+            "keyword": "lighthouse website test",
+            "volume": 170,
+            "cpc": 8.54,
+            "overlap": 10
+          },
+          {
+            "keyword": "lighthouse audit",
+            "volume": 140,
+            "cpc": 24.79,
+            "overlap": 10
+          },
+          {
+            "keyword": "lighthouse performance testing",
+            "volume": 140,
+            "cpc": 7.9,
+            "overlap": 10
+          },
+          {
+            "keyword": "lighthouse web performance",
+            "volume": 50,
+            "cpc": 3.24,
+            "overlap": 10
+          }
+        ]
+      }
+    },
+    {
+      "keyword": "lighthouse comparison",
+      "country": "us",
+      "url": "https://api.seodata.dev/v1/keyword?q=lighthouse%20comparison&country=us",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"lighthouse comparison\",\"volume\":0,\"cpc\":0,\"competition\":0,\"country\":\"us\",\"cached\":false}",
+      "data": {
+        "keyword": "lighthouse comparison",
+        "volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "country": "us",
+        "cached": false
+      }
+    },
+    {
+      "keyword": "圖片壓縮",
+      "country": "tw",
+      "url": "https://api.seodata.dev/v1/keyword?q=%E5%9C%96%E7%89%87%E5%A3%93%E7%B8%AE&country=tw",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"圖片壓縮\",\"volume\":9900,\"cpc\":0.16,\"competition\":0,\"country\":\"tw\",\"cached\":false,\"cached_at\":\"2026-10-14T12:18:38.058Z\",\"similar\":[{\"keyword\":\"壓縮圖片\",\"volume\":6600,\"cpc\":0.01,\"overlap\":16},{\"keyword\":\"壓縮圖檔\",\"volume\":1000,\"cpc\":0.12,\"overlap\":13},{\"keyword\":\"壓縮照片\",\"volume\":5400,\"cpc\":0.29,\"overlap\":12},{\"keyword\":\"線上壓縮圖片\",\"volume\":260,\"cpc\":0,\"overlap\":12},{\"keyword\":\"圖檔壓縮\",\"volume\":1000,\"cpc\":0.59,\"overlap\":11},{\"keyword\":\"壓縮圖片大小\",\"volume\":260,\"cpc\":0,\"overlap\":11},{\"keyword\":\"線上壓縮jpg\",\"volume\":210,\"cpc\":0.19,\"overlap\":11},{\"keyword\":\"線上圖片壓縮\",\"volume\":140,\"cpc\":0,\"overlap\":11},{\"keyword\":\"照片壓縮\",\"volume\":6600,\"cpc\":0.31,\"overlap\":10},{\"keyword\":\"線上壓縮照片\",\"volume\":260,\"cpc\":0.07,\"overlap\":10}]}",
+      "data": {
+        "keyword": "圖片壓縮",
+        "volume": 9900,
+        "cpc": 0.16,
+        "competition": 0,
+        "country": "tw",
+        "cached": false,
+        "cached_at": "2026-10-14T12:18:38.058Z",
+        "similar": [
+          {
+            "keyword": "壓縮圖片",
+            "volume": 6600,
+            "cpc": 0.01,
+            "overlap": 16
+          },
+          {
+            "keyword": "壓縮圖檔",
+            "volume": 1000,
+            "cpc": 0.12,
+            "overlap": 13
+          },
+          {
+            "keyword": "壓縮照片",
+            "volume": 5400,
+            "cpc": 0.29,
+            "overlap": 12
+          },
+          {
+            "keyword": "線上壓縮圖片",
+            "volume": 260,
+            "cpc": 0,
+            "overlap": 12
+          },
+          {
+            "keyword": "圖檔壓縮",
+            "volume": 1000,
+            "cpc": 0.59,
+            "overlap": 11
+          },
+          {
+            "keyword": "壓縮圖片大小",
+            "volume": 260,
+            "cpc": 0,
+            "overlap": 11
+          },
+          {
+            "keyword": "線上壓縮jpg",
+            "volume": 210,
+            "cpc": 0.19,
+            "overlap": 11
+          },
+          {
+            "keyword": "線上圖片壓縮",
+            "volume": 140,
+            "cpc": 0,
+            "overlap": 11
+          },
+          {
+            "keyword": "照片壓縮",
+            "volume": 6600,
+            "cpc": 0.31,
+            "overlap": 10
+          },
+          {
+            "keyword": "線上壓縮照片",
+            "volume": 260,
+            "cpc": 0.07,
+            "overlap": 10
+          }
+        ]
+      }
+    },
+    {
+      "keyword": "圖片壓縮 100kb",
+      "country": "tw",
+      "url": "https://api.seodata.dev/v1/keyword?q=%E5%9C%96%E7%89%87%E5%A3%93%E7%B8%AE%20100kb&country=tw",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"圖片壓縮 100kb\",\"volume\":0,\"cpc\":0,\"competition\":0,\"country\":\"tw\",\"cached\":false}",
+      "data": {
+        "keyword": "圖片壓縮 100kb",
+        "volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "country": "tw",
+        "cached": false
+      }
+    },
+    {
+      "keyword": "圖片壓縮 指定大小",
+      "country": "tw",
+      "url": "https://api.seodata.dev/v1/keyword?q=%E5%9C%96%E7%89%87%E5%A3%93%E7%B8%AE%20%E6%8C%87%E5%AE%9A%E5%A4%A7%E5%B0%8F&country=tw",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"圖片壓縮 指定大小\",\"volume\":0,\"cpc\":0,\"competition\":0,\"country\":\"tw\",\"cached\":false}",
+      "data": {
+        "keyword": "圖片壓縮 指定大小",
+        "volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "country": "tw",
+        "cached": false
+      }
+    },
+    {
+      "keyword": "Lighthouse 報告比較",
+      "country": "tw",
+      "url": "https://api.seodata.dev/v1/keyword?q=Lighthouse%20%E5%A0%B1%E5%91%8A%E6%AF%94%E8%BC%83&country=tw",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"lighthouse 報告比較\",\"volume\":0,\"cpc\":0,\"competition\":0,\"country\":\"tw\",\"cached\":false}",
+      "data": {
+        "keyword": "lighthouse 報告比較",
+        "volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "country": "tw",
+        "cached": false
+      }
+    },
+    {
+      "keyword": "batch compress images to 100kb",
+      "country": "us",
+      "url": "https://api.seodata.dev/v1/keyword?q=batch%20compress%20images%20to%20100kb&country=us",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"batch compress images to 100kb\",\"volume\":0,\"cpc\":0,\"competition\":0,\"country\":\"us\",\"cached\":false}",
+      "data": {
+        "keyword": "batch compress images to 100kb",
+        "volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "country": "us",
+        "cached": false
+      }
+    },
+    {
+      "keyword": "bulk image compressor",
+      "country": "us",
+      "url": "https://api.seodata.dev/v1/keyword?q=bulk%20image%20compressor&country=us",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"bulk image compressor\",\"volume\":480,\"cpc\":4.28,\"competition\":0.04,\"country\":\"us\",\"cached\":true,\"cached_at\":\"2026-05-23T17:48:31.220Z\",\"similar\":[{\"keyword\":\"bulk compress images\",\"volume\":480,\"cpc\":6.04,\"overlap\":17},{\"keyword\":\"mass compress images\",\"volume\":110,\"cpc\":2.92,\"overlap\":16},{\"keyword\":\"bulk compressor\",\"volume\":50,\"cpc\":0,\"overlap\":16},{\"keyword\":\"bulk image compression\",\"volume\":480,\"cpc\":4.28,\"overlap\":15},{\"keyword\":\"image optimizer bulk\",\"volume\":50,\"cpc\":8.02,\"overlap\":14},{\"keyword\":\"bulk optimize images\",\"volume\":40,\"cpc\":1.75,\"overlap\":14},{\"keyword\":\"bulk images compressor\",\"volume\":390,\"cpc\":2.26,\"overlap\":13},{\"keyword\":\"bulk photo compressor\",\"volume\":390,\"cpc\":2.26,\"overlap\":12},{\"keyword\":\"batch compressor\",\"volume\":110,\"cpc\":0,\"overlap\":12},{\"keyword\":\"compress batch images\",\"volume\":90,\"cpc\":4.25,\"overlap\":12}]}",
+      "data": {
+        "keyword": "bulk image compressor",
+        "volume": 480,
+        "cpc": 4.28,
+        "competition": 0.04,
+        "country": "us",
+        "cached": true,
+        "cached_at": "2026-05-23T17:48:31.220Z",
+        "similar": [
+          {
+            "keyword": "bulk compress images",
+            "volume": 480,
+            "cpc": 6.04,
+            "overlap": 17
+          },
+          {
+            "keyword": "mass compress images",
+            "volume": 110,
+            "cpc": 2.92,
+            "overlap": 16
+          },
+          {
+            "keyword": "bulk compressor",
+            "volume": 50,
+            "cpc": 0,
+            "overlap": 16
+          },
+          {
+            "keyword": "bulk image compression",
+            "volume": 480,
+            "cpc": 4.28,
+            "overlap": 15
+          },
+          {
+            "keyword": "image optimizer bulk",
+            "volume": 50,
+            "cpc": 8.02,
+            "overlap": 14
+          },
+          {
+            "keyword": "bulk optimize images",
+            "volume": 40,
+            "cpc": 1.75,
+            "overlap": 14
+          },
+          {
+            "keyword": "bulk images compressor",
+            "volume": 390,
+            "cpc": 2.26,
+            "overlap": 13
+          },
+          {
+            "keyword": "bulk photo compressor",
+            "volume": 390,
+            "cpc": 2.26,
+            "overlap": 12
+          },
+          {
+            "keyword": "batch compressor",
+            "volume": 110,
+            "cpc": 0,
+            "overlap": 12
+          },
+          {
+            "keyword": "compress batch images",
+            "volume": 90,
+            "cpc": 4.25,
+            "overlap": 12
+          }
+        ]
+      }
+    },
+    {
+      "keyword": "圖片壓縮kb",
+      "country": "tw",
+      "url": "https://api.seodata.dev/v1/keyword?q=%E5%9C%96%E7%89%87%E5%A3%93%E7%B8%AEkb&country=tw",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"圖片壓縮kb\",\"volume\":0,\"cpc\":0,\"competition\":0,\"country\":\"tw\",\"cached\":false}",
+      "data": {
+        "keyword": "圖片壓縮kb",
+        "volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "country": "tw",
+        "cached": false
+      }
+    },
+    {
+      "keyword": "lighthouse report comparison",
+      "country": "us",
+      "url": "https://api.seodata.dev/v1/keyword?q=lighthouse%20report%20comparison&country=us",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"lighthouse report comparison\",\"volume\":0,\"cpc\":0,\"competition\":0,\"country\":\"us\",\"cached\":false}",
+      "data": {
+        "keyword": "lighthouse report comparison",
+        "volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "country": "us",
+        "cached": false
+      }
+    },
+    {
+      "keyword": "lighthouse ci",
+      "country": "us",
+      "url": "https://api.seodata.dev/v1/keyword?q=lighthouse%20ci&country=us",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"lighthouse ci\",\"volume\":170,\"cpc\":0,\"competition\":0.03,\"country\":\"us\",\"cached\":false,\"cached_at\":\"2026-10-14T12:19:06.984Z\",\"similar\":[{\"keyword\":\"lighthouse-ci\",\"volume\":170,\"cpc\":0,\"overlap\":18},{\"keyword\":\"lighthouse cli\",\"volume\":90,\"cpc\":0,\"overlap\":5},{\"keyword\":\"lhci\",\"volume\":40,\"cpc\":0,\"overlap\":5},{\"keyword\":\"lhci cli\",\"volume\":20,\"cpc\":0,\"overlap\":5},{\"keyword\":\"lhci/cli\",\"volume\":20,\"cpc\":0,\"overlap\":5},{\"keyword\":\"lighthouse ci server\",\"volume\":20,\"cpc\":0,\"overlap\":5},{\"keyword\":\"lighthouse github\",\"volume\":90,\"cpc\":0,\"overlap\":4},{\"keyword\":\"lighthouse npm\",\"volume\":50,\"cpc\":0,\"overlap\":4},{\"keyword\":\"npm lighthouse\",\"volume\":50,\"cpc\":0,\"overlap\":4},{\"keyword\":\"lighthouse server\",\"volume\":30,\"cpc\":0,\"overlap\":4}]}",
+      "data": {
+        "keyword": "lighthouse ci",
+        "volume": 170,
+        "cpc": 0,
+        "competition": 0.03,
+        "country": "us",
+        "cached": false,
+        "cached_at": "2026-10-14T12:19:06.984Z",
+        "similar": [
+          {
+            "keyword": "lighthouse-ci",
+            "volume": 170,
+            "cpc": 0,
+            "overlap": 18
+          },
+          {
+            "keyword": "lighthouse cli",
+            "volume": 90,
+            "cpc": 0,
+            "overlap": 5
+          },
+          {
+            "keyword": "lhci",
+            "volume": 40,
+            "cpc": 0,
+            "overlap": 5
+          },
+          {
+            "keyword": "lhci cli",
+            "volume": 20,
+            "cpc": 0,
+            "overlap": 5
+          },
+          {
+            "keyword": "lhci/cli",
+            "volume": 20,
+            "cpc": 0,
+            "overlap": 5
+          },
+          {
+            "keyword": "lighthouse ci server",
+            "volume": 20,
+            "cpc": 0,
+            "overlap": 5
+          },
+          {
+            "keyword": "lighthouse github",
+            "volume": 90,
+            "cpc": 0,
+            "overlap": 4
+          },
+          {
+            "keyword": "lighthouse npm",
+            "volume": 50,
+            "cpc": 0,
+            "overlap": 4
+          },
+          {
+            "keyword": "npm lighthouse",
+            "volume": 50,
+            "cpc": 0,
+            "overlap": 4
+          },
+          {
+            "keyword": "lighthouse server",
+            "volume": 30,
+            "cpc": 0,
+            "overlap": 4
+          }
+        ]
+      }
+    },
+    {
+      "keyword": "compress image to 100kb",
+      "country": "us",
+      "url": "https://api.seodata.dev/v1/keyword?q=compress%20image%20to%20100kb&country=us",
+      "exitCode": 0,
+      "raw": "{\"keyword\":\"compress image to 100kb\",\"volume\":170,\"cpc\":2.46,\"competition\":0.04,\"country\":\"us\",\"cached\":true,\"cached_at\":\"2026-07-16T13:14:21.255Z\",\"similar\":[{\"keyword\":\"compress images to 100kb\",\"volume\":170,\"cpc\":2.14,\"overlap\":16},{\"keyword\":\"image compression 100kb\",\"volume\":30,\"cpc\":0,\"overlap\":15},{\"keyword\":\"image compressor 100kb\",\"volume\":30,\"cpc\":0,\"overlap\":15},{\"keyword\":\"image compress 100kb\",\"volume\":30,\"cpc\":0,\"overlap\":14},{\"keyword\":\"jpg compress to 100kb\",\"volume\":30,\"cpc\":7.22,\"overlap\":14},{\"keyword\":\"photo compressor to 100kb\",\"volume\":30,\"cpc\":1.38,\"overlap\":14},{\"keyword\":\"compress image to 100 kb\",\"volume\":170,\"cpc\":2.46,\"overlap\":13},{\"keyword\":\"compress jpeg 100 kb\",\"volume\":170,\"cpc\":1.49,\"overlap\":13},{\"keyword\":\"image compress to 100kb\",\"volume\":110,\"cpc\":6.07,\"overlap\":13},{\"keyword\":\"images compressor to 100kb\",\"volume\":110,\"cpc\":0.79,\"overlap\":13}]}",
+      "data": {
+        "keyword": "compress image to 100kb",
+        "volume": 170,
+        "cpc": 2.46,
+        "competition": 0.04,
+        "country": "us",
+        "cached": true,
+        "cached_at": "2026-07-16T13:14:21.255Z",
+        "similar": [
+          {
+            "keyword": "compress images to 100kb",
+            "volume": 170,
+            "cpc": 2.14,
+            "overlap": 16
+          },
+          {
+            "keyword": "image compression 100kb",
+            "volume": 30,
+            "cpc": 0,
+            "overlap": 15
+          },
+          {
+            "keyword": "image compressor 100kb",
+            "volume": 30,
+            "cpc": 0,
+            "overlap": 15
+          },
+          {
+            "keyword": "image compress 100kb",
+            "volume": 30,
+            "cpc": 0,
+            "overlap": 14
+          },
+          {
+            "keyword": "jpg compress to 100kb",
+            "volume": 30,
+            "cpc": 7.22,
+            "overlap": 14
+          },
+          {
+            "keyword": "photo compressor to 100kb",
+            "volume": 30,
+            "cpc": 1.38,
+            "overlap": 14
+          },
+          {
+            "keyword": "compress image to 100 kb",
+            "volume": 170,
+            "cpc": 2.46,
+            "overlap": 13
+          },
+          {
+            "keyword": "compress jpeg 100 kb",
+            "volume": 170,
+            "cpc": 1.49,
+            "overlap": 13
+          },
+          {
+            "keyword": "image compress to 100kb",
+            "volume": 110,
+            "cpc": 6.07,
+            "overlap": 13
+          },
+          {
+            "keyword": "images compressor to 100kb",
+            "volume": 110,
+            "cpc": 0.79,
+            "overlap": 13
+          }
+        ]
+      }
+    }
+  ]
+}

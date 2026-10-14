@@ -4,7 +4,7 @@ title: Cron 排程預覽：時區對照、下次執行與 DST 提示
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:08'
 labels:
   - keyword-research
   - proposal
@@ -13,6 +13,8 @@ labels:
   - web-first
   - extension-cli
   - extension-ide
+  - demand-reviewed-2026-10-14
+  - validate-next
 dependencies: []
 references:
   - >-
@@ -25,13 +27,18 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/19_035446.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/30_032855.md
+  - 'https://github.com/NousResearch/hermes-agent/issues/66436'
+  - 'https://cronwizard.com/dst'
+  - 'https://cron.dag.io/'
 documentation:
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
   - docs/product-direction.md
-priority: high
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-existing-core.md
+priority: medium
 type: feature
-ordinal: 5
+ordinal: 4
 ---
 
 ## Description
@@ -82,3 +89,19 @@ ordinal: 5
 - [ ] #4 可複製排程及時區資訊，說明預覽規則與真實排程器實作可能不同。
 - [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Medium / validate。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+保留特定 scheduler／版本驗證方向，通用時區加日曆版降級。近期 runtime 錯誤是真痛點，但預覽工具必須能說明適用範圍。 競品覆蓋程度高：時區、下次執行與 DST 邊界已有專門產品；跨 runtime 正確性尚不能視為已解決。
+
+提升／重新納入條件：指定 Unix 五欄 parser/runtime，核對 DST 邊界與真實 scheduler；不得偷偷擴充到 Quartz 或宣稱通用正確。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-existing-core.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

@@ -4,7 +4,7 @@ title: OpenAPI 合約差異檢查：區分 request 與 response 的相容性
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:08'
 labels:
   - keyword-research
   - proposal
@@ -13,19 +13,27 @@ labels:
   - web-first
   - extension-cli
   - extension-ci
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/07_041229.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/29_035902.md
+  - 'https://github.com/OpenAPITools/openapi-diff/issues/192'
+  - 'https://www.oasdiff.com/diff'
+  - 'https://www.oasdiff.com/'
+  - 'https://a2z.tools/openapi-specification-diff-checker'
 documentation:
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
   - docs/product-direction.md
-priority: high
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-existing-core.md
+priority: low
 type: feature
-ordinal: 6
+ordinal: 106
 ---
 
 ## Description
@@ -75,3 +83,19 @@ API 規格改動需要知道消費端可能在哪裡壞掉，而不是只看 YAM
 - [ ] #4 提供代表性相容／不相容 fixture 與可下載摘要，輸入文件的格式順序變動不產生假變更。
 - [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+先排除泛用 Web wrapper 作近期主力。若要升級，需用真實 consumer／規格證明既有引擎漏判或流程成本。 競品覆蓋程度高：oasdiff 已有 Web、報告匯出與 CI；另有本機處理產品聲明，但本輪未驗證。
+
+提升／重新納入條件：用語意等價規格與真實 consumer 比對既有引擎，且實測 oasdiff 資料處理位置；單純本機 wrapper 不足。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-existing-core.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

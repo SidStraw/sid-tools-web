@@ -4,12 +4,15 @@ title: 圖片色盤到可讀的介面配色與 token 匯出
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:08'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-web
   - web-first
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
@@ -18,13 +21,18 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/09_041123.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/27_035349.md
+  - 'https://github.com/5t3ph/a11y-color-tokens'
+  - 'https://colortable.org/palette/'
+  - 'https://palette.ikit.app/?lang=zh_TW'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
-priority: medium
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-existing-core.md
+priority: low
 type: feature
-ordinal: 23
+ordinal: 135
 ---
 
 ## Description
@@ -66,3 +74,19 @@ Web 取色與手動調整，明示對比計算規則，匯出 CSS variables 及�
 - [ ] #3 匯出具可讀名稱的 token 並保持與預覽一致，未通過的組合不隱藏。
 - [ ] #4 來源圖片留在瀏覽器，說明色彩對比檢查無法代替完整無障礙驗證。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+原通用流程已有直接覆蓋；目前需求主要來自工具作者自身敘述。可保留工具站輔助功能，但不當獨立優先流量項目。 競品覆蓋程度高：對比矩陣、CSS/JSON/DTCG 匯出與本機保存已有產品。
+
+提升／重新納入條件：真實品牌圖片到語意 token 交付需證明比現成配色工具少返工；矩陣與匯出本身不是差異。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-existing-core.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

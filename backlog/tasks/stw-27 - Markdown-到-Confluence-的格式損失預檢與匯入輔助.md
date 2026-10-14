@@ -4,12 +4,15 @@ title: Markdown 到 Confluence 的格式損失預檢與匯入輔助
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-web-integration
   - web-first
+  - demand-reviewed-2026-10-14
+  - validate-next
 dependencies: []
 references:
   - >-
@@ -18,13 +21,21 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/09_041123.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/13_055344.md
+  - >-
+    https://community.atlassian.com/forums/discussion/1886974/how-to-import-pages-with-markdown-format-into-confluence
+  - >-
+    https://community.atlassian.com/forums/discussion/2799601/how-do-i-enable-the-options-to-import-word-and-markdown-to-a-page
+  - >-
+    https://marketplace.atlassian.com/apps/1221333/markdown-importer-for-confluence
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-pruning.md
 priority: medium
 type: feature
-ordinal: 19
+ordinal: 6
 ---
 
 ## Description
@@ -66,3 +77,19 @@ Web 預覽與損失清單優先，先選 Cloud 或 Data Center 的一種目標�
 - [ ] #3 unsupported macro 或格式不宣告保真，保留原始資料及定位。
 - [ ] #4 若提供直接匯入，必須預覽目的頁、變更及授權範圍，再由使用者明確送出。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Medium / validate。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+Medium 條件式保留預檢驗證，先選定 Cloud 或 Data Center；不是重新做通用轉換器。 官方社群有批次千頁移轉／Markdown 匯入的第一手問題；現在有付費 importer 宣告相對連結、附件及命名衝突處理。
+
+提升／重新納入條件：至少 3 組真實文件在指定平台與現成 importer 比較，量測預檢發現的遺漏和人工修復時間；若無增量價值停止。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

@@ -1,0 +1,127 @@
+Skip to content
+
+Compress Picture
+
+How it worksFAQAbout
+
+EnglishENDeutschDEEspañolESFrançaisFR
+
+- Home/
+
+- Compress PNG
+
+Free online PNG compressor
+
+# Compress PNG, keep the transparency
+
+PNG is a lossless format, so re-saving it as PNG hardly shrinks anything. This tool re-encodes your PNG as WebP instead — typically 70–90% smaller with the alpha channel intact — and lets you switch back to lossless PNG or JPG in one tap.
+
+Drop a PNG and watch it shrink — your files never leave your device.
+
+- Transparency kept
+
+- 100% free
+
+- No upload
+
+- No signup
+
+- Batch up to 30
+
+Drop pictures here, click to browse, or paste with ⌘V
+
+JPG, PNG, WebP · up to 30 files at once · stays in your browser
+
+Quality75
+
+Lower = smaller file. 75 is a safe default for photos.
+
+Resize if larger thanpx
+
+Resizing the longest edge often shrinks files dramatically.
+
+Output format
+
+WebPPNGJPG
+
+Up to 90% smaller — keeps transparency
+
+demo-device-screen.png
+
+1.55 MB → 127.5 KB −92% · 706×1442
+
+CopyDownload
+
+CompressedOriginal
+
+2 files · 1.57 MB total → 151.5 KB (saved 91%)
+
+Download allClear
+
+-
+
+icon-large.png
+
+25.7 KB → 24.0 KB (−6%) · 1024×1024
+
+Copy.webp✕
+
+## How to compress a PNG
+
+Three steps, all of them inside your browser — your PNGs are never uploaded anywhere.
+
+- 1
+
+### Drop your PNG files
+
+Drag up to 30 PNG files into the upload area, or tap to pick them from your device. Screenshots, logos, exports — anything PNG. Nothing is uploaded; the work happens in your browser. Or press ⌘V (Ctrl+V on Windows and Linux) anywhere on the page to paste one straight from the clipboard — a screenshot you just took works too.
+
+- 2
+
+### Choose the output format
+
+WebP is preselected because it is the only way to make a PNG dramatically smaller — typically 70–90% — while keeping transparency. Tap PNG to stay pixel-for-pixel lossless, or JPG for photos that have no transparent areas.
+
+- 3
+
+### Download the compressed file
+
+Compare before and after with the slider, then save one file or all of them at once. The download carries the correct extension for the format you picked. Rather keep it on the clipboard? Copy puts the result there as PNG, ready to paste into a chat or a document — the download itself keeps the compressed format.
+
+## Which output format should you pick?
+
+The output format decides how much you can actually save. Sizes below are typical for a screenshot or a UI export at the default quality.
+
+OutputTypical resultTransparencyBest for
+
+WebP70–90% smallerYesWebsites, apps, anywhere modern browsers are the audience
+
+PNG0–20% smallerYesForms that demand .png, and perfectly lossless copies
+
+JPG80–95% smallerNoPhotographs and screenshots with no transparent areas
+
+## Frequently asked questions
+
+Why does my PNG barely shrink when I keep the PNG format?+Because PNG is a lossless format. It stores every pixel exactly, so there is no quality dial to turn down — re-saving a PNG as a PNG only rewrites the same pixels with the same compression algorithm, which usually saves little or nothing. The two things that genuinely shrink a lossless PNG are reducing its dimensions and switching to a format that is allowed to discard invisible detail, such as WebP.How much smaller does a PNG get?+Converting to WebP typically cuts a PNG by 70–90% at the default quality, and screenshots or UI exports often do even better because they contain large flat areas. Keeping the output as PNG saves far less — usually 0–20%, and only if the file was not already optimised. Resizing the longest edge multiplies whatever savings you get.Does compressing a PNG keep transparency?+With PNG or WebP output, yes — both formats support an alpha channel, so transparent backgrounds survive intact. JPG has no transparency at all, so choosing JPG flattens transparent areas onto a white background. If your image is a logo, icon, or sticker with a see-through background, stay on WebP or PNG.Is this PNG compression lossless?+It depends on the output you pick. PNG output is lossless: the pixels come back identical. WebP and JPG output are lossy — they discard detail the eye is unlikely to notice, which is exactly why they get so much smaller. At the default quality of 75 the result is visually indistinguishable from the source for most images, and you can check with the built-in before/after slider.Should I use PNG or WebP on my website?+WebP, in almost every case. Every current browser — Chrome, Safari, Firefox, Edge, and their mobile versions — has supported WebP for years, and it is smaller than PNG at matching visual quality. Keep PNG when a tool or upload form explicitly demands a .png file, or when you need a perfectly lossless copy of a flat-colour graphic.What about logos and icons with flat colours?+Flat-colour graphics with hard edges are the one case where lossy compression can misbehave — you may see faint halos around sharp lines at low quality. Keep the quality slider high (85 or above) when converting them to WebP, or leave the output as PNG and shrink the file by resizing instead.Can I compress a PNG to an exact file size, like 100 KB?+Yes, but use the size-limit tool for that. Compress image to 100 KB lets you name a ceiling in kilobytes — 20, 50, 100, 200, 500, or a custom value — and tunes quality automatically until the file fits under it. That is the right tool when an upload form rejects anything over a fixed size.Are my PNG files uploaded to a server?+No. Every file is decoded, re-encoded, and downloaded entirely inside your browser using the Canvas API. Your PNGs never leave your device, there is no upload wait even on a slow connection, and the tool keeps working if you disconnect from the internet after the page has loaded.Can I paste a PNG from my clipboard?+Yes. Press ⌘V on a Mac or Ctrl+V on Windows and Linux with this page open and the PNG on your clipboard is queued straight away, transparency intact. It fits the way PNGs usually travel — copied out of a design tool or grabbed as a screenshot rather than sitting in a folder. Copy several at once and each is listed as pasted-1.png, pasted-2.png, since the clipboard hands over no filenames. The Copy button beside Download sends the compressed PNG back to the clipboard in the same format, so nothing is converted on the way out.
+
+## Why PNG files are so stubbornly large
+
+PNG compresses losslessly. Every pixel you started with is recorded exactly, and the format has no quality setting to trade detail for bytes. That is a genuine strength — it is why PNG is the right choice for a logo you will edit again next year — but it means a 4 MB screenshot stays roughly a 4 MB screenshot no matter how many times you re-save it.
+
+There are only two honest ways to make it smaller. The first is to reduce the pixel count: cap the longest edge with the resize option, and the file shrinks roughly with the area. The second is to let the encoder discard detail your eye will not miss, which means leaving PNG behind. WebP does exactly that while still supporting an alpha channel, so a transparent logo stays transparent and lands at a fraction of the size. JPG goes further still, but flattens transparency onto white.
+
+All of it runs on the HTML5 Canvas API inside your browser: the PNG is decoded, drawn once, and re-encoded in the format you chose. Nothing is uploaded, nothing is stored, and no account is required.
+
+Need a different job done? Use the main picture compressor to shrink JPG and WebP files with a live quality slider, or compress an image to 100 KB when an upload form enforces a hard size limit.
+
+## Your files never leave your browser
+
+Compression runs locally with the Canvas API. We do not store, upload, or analyse your pictures. The tool keeps working even if you disconnect from the internet after the page loads.
+
+Compress Picture
+
+Compress pictures online for free. Reduce image size by up to 90% without losing quality. Runs entirely in your browser — no upload required.
+
+© 2026 Compress Picture. All rights reserved.
+
+GuidesAbout

@@ -1,0 +1,23 @@
+[
+  {
+    "file": "research/competitor-validation-2026-10-14/samples/images/demo-large-photo.jpg",
+    "source": "https://raw.githubusercontent.com/GoogleChromeLabs/squoosh/e8d35e0fb66eb16eff6fe8fc773eabcbb7128de3/src/shared/prerendered-app/Intro/imgs/demos/demo-large-photo.jpg",
+    "sha256": "9a6612975904ba0d1f0ee99f6522b442439e5b493ac656f2ef8836d94da6f181",
+    "bytes": 2790013,
+    "kind": "public existing image, unmodified"
+  },
+  {
+    "file": "research/competitor-validation-2026-10-14/samples/images/demo-device-screen.png",
+    "source": "https://raw.githubusercontent.com/GoogleChromeLabs/squoosh/e8d35e0fb66eb16eff6fe8fc773eabcbb7128de3/src/shared/prerendered-app/Intro/imgs/demos/demo-device-screen.png",
+    "sha256": "7ff5dc1ebd47f6d03d82bb4ec5d055576591e3325ef10b03b01e805661983c69",
+    "bytes": 1622142,
+    "kind": "public existing image, unmodified"
+  },
+  {
+    "file": "research/competitor-validation-2026-10-14/samples/images/icon-large.png",
+    "source": "https://raw.githubusercontent.com/GoogleChromeLabs/squoosh/e8d35e0fb66eb16eff6fe8fc773eabcbb7128de3/src/static-build/assets/icon-large.png",
+    "sha256": "9dc273a02d15dc84ae1734556183dd093d90a53ec97404b7b281327b011df787",
+    "bytes": 26322,
+    "kind": "public existing image, unmodified"
+  }
+]

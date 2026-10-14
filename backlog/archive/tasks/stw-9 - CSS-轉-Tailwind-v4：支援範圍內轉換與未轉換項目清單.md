@@ -4,7 +4,7 @@ title: CSS 轉 Tailwind v4：支援範圍內轉換與未轉換項目清單
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
@@ -13,19 +13,25 @@ labels:
   - web-first
   - extension-cli
   - extension-ide
+  - demand-reviewed-2026-10-14
+  - excluded-standalone
 dependencies: []
 references:
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/08_032927.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/16_034816.md
+  - 'https://dozenkit.com/tools/css-to-tailwind'
+  - 'https://www.tailwindready.com/tools/css-to-tailwind-converter'
 documentation:
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
   - docs/product-direction.md
-priority: medium
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-pruning.md
+priority: low
 type: feature
-ordinal: 9
+ordinal: 909
 ---
 
 ## Description
@@ -76,3 +82,19 @@ ordinal: 9
 - [ ] #4 結果附 Tailwind 版本、限制與未轉換清單；不得宣稱任意 CSS 都能等價轉換。
 - [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / archive。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+排除獨立排程，因 v4、arbitrary 與未轉換清單已是現成工具宣告能力，已缺乏可辨認差異。 多個現成工具明確針對 v4 與逐項映射；未取得可靠使用頻率。
+
+提升／重新納入條件：找到現有免費工具對本卡支援子集持續失敗的實例，並有可驗證的遷移需求／省時幅度。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

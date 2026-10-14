@@ -1,0 +1,202 @@
+{
+  "STW-34": {
+    "id": "STW-34",
+    "title": "批次圖片最佳化：依目標大小與尺寸預算匯出",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "monorepo-expansion",
+      "delivery-web",
+      "web-first",
+      "demand-reviewed-2026-10-14",
+      "validate-next"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 4,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/17_042019.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/15_043727.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_05/23_042955.md",
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_04/12_041935.md",
+      "https://github.com/GoogleChromeLabs/squoosh/issues/1422",
+      "https://github.com/GoogleChromeLabs/squoosh/issues/1153",
+      "https://imagekit.lzw.me/zh-TW/compress-image-to-kb",
+      "https://compress-picture.com/compress-image-to-100kb"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 1,
+    "createdAt": "2026-10-04T15:33:00Z",
+    "updatedAt": "2026-10-14T12:08:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-34 - 批次圖片最佳化：依目標大小與尺寸預算匯出.md",
+    "description": "## 使用情境與發展空間\n\n上架素材常受檔案大小、尺寸與透明背景限制；以輸出預算為目標比單純換副檔名更有操作價值。\n\n## 交付形式與首版邊界\n\n主要形式：web。順序：Web 優先候選。\n\n先在瀏覽器批次處理常見靜態圖片，提供前後預覽、每檔結果及 ZIP 下載。\n\n## 延伸方向與相鄰題目\n\n未來可提供 CLI 處理大量素材；保持同一產品候選，不依 Web／CLI 重複開卡。\n\n## 關鍵字來源與合併\n\n代表原始詞：`batch webp converter`; `bulk webp converter free`; `webp compression settings`。\n\n本題合併 11 個相關唯一詞，來自 4 份報告、12 筆紀錄。完整對照：research/keyword-review-2026-10-04/keyword-decisions.json（topic: batch-images）。平台／套件詞是相鄰需求線索，不表示首版支援每一種平台，也不依變體另開卡。\n\n來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。\n\n## 細化時需確認\n\n依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。\n\n目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-34",
+      "nodes": [
+        {
+          "id": "STW-34",
+          "title": "批次圖片最佳化：依目標大小與尺寸預算匯出",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "docs/product-direction.md",
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "research/tool-portfolio-review-2026-10-14/demand-review.md",
+      "research/tool-portfolio-review-2026-10-14/demand-existing-core.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "使用者設定尺寸、格式及檔案大小預算，結果逐檔顯示是否符合。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "透明度、方向與動畫的支援範圍明示，不能默默丟掉畫格或背景。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "無法達到預算時保留結果和原因，不假報成功；可比較壓縮前後畫面。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "批次有容量限制、取消與清除功能，原始圖片不自動上傳。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": "## 2026-10-14 搜尋需求與競爭複查\n\n決策：Medium / validate。優先序代表下一輪驗證資源，不是流量預測或實作承諾。\n\n需求最具體之一，但差異已被覆蓋。保留限時比較測試，須證明同大小畫質、透明／方向保留、批次失敗回報或操作效率勝過現有工具。 競品覆蓋程度高：繁中產品已標示批次、指定 KB、無需安裝與本機處理。\n\n提升／重新納入條件：以同組圖片比較 Image Kit 等現成工具，核對大小、尺寸、透明／方向、畫質及失敗回報；未勝出便停止。\n\n查詢與證據：research/tool-portfolio-review-2026-10-14/demand-existing-core.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。\n\n限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。",
+    "comments": [],
+    "finalSummary": null
+  },
+  "STW-16": {
+    "id": "STW-16",
+    "title": "Lighthouse 報告比較：區分指標變化與測試條件差異",
+    "status": "Needs Refinement",
+    "type": "feature",
+    "priority": "medium",
+    "project": null,
+    "assignees": [],
+    "reporter": null,
+    "labels": [
+      "keyword-research",
+      "proposal",
+      "performance",
+      "delivery-web",
+      "web-first",
+      "extension-cli",
+      "extension-ci",
+      "demand-reviewed-2026-10-14",
+      "validate-next"
+    ],
+    "milestone": null,
+    "parentTaskId": null,
+    "acceptanceCriteriaCompleted": 0,
+    "acceptanceCriteriaCount": 5,
+    "references": [
+      "https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/05_032812.md",
+      "https://github.com/GoogleChrome/lighthouse-ci/issues/1101",
+      "https://github.com/GoogleChrome/lighthouse-ci/issues/1132",
+      "https://googlechrome.github.io/lighthouse-ci/difftool/",
+      "https://github.com/googlechrome/lighthouse-ci"
+    ],
+    "modifiedFiles": [],
+    "ordinal": 2,
+    "createdAt": "2026-10-04T14:23:00Z",
+    "updatedAt": "2026-10-14T12:08:00Z",
+    "dueDate": null,
+    "isReady": true,
+    "path": "backlog/tasks/stw-16 - Lighthouse-報告比較：區分指標變化與測試條件差異.md",
+    "description": "## 使用情境與保留理由\n\n兩份 Lighthouse 分數不同可能來自測試環境或版本，而非程式改動；需要先確認可比性再看 audit 變化。\n\n## 首版邊界\n\n上傳兩份既有 Lighthouse JSON，檢查版本、URL、裝置及節流設定後比較指標與 audit；不執行遠端掃描、不建立持續監控服務。\n\n## 差異與待驗證假設\n\n先揭露量測條件差異，避免把單次分數上升當成改善證據，並讓使用者匯出可審查的對照。\n\n## 關鍵字證據與合併\n\n- `lighthouse report diff tool`：1 份報告出現。\n- `lighthouse report compare`：1 份報告出現。\n- `lighthouse comparison`：1 份報告出現。\n\n本卡合併 3 個唯一關鍵字，來自 1 份報告、3 筆紀錄；完整對照見 research/keyword-review-2026-10-04/keyword-decisions.json（topic: lighthouse-diff）。`online`、`free`、`tool` 及同一操作的措辭變體不另開卡，未支援的語言／平台需求不算首版承諾。\n\n來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_09/05_032812.md 至 logs/2026_09/05_032812.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。\n\n## 啟動前的決策\n\n目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。\n\n來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。\n\n## 交付形式與 monorepo 發展\n\n主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。\n\n延伸方向：CLI／CI 既有 Lighthouse 報告比較。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。\n\n參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。",
+    "dependencies": [],
+    "dependencyGraph": {
+      "root": "STW-16",
+      "nodes": [
+        {
+          "id": "STW-16",
+          "title": "Lighthouse 報告比較：區分指標變化與測試條件差異",
+          "status": "Needs Refinement",
+          "state": "resolved",
+          "completed": false,
+          "dependencyDepth": 0,
+          "dependentDepth": 0
+        }
+      ],
+      "edges": []
+    },
+    "readiness": {
+      "isReady": true,
+      "isBlocked": false,
+      "blockingDependencies": [],
+      "missingDependencies": []
+    },
+    "documentation": [
+      "research/keyword-review-2026-10-04/README.md",
+      "research/keyword-review-2026-10-04/keyword-decisions.json",
+      "docs/product-direction.md",
+      "research/tool-portfolio-review-2026-10-14/demand-review.md",
+      "research/tool-portfolio-review-2026-10-14/demand-existing-core.md"
+    ],
+    "subtasks": [],
+    "acceptanceCriteria": [
+      {
+        "index": 1,
+        "text": "比較指定支援版本的 category、metric 與 audit，缺少欄位標為 unavailable 而非 0。",
+        "checked": false
+      },
+      {
+        "index": 2,
+        "text": "明顯不同的 URL、form factor、throttling 或 major version 顯示可比性警告。",
+        "checked": false
+      },
+      {
+        "index": 3,
+        "text": "區分數值變化與因果推論，不宣稱單次報告已證實效能提升。",
+        "checked": false
+      },
+      {
+        "index": 4,
+        "text": "可匯出含量測條件、原始值與差值的報告，以固定 JSON 範例驗證。",
+        "checked": false
+      },
+      {
+        "index": 5,
+        "text": "首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。",
+        "checked": false
+      }
+    ],
+    "definitionOfDone": [],
+    "implementationPlan": null,
+    "implementationNotes": "## 2026-10-14 搜尋需求與競爭複查\n\n決策：Medium / validate。優先序代表下一輪驗證資源，不是流量預測或實作承諾。\n\n八項中值得優先細化的需求之一。改驗證多頁矩陣／報告相容與比較可信度，不能只重做官方兩檔 diff。 競品覆蓋程度高： two-report diff；多頁彙整有明確近期請求，競品完整覆蓋待測。\n\n提升／重新納入條件：先驗證原有兩報告相容與可比性提示是否省時；多頁矩陣是新線索，另作範圍決策，不自動擴充 AC。\n\n查詢與證據：research/tool-portfolio-review-2026-10-14/demand-existing-core.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。\n\n限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。",
+    "comments": [],
+    "finalSummary": null
+  }
+}

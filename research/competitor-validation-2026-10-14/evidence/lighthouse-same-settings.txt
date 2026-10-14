@@ -1,0 +1,441 @@
+swap_horiz
+
+Drop your report to upload
+
+Base
+
+2026/10/14 下午8:20:19 (/docs/lighthouse/overview)
+
+View Report
+
+Select file
+
+Drop your report to upload
+
+Compare
+
+2026/10/14 下午8:20:50 (/docs/lighthouse/overview)
+
+View Report
+
+Select file
+
+info
+
+Threshold0%5%10%15%25%
+
+arrow_drop_down
+
+67
+
+Performance
+
+-2
+
+93
+
+Accessibility
+
++0
+
+79
+
+Best Practices
+
+-17
+
+92
+
+SEO
+
++0
+
+0-4950-8990-100RegressionImprovement
+
+Metrics
+
+chevron_right
+
+OverviewMagnified
+
+Cumulative Layout Shift
+
+0.000
+
++0.040
+
+1.0
+
+Speed Index
+
+0
+
++254ms
+
+15.0
+
+Total Blocking Time
+
+Failarrow_forwardPass
+
+chevron_right
+
+Use efficient cache lifetimes
+
+list_alt
+
+7
+
+arrow_forward
+
+list_alt
+
+5
+
+Layout shift culprits
+
+list_alt
+
+1
+
+arrow_forward
+
+list_alt
+
+11
+
+Font display
+
+list_alt
+
+2
+
+arrow_forward
+
+list_alt
+
+2
+
+Render blocking requests
+
+list_alt
+
+3
+
+arrow_forward
+
+list_alt
+
+11
+
+LCP by phase
+
+list_alt
+
+2
+
+arrow_forward
+
+list_alt
+
+11
+
+3rd parties
+
+list_alt
+
+10
+
+arrow_forward
+
+list_alt
+
+1010
+
+Network Requests
+
+list_alt
+
+123
+
+arrow_forward
+
+list_alt
+
+3199
+
+Network Round Trip Times
+
+list_alt
+
+18
+
+arrow_forward
+
+list_alt
+
+73
+
+Server Backend Latencies
+
+list_alt
+
+18
+
+arrow_forward
+
+list_alt
+
+511
+
+Resources Summary
+
+list_alt
+
+9
+
+arrow_forward
+
+list_alt
+
+2
+
+Diagnostics
+
+chevron_right
+
+Eliminate render-blocking resources
+
+list_alt
+
+3
+
+arrow_forward
+
+list_alt
+
+11
+
+Avoid multiple page redirects
+
+list_alt
+
+2
+
+arrow_forward
+
+list_alt
+
+22
+
+Reduce the impact of third-party code
+
+language
+
+10
+
+arrow_forward
+
+language
+
+99
+
+Largest Contentful Paint element
+
+list_alt
+
+2
+
+arrow_forward
+
+list_alt
+
+11
+
+Avoid large layout shifts
+
+list_alt
+
+5
+
+arrow_forward
+
+list_alt
+
+12
+
+Properly size images
+
+photo
+
+6
+
+arrow_forward
+
+photo
+
+2
+
+Reduce unused JavaScript
+
+list_alt
+
+7
+
+arrow_forward
+
+list_alt
+
+55
+
+Avoid serving legacy JavaScript to modern browsers
+
+list_alt
+
+5
+
+arrow_forward
+
+list_alt
+
+55
+
+Avoid enormous network payloads
+
+list_alt
+
+10
+
+arrow_forward
+
+list_alt
+
+33
+
+Serve static assets with an efficient cache policy
+
+list_alt
+
+7
+
+arrow_forward
+
+list_alt
+
+5
+
+Some third-party resources can be lazy loaded with a facade
+
+list_alt
+
+1
+
+arrow_forward
+
+list_alt
+
+11
+
+Initial server response time was short
+
+list_alt
+
+1
+
+arrow_forward
+
+list_alt
+
+1
+
+User Timing marks and measures
+
+timer
+
+6
+
+arrow_forward
+
+timer
+
+6
+
+JavaScript execution time
+
+speed
+
+10
+
+arrow_forward
+
+speed
+
+78
+
+Minimizes main-thread work
+
+speed
+
+7
+
+arrow_forward
+
+speed
+
+1
+
+Avoid long main-thread tasks
+
+list_alt
+
+8
+
+arrow_forward
+
+list_alt
+
+67
+
+Unchanged Audits - Performance (44)
+
+chevron_right
+
+Unchanged Audits - Accessibility (63)
+
+chevron_right
+
+General
+
+chevron_right
+
+Uses third-party cookies
+
+list_alt
+
+0
+
+arrow_forward
+
+list_alt
+
+3
+
+Issues were logged in the `Issues` panel in Chrome Devtools
+
+list_alt
+
+1
+
+arrow_forward
+
+list_alt
+
+11
+
+Unchanged Audits - Best Practices (19)
+
+chevron_right
+
+Unchanged Audits - SEO (10)
+
+chevron_right

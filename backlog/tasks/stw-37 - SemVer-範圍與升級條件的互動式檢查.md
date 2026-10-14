@@ -4,12 +4,15 @@ title: SemVer 範圍與升級條件的互動式檢查
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:08'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-web
   - web-first
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
@@ -18,13 +21,18 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/03_040231.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/21_035139.md
+  - 'https://github.com/npm/node-semver/issues/721'
+  - 'https://semver.npmjs.com/'
+  - 'https://www.devtools.tools/semver-range-intersection'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
-priority: medium
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-existing-core.md
+priority: low
 type: feature
-ordinal: 24
+ordinal: 137
 ---
 
 ## Description
@@ -66,3 +74,19 @@ caret、tilde、0.x 與 prerelease 的匹配規則容易被誤解，適合以版
 - [ ] #3 比較兩個範圍時列出新增／移除的匹配版本及理由。
 - [ ] #4 清楚區分 SemVer 宣告與實際 API 相容性，所有計算可在瀏覽器重現。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+不要因有真實困惑就升級主力。原版列為輔助／教學頁；只有相依衝突案例證明可減少誤判才重評。 競品覆蓋程度高： range testing；交集工具亦出現在搜尋，完整語意待驗證。
+
+提升／重新納入條件：使用真實 prerelease／相依衝突案例，對照 node-semver、npm calculator 與現成互動工具，證明可減少誤判。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-existing-core.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

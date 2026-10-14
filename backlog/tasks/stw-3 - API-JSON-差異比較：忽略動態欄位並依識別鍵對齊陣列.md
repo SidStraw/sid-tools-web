@@ -4,7 +4,7 @@ title: API JSON 差異比較：忽略動態欄位並依識別鍵對齊陣列
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:08'
 labels:
   - keyword-research
   - proposal
@@ -13,17 +13,26 @@ labels:
   - web-first
   - extension-cli
   - extension-ci
+  - demand-reviewed-2026-10-14
+  - validate-next
 dependencies: []
 references:
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/18_035246.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/24_033520.md
+  - 'https://github.com/benjamine/jsondiffpatch/issues/436'
+  - >-
+    https://www.reddit.com/r/json/comments/1olq5tz/json_comparer_that_correctly_matches_arrays/
+  - 'https://ravensmove.com/tools/json-diff'
+  - 'https://www.m2toolkit.com/tools/json-diff'
 documentation:
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
   - docs/product-direction.md
-priority: high
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-existing-core.md
+priority: medium
 type: feature
 ordinal: 3
 ---
@@ -76,3 +85,19 @@ ordinal: 3
 - [ ] #4 錯誤 JSON 能定位問題；大數字不因解析精度遺失被誤判相同，並提供可重現範例。
 - [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Medium / validate。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+保留需求研究，原版功能沒有證實差異；先測複合鍵、各層不同配對規則與大整數保真是否形成具體缺口。 競品覆蓋程度高：ID 配對、忽略路徑、本機處理、匯出皆已有產品頁明示。
+
+提升／重新納入條件：以真實 API 樣本比較現成工具的配對／忽略／匯出，先證明核對與重跑省時；OOXML issue 不直接外推 API。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-existing-core.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

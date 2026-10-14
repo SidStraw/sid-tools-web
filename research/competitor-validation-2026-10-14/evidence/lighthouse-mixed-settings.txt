@@ -1,0 +1,481 @@
+swap_horiz
+
+Drop your report to upload
+
+Base
+
+2026/10/14 下午8:20:19 (/docs/lighthouse/overview)
+
+View Report
+
+Select file
+
+Drop your report to upload
+
+Compare
+
+2026/10/14 下午8:21:22 (/docs/lighthouse/overview)
+
+View Report
+
+Select file
+
+info
+
+Threshold0%5%10%15%25%
+
+arrow_drop_down
+
+85
+
+Performance
+
++16
+
+93
+
+Accessibility
+
++0
+
+96
+
+Best Practices
+
++0
+
+92
+
+SEO
+
++0
+
+0-4950-8990-100RegressionImprovement
+
+Metrics
+
+chevron_right
+
+OverviewMagnified
+
+Speed Index
+
+0
+
++11,306ms
+
+15.0
+
+First Contentful Paint
+
+0
+
+-1,807ms
+
+10.0
+
+Largest Contentful Paint
+
+0
+
+-1,767ms
+
+15.0
+
+Cumulative Layout Shift
+
+0.000
+
+-0.245
+
+1.0
+
+Total Blocking Time
+
+0
+
+-203ms
+
+1.5
+
+chevron_right
+
+Use efficient cache lifetimes
+
+list_alt
+
+7
+
+arrow_forward
+
+list_alt
+
+26
+
+Font display
+
+list_alt
+
+2
+
+arrow_forward
+
+list_alt
+
+2
+
+Improve image delivery
+
+photo
+
+6
+
+arrow_forward
+
+photo
+
+4
+
+Render blocking requests
+
+list_alt
+
+3
+
+arrow_forward
+
+list_alt
+
+11
+
+Layout shift culprits
+
+list_alt
+
+1
+
+arrow_forward
+
+list_alt
+
+11
+
+LCP by phase
+
+list_alt
+
+2
+
+arrow_forward
+
+list_alt
+
+22
+
+3rd parties
+
+list_alt
+
+10
+
+arrow_forward
+
+list_alt
+
+1010
+
+Time to Interactive
+
+Failarrow_forwardPass
+
+Max Potential First Input Delay
+
+Failarrow_forwardPass
+
+Network Requests
+
+list_alt
+
+123
+
+arrow_forward
+
+list_alt
+
+12023
+
+Network Round Trip Times
+
+list_alt
+
+18
+
+arrow_forward
+
+list_alt
+
+75
+
+Server Backend Latencies
+
+list_alt
+
+18
+
+arrow_forward
+
+list_alt
+
+412
+
+Resources Summary
+
+list_alt
+
+9
+
+arrow_forward
+
+list_alt
+
+11
+
+Diagnostics
+
+chevron_right
+
+Eliminate render-blocking resources
+
+list_alt
+
+3
+
+arrow_forward
+
+list_alt
+
+12
+
+Reduce initial server response time
+
+list_alt
+
+1
+
+arrow_forward
+
+list_alt
+
+1
+
+Avoid multiple page redirects
+
+list_alt
+
+2
+
+arrow_forward
+
+list_alt
+
+22
+
+Avoid long main-thread tasks
+
+list_alt
+
+8
+
+arrow_forward
+
+list_alt
+
+8
+
+Properly size images
+
+photo
+
+6
+
+arrow_forward
+
+photo
+
+6
+
+Reduce unused JavaScript
+
+list_alt
+
+7
+
+arrow_forward
+
+list_alt
+
+55
+
+Avoid serving legacy JavaScript to modern browsers
+
+list_alt
+
+5
+
+arrow_forward
+
+list_alt
+
+55
+
+Avoid enormous network payloads
+
+list_alt
+
+10
+
+arrow_forward
+
+list_alt
+
+22
+
+Serve static assets with an efficient cache policy
+
+list_alt
+
+7
+
+arrow_forward
+
+list_alt
+
+26
+
+Some third-party resources can be lazy loaded with a facade
+
+list_alt
+
+1
+
+arrow_forward
+
+list_alt
+
+11
+
+Defer offscreen images
+
+photo
+
+4
+
+arrow_forward
+
+photo
+
+4
+
+User Timing marks and measures
+
+timer
+
+6
+
+arrow_forward
+
+timer
+
+6
+
+JavaScript execution time
+
+speed
+
+10
+
+arrow_forward
+
+speed
+
+10
+
+Minimizes main-thread work
+
+speed
+
+7
+
+arrow_forward
+
+speed
+
+7
+
+Minimize third-party usage
+
+language
+
+10
+
+arrow_forward
+
+language
+
+99
+
+Largest Contentful Paint element
+
+list_alt
+
+2
+
+arrow_forward
+
+list_alt
+
+22
+
+Avoid large layout shifts
+
+list_alt
+
+5
+
+arrow_forward
+
+list_alt
+
+85
+
+Unchanged Audits - Performance (38)
+
+chevron_right
+
+Unchanged Audits - Accessibility (63)
+
+chevron_right
+
+User Experience
+
+chevron_right
+
+Document uses legible font sizes
+
+list_alt
+
+1
+
+arrow_forward
+
+list_alt
+
+1
+
+Unchanged Audits - Best Practices (20)
+
+chevron_right
+
+Unchanged Audits - SEO (10)
+
+chevron_right

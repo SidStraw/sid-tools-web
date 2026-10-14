@@ -4,7 +4,7 @@ title: SQL DDL 轉 ER 關聯圖與可匯出的資料表文件
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
@@ -12,6 +12,8 @@ labels:
   - delivery-web
   - web-first
   - extension-cli
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
@@ -22,13 +24,17 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/30_035819.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/18_033023.md
+  - 'https://docs.dbdiagram.io/dbdocs/features/generate-dbml-from-db/'
+  - 'https://dbms.co.jp/sql-to-erd'
 documentation:
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
   - docs/product-direction.md
-priority: medium
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-pruning.md
+priority: low
 type: feature
-ordinal: 13
+ordinal: 113
 ---
 
 ## Description
@@ -79,3 +85,19 @@ ordinal: 13
 - [ ] #4 可匯出 SVG 與資料表摘要；匯出保留表名、欄位與關聯的可讀性。
 - [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+Low 保留窄比較；免 DB、免費與 SVG 不是足夠差異，不能宣稱競品都不能呈現來源。 dbdiagram 官方提供 DDL 流程，DBC 有免費瀏覽器端 PostgreSQL DDL 圖與匯出；大量供給只是競爭訊號。
+
+提升／重新納入條件：3 組真實 DDL（複合鍵／自我引用／schema）比較現成基準，找到可重現且有使用者需要的匯入／文件缺口。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

@@ -1,0 +1,44 @@
+[
+  {
+    "file": "cp-photo.jpg",
+    "bytes": 102170,
+    "dimensions": [
+      1499,
+      1003
+    ],
+    "format": "JPEG",
+    "alphaRange": [
+      255,
+      255
+    ],
+    "sha256": "236f127a1472d4265db6516775c63fa9796a61b9452d89c191f9647d9079fc4d"
+  },
+  {
+    "file": "cp-screen.jpg",
+    "bytes": 102268,
+    "dimensions": [
+      706,
+      1442
+    ],
+    "format": "JPEG",
+    "alphaRange": [
+      255,
+      255
+    ],
+    "sha256": "b1a6483b398bb3b3703b9720c8519174fed319852102bb35cf561f313b709b30"
+  },
+  {
+    "file": "cp-icon.jpg",
+    "bytes": 76356,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "format": "JPEG",
+    "alphaRange": [
+      255,
+      255
+    ],
+    "sha256": "770dbcc37e6029280b7239cb62f8799c2314577552d95eda26eb564b3279bcf1"
+  }
+]

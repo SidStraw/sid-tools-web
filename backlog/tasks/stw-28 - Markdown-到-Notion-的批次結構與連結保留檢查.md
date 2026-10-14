@@ -4,25 +4,31 @@ title: Markdown 到 Notion 的批次結構與連結保留檢查
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-web-integration
   - web-first
+  - demand-reviewed-2026-10-14
+  - validate-next
 dependencies: []
 references:
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/27_050301.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_03/15_041152.md
+  - 'https://www.notion.com/help/import-data-into-notion'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-pruning.md
 priority: medium
 type: feature
-ordinal: 20
+ordinal: 5
 ---
 
 ## Description
@@ -64,3 +70,19 @@ Web 先預覽文件樹與預計 block 映射，對照原生匯入結果；只保
 - [ ] #3 API 匯入若啟用，須有目的地預覽、已匯入項目對照與避免重複建立的策略。
 - [ ] #4 若沒有可證明的額外價值，交付停止或縮小範圍的結論，不以原生功能包裝冒充新能力。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Medium / validate。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+Medium 條件式保留來源對照與損失檢查；排除普通 Markdown uploader 定位。 官方確認多檔與 ZIP 原生匯入，同頁明示 anchors／非標準 Markdown 限制及部分匯入可能。限制是直接需求機制，但不是搜尋量。
+
+提升／重新納入條件：原卡至少 3 個樣本比較原生匯入，找到可重現損失與省時；若原生足夠，就交付停止結論。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

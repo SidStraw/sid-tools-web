@@ -4,23 +4,29 @@ title: 元件 Props 文件與使用範例的同步檢查
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-cli-ci
   - later-delivery
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/11_041145.md
+  - 'https://storybook.js.org/docs/writing-docs/autodocs'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-other-cards.md
 priority: low
 type: feature
-ordinal: 29
+ordinal: 122
 ---
 
 ## Description
@@ -62,3 +68,19 @@ Props 型別更新後文件與範例容易落後；此題適合讀取專案，�
 - [ ] #3 新增、刪除與變更 Props 的文件差異可檢視，使用者決定是否套用。
 - [ ] #4 提供固定案例驗證輸出；首版不載入或執行未受信任的元件程式碼。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+Storybook Autodocs 已從 metadata 產生 props/controls/stories；同步需求屬專案工作流，尚無獨立站入口證據。
+
+提升／重新納入條件：取得特定框架文件漂移與現成工具無法處理案例，保留原同步 AC。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

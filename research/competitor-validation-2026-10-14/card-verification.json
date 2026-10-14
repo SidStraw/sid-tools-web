@@ -1,0 +1,47 @@
+{
+  "STW-34": {
+    "preservedFields": {
+      "title": true,
+      "status": true,
+      "priority": true,
+      "ordinal": true,
+      "description": true,
+      "acceptanceCriteria": true,
+      "dependencies": true,
+      "assignees": true,
+      "implementationPlan": true,
+      "finalSummary": true
+    },
+    "notesAppended": true,
+    "oldDocumentationPreserved": true,
+    "oldReferencesPreserved": true,
+    "docsExist": true
+  },
+  "STW-16": {
+    "preservedFields": {
+      "title": true,
+      "status": true,
+      "priority": true,
+      "ordinal": true,
+      "description": true,
+      "acceptanceCriteria": true,
+      "dependencies": true,
+      "assignees": true,
+      "implementationPlan": true,
+      "finalSummary": true
+    },
+    "notesAppended": true,
+    "oldDocumentationPreserved": true,
+    "oldReferencesPreserved": true,
+    "docsExist": true
+  },
+  "backlogDoctor": {
+    "exitCode": 0,
+    "stdout": "No duplicate IDs, self-referential dependencies, or dependency cycles found."
+  },
+  "scope": {
+    "productImplementation": false,
+    "newCards": 0,
+    "acceptanceCriteriaChecked": 0
+  }
+}

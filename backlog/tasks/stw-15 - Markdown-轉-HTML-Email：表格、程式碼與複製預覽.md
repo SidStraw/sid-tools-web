@@ -4,7 +4,7 @@ title: Markdown 轉 HTML Email：表格、程式碼與複製預覽
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
@@ -12,6 +12,8 @@ labels:
   - delivery-web
   - web-first
   - extension-cli
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
@@ -20,13 +22,17 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/05_042144.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_01/29_035902.md
+  - 'https://www.markdowntools.com/tools/markdown-to-email-html'
+  - 'https://github.com/adam-p/markdown-here'
 documentation:
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
   - docs/product-direction.md
-priority: medium
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-pruning.md
+priority: low
 type: feature
-ordinal: 15
+ordinal: 115
 ---
 
 ## Description
@@ -77,3 +83,19 @@ ordinal: 15
 - [ ] #4 完成前在選定 Gmail／Outlook 版本驗證代表性範例，記錄差異及限制；未驗證平台不得宣稱相容。
 - [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+Low 保留「相容性可覆核」窄場景；普通 Markdown→HTML 不值得單獨建。 現成 Web converter 已有 inline style、表格與 Outlook 限制；Markdown Here 也提供直接信箱渲染流程。
+
+提升／重新納入條件：原卡要求的兩平台實測，加上至少 3 個真實技術公告與基準對照，證明表格／程式碼修復省時。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

@@ -4,12 +4,15 @@ title: 加密環境設定的本機交接與部署預檢
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
+updated_date: '2026-10-14 12:06'
 labels:
   - keyword-research
   - proposal
   - monorepo-expansion
   - delivery-cli-ci
   - later-delivery
+  - demand-reviewed-2026-10-14
+  - deferred-evidence
 dependencies: []
 references:
   - >-
@@ -22,13 +25,17 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_02/11_041145.md
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/06_032904.md
+  - 'https://getsops.io/docs/'
+  - 'https://getsops.io/docs/usage/advanced/'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
+  - research/tool-portfolio-review-2026-10-14/demand-review.md
+  - research/tool-portfolio-review-2026-10-14/demand-other-cards.md
 priority: low
 type: feature
-ordinal: 33
+ordinal: 130
 ---
 
 ## Description
@@ -70,3 +77,19 @@ ordinal: 33
 - [ ] #3 操作前說明會修改哪些檔案，失敗不留下無法復原的半完成狀態。
 - [ ] #4 不自創密碼學方案，恢復／輪替與秘密傳遞需求有明確邊界。
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-10-14 搜尋需求與競爭複查
+
+決策：Low / defer。優先序代表下一輪驗證資源，不是流量預測或實作承諾。
+
+SOPS 已支援 dotenv 與 exec-env；交接／部署前檢查仍可能成立，但信任、金鑰與 runtime 整合負擔高。
+
+提升／重新納入條件：取得有界交接失敗案例與採用意願，沿用成熟格式，不新增自製密碼格式。
+
+查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
+
+限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+<!-- SECTION:NOTES:END -->

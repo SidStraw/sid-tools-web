@@ -1,0 +1,646 @@
+{
+  "date": "2026-10-14",
+  "rankingType": "qualitative_next_validation_order_not_traffic_forecast",
+  "high": 0,
+  "medium": 6,
+  "lowActive": 25,
+  "archived": 6,
+  "newTasks": 0,
+  "cards": [
+    {
+      "id": "STW-34",
+      "priority": "Medium",
+      "action": "validate",
+      "reason": "需求最具體之一，但差異已被覆蓋。保留限時比較測試，須證明同大小畫質、透明／方向保留、批次失敗回報或操作效率勝過現有工具。 競品覆蓋程度高：繁中產品已標示批次、指定 KB、無需安裝與本機處理。",
+      "sources": [
+        "https://github.com/GoogleChromeLabs/squoosh/issues/1422",
+        "https://github.com/GoogleChromeLabs/squoosh/issues/1153",
+        "https://imagekit.lzw.me/zh-TW/compress-image-to-kb",
+        "https://compress-picture.com/compress-image-to-100kb"
+      ],
+      "reentry": "以同組圖片比較 Image Kit 等現成工具，核對大小、尺寸、透明／方向、畫質及失敗回報；未勝出便停止。",
+      "report": "demand-existing-core.md",
+      "title": "批次圖片最佳化：依目標大小與尺寸預算匯出",
+      "ordinal": 1,
+      "volume": null
+    },
+    {
+      "id": "STW-16",
+      "priority": "Medium",
+      "action": "validate",
+      "reason": "八項中值得優先細化的需求之一。改驗證多頁矩陣／報告相容與比較可信度，不能只重做官方兩檔 diff。 競品覆蓋程度高： two-report diff；多頁彙整有明確近期請求，競品完整覆蓋待測。",
+      "sources": [
+        "https://github.com/GoogleChrome/lighthouse-ci/issues/1101",
+        "https://github.com/GoogleChrome/lighthouse-ci/issues/1132",
+        "https://googlechrome.github.io/lighthouse-ci/difftool/",
+        "https://github.com/googlechrome/lighthouse-ci"
+      ],
+      "reentry": "先驗證原有兩報告相容與可比性提示是否省時；多頁矩陣是新線索，另作範圍決策，不自動擴充 AC。",
+      "report": "demand-existing-core.md",
+      "title": "Lighthouse 報告比較：區分指標變化與測試條件差異",
+      "ordinal": 2,
+      "volume": null
+    },
+    {
+      "id": "STW-3",
+      "priority": "Medium",
+      "action": "validate",
+      "reason": "保留需求研究，原版功能沒有證實差異；先測複合鍵、各層不同配對規則與大整數保真是否形成具體缺口。 競品覆蓋程度高：ID 配對、忽略路徑、本機處理、匯出皆已有產品頁明示。",
+      "sources": [
+        "https://github.com/benjamine/jsondiffpatch/issues/436",
+        "https://www.reddit.com/r/json/comments/1olq5tz/json_comparer_that_correctly_matches_arrays/",
+        "https://ravensmove.com/tools/json-diff",
+        "https://www.m2toolkit.com/tools/json-diff"
+      ],
+      "reentry": "以真實 API 樣本比較現成工具的配對／忽略／匯出，先證明核對與重跑省時；OOXML issue 不直接外推 API。",
+      "report": "demand-existing-core.md",
+      "title": "API JSON 差異比較：忽略動態欄位並依識別鍵對齊陣列",
+      "ordinal": 3,
+      "volume": null
+    },
+    {
+      "id": "STW-5",
+      "priority": "Medium",
+      "action": "validate",
+      "reason": "保留特定 scheduler／版本驗證方向，通用時區加日曆版降級。近期 runtime 錯誤是真痛點，但預覽工具必須能說明適用範圍。 競品覆蓋程度高：時區、下次執行與 DST 邊界已有專門產品；跨 runtime 正確性尚不能視為已解決。",
+      "sources": [
+        "https://github.com/NousResearch/hermes-agent/issues/66436",
+        "https://cronwizard.com/dst",
+        "https://cron.dag.io/"
+      ],
+      "reentry": "指定 Unix 五欄 parser/runtime，核對 DST 邊界與真實 scheduler；不得偷偷擴充到 Quartz 或宣稱通用正確。",
+      "report": "demand-existing-core.md",
+      "title": "Cron 排程預覽：時區對照、下次執行與 DST 提示",
+      "ordinal": 4,
+      "volume": null
+    },
+    {
+      "id": "STW-28",
+      "priority": "Medium",
+      "action": "validate",
+      "reason": "Medium 條件式保留來源對照與損失檢查；排除普通 Markdown uploader 定位。 官方確認多檔與 ZIP 原生匯入，同頁明示 anchors／非標準 Markdown 限制及部分匯入可能。限制是直接需求機制，但不是搜尋量。",
+      "sources": [
+        "https://www.notion.com/help/import-data-into-notion"
+      ],
+      "reentry": "原卡至少 3 個樣本比較原生匯入，找到可重現損失與省時；若原生足夠，就交付停止結論。",
+      "report": "demand-pruning.md",
+      "title": "Markdown 到 Notion 的批次結構與連結保留檢查",
+      "ordinal": 5,
+      "volume": null
+    },
+    {
+      "id": "STW-27",
+      "priority": "Medium",
+      "action": "validate",
+      "reason": "Medium 條件式保留預檢驗證，先選定 Cloud 或 Data Center；不是重新做通用轉換器。 官方社群有批次千頁移轉／Markdown 匯入的第一手問題；現在有付費 importer 宣告相對連結、附件及命名衝突處理。",
+      "sources": [
+        "https://community.atlassian.com/forums/discussion/1886974/how-to-import-pages-with-markdown-format-into-confluence",
+        "https://community.atlassian.com/forums/discussion/2799601/how-do-i-enable-the-options-to-import-word-and-markdown-to-a-page",
+        "https://marketplace.atlassian.com/apps/1221333/markdown-importer-for-confluence"
+      ],
+      "reentry": "至少 3 組真實文件在指定平台與現成 importer 比較，量測預檢發現的遺漏和人工修復時間；若無增量價值停止。",
+      "report": "demand-pruning.md",
+      "title": "Markdown 到 Confluence 的格式損失預檢與匯入輔助",
+      "ordinal": 6,
+      "volume": null
+    },
+    {
+      "id": "STW-1",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "env file compare missing variables dotenv validator online",
+        "env 範本 比對 缺少 變數 工具"
+      ],
+      "reason": "範本比對、缺漏與值差異已有瀏覽器及 VS Code 產品；本輪未找到獨立使用者願意改用本站的證據。",
+      "sources": [
+        "https://www.utility-grid.com/tools/developer/env-file-compare",
+        "https://marketplace.visualstudio.com/items?itemName=takeaseat-venture.env-diff"
+      ],
+      "reentry": "以真實部署案例證明既有工具無法處理的語法或重跑流程；本機／遮蔽本身不算差異。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "環境設定預檢：比對 .env 範本、缺漏與重複鍵",
+      "ordinal": 101
+    },
+    {
+      "id": "STW-6",
+      "priority": "Low",
+      "action": "defer",
+      "reason": "先排除泛用 Web wrapper 作近期主力。若要升級，需用真實 consumer／規格證明既有引擎漏判或流程成本。 競品覆蓋程度高：oasdiff 已有 Web、報告匯出與 CI；另有本機處理產品聲明，但本輪未驗證。",
+      "sources": [
+        "https://github.com/OpenAPITools/openapi-diff/issues/192",
+        "https://www.oasdiff.com/diff",
+        "https://www.oasdiff.com/",
+        "https://a2z.tools/openapi-specification-diff-checker"
+      ],
+      "reentry": "用語意等價規格與真實 consumer 比對既有引擎，且實測 oasdiff 資料處理位置；單純本機 wrapper 不足。",
+      "report": "demand-existing-core.md",
+      "title": "OpenAPI 合約差異檢查：區分 request 與 response 的相容性",
+      "ordinal": 106,
+      "volume": null
+    },
+    {
+      "id": "STW-7",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "CSS selector specificity test HTML matches online",
+        "CSS 權重 選擇器 測試 工具"
+      ],
+      "reason": "權重計算與 DOM match 工具供給密集；未取得需要整合兩者的獨立需求，亦未實跑競品。",
+      "sources": [
+        "https://toolhuben.com/css-specificity-calculator/",
+        "https://www.toolhuben.com/css-selector-tester/"
+      ],
+      "reentry": "取得真實錯誤定位任務，證明比瀏覽器 DevTools／既有 tester 更省步驟。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "CSS selector 比較：特異性拆解與 HTML 命中預覽",
+      "ordinal": 107
+    },
+    {
+      "id": "STW-8",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site.docs.docker.com compose config validate"
+      ],
+      "reason": "官方 config 已含合併、插值與驗證；圖形仍可能有價值，但靜態 Web 與真實 Compose 環境語意差距未解除。",
+      "sources": [
+        "https://docs.docker.com/reference/cli/docker/compose/config",
+        "https://www.reddit.com/r/docker/comments/1cm97c0"
+      ],
+      "reentry": "取得不方便執行 Docker 的真實案例，驗證視覺圖是否比 config 輸出可理解。",
+      "demandEvidence": "有限直接回報",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "Docker Compose 靜態預檢與服務相依圖",
+      "ordinal": 108
+    },
+    {
+      "id": "STW-10",
+      "priority": "Low",
+      "action": "defer",
+      "reason": "撤回先前把本卡當 AI 摘要的理由；本卡是確定性檢視，Low 保留窄驗證。 成熟開源工具提供 unified diff、導航相關顯示與 HTML 匯出；本輪沒有取得遮蔽交接的獨立用戶需求證據。",
+      "sources": [
+        "https://github.com/rtfpessoa/diff2html/blob/master/README.md",
+        "https://github.com/rtfpessoa/diff2html-cli/blob/master/README.md"
+      ],
+      "reentry": "3 個真實跨團隊 patch 交接，與 diff2html 匯出比較，量測排除敏感 hunk 的操作量與審查成本；若無額外收益就排除。",
+      "report": "demand-pruning.md",
+      "title": "Git diff 檢視與可分享的確定性變更摘要",
+      "ordinal": 110,
+      "volume": null
+    },
+    {
+      "id": "STW-11",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "GraphQL schema diff breaking changes online",
+        "site:the-guild.dev graphql inspector diff breaking changes"
+      ],
+      "reason": "Inspector 已含 breaking/dangerous/safe 分類、使用量規則與 CI；現卡影響導航的使用者增量未證實。",
+      "sources": [
+        "https://the-guild.dev/graphql/inspector/docs/commands/diff"
+      ],
+      "reentry": "找實際 schema 審查，證明獨立 Web 導航比 Inspector／Hive 多完成一個必要任務。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "GraphQL schema 差異檢查與影響型別導覽",
+      "ordinal": 111
+    },
+    {
+      "id": "STW-12",
+      "priority": "Low",
+      "action": "defer",
+      "reason": "Low 保留比較門檻；不能將此卡稱為 AI SQL optimizer，它實際解析計畫。若只複製 viewer 則停止。 PEV2 官方持續提供計畫視覺化與單 HTML 完全離線模式；免費／本機本身不是差異。",
+      "sources": [
+        "https://github.com/dalibo/pev2",
+        "https://pev2.pages.dev/"
+      ],
+      "reentry": "以至少 3 個真實計畫比較 PEV2，證明某種診斷理解任務的時間／正確率改善；補對應特定 query 的需求。",
+      "report": "demand-pruning.md",
+      "title": "PostgreSQL EXPLAIN 計畫檢視：估計與實際執行差距",
+      "ordinal": 112,
+      "volume": null
+    },
+    {
+      "id": "STW-13",
+      "priority": "Low",
+      "action": "defer",
+      "reason": "Low 保留窄比較；免 DB、免費與 SVG 不是足夠差異，不能宣稱競品都不能呈現來源。 dbdiagram 官方提供 DDL 流程，DBC 有免費瀏覽器端 PostgreSQL DDL 圖與匯出；大量供給只是競爭訊號。",
+      "sources": [
+        "https://docs.dbdiagram.io/dbdocs/features/generate-dbml-from-db/",
+        "https://dbms.co.jp/sql-to-erd"
+      ],
+      "reentry": "3 組真實 DDL（複合鍵／自我引用／schema）比較現成基準，找到可重現且有使用者需要的匯入／文件缺口。",
+      "report": "demand-pruning.md",
+      "title": "SQL DDL 轉 ER 關聯圖與可匯出的資料表文件",
+      "ordinal": 113,
+      "volume": null
+    },
+    {
+      "id": "STW-14",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "OpenAPI sample generator deterministic seed browser"
+      ],
+      "reason": "Redocly sampler 與 seeded mock 產品已有樣本生成；卡片的受限且經驗證 fixture 尚有品質假說，但無可比較流量證據。",
+      "sources": [
+        "https://github.com/Redocly/openapi-sampler",
+        "https://mock-server.com/versions/7.6.0/apidocs/org/mockserver/openapi/examples/SampleDataGenerator.html"
+      ],
+      "reentry": "用原 AC 範圍的 schema 比較有效率與錯誤定位；fixture 與 STW-24 server 保持區分。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "OpenAPI 回應範例產生器：可驗證、可重現的 mock fixture",
+      "ordinal": 114
+    },
+    {
+      "id": "STW-15",
+      "priority": "Low",
+      "action": "defer",
+      "reason": "Low 保留「相容性可覆核」窄場景；普通 Markdown→HTML 不值得單獨建。 現成 Web converter 已有 inline style、表格與 Outlook 限制；Markdown Here 也提供直接信箱渲染流程。",
+      "sources": [
+        "https://www.markdowntools.com/tools/markdown-to-email-html",
+        "https://github.com/adam-p/markdown-here"
+      ],
+      "reentry": "原卡要求的兩平台實測，加上至少 3 個真實技術公告與基準對照，證明表格／程式碼修復省時。",
+      "report": "demand-pruning.md",
+      "title": "Markdown 轉 HTML Email：表格、程式碼與複製預覽",
+      "ordinal": 115,
+      "volume": null
+    },
+    {
+      "id": "STW-17",
+      "priority": "Low",
+      "action": "defer",
+      "reason": "排除只有格式驗證／去重的近期主力版本。較深網站上線健檢須另證需求、抓取成本與邊界，不能直接擴大實作。 競品覆蓋程度高： XML、重複 URL 與報告；本機規則驗證不是搜尋收錄診斷。",
+      "sources": [
+        "https://www.drupal.org/project/simple_sitemap/issues/3178229",
+        "https://ai-chain.tw/tools/sitemap-validator/",
+        "https://freetooldev.com/tools/sitemap-validator.html"
+      ],
+      "reentry": "以真實 sitemap 證明靜態 path tree/診斷優於既有工具；live crawl 與收錄不是本卡承諾。",
+      "report": "demand-existing-core.md",
+      "title": "Sitemap XML 預檢與站點結構瀏覽",
+      "ordinal": 117,
+      "volume": null
+    },
+    {
+      "id": "STW-18",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:nx.dev project graph dependencies"
+      ],
+      "reason": "Nx 已提供圖、依賴路徑與靜態輸出；跨 package-manager 重複套件追蹤需 repo 整合，流量入口未證實。",
+      "sources": [
+        "https://nx.dev/docs/features/explore-graph"
+      ],
+      "reentry": "取得 Nx 現有流程不能完成且使用者要獨立工具的跨 workspace 案例。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "Monorepo 相依圖與重複套件追蹤",
+      "ordinal": 118
+    },
+    {
+      "id": "STW-19",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:relative-ci.com bundle stats compare",
+        "site:bundlejs.com compare bundle size"
+      ],
+      "reason": "RelativeCI 已有跨 build 資產與模組、重複套件分析；需要 build metadata 的導入成本不能當成搜尋流量。",
+      "sources": [
+        "https://relative-ci.com/documentation/metrics-and-data"
+      ],
+      "reentry": "以同一組 build 報告證明歸因品質或比較成本的增量；不要用單套件體積取代真實 build。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "Bundle 變化分析：從體積增加追到套件與入口",
+      "ordinal": 119
+    },
+    {
+      "id": "STW-20",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:knip.dev unused dependencies exports",
+        "site:github.com knip false positives issues"
+      ],
+      "reason": "真實 issue #589（2024-04-08，已關閉）及 #1732（2026-05-08，已關閉）顯示誤報問題；Knip 已有 entry/plugin 診斷，不能把舊 bug 視為現行未解市場缺口。",
+      "sources": [
+        "https://knip.dev/guides/handling-issues",
+        "https://github.com/webpro-nl/knip/issues/589",
+        "https://github.com/webpro-nl/knip/issues/1732"
+      ],
+      "reentry": "證明現行版本可重現的複核負擔，先評估整合現成分析器，而非重寫。",
+      "demandEvidence": "有限直接回報",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "未使用程式碼與相依套件的審查工作流程",
+      "ordinal": 120
+    },
+    {
+      "id": "STW-21",
+      "priority": "Low",
+      "action": "defer",
+      "reason": "Low 延後研究 spike，不把研究驗收當功能完成，也不因生成式 AI 而刪除。原生能力削弱泛用展開器差異，IDE 開發成本對流量站較高。 VS Code 舊使用者 issue 有明確需求；TypeScript 5.9 已預覽 expandable hovers；2026 Zed issue 指向特定 IDE 差異。",
+      "sources": [
+        "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-9.html",
+        "https://github.com/microsoft/vscode/issues/94679",
+        "https://github.com/zed-industries/zed/issues/47360"
+      ],
+      "reentry": "原卡至少 5 個真實複雜型別案例；比較指定版本 VS Code/TS 原生展開與候選流程，能證明理解時間改善且有可取得的流量入口。",
+      "report": "demand-pruning.md",
+      "title": "驗證 TypeScript 型別展開與錯誤解釋工具的價值",
+      "ordinal": 121,
+      "volume": null
+    },
+    {
+      "id": "STW-22",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:storybook.js.org docs automatic documentation props controls"
+      ],
+      "reason": "Storybook Autodocs 已從 metadata 產生 props/controls/stories；同步需求屬專案工作流，尚無獨立站入口證據。",
+      "sources": [
+        "https://storybook.js.org/docs/writing-docs/autodocs"
+      ],
+      "reentry": "取得特定框架文件漂移與現成工具無法處理案例，保留原同步 AC。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "元件 Props 文件與使用範例的同步檢查",
+      "ordinal": 122
+    },
+    {
+      "id": "STW-23",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:docs.webhook.site replay requests"
+      ],
+      "reason": "Webhook.site 已有擷取、篩選與 replay；服務營運與敏感資料責任高。需求可能真實，但本站差異與獲客成本未證實。",
+      "sources": [
+        "https://docs.webhook.site/custom-actions",
+        "https://docs.webhook.site/news.html"
+      ],
+      "reentry": "證明特定事件調查或可覆核遮蔽流程優於既有工具，並估算每次使用成本。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "Webhook 收件、遮蔽與受控重送工作台",
+      "ordinal": 123
+    },
+    {
+      "id": "STW-24",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:github.com stoplight prism mock OpenAPI",
+        "site:github.com stoplightio prism deterministic mock issues"
+      ],
+      "reason": "Prism 已有可呼叫 mock server 與驗證；#2723 為 Node 版本相容問題，不是另造服務需求。",
+      "sources": [
+        "https://github.com/stoplightio/prism/blob/main/docs/guides/01-mocking.md",
+        "https://github.com/stoplightio/prism/issues/2723"
+      ],
+      "reentry": "取得 Prism／既有 hosted mock 的實際未解流程，與 fixture 卡分開計算營運成本。",
+      "demandEvidence": "有限直接回報",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "可切換情境的 OpenAPI Mock API 服務",
+      "ordinal": 124
+    },
+    {
+      "id": "STW-25",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:github.com louislam uptime kuma features"
+      ],
+      "reason": "Uptime Kuma 已支援 HTTP/JSON query 等監控及通知；需要持續執行服務，無證據支持作工具站首波。",
+      "sources": [
+        "https://github.com/louislam/uptime-kuma"
+      ],
+      "reentry": "取得特殊監控工作與分發管道，證明既有 self-hosted／hosted 方案無法滿足。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "API 回應時間與可用性的輕量監測",
+      "ordinal": 125
+    },
+    {
+      "id": "STW-30",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:getsops.io encrypted files dotenv"
+      ],
+      "reason": "SOPS 已支援 dotenv 與 exec-env；交接／部署前檢查仍可能成立，但信任、金鑰與 runtime 整合負擔高。",
+      "sources": [
+        "https://getsops.io/docs/",
+        "https://getsops.io/docs/usage/advanced/"
+      ],
+      "reentry": "取得有界交接失敗案例與採用意願，沿用成熟格式，不新增自製密碼格式。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "加密環境設定的本機交接與部署預檢",
+      "ordinal": 130
+    },
+    {
+      "id": "STW-32",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:github.com hadolint hadolint Dockerfile linter"
+      ],
+      "reason": "Hadolint 已有 CLI 與官方線上版本；整合掃描和可追溯修正不是 AI 文案，但無工具站新增價值證據。",
+      "sources": [
+        "https://github.com/hadolint/hadolint"
+      ],
+      "reentry": "用真實 Dockerfile 對照現成 lint/scan，證明錯誤優先排序或核對省時。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "Dockerfile 變更預檢與掃描結果整合",
+      "ordinal": 132
+    },
+    {
+      "id": "STW-33",
+      "priority": "Low",
+      "action": "defer",
+      "reason": "Low 延後研究 spike；不投入泛截圖生成器，不刪除既有評估義務，也不宣稱視覺差異等於功能正確。 v0 官方文件已有截圖生成，專業服務供給存在；這不是本卡評估矩陣已被實現的證據。",
+      "sources": [
+        "https://v0.app/docs/screenshots",
+        "https://screenshottocode.com/"
+      ],
+      "reentry": "合法固定樣本實測 v0 等基準，分別量測四種結果及成本；只有在特定缺口有可重現改善及需求證據時再開發。",
+      "report": "demand-pruning.md",
+      "title": "驗證截圖轉元件草稿與視覺差異檢查的可行性",
+      "ordinal": 133,
+      "volume": null
+    },
+    {
+      "id": "STW-35",
+      "priority": "Low",
+      "action": "defer",
+      "reason": "原通用流程已有直接覆蓋；目前需求主要來自工具作者自身敘述。可保留工具站輔助功能，但不當獨立優先流量項目。 競品覆蓋程度高：對比矩陣、CSS/JSON/DTCG 匯出與本機保存已有產品。",
+      "sources": [
+        "https://github.com/5t3ph/a11y-color-tokens",
+        "https://colortable.org/palette/",
+        "https://palette.ikit.app/?lang=zh_TW"
+      ],
+      "reentry": "真實品牌圖片到語意 token 交付需證明比現成配色工具少返工；矩陣與匯出本身不是差異。",
+      "report": "demand-existing-core.md",
+      "title": "圖片色盤到可讀的介面配色與 token 匯出",
+      "ordinal": 135,
+      "volume": null
+    },
+    {
+      "id": "STW-36",
+      "priority": "Low",
+      "action": "defer",
+      "queries": [
+        "site:lychee.cli.rs markdown fragments anchors",
+        "site:github.com lychee markdown anchors issues"
+      ],
+      "reason": "Lychee 已支援 Markdown 相對檔案與 fragment 檢查；目前文件亦明示 renderer-specific 限制。以原卡 CLI/CI 整合範圍保留，非流量主力。",
+      "sources": [
+        "https://lychee.cli.rs/recipes/anchors/",
+        "https://lychee.cli.rs/guides/cli/"
+      ],
+      "reentry": "取得指定 renderer 的現行可重現漏判，以及願意改用工具的使用者。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "Markdown 文件的相對連結與 anchor 批次檢查",
+      "ordinal": 136
+    },
+    {
+      "id": "STW-37",
+      "priority": "Low",
+      "action": "defer",
+      "reason": "不要因有真實困惑就升級主力。原版列為輔助／教學頁；只有相依衝突案例證明可減少誤判才重評。 競品覆蓋程度高： range testing；交集工具亦出現在搜尋，完整語意待驗證。",
+      "sources": [
+        "https://github.com/npm/node-semver/issues/721",
+        "https://semver.npmjs.com/",
+        "https://www.devtools.tools/semver-range-intersection"
+      ],
+      "reentry": "使用真實 prerelease／相依衝突案例，對照 node-semver、npm calculator 與現成互動工具，證明可減少誤判。",
+      "report": "demand-existing-core.md",
+      "title": "SemVer 範圍與升級條件的互動式檢查",
+      "ordinal": 137,
+      "volume": null
+    },
+    {
+      "id": "STW-2",
+      "priority": "Low",
+      "action": "archive",
+      "reason": "排除獨立開發排程；可能併入 STW-1 的設定前處理，但不擴充其 AC。不是判定無需求，也不是泛稱 AI 全面替代。 核心搜尋找到多個直接轉換產品及開源 repo；沒有取得獨立使用者頻率或搜尋量。",
+      "sources": [
+        "https://github.com/shirocola/yaml-to-env-converter",
+        "https://jsonkit.com/yaml-to-env"
+      ],
+      "reentry": "至少 3 個真實部署轉換案例，證明免費基準發生可重現資料遺失／碰撞且願重複使用；再補對應 query 需求證據。",
+      "report": "demand-pruning.md",
+      "title": "YAML 轉 .env：預覽扁平化規則與鍵名衝突",
+      "ordinal": 902,
+      "volume": null
+    },
+    {
+      "id": "STW-4",
+      "priority": "Low",
+      "action": "archive",
+      "reason": "排除獨立排程，將來作 CSV 資料驗收的輸入／匯出附屬能力；競品已有預覽、編輯及多格式。 英文與繁中均有直接工具結果，說明產品供給與意圖匹配，不能推出流量大小。",
+      "sources": [
+        "https://tableconvert.com/markdown-to-json",
+        "https://mdtoword.org/zh-TW/markdown-to-json"
+      ],
+      "reentry": "以 3 組含前導零／重複欄名／特殊符號資料驗證基準不足，且能證明該缺口帶來增量流量或留存。",
+      "report": "demand-pruning.md",
+      "title": "Markdown 表格整理與 JSON／試算表文字互轉",
+      "ordinal": 904,
+      "volume": null
+    },
+    {
+      "id": "STW-9",
+      "priority": "Low",
+      "action": "archive",
+      "reason": "排除獨立排程，因 v4、arbitrary 與未轉換清單已是現成工具宣告能力，已缺乏可辨認差異。 多個現成工具明確針對 v4 與逐項映射；未取得可靠使用頻率。",
+      "sources": [
+        "https://dozenkit.com/tools/css-to-tailwind",
+        "https://www.tailwindready.com/tools/css-to-tailwind-converter"
+      ],
+      "reentry": "找到現有免費工具對本卡支援子集持續失敗的實例，並有可驗證的遷移需求／省時幅度。",
+      "report": "demand-pruning.md",
+      "title": "CSS 轉 Tailwind v4：支援範圍內轉換與未轉換項目清單",
+      "ordinal": 909,
+      "volume": null
+    },
+    {
+      "id": "STW-26",
+      "priority": "Low",
+      "action": "archive",
+      "queries": [
+        "rate limit simulator token bucket sliding window online",
+        "rate limit 模擬器 限流"
+      ],
+      "reason": "The Infinity 已有三種演算法、burst 流量與允許／拒絕預覽；互動本身不足差異，本輪未找到本站增量需求。",
+      "sources": [
+        "https://theinfinity.dev/simulators/rate-limiter",
+        "https://github.com/request-routing/ratelimit-simulator"
+      ],
+      "reentry": "重新納入須有真實流量案例與現成 simulator 缺口，不能只做動畫／演算法解說。",
+      "demandEvidence": "本輪未建立獨立需求證據",
+      "volume": null,
+      "report": "demand-other-cards.md",
+      "title": "API Rate Limit 模擬器：突發流量與等待時間預覽",
+      "ordinal": 926
+    },
+    {
+      "id": "STW-29",
+      "priority": "Low",
+      "action": "archive",
+      "reason": "排除獨立生成器排程；保留樣本追溯研究線索，可未來與 STW-3 schema drift 評估整合。 quicktype 官方直接涵蓋多樣本、missing/null、union、Zod；Schemato 亦宣告多樣本瀏覽器輸出。",
+      "sources": [
+        "https://quicktype.io/",
+        "https://github.com/weitaishan/schemato"
+      ],
+      "reentry": "至少 3 組真實 API 樣本能展示基準誤推造成實際返工，且來源追溯比現成工具可量測改善；不能只重述多樣本。",
+      "report": "demand-pruning.md",
+      "title": "API 範例推導 TypeScript／Zod：呈現型別依據與不確定性",
+      "ordinal": 929,
+      "volume": null
+    },
+    {
+      "id": "STW-31",
+      "priority": "Low",
+      "action": "archive",
+      "reason": "排除獨立流量工具投資；本卡為確定性 CLI/CI 工作，不能用純 AI 摘要理由排除。 GitHub 原生與 git-cliff 已提供來源連結、分組／設定／草稿等流程；沒有本專案額外取得使用者證據。",
+      "sources": [
+        "https://github.com/orhun/git-cliff",
+        "https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes"
+      ],
+      "reentry": "至少 3 個真實 release 範圍能證明 git-cliff／原生流程造成可重現錯漏，且專用審查能省下顯著維護成本。",
+      "report": "demand-pruning.md",
+      "title": "Git 變更紀錄整理與可審查的 Release Notes 草稿",
+      "ordinal": 931,
+      "volume": null
+    }
+  ]
+}

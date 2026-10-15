@@ -1,15 +1,15 @@
 # Sid Tools
 
-**[開啟工具：sidstraw.github.io/sid-tools-web](https://sidstraw.github.io/sid-tools-web/)**
+**[開啟工具：tools.sid.tw](https://tools.sid.tw/)**
 
 四個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
 
-| 工具                                                                          | 功能                                          |
-| ----------------------------------------------------------------------------- | --------------------------------------------- |
-| [圖片壓縮](https://sidstraw.github.io/sid-tools-web/)                         | 批次指定大小、尺寸與格式，逐檔檢查與 ZIP 下載 |
-| [Lighthouse 比較](https://sidstraw.github.io/sid-tools-web/tools/lighthouse/) | 量測條件警告、分類分數、原始指標與稽核差異    |
-| [JSON 差異](https://sidstraw.github.io/sid-tools-web/tools/json-diff/)        | 大整數、忽略路徑、陣列 ID 配對、衝突與匯出    |
-| [Cron 預覽](https://sidstraw.github.io/sid-tools-web/tools/cron/)             | 五欄 Unix Cron、雙時區、未來 10 次與 DST 規則 |
+| 工具                                                      | 功能                                          |
+| --------------------------------------------------------- | --------------------------------------------- |
+| [圖片壓縮](https://tools.sid.tw/)                         | 批次指定大小、尺寸與格式，逐檔檢查與 ZIP 下載 |
+| [Lighthouse 比較](https://tools.sid.tw/tools/lighthouse/) | 量測條件警告、分類分數、原始指標與稽核差異    |
+| [JSON 差異](https://tools.sid.tw/tools/json-diff/)        | 大整數、忽略路徑、陣列 ID 配對、衝突與匯出    |
+| [Cron 預覽](https://tools.sid.tw/tools/cron/)             | 五欄 Unix Cron、雙時區、未來 10 次與 DST 規則 |
 
 採用 [SidStraw/mono-starter](https://github.com/SidStraw/mono-starter) commit `c6d6f32854f6a8fd9f5d6cd4076475e4e9170af0` 初始化，沿用 TypeScript、Vite+、pnpm workspace、嚴格檢查、跨平台 CI、Renovate 與選用 Pi 診斷。保留本專案既有 Backlog 與研究，沒有複製範本任務。
 
@@ -51,7 +51,7 @@ Linux 缺少瀏覽器函式庫時，使用 `pnpm exec playwright install --with-
 
 支援靜態 JPEG／PNG／WebP，依 EXIF 方向縮圖；拒絕 GIF、APNG、動態 WebP。透明圖轉 JPEG 必須明確選擇填白底。最多 30 張、單檔 20 MB、整批原圖與輸出各 100 MB；每張最多 3200 萬像素、最長邊 8192 px。KB 是 1000 bytes，KiB 是 1024 bytes。
 
-壓縮只在指定尺寸內調整品質，不會為了達標自動進一步縮圖。無法達標時顯示原因並保留可下載結果；ZIP 會包含未達標結果。重新編碼移除 EXIF；如果保留較小原檔，會明示中繼資料也保留。沒有伺服器、帳號、分析追蹤或檔案上傳 API。
+壓縮只在指定尺寸內調整品質，不會為了達標自動進一步縮圖。無法達標時顯示原因並保留可下載結果；ZIP 會包含未達標結果。重新編碼移除 EXIF；如果保留較小原檔，會明示中繼資料也保留。沒有帳號或檔案上傳 API；正式站使用 Cloudflare Web Analytics 的基本頁面與效能統計。
 
 ## SSG、SPA 與按需載入
 
@@ -76,13 +76,26 @@ Linux 缺少瀏覽器函式庫時，使用 `pnpm exec playwright install --with-
 | 月底     | `0 0 31 * *` / UTC              | 2026-04-01T00:00:00Z | 下一次 2026-05-31，跳過無 31 日月份       |
 | 閏年     | `0 0 29 2 *` / UTC              | 2026-01-01T00:00:00Z | 下一次 2028-02-29                         |
 
-## GitHub Pages
+## Cloudflare 部署與分析
 
-[Verify and deploy Pages](.github/workflows/ci.yml) 在 PR 與 main push 驗證 Linux／macOS；main 的兩個驗收 job 全部通過後，只發佈 `apps/web/dist`。Backlog、研究、原始測試圖片與開發相依不在網站 artifact 中。資產及 Worker 使用相對路徑，production E2E 實際掛在 `/sid-tools-web/` 子路徑測試。
+正式入口為 **https://tools.sid.tw/**。repo 內鎖定官方 `wrangler@4.149.0`；版本符合本專案三天發布等待期。沒有全局安裝。`wrangler.jsonc` 以 Workers Static Assets 直接發佈 `apps/web/dist`，沒有自行撰寫 Worker 資產伺服器或部署 GitHub Actions。
 
-目標 repository 需於 **Settings → Pages → Source** 設為 **GitHub Actions**。頁面部署需 `pages:write`、`id-token:write`，PR 驗證只有讀取權限。Pi 診斷保持預設未啟用，不需要模型金鑰即可建置與發佈；Renovate automerge 仍關閉。
+```sh
+export PATH="$PWD/.toolchain/bin:$PATH"
+pnpm exec wrangler whoami
+pnpm verify
+pnpm deploy
+```
 
-公開 repository 與 Pages 上線狀態見 [STW-34 驗收紀錄](docs/validation/stw-34/README.md)。
+`pnpm deploy` 由 `vp run` 先建置相依套件與網站，再執行 repo 內的 Wrangler。登入憑證由 Wrangler 管理，不放入 repo。`account_id`、網域、公開分析站點識別碼都不是部署憑證。
+
+Cloudflare 原生 Workers Builds 連接 `SidStraw/sid-tools-web` 的 `main`，建置命令 `pnpm build`、部署命令 `pnpm exec wrangler deploy`，root directory 為 repo 根目錄。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
+
+網站在網域根路徑提供四個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。四頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。`workers.dev` 及 version preview URLs 停用，避免多個可收錄的公開入口。
+
+`sid.tw` 帳號既有 Cloudflare Web Analytics 自動安裝涵蓋子網域；沿用「排除歐盟訪客」偏好，不新增重複 beacon。CSP 僅允許官方 beacon script 與指定 RUM 端點；本機無 beacon，測試仍檢查輸入不上傳。正式站頁面瀏覽與效能會送出基本統計，工具輸入、檔案、處理結果留在瀏覽器。
+
+基本報告可查看 page views、visits、熱門路徑、來源、國家、瀏覽器／裝置與 Core Web Vitals。Edge 請求數包含靜態資源及機器流量，不能當成人數；Web Analytics 可能被阻擋或因排除歐盟而少算。沒有自訂事件、工具成功率、UTM 歸因或 Google 關鍵字排名資料。官方說明：[Web Analytics](https://developers.cloudflare.com/web-analytics/)、[SPA 與 CSP FAQ](https://developers.cloudflare.com/web-analytics/faq/)。
 
 ## 題目與研究
 

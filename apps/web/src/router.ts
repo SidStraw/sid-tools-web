@@ -1,5 +1,5 @@
 import './style.css';
-import { routes, type Route } from './routes';
+import { routes, SITE_ORIGIN, type Route } from './routes';
 type ToolModule = { html: string; mount: (root: HTMLElement) => () => void };
 const loaders: Record<Route['id'], () => Promise<ToolModule>> = {
   images: () => import('./pages/images'),
@@ -39,6 +39,9 @@ let attempt = () => {};
 function updateShell(route: Route) {
   document.body.dataset.tool = route.id;
   document.title = `${route.title} | Sid Tools`;
+  document
+    .querySelector<HTMLLinkElement>('link[rel=canonical]')
+    ?.setAttribute('href', `${SITE_ORIGIN}/${route.path}`);
   document
     .querySelector<HTMLMetaElement>('meta[name=description]')
     ?.setAttribute('content', route.description);

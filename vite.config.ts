@@ -18,6 +18,11 @@ export default defineConfig({
   },
   run: {
     tasks: {
+      'deploy-cloudflare': {
+        command: 'wrangler deploy',
+        dependsOn: ['@sid-tools/web#build'],
+        cache: false,
+      },
       develop: {
         command: "vp run --filter './apps/*' --filter './packages/*' --parallel dev",
         dependsOn: ['@sid-tools/core#build'],

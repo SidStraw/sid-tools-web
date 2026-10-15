@@ -173,7 +173,7 @@ test('SSG serves full route content without JavaScript', async ({ browser }) => 
     ['tools/json-diff/', '讓變動'],
     ['tools/cron/', '下一次'],
   ] as const) {
-    const response = await page.goto(`http://127.0.0.1:4173/sid-tools-web/${path}`);
+    const response = await page.goto(`http://127.0.0.1:4173/${path}`);
     expect(response?.status()).toBe(200);
     await expect(page.locator('h1')).toContainText(title);
     await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(4);
@@ -265,4 +265,36 @@ test('a slower earlier route cannot overwrite the most recent selection', async 
   await expect(page.locator('tbody tr')).toHaveCount(10);
   await expect(page).toHaveURL(/tools\/cron\/$/);
   await expect(page.locator('h1')).toContainText('下一次');
+});
+
+test('Cloudflare root routing canonicalizes tools, exposes the sitemap, and returns real 404s', async ({
+  page,
+  request,
+}) => {
+  for (const path of ['', 'tools/lighthouse/', 'tools/json-diff/', 'tools/cron/']) {
+    const response = await request.get('/' + path);
+    expect(response.status()).toBe(200);
+    expect(await response.text()).toContain(`rel="canonical" href="https://tools.sid.tw/${path}"`);
+  }
+  const redirect = await request.get('/tools/cron', { maxRedirects: 0 });
+  expect(redirect.status()).toBeGreaterThanOrEqual(300);
+  expect(redirect.status()).toBeLessThan(400);
+  expect(redirect.headers().location).toMatch(/\/tools\/cron\/$/);
+  expect((await request.get('/not-a-real-tool/')).status()).toBe(404);
+  expect((await request.get('/assets/missing-deploy-chunk.js')).status()).toBe(404);
+  const sitemap = await request.get('/sitemap.xml');
+  expect(sitemap.status()).toBe(200);
+  const xml = await sitemap.text();
+  expect(xml.match(/<loc>/g)).toHaveLength(4);
+  expect(xml).not.toContain('github.io');
+  expect(await (await request.get('/robots.txt')).text()).toContain(
+    'Sitemap: https://tools.sid.tw/sitemap.xml',
+  );
+  await page.goto('./');
+  await expect(page.locator('#route-loading')).toBeHidden();
+  await page.getByRole('link', { name: 'Cron 預覽', exact: true }).click();
+  await expect(page.locator('link[rel=canonical]')).toHaveAttribute(
+    'href',
+    'https://tools.sid.tw/tools/cron/',
+  );
 });

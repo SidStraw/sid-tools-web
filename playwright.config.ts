@@ -6,11 +6,11 @@ export default defineConfig({
   retries: 0,
   timeout: 90_000,
   workers: 2,
-  use: { baseURL: 'http://127.0.0.1:4173/sid-tools-web/', browserName: 'chromium' },
+  use: { baseURL: 'http://127.0.0.1:4173/', browserName: 'chromium' },
   webServer: {
     command:
-      'pnpm exec vp -C apps/web preview --host 127.0.0.1 --port 4173 --strictPort --base /sid-tools-web/',
-    url: 'http://127.0.0.1:4173/sid-tools-web/',
+      'pnpm exec wrangler dev --local --ip 127.0.0.1 --port 4173 --show-interactive-dev-session=false',
+    url: 'http://127.0.0.1:4173/',
     reuseExistingServer: false,
   },
 });

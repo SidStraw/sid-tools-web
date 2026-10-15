@@ -1,3 +1,4 @@
+export const SITE_ORIGIN = 'https://tools.sid.tw';
 export const routes = [
   {
     id: 'images',

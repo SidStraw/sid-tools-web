@@ -15,3 +15,6 @@ playwright-report/
 !.env.example
 .pi/agent/
 *.tgz
+.wrangler/
+.dev.vars
+.dev.vars.*

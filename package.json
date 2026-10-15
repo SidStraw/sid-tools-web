@@ -12,7 +12,8 @@
     "tasks": "backlog",
     "tasks:board": "backlog board",
     "tasks:web": "backlog browser --no-open",
-    "tasks:doctor": "backlog doctor"
+    "tasks:doctor": "backlog doctor",
+    "deploy": "vp run deploy-cloudflare"
   },
   "devDependencies": {
     "@earendil-works/pi-coding-agent": "1.0.0",
@@ -22,7 +23,8 @@
     "backlog.md": "1.53.0",
     "fflate": "0.8.3",
     "typescript": "catalog:",
-    "vite-plus": "catalog:"
+    "vite-plus": "catalog:",
+    "wrangler": "4.149.0"
   },
   "devEngines": {
     "runtime": {

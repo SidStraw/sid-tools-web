@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite-plus';
 import { fileURLToPath } from 'node:url';
 import { renderPage } from './scripts/ssg';
+import { routes, SITE_ORIGIN } from './src/routes';
 
 export default defineConfig({
   base: './',
@@ -20,12 +21,28 @@ export default defineConfig({
   plugins: [
     {
       name: 'tool-ssg',
+      generateBundle() {
+        this.emitFile({
+          type: 'asset',
+          fileName: 'sitemap.xml',
+          source: `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map((route) => `<url><loc>${SITE_ORIGIN}/${route.path}</loc></url>`).join('')}</urlset>`,
+        });
+        this.emitFile({
+          type: 'asset',
+          fileName: 'robots.txt',
+          source: `User-agent: *\nAllow: /\nSitemap: ${SITE_ORIGIN}/sitemap.xml\n`,
+        });
+      },
       transformIndexHtml: { order: 'pre', handler: (_html, ctx) => renderPage(ctx.filename) },
     },
     {
       name: 'development-connections',
       apply: 'serve',
-      transformIndexHtml: (html) => html.replace("connect-src 'none'", "connect-src 'self' ws:"),
+      transformIndexHtml: (html) =>
+        html.replace(
+          'connect-src https://tools.sid.tw/cdn-cgi/rum',
+          "connect-src 'self' ws: https://tools.sid.tw/cdn-cgi/rum",
+        ),
     },
   ],
   run: {

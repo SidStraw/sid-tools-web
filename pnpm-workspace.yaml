@@ -15,6 +15,7 @@ blockExoticSubdeps: true
 strictDepBuilds: true
 allowBuilds:
   esbuild: true
+  workerd: true
   '@google/genai': false
   protobufjs: false
 peerDependencyRules:

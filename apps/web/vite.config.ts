@@ -19,6 +19,7 @@ export default defineConfig({
           'tools/git-diff/index.html',
           'tools/sitemap/index.html',
           'tools/explain/index.html',
+          'tools/palette/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

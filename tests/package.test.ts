@@ -4,6 +4,31 @@ import { inspectImage, type ImageInfo } from '@sid-tools/core';
 import { compareSemver, type SemverComparison } from '@sid-tools/core/semver';
 import { compareEnv, type EnvComparison } from '@sid-tools/core/env-check';
 import { parseExplain, EXPLAIN_EXAMPLES, type ExplainReport } from '@sid-tools/core/explain';
+import {
+  extractPalette,
+  evaluateContrast,
+  exportCssTokens,
+  type PaletteReport,
+  type ContrastEvaluation,
+} from '@sid-tools/core/palette';
+
+test('public palette subpath exposes typed explicit alpha/contrast and selected preview-consistent CSS', () => {
+  expectTypeOf(extractPalette).returns.toEqualTypeOf<PaletteReport>();
+  expectTypeOf(evaluateContrast).returns.toEqualTypeOf<ContrastEvaluation>();
+  const backing = { r: 255, g: 255, b: 255 };
+  const palette = extractPalette(new Uint8ClampedArray([255, 0, 0, 0, 0, 0, 0, 255]), { backing });
+  expect(palette.colors.map((color) => color.hex)).toEqual(['#000000', '#ffffff']);
+  const contrast = evaluateContrast(
+    { r: 0, g: 0, b: 0, a: 0.5 },
+    { r: 255, g: 255, b: 255, a: 1 },
+    backing,
+  );
+  expect(contrast.foreground).toEqual({ r: 127.5, g: 127.5, b: 127.5 });
+  expect(contrast.passes.aaNormal).toBe(false);
+  expect(exportCssTokens([{ name: 'text', color: contrast.foreground }])).toBe(
+    ':root {\n  --text: rgb(127.5 127.5 127.5);\n}\n',
+  );
+});
 
 test('public explain subpath exposes typed synthetic per-loop, inclusive and independent statement metrics', () => {
   expectTypeOf(parseExplain).returns.toEqualTypeOf<ExplainReport>();

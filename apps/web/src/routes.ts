@@ -68,5 +68,13 @@ export const routes = [
     description:
       '在瀏覽器瀏覽 PostgreSQL EXPLAIN JSON 節點樹、估計與實測 rows 差距，依 JSON Pointer 回到來源。不連資料庫、不執行 SQL。',
   },
+  {
+    id: 'palette',
+    path: 'tools/palette/',
+    label: '圖片配色',
+    title: '圖片取色、WCAG 對比與 CSS token',
+    description:
+      '從本機靜態圖片取得取樣色盤，調整文字、底色與強調色，依透明混色條件檢查 WCAG 對比，明確選取 CSS variables。不傳送圖片。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

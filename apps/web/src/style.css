@@ -2235,6 +2235,400 @@ dialog > p {
     margin-bottom: 8px;
   }
 }
+.palette-main select {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 8px;
+  border: 1px solid #cdd8cd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #fbfcf8;
+  color: var(--green);
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.palette-main button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.palette-main :is(input, select, button, pre):focus-visible {
+  outline: 3px solid #8cae64;
+  outline-offset: 3px;
+}
+.palette-source-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  margin: 22px 0;
+}
+.palette-upload {
+  border: 1px dashed #aabb9d;
+  border-radius: 12px;
+  background: #f3f6ed;
+  padding: 26px;
+  min-width: 0;
+}
+.palette-file-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #c9d5be;
+  border-radius: 50%;
+  font-size: 24px;
+  margin-bottom: 18px;
+  color: #4f7356;
+}
+.palette-main .palette-upload input {
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 16px;
+}
+.palette-source-options {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  min-width: 0;
+}
+.palette-options-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+.palette-step-note {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #687564;
+}
+.palette-sample-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+  gap: 28px;
+  margin-top: 20px;
+}
+.palette-source-figure {
+  margin: 0;
+  min-width: 0;
+}
+.palette-source-figure canvas {
+  width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: block;
+}
+.palette-source-figure figcaption {
+  font:
+    10px/1.8 ui-monospace,
+    monospace;
+  color: #647668;
+  padding-top: 10px;
+  overflow-wrap: anywhere;
+}
+.palette-swatches {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+.palette-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid #dbe2d4;
+  border-radius: 8px;
+  padding: 7px 7px 10px;
+  text-align: left;
+  background: #fbfcf8;
+  color: #315246;
+  min-width: 0;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
+}
+.palette-swatch:hover {
+  border-color: #648664;
+  transform: translateY(-2px);
+}
+.palette-swatch strong {
+  font:
+    12px/1.8 ui-monospace,
+    monospace;
+}
+.palette-swatch > span:last-child {
+  font-size: 10px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.palette-chip {
+  display: block;
+  width: 100%;
+  height: 54px;
+  border-radius: 4px;
+  border: 1px solid #0000000d;
+}
+.palette-workbench {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 36px;
+  margin: 24px 0;
+  align-items: start;
+}
+.palette-preview-rail {
+  min-width: 0;
+  position: sticky;
+  top: 24px;
+}
+.palette-interface {
+  border-radius: 14px;
+  padding: 30px;
+  min-height: 420px;
+  overflow-wrap: anywhere;
+  box-shadow: 0 10px 32px #1b3e2910;
+}
+.palette-preview-kicker {
+  font:
+    10px/1.8 ui-monospace,
+    monospace;
+  letter-spacing: 0.14em;
+}
+.palette-preview-shape {
+  width: 100px;
+  height: 100px;
+  border: 1px solid currentColor;
+  border-radius: 50% 50% 0 50%;
+  margin: 32px 0;
+  position: relative;
+}
+.palette-preview-shape::after {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1px solid currentColor;
+  border-radius: inherit;
+}
+.palette-interface h3 {
+  font: 500 29px/1.6 var(--font-serif, serif);
+  margin: 20px 0 12px;
+  letter-spacing: -0.03em;
+}
+.palette-interface p {
+  font-size: 14px;
+  line-height: 1.9;
+}
+.palette-preview-accent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 18px 0 12px;
+  border-top: 1px solid currentColor;
+  margin-top: 30px;
+}
+.palette-interface small {
+  font-size: 10px;
+  line-height: 1.8;
+  display: block;
+  margin-top: 8px;
+}
+.palette-resolved {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  font-size: 11px;
+  line-height: 1.8;
+  color: #5c7063;
+}
+.palette-resolved dd {
+  margin: 0;
+  font-family: ui-monospace, monospace;
+  overflow-wrap: anywhere;
+}
+.palette-controls {
+  min-width: 0;
+}
+.palette-controls fieldset {
+  padding: 14px 18px 18px;
+  margin: 0 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  min-width: 0;
+}
+.palette-controls legend {
+  font-size: 12px;
+  padding: 0 7px;
+  color: #355a48;
+}
+.palette-main .palette-role-inputs label {
+  font-size: 11px;
+  font-weight: 400;
+}
+.palette-role-inputs {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 16px;
+}
+.palette-contrast-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px;
+  margin-top: 14px;
+  background: #f8faf4;
+}
+.palette-contrast-card h3 {
+  font-size: 12px;
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+.palette-contrast-card > strong {
+  font-size: 27px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.8;
+}
+.palette-contrast-card ul {
+  padding: 12px 0 0;
+  margin: 8px 0 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 8px;
+}
+.palette-contrast-card li {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.palette-contrast-card li[data-pass='false'] {
+  color: #875526;
+}
+.palette-contrast-card li[data-pass='true'] {
+  color: #315a40;
+}
+.palette-token-choices {
+  margin: 24px 0;
+}
+.palette-token-row {
+  display: grid;
+  grid-template-columns: 150px minmax(120px, 1fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.palette-token-row code {
+  font-size: 11px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+  color: #536951;
+}
+.palette-main .palette-token-row label {
+  font-size: 12px;
+}
+.palette-token-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.palette-main .palette-token-check input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  accent-color: #214f43;
+  flex-shrink: 0;
+}
+.palette-token-check label {
+  cursor: pointer;
+  padding: 12px 0;
+}
+.palette-css {
+  max-height: 360px;
+  overflow: auto;
+  font:
+    12px/1.9 ui-monospace,
+    monospace;
+  color: #2f5442;
+  background: #f0f4e9;
+  padding: 22px;
+  border-radius: 10px;
+  border: 1px solid #dce4d3;
+}
+.palette-guide {
+  max-width: none;
+}
+.palette-guide summary {
+  cursor: pointer;
+  color: var(--green);
+  padding: 16px 0;
+}
+.palette-guide li {
+  font-size: 13px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+@media (max-width: 900px) {
+  .palette-swatches {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .palette-workbench {
+    gap: 22px;
+  }
+  .palette-interface {
+    padding: 22px;
+  }
+  .palette-token-row {
+    grid-template-columns: 120px minmax(120px, 1fr);
+  }
+  .palette-token-row code {
+    grid-column: 2;
+  }
+}
+@media (max-width: 650px) {
+  .palette-source-grid,
+  .palette-sample-grid,
+  .palette-workbench {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .palette-source-figure canvas {
+    max-height: 220px;
+  }
+  .palette-preview-rail {
+    position: static;
+  }
+  .palette-interface {
+    min-height: 360px;
+  }
+  .palette-main .text-button {
+    min-height: 44px;
+  }
+  .palette-token-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  .palette-token-row code {
+    grid-column: auto;
+  }
+  .palette-token-check label {
+    min-height: 44px;
+  }
+  .palette-resolved {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+  .palette-resolved dd {
+    margin-bottom: 10px;
+  }
+  .palette-main .tool-actions .button {
+    min-height: 44px;
+  }
+}
 /* Static tool pages share the same responsive navigation. */
 .site-header {
   height: auto;

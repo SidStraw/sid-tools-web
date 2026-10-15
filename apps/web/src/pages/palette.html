@@ -1,0 +1,292 @@
+<main class="utility-main palette-main">
+  <section class="tool-intro">
+    <p class="eyebrow">從一張圖，到一組有理由的配色。<span>COLOR STUDY / 10</span></p>
+    <h1>取一點顏色，配一個讀得清楚的介面。</h1>
+    <p class="intro-copy">
+      先看色票，再決定它要當文字、底色，還是強調色。每一步都保留你的選擇，不替你把失敗的對比藏起來。
+    </p>
+    <div class="intro-tags">
+      <span>圖片留在瀏覽器</span><span>透明混色可追溯</span><span>只匯出選取的 CSS</span>
+    </div>
+  </section>
+  <section id="workspace" class="utility-panel" aria-label="本機圖片取色">
+    <div class="panel-heading">
+      <h2>01 ／ 從素材開始</h2>
+      <div class="export-actions">
+        <button id="demo" class="text-button">合成森林色塊</button
+        ><button id="demo-alpha" class="text-button">合成透明色塊</button>
+      </div>
+    </div>
+    <div class="palette-source-grid">
+      <div class="palette-upload">
+        <span class="palette-file-mark" aria-hidden="true">＋</span
+        ><label for="palette-file">選擇一張本機圖片</label
+        ><input
+          id="palette-file"
+          type="file"
+          accept="image/png,image/jpeg,image/webp"
+          aria-describedby="image-help"
+        />
+        <p id="source-name" class="help">還沒有圖片。也可以先試人工合成的 PNG。</p>
+      </div>
+      <div class="palette-source-options">
+        <label for="backing">不透明襯底 · 先決定透明 pixels 放在哪裡</label
+        ><select id="backing">
+          <option value="">請明確選擇襯底</option>
+          <option value="#ffffff">白色 #ffffff</option>
+          <option value="#f5f3eb">暖白 #f5f3eb</option>
+          <option value="#142e26">深森林 #142e26</option>
+          <option value="custom">自訂不透明 sRGB</option>
+        </select>
+        <div id="custom-backing-wrap" hidden>
+          <label for="custom-backing">自訂襯底 · 六位 HEX</label
+          ><input
+            id="custom-backing"
+            type="text"
+            value="#ffffff"
+            maxlength="7"
+            spellcheck="false"
+            autocomplete="off"
+          />
+        </div>
+        <div class="palette-options-row">
+          <div>
+            <label for="samples">最多取樣</label
+            ><select id="samples">
+              <option value="1000">1,000 pixels</option>
+              <option value="10000" selected>10,000 pixels</option>
+              <option value="100000">100,000 pixels</option>
+            </select>
+          </div>
+          <div>
+            <label for="colors">最多色票</label
+            ><select id="colors">
+              <option value="8">8 色</option>
+              <option value="16">16 色</option>
+              <option value="32">32 色</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p id="image-help" class="help">
+      一張靜態 PNG／JPEG／WebP，最多 8 MB、最長邊 4096 px、4,000,000
+      pixels。先檢查容器，再解碼；不接受 SVG、GIF、APNG、動態
+      WebP。不讀取遠端網址，不把圖交給伺服器。
+    </p>
+    <div class="tool-actions">
+      <button id="run" class="button primary">取樣色盤 <span aria-hidden="true">→</span></button
+      ><button id="cancel" class="button secondary" disabled>取消讀取</button
+      ><button id="clear" class="button secondary">清除全部</button
+      ><span id="status" role="status" aria-live="polite">選好襯底與圖片，再開始取色。</span>
+    </div>
+    <p id="error" class="notice" role="alert" hidden></p>
+  </section>
+  <section id="output" hidden aria-label="取樣色盤與配色工作台">
+    <div class="utility-panel palette-extraction">
+      <div class="panel-heading">
+        <h2>02 ／ 這張圖的取樣色票</h2>
+        <span class="palette-step-note">不是精確 unique colors，也不是感知主色排名。</span>
+      </div>
+      <div class="palette-sample-grid">
+        <figure class="palette-source-figure">
+          <canvas
+            id="source-preview"
+            aria-label="本機解碼圖片，在所選襯底上的預覽"
+            role="img"
+          ></canvas>
+          <figcaption id="source-meta"></figcaption>
+        </figure>
+        <div>
+          <p id="sample-meta" class="help"></p>
+          <label for="assign-role">點色票時，指定給哪個角色？</label
+          ><select id="assign-role">
+            <option value="foreground">文字 text</option>
+            <option value="background">底色 surface</option>
+            <option value="accent">強調 accent</option>
+          </select>
+          <div id="swatches" class="palette-swatches"></div>
+          <p class="help">
+            色票已混合所選襯底，指定角色會設 alpha=1。頻率以全部 sample 為分母，未回傳的 bucket
+            不會偷偷重新分配比例。
+          </p>
+        </div>
+      </div>
+    </div>
+    <section class="utility-panel" aria-label="配色角色與即時預覽">
+      <div class="panel-heading">
+        <h2>03 ／ 給顏色一個工作</h2>
+        <button id="reference" class="text-button">載入黑白 21:1 參考</button>
+      </div>
+      <p class="help">
+        初始角色是工具的示意配色，不是從圖片自動判斷；點色票才指定給角色，也可直接輸入六位 HEX 與
+        alpha。襯底 → 背景 RGBA → 文字／強調 RGBA，依 encoded sRGB source-over
+        混色；下方顯示的是實際 opaque 結果。僅改文字或強調色，不會讓整張卡片跟著透明。
+      </p>
+      <div class="palette-workbench">
+        <div class="palette-preview-rail">
+          <div
+            id="interface-preview"
+            class="palette-interface"
+            role="img"
+            aria-label="配色視覺預覽，不是功能按鈕或無障礙驗證"
+          >
+            <span class="palette-preview-kicker">FIELD NOTES / 01</span>
+            <div class="palette-preview-shape" aria-hidden="true"></div>
+            <h3>把日常，留一點空白。</h3>
+            <p>先讓內容被看見，再讓顏色被記住。這是一張使用你所選配色的靜態卡片。</p>
+            <span id="accent-preview" class="palette-preview-accent"
+              >探索這組顏色 <span aria-hidden="true">↗</span></span
+            ><small>強調色預覽：accent 文字在 surface 上，沒有額外按鈕底色。</small>
+          </div>
+          <p class="help">
+            此卡片只示意顏色，不據此自動分類 normal／large
+            文字。若低對比導致卡片難讀，右側控制與結果仍保留工具原本的可讀配色。
+          </p>
+          <dl id="resolved-colors" class="palette-resolved"></dl>
+        </div>
+        <div class="palette-controls">
+          <fieldset>
+            <legend>文字 · text</legend>
+            <div class="palette-role-inputs">
+              <div>
+                <label for="foreground">sRGB HEX</label
+                ><input
+                  id="foreground"
+                  type="text"
+                  value="#234f43"
+                  maxlength="7"
+                  spellcheck="false"
+                  autocomplete="off"
+                />
+              </div>
+              <div>
+                <label for="foreground-alpha">Alpha 0–1</label
+                ><input id="foreground-alpha" type="number" min="0" max="1" step="0.01" value="1" />
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>底色 · surface</legend>
+            <div class="palette-role-inputs">
+              <div>
+                <label for="background">sRGB HEX</label
+                ><input
+                  id="background"
+                  type="text"
+                  value="#f5f3eb"
+                  maxlength="7"
+                  spellcheck="false"
+                  autocomplete="off"
+                />
+              </div>
+              <div>
+                <label for="background-alpha">Alpha 0–1</label
+                ><input id="background-alpha" type="number" min="0" max="1" step="0.01" value="1" />
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>強調 · accent</legend>
+            <div class="palette-role-inputs">
+              <div>
+                <label for="accent">sRGB HEX</label
+                ><input
+                  id="accent"
+                  type="text"
+                  value="#956c2a"
+                  maxlength="7"
+                  spellcheck="false"
+                  autocomplete="off"
+                />
+              </div>
+              <div>
+                <label for="accent-alpha">Alpha 0–1</label
+                ><input id="accent-alpha" type="number" min="0" max="1" step="0.01" value="1" />
+              </div>
+            </div>
+          </fieldset>
+          <div id="contrast-results" class="palette-contrasts" aria-live="polite"></div>
+        </div>
+      </div>
+      <p class="help">
+        WCAG 2.x sRGB contrast：AA 一般文字 ≥4.5、大型文字 ≥3；AAA 一般 ≥7、大型
+        ≥4.5。大型文字需實際達 18pt（約 24 CSS px），或粗體 14pt（約 18.67 CSS
+        px）；本頁不偵測字級／字重。使用未四捨五入比值判定；畫面比值僅為顯示。黑／白參考
+        21:1、相同色 1:1；#767676／白約 4.54222496，#777777／白約 4.47808945。
+      </p>
+    </section>
+    <section class="utility-panel" aria-label="明確選取的 CSS token">
+      <div class="panel-heading">
+        <h2>04 ／ 帶走你選的，不多帶一點</h2>
+        <button id="export" class="button secondary" disabled>下載 CSS variables</button>
+      </div>
+      <p class="help">
+        勾選角色才納入。輸出為這個混色情境的 opaque
+        RGB，保留小數以符合預覽；不是可在任意底色重用的原始
+        alpha。未通過對比的組合仍可選，匯出不代表通過。名稱只接受小寫英數 kebab-case（最多 64
+        字元、不要加 --），不可重複。
+      </p>
+      <div id="token-choices" class="palette-token-choices"></div>
+      <p id="token-status" role="status" class="help">尚未選取 token。</p>
+      <pre id="css-output" class="palette-css" tabindex="0" aria-label="將下載的完整 CSS">
+尚未選取 token。</pre>
+      <p class="help">
+        下載只含明確選取的名稱與 numeric RGB；不含來源圖、檔名或
+        pixels。下載檔仍是你主動保存的資料，不會自動分享。
+      </p>
+    </section>
+  </section>
+  <section class="tool-guide palette-guide">
+    <h2>取色是起點，不是可讀性的保證。</h2>
+    <p>
+      圖片與檔名只留在目前頁面記憶體，不上傳、不永久保存、不放進分享
+      URL。清除、重新整理或離開會丟棄來源與選取。你主動下載的 CSS
+      是例外。單一色彩對比無法取代鍵盤、焦點、語意、內容與完整無障礙驗證。
+    </p>
+    <details>
+      <summary>解碼、透明度、取樣與色彩管理的界線</summary>
+      <ul>
+        <li>
+          一次一張本機檔案；8 MB=8,000,000 bytes。容器檢查拒絕動畫與超過 4096 edge／4M pixels
+          的來源，不先解碼大圖再縮小。瀏覽器原生解碼可能失敗；10 秒停止等待。取消、換檔或離開會清掉
+          image src／Blob URL
+          與舊結果；原生解碼器內部資源由瀏覽器管理，無法保證即時中止所有原生工作。
+        </li>
+        <li>
+          瀏覽器依圖片 profile／方向資訊解碼到 sRGB Canvas，再讀取 8-bit
+          RGBA；不保證各瀏覽器／ICC／HDR／廣色域轉換完全一致，不輸出原始 profile 或 metadata。檔案
+          MIME 與 signature 需一致；空 MIME 依容器判斷。來源預覽已受瀏覽器解碼管理，不是原始 RGB
+          bytes 證明。
+        </li>
+        <li>
+          透明 pixels 先在你明確選取的不透明襯底上混色，連 alpha=0
+          都計入襯底色頻率；不忽略透明區原本佔的樣本。預覽／對比先 background-over-backing，再
+          text/accent-over-background；採 encoded sRGB source-over，非 linear-light／blend mode
+          模擬。
+        </li>
+        <li>
+          固定 4-bit/channel（最多 4096 buckets）；bucket 代表色為混色後 encoded sRGB
+          的平均再個別四捨五入，不是精確 unique colors、感知分群、ML 或品牌主色辨識。依 sample
+          數排序，同數依 RGB bucket 升冪；只回傳你選的前 8／16／32 個 bucket。
+        </li>
+        <li>
+          系統性取樣 pixel index=floor(i×pixelCount/sampleCount)，最多 1,000／10,000／100,000
+          samples，可能 alias 圖案。頻率是該 bucket samples／全部
+          samples，不是全圖比例或視覺重要性；省略 sample
+          數明示。變更襯底／取樣參數會重新計算，角色保留你選的明確 RGB，不暗中重新綁定 bucket。
+        </li>
+        <li>
+          WCAG 2.x sRGB 相對亮度採 0.04045 分段、0.2126R+0.7152G+0.0722B
+          線性亮度權重，對比=(亮+0.05)/(暗+0.05)。不先四捨五入再判斷；未通過仍列出。僅評估所選
+          opaque 混色結果，不處理漸層／背景圖／字型渲染，也不驗證非文字 UI 全部要求。
+        </li>
+        <li>
+          兩個範例是本機 Canvas 人工合成的 240×160 靜態
+          PNG，走與上傳相同的解碼流程；不是照片／品牌或真實使用者量測。透明範例含黑、半透明紅、全透明三個區塊。未啟用框架專屬
+          token、自動產生主題或遠端圖片輸入。
+        </li>
+      </ul>
+    </details>
+  </section>
+</main>

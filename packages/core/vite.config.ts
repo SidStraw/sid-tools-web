@@ -14,6 +14,7 @@ export default defineConfig({
       'src/git-diff.ts',
       'src/sitemap.ts',
       'src/explain.ts',
+      'src/palette.ts',
     ],
     format: ['esm'],
     dts: true,

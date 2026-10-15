@@ -1,10 +1,11 @@
 ---
 id: STW-13
 title: SQL DDL 轉 ER 關聯圖與可匯出的資料表文件
-status: Needs Refinement
-assignee: []
+status: Done
+assignee:
+  - '@opencode'
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-15 20:55'
 labels:
   - keyword-research
   - proposal
@@ -79,12 +80,22 @@ ordinal: 113
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 解析支援範圍內的資料表、欄位、主鍵與外鍵，圖上的關聯均能回到原始定義。
-- [ ] #2 複合鍵、自我引用與 schema-qualified 名稱有固定範例，無外鍵不自動編造關聯。
-- [ ] #3 未知方言或未支援 DDL 逐項顯示，不產生看似完整的錯誤 schema。
-- [ ] #4 可匯出 SVG 與資料表摘要；匯出保留表名、欄位與關聯的可讀性。
-- [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
+- [x] #1 解析支援範圍內的資料表、欄位、主鍵與外鍵，圖上的關聯均能回到原始定義。
+- [x] #2 複合鍵、自我引用與 schema-qualified 名稱有固定範例，無外鍵不自動編造關聯。
+- [x] #3 未知方言或未支援 DDL 逐項顯示，不產生看似完整的錯誤 schema。
+- [x] #4 可匯出 SVG 與資料表摘要；匯出保留表名、欄位與關聯的可讀性。
+- [x] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. 不新增相依套件；以有界 PostgreSQL lexer 處理巢狀註解、字串／識別字／dollar quote 與正確 statement 邊界，再解析窄版 CREATE TABLE／明示 PK／FK，保留原始 UTF16 範圍。
+2. 明確支援複合鍵、自我引用與 schema-qualified 名稱；關聯僅來自 FK，未提供 search_path 的未限定名稱僅標本機候選，缺少欄位或隱含 PK 無法確認時不編造綁定。未知 statement／clause 逐項定位，partial 不代表執行 migration 後完整 schema。
+3. 整合專用可終止 module worker、來源／表欄位／關聯導覽與可讀 ER 圖，app-owned 安全 SVG renderer 及資料表摘要匯出；不含 raw SQL/default/comment，名稱仍可能敏感需同意。
+4. 固定 composite/self/schema 案例與 lexical／unsupported／limits／來源測試；production E2E 覆蓋圖與 SVG／摘要可讀性、惡意文字、實際來源選取、worker/Blob生命週期及手機版。
+5. 程式碼凍結後完整 pnpm verify、獨立 Oracle 與結構審查，通過五項 AC 才 Done 與本卡獨立 commit；實際阻塞註記後跳過。
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -100,4 +111,14 @@ Low 保留窄比較；免 DB、免費與 SVG 不是足夠差異，不能宣稱�
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+2026-10-16：依使用者實作所有未完成卡片的授權啟動，舊市場 defer 不再作為跳過理由。採固定 PostgreSQL18 文件定義的窄版子集，不連 DB／不執行 DDL／不推測無 FK 關聯；未限定名稱缺 search_path 僅本機候選，unknown/partial 明示。圖與 SVG 為本機安全文字呈現，不新增第三方圖形或 SQL parser 套件。
+
+Final acceptance 2026-10-16: Parent accepted frozen no-cache mise exec -- pnpm verify PASS (sh_141541d02001z7m5JpmtM7QJdc): 697 unit/public tests,126 production E2E,164 formatted/94 strict clean,build/audit PASS,0/6 cache hits; inherited TS7 experimental API notice retained. Independent Oracle1 PASS with no material findings; structure gate PASS. Detailed five-AC mapping and nine reviewed screenshots preserved in docs/validation/stw-13/README.md, updated with final acceptance and accepted limitations. All five AC checked; no DoD items configured. Bounded PG18 CREATE snapshot only: no DB/catalog/type/target uniqueness/migration-state proof; unqualified candidates, unsupported-tail no-guess policy, conservative implicit PK eligibility and invalid-FK binding invalidation retained. SVG remains app-owned static safe XML, bounded and incomplete-labeled when needed; names/types consent-gated. Sources unchanged during docs/CLI-only finalization; accepted fullverify not rerun. Isolated31-path local commit authorized; no push/deploy or reserved-lane changes.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Delivered bounded PostgreSQL CREATE TABLE lexer/parser, source-linked table/PK/FK model, dedicated local worker, readable ER/SVG and metadata exports with explicit partial/unresolved semantics. Verified focused92 core/public and24 DDL/shared E2E plus nine production screenshots; final frozen pnpm verify passed697 unit/public and126 production E2E,164 formatted/94 strict checks,build/audit,cache0/6. Oracle1 and structure PASS without material findings. Five AC accepted; durable evidence and accepted limitations in docs/validation/stw-13/README.md. No database execution, upload, push or deployment.
+<!-- SECTION:FINAL_SUMMARY:END -->

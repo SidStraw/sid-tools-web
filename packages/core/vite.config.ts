@@ -19,6 +19,7 @@ export default defineConfig({
       'src/sdl.ts',
       'src/openapi.ts',
       'src/openapi-fixture.ts',
+      'src/sql-ddl.ts',
     ],
     format: ['esm'],
     dts: true,

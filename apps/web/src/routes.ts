@@ -108,5 +108,13 @@ export const routes = [
     description:
       '明確選擇 OpenAPI 3.0.x 回應，以固定 seed 產生有界 JSON 測試 fixture，查看 example 來源、獨立驗證與限制；不連線 API，不自動匿名化。',
   },
+  {
+    id: 'sql-ddl',
+    path: 'tools/sql-ddl/',
+    label: 'SQL 關聯圖',
+    title: 'SQL DDL 關聯圖與資料表文件',
+    description:
+      '本機讀取有界 PostgreSQL CREATE TABLE 子集，以原生 SVG 查看資料表、欄位、明示外鍵與來源；區分已解析、本機候選與未解決，不連線資料庫、不執行 migration。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

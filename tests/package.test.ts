@@ -6,6 +6,28 @@ import { compareEnv, type EnvComparison } from '@sid-tools/core/env-check';
 import { parseExplain, EXPLAIN_EXAMPLES, type ExplainReport } from '@sid-tools/core/explain';
 import { analyzeSelectors, type SelectorListAnalysis } from '@sid-tools/core/selectors';
 import { compareSdl, exportSdlComparison, type SdlComparison } from '@sid-tools/core/sdl';
+import { parseSqlDdl, exportSqlDdlSummary, type SqlDdlReport } from '@sid-tools/core/sql-ddl';
+
+test('public SQL DDL subpath exposes clone-safe declaration model, source binding and explicit metadata-only export', () => {
+  expectTypeOf(parseSqlDdl).returns.toEqualTypeOf<SqlDdlReport>();
+  const source =
+    "/* synthetic-private-comment */ CREATE TABLE public.a (id integer PRIMARY KEY, label text DEFAULT 'synthetic-private-value'); CREATE TABLE public.b (id integer REFERENCES public.a);";
+  const report = parseSqlDdl(source);
+  expect(structuredClone(report)).toEqual(report);
+  expect(report.status).toBe('partial');
+  expect(report.tables).toHaveLength(2);
+  expect(report.edges[0]!.binding.targetColumnsOrigin).toBe('unknown');
+  const summary = exportSqlDdlSummary(report);
+  expect(summary).not.toContain('synthetic-private');
+  expect(JSON.parse(summary)).not.toHaveProperty('source');
+  expect(JSON.parse(summary)).not.toHaveProperty('edges');
+  expect(summary).toContain('integer');
+  const resolved = parseSqlDdl(
+    'CREATE TABLE public.a (id integer PRIMARY KEY); CREATE TABLE public.b (id integer REFERENCES public.a);',
+  );
+  expect(resolved.edges[0]!.binding.status).toBe('resolved-local');
+  expect(resolved.edges[0]!.binding.targetColumnsOrigin).toBe('target-primary-key');
+});
 import {
   inspectOpenApiFixtures,
   generateOpenApiFixture,

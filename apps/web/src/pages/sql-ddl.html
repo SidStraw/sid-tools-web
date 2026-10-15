@@ -1,0 +1,195 @@
+<main class="utility-main ddl-main">
+  <section class="tool-intro">
+    <p class="eyebrow">讓每條線，都有出處。<span>DECLARATION ATLAS / 15</span></p>
+    <h1>從建表宣告，讀出關聯。</h1>
+    <p class="intro-copy">
+      把 PostgreSQL CREATE TABLE 的明示結構，整理成可回到來源的 ER
+      圖與資料表文件。看清複合鍵與自我引用，也看清哪些只是候選、哪些沒有被解析；不連資料庫，不執行
+      migration。
+    </p>
+    <div class="intro-tags">
+      <span>原生 SVG · 完整 metadata</span><span>只畫明示 FK</span><span>本機處理，不上傳 DDL</span>
+    </div>
+  </section>
+  <section class="utility-panel">
+    <div class="panel-heading">
+      <h2>01 ／ 放入宣告，不執行它</h2>
+      <span class="ddl-caption">POSTGRESQL 18 · BOUNDED SUBSET</span>
+    </div>
+    <div class="ddl-demos">
+      <button id="demo" class="text-button">Qualified / 複合鍵 / self</button
+      ><button id="demo-candidate" class="text-button">候選 / 缺少 target</button
+      ><button id="demo-unsupported" class="text-button">Unsupported DDL</button
+      ><button id="demo-lexical" class="text-button">字串 / nested comments</button
+      ><button id="demo-invalid" class="text-button">Invalid remainder</button
+      ><button id="demo-limit" class="text-button">深度限制</button
+      ><button id="demo-hostile" class="text-button">Quoted 特殊字元</button>
+    </div>
+    <p id="demo-note" class="help">
+      固定案例均人工合成；輸入與載入不觸發解析，按 Run 才建立專用 worker。
+    </p>
+    <label for="source">SQL DDL · 原始文字</label
+    ><textarea
+      id="source"
+      spellcheck="false"
+      wrap="off"
+      autocomplete="off"
+      autocapitalize="off"
+      aria-describedby="ddl-input-scope"
+      placeholder="CREATE TABLE public.book (&#10;  id integer PRIMARY KEY&#10;);"
+    ></textarea>
+    <p id="ddl-input-scope" class="help">
+      最多 500,000 UTF-16；tokens 50K／單 token 4,096 units、comment 100K／nested depth
+      32、parentheses 32、statements 500、tables 100、每表 columns 200／總共
+      2,000、constraints／edges 各 1,000、work 200K；type tokens 128／units
+      4,096。超限不保留截斷成功模型。只支援明示窄版 CREATE TABLE，不是完整 SQL 方言辨識器。
+    </p>
+    <div class="tool-actions">
+      <button id="run" class="button primary">
+        讀取宣告並繪圖 <span aria-hidden="true">→</span></button
+      ><button id="cancel" class="button secondary" disabled>取消工作</button
+      ><button id="clear" class="button secondary">清除內容</button
+      ><span id="status" role="status" aria-live="polite">尚未解析；只在目前頁面記憶體處理。</span>
+    </div>
+    <p id="error" class="notice" hidden role="alert"></p>
+  </section>
+  <section id="output" hidden aria-label="DDL 宣告圖與文件">
+    <section class="utility-panel ddl-atlas">
+      <div class="panel-heading">
+        <h2>02 ／ 每條連線，只代表已宣告的 FK</h2>
+        <span id="report-state" class="ddl-state"></span>
+      </div>
+      <p id="summary" class="result-notice" role="status"></p>
+      <div id="counts" class="ddl-counts"></div>
+      <div class="ddl-legend">
+        <span><i class="ddl-solid" aria-hidden="true"></i>resolved-local · 輸入內綁定</span
+        ><span><i class="ddl-dashed" aria-hidden="true"></i>local-candidate · search_path 未知</span
+        ><span>unresolved / invalid · 只列記錄，不造節點</span>
+      </div>
+      <div class="ddl-graph-toolbar">
+        <button id="zoom-out" class="text-button" aria-label="縮小圖形">−</button
+        ><button id="zoom-reset" class="text-button">100%</button
+        ><button id="zoom-in" class="text-button" aria-label="放大圖形">＋</button
+        ><button id="fit" class="text-button">適合寬度</button
+        ><span id="graph-size" class="help"></span>
+      </div>
+      <p class="help">
+        預設以可讀字級顯示，圖內可水平／垂直捲動；聚焦圖框可用方向鍵捲動。線段不放擁擠標籤，以完整關聯清單核對。點表／欄位／PK
+        可選原始範圍，點線可看
+        FK；鍵盤亦可操作，下方文字文件提供同等導覽。完整圖與匯出包含所有接受的表、欄位及 FK
+        記錄，不靜默省略。Renderer 上限 2M display units／100K lines，超限不提供截斷
+        SVG，仍可看文字文件／摘要。Control code units／lone surrogates 以明確 Unicode escapes
+        顯示，避免無效 XML；原始來源與 JSON summary 身分不變。
+      </p>
+      <div
+        id="graph"
+        class="ddl-graph"
+        tabindex="0"
+        role="region"
+        aria-label="可捲動 ER 關聯圖"
+      ></div>
+      <p id="source-status" class="help" role="status" aria-live="polite"></p>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>03 ／ 表、欄位與原始定義</h2>
+        <span class="ddl-caption">ACCESSIBLE DOCUMENT / SAME ACCEPTED MODEL</span>
+      </div>
+      <label for="table-filter">篩選表名</label
+      ><input
+        id="table-filter"
+        type="search"
+        autocomplete="off"
+        placeholder="例如 library 或 loan"
+      />
+      <div id="tables"></div>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>04 ／ 檢查綁定，不把候選當證明</h2>
+        <span class="ddl-caption">ORDERED KEYS / DECLARED RELATIONSHIPS</span>
+      </div>
+      <div class="ddl-relations-grid">
+        <div>
+          <label for="binding-filter">關聯狀態</label
+          ><select id="binding-filter">
+            <option value="all">所有明示 FK</option>
+            <option value="resolved-local">Resolved-local</option>
+            <option value="local-candidate">Local-candidate</option>
+            <option value="unresolved">Unresolved</option>
+            <option value="invalid">Invalid</option>
+          </select>
+          <div id="relationships"></div>
+        </div>
+        <section id="relation-detail" class="ddl-detail" aria-label="選定 FK 詳情"></section>
+      </div>
+      <p class="help">
+        Qualified source 與 target 都明確且欄位存在，才是 resolved-local。未限定名稱不猜 public／同
+        schema／search_path。省略 target list 只可由符合資格的明示 target PK 推導，顯示 PK 來源；缺
+        target／欄位／arity 問題不造連線。Target 唯一性、型別相容、DB 接受性均未驗證。
+      </p>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>05 ／ 不支援與錯誤，逐項留下</h2>
+        <span class="ddl-caption">COVERAGE ≠ DATABASE VALIDATION</span>
+      </div>
+      <div id="diagnostics"></div>
+      <details>
+        <summary>Statement 覆蓋與支援邊界</summary>
+        <div id="statements"></div>
+        <ul id="scope"></ul>
+        <p class="help">
+          支援欄位型別的有界 lexical description、NULL／NOT NULL、命名 PK／FK、ordered composite
+          keys、self refs、有限 MATCH／actions／deferrability。PK 顯示 not-null，但原始 NULL／NOT
+          NULL 位置仍保留。DEFAULT／CHECK／UNIQUE／GENERATED／COLLATE／TEMP／IF NOT
+          EXISTS／INHERITS／PARTITION 等不處理，不搜索被拒絕尾部猜後續 constraints。
+        </p>
+        <p class="help">
+          Lexer 辨識 doubled quotes、standard／E／ASCII dollar-tag strings 與 nested comments；非
+          ASCII unquoted、U&amp;、ambiguous backslash／未終止 lexical remainder 停止，不猜 SET
+          影響。ALTER／DROP／SET 未執行且不改動已接受 CREATE snapshots。Complete
+          只是覆蓋此宣告子集，不是 DB validation 或 migration 最終狀態；空／純註解輸入也不是資料庫
+          schema 證明。
+        </p>
+      </details>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>06 ／ 匯出圖與精簡文件</h2>
+        <span class="ddl-caption">NAMES ARE STILL SENSITIVE</span>
+      </div>
+      <label class="ddl-confirm"
+        ><input
+          id="export-confirm"
+          type="checkbox"
+        />我已檢查表名、欄位、型別與關聯名稱，了解圖與摘要仍可能敏感。</label
+      >
+      <p class="help">
+        SVG 含完整接受模型、所有欄位、PK／FK／綁定 legend 與覆蓋狀態，固定字級，不含 raw
+        DDL／default／literal／註解本文或來源 snippets。Partial／invalid
+        可匯出保留的模型，但有明顯不完整標記與診斷計數；limit 無模型不匯出。摘要只呼叫公開投影
+        helper，保留 metadata／位置，不是匿名化。不匯出或執行原始 SQL。
+      </p>
+      <div class="tool-actions">
+        <button id="export-svg" class="button secondary" disabled>下載完整 SVG</button
+        ><button id="export-summary" class="button secondary" disabled>下載資料表摘要</button
+        ><span id="export-status" class="help" role="status"></span>
+      </div>
+    </section>
+  </section>
+  <section class="tool-guide">
+    <h2>宣告的地圖，不是資料庫的實況。</h2>
+    <p>
+      免登入、不連 DB、不 fetch、不執行 DDL 或 migration、不推論名稱相似的關聯。來源只在頁面與專用
+      module worker 記憶體；不記錄輸入、不永久保存、不放進 query／hash／分享 URL。每次 Run 獨立
+      worker，20 秒逾時、取消、編輯、清除、重跑、離開或錯誤會終止；沒有主執行緒 parser fallback。
+    </p>
+    <p>
+      原始來源位置為 UTF-16 end-exclusive，行／欄從 1 起算。圖是 app-owned 原生
+      SVG，所有名稱與型別純文字、固定安全
+      attrs／數字幾何，沒有外部圖形依賴／圖片／連結／foreignObject。下載連結短期回收；分享前仍須檢查敏感
+      metadata。
+    </p>
+  </section>
+</main>

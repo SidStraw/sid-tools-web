@@ -16,6 +16,7 @@ const loaders: Record<Route['id'], () => Promise<ToolModule>> = {
   sdl: () => import('./pages/sdl'),
   openapi: () => import('./pages/openapi'),
   'openapi-fixture': () => import('./pages/openapi-fixture'),
+  'sql-ddl': () => import('./pages/sql-ddl'),
 };
 const base = new URL(
   document.querySelector<HTMLMetaElement>('meta[name=app-base]')?.content ?? './',

@@ -24,6 +24,7 @@ export default defineConfig({
           'tools/sdl/index.html',
           'tools/openapi/index.html',
           'tools/openapi-fixture/index.html',
+          'tools/sql-ddl/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

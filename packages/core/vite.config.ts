@@ -17,6 +17,7 @@ export default defineConfig({
       'src/palette.ts',
       'src/selectors.ts',
       'src/sdl.ts',
+      'src/openapi.ts',
     ],
     format: ['esm'],
     dts: true,

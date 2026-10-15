@@ -14,6 +14,7 @@ const loaders: Record<Route['id'], () => Promise<ToolModule>> = {
   palette: () => import('./pages/palette'),
   selectors: () => import('./pages/selectors'),
   sdl: () => import('./pages/sdl'),
+  openapi: () => import('./pages/openapi'),
 };
 const base = new URL(
   document.querySelector<HTMLMetaElement>('meta[name=app-base]')?.content ?? './',

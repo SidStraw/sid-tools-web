@@ -1,0 +1,214 @@
+<main class="utility-main oas-main">
+  <section class="tool-intro">
+    <p class="eyebrow">同一個改動，兩個方向的承諾。<span>CONTRACT STUDY / 13</span></p>
+    <h1>合約變動，要分開看進與出。</h1>
+    <p class="intro-copy">
+      比較兩份 OpenAPI 3.0.x，從 request 接受範圍與 response
+      回傳保證看差異。把分類、未知原因與引用來源放在一起，不連線服務，也不替真實 consumer 宣告相容。
+    </p>
+    <div class="intro-tags">
+      <span>JSON / YAML 本機處理</span><span>獨立可終止 worker</span><span>不載入外部 $ref</span>
+    </div>
+  </section>
+  <section class="utility-panel" aria-label="OpenAPI 合約輸入">
+    <div class="panel-heading">
+      <h2>01 ／ 這次合約如何改動？</h2>
+      <span class="oas-caption">BEFORE → AFTER · 3.0.x ONLY</span>
+    </div>
+    <div class="oas-demos" aria-label="固定合成案例">
+      <button id="demo" class="text-button">雙方向規則</button
+      ><button id="demo-shared" class="text-button">共用定義 / $ref</button
+      ><button id="demo-unknown" class="text-button">外部與循環引用</button
+      ><button id="demo-equivalent" class="text-button">JSON / YAML 等價</button
+      ><button id="demo-unsupported" class="text-button">3.1 不支援</button
+      ><button id="demo-invalid" class="text-button">無效 YAML</button
+      ><button id="demo-deep" class="text-button">深度限制</button>
+    </div>
+    <p id="demo-note" class="help">
+      固定案例都是人工合成，不是外部服務或客戶資料。選案例後按比較。
+    </p>
+    <div class="oas-inputs">
+      <div>
+        <label for="before">Before · 目前合約</label
+        ><textarea
+          id="before"
+          spellcheck="false"
+          wrap="off"
+          autocomplete="off"
+          autocapitalize="off"
+          aria-describedby="oas-grammar"
+          placeholder="openapi: 3.0.3&#10;info: {title: Local, version: '1'}&#10;paths: {}"
+        ></textarea>
+      </div>
+      <div>
+        <label for="after">After · 擬議合約</label
+        ><textarea
+          id="after"
+          spellcheck="false"
+          wrap="off"
+          autocomplete="off"
+          autocapitalize="off"
+          aria-describedby="oas-grammar"
+          placeholder="貼上新版本 JSON 或 YAML"
+        ></textarea>
+      </div>
+    </div>
+    <p id="oas-grammar" class="help">
+      YAML 1.2 core JSON-compatible grammar（包含 JSON 輸入，不是 strict JSON）。拒絕
+      aliases／anchors／tags／directives／多文件／merge／複雜鍵／重複鍵。每側 1,000,000 UTF-16
+      字碼單元，token depth 100／objects 200,000／entries 10,000／scalar source 100,000；先檢查
+      token，再建立文件。
+    </p>
+    <div class="tool-actions">
+      <button id="run" class="button primary">比較合約 <span aria-hidden="true">→</span></button
+      ><button id="cancel" class="button secondary" disabled>取消比較</button
+      ><button id="clear" class="button secondary">清除內容</button
+      ><span id="status" role="status" aria-live="polite"
+        >按比較才建立獨立 worker，最多等待 20 秒。</span
+      >
+    </div>
+    <p id="error" class="notice" role="alert" hidden></p>
+  </section>
+  <section id="output" hidden aria-label="OpenAPI 靜態比較結果">
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>02 ／ 先看覆蓋狀態，再看數量</h2>
+        <span id="report-state" class="oas-state"></span>
+      </div>
+      <p id="summary" class="result-notice" role="status"></p>
+      <div id="counts" class="oas-counts"></div>
+      <div class="oas-rule-table">
+        <table>
+          <caption>
+            方向／分類／原因核對表 · 不以文字差異直接判斷
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">方向</th>
+              <th scope="col">改動與原因</th>
+              <th scope="col">分類</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Request</th>
+              <td>新增必填、number → integer、nullable true → false：收窄接受範圍。</td>
+              <td>Breaking</td>
+            </tr>
+            <tr>
+              <th scope="row">Response</th>
+              <td>必填變 optional、integer → number、nullable false → true：削弱回傳保證。</td>
+              <td>Breaking</td>
+            </tr>
+            <tr>
+              <th scope="row">Request</th>
+              <td>Enum 新值：擴大接受集合。</td>
+              <td>Non-breaking</td>
+            </tr>
+            <tr>
+              <th scope="row">Response</th>
+              <td>Enum 新值／新 status：可能影響 consumer 分支處理，不直接保證 breaking。</td>
+              <td>Review</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="help">
+        Complete 表示已覆蓋的靜態子集，不是 compatible；仍可能有 breaking／review。Valid side 只表示
+        parser／root checks 通過，不是完整 OpenAPI conformance。Unknown 可以 findings.unknown =
+        0；逐側 issues 仍可能阻止完整結論。Invalid／limit／unsupported
+        沒有可比較結果，不是「沒有變更」。
+      </p>
+      <div id="issues" class="oas-issues"></div>
+      <details class="oas-scope">
+        <summary>支援邊界與固定判斷規則</summary>
+        <ul id="rules"></ul>
+        <p class="help">
+          僅 3.0.x。內部 $ref 有界解析：最多 16 hops／50,000
+          resolutions；missing／external／ref-only cycles／recursive schema 都可能
+          unknown，即使未變。$ref siblings 依 3.0 忽略並提示。Unsupported
+          facets（composition／constraints／format／default／schema-valued
+          additionalProperties）、serialization、headers、extensions 可能未變也
+          unknown；security／server 變動需審查。最多 50,000 比較 pairs、schema depth 64、5,000
+          findings；運算預算耗盡可保留明示不完整的 findings，finding／parser 超限不回傳截斷成功。
+        </p>
+      </details>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>03 ／ 依方向與規則，回到來源</h2>
+        <span class="oas-caption">USE SITE ≠ DEFINITION ≠ CLIENT IMPACT</span>
+      </div>
+      <div class="oas-filters">
+        <div>
+          <label for="direction">方向</label
+          ><select id="direction">
+            <option value="all">全部方向</option>
+            <option value="request">Request</option>
+            <option value="response">Response</option>
+            <option value="contract">Contract</option>
+          </select>
+        </div>
+        <div>
+          <label for="category">分類</label
+          ><select id="category">
+            <option value="all">全部分類</option>
+            <option value="breaking">Breaking</option>
+            <option value="non-breaking">Non-breaking</option>
+            <option value="review">Review · 需審查</option>
+            <option value="unknown">Unknown</option>
+          </select>
+        </div>
+        <div>
+          <label for="operation-search">篩選 operation／pointer／rule</label
+          ><input
+            id="operation-search"
+            type="search"
+            autocomplete="off"
+            placeholder="例如 /books 或 nullable"
+          />
+        </div>
+      </div>
+      <div class="oas-review">
+        <section aria-label="變更清單"><div id="findings"></div></section>
+        <section class="oas-detail" aria-label="變更規則與來源詳情">
+          <p id="selection-status" role="status" aria-live="polite" class="help"></p>
+          <div id="finding-detail"></div>
+        </section>
+      </div>
+    </section>
+    <section class="utility-panel oas-export">
+      <div>
+        <h2>04 ／ 只帶走縮減後的審查摘要</h2>
+        <p class="help">
+          明確投影：狀態、靜態 codes／規則、結構 IDs、操作名稱、JSON
+          Pointers／位置、引用使用點／計數與 limits。不含原始文件、AST、default／example／enum
+          literal／description、server／security 值。IDs 不是值雜湊，但名稱／pointers
+          仍可能敏感，不是匿名化。
+        </p>
+        <label class="oas-confirm"
+          ><input id="export-confirm" type="checkbox" /> 我已檢查操作名稱與
+          pointers，了解仍可能含敏感資訊。</label
+        >
+      </div>
+      <div>
+        <button id="export" class="button secondary" disabled>下載縮減 JSON</button>
+        <p id="export-status" class="help" role="status"></p>
+      </div>
+    </section>
+  </section>
+  <section class="tool-guide oas-guide">
+    <h2>靜態差異，是審查起點，不是上線許可。</h2>
+    <p>
+      免登入。兩份文件只在目前頁面與專用 worker 記憶體處理；不執行 schema、不 fetch
+      refs／endpoint、不上傳、不記錄輸入、不永久保存、不放進 query／hash／分享 URL。20
+      秒逾時、取消、編輯、重跑、清除或離開會終止 worker 並丟棄舊結果，沒有主執行緒解析 fallback。
+    </p>
+    <p>
+      已載入的樣本皆人工合成。位置採原始 UTF-16、end-exclusive；行／欄從 1 起算，保留
+      BOM／CRLF。共享定義的 findings 合併同規則／方向／definition，顯示前 20
+      個操作使用點與完整計數；這不是真實流量、所有 client
+      使用情況或傳遞影響樹。下載是主動行為，分享前請檢查。
+    </p>
+  </section>
+</main>

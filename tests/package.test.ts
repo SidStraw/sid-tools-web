@@ -6,6 +6,36 @@ import { compareEnv, type EnvComparison } from '@sid-tools/core/env-check';
 import { parseExplain, EXPLAIN_EXAMPLES, type ExplainReport } from '@sid-tools/core/explain';
 import { analyzeSelectors, type SelectorListAnalysis } from '@sid-tools/core/selectors';
 import { compareSdl, exportSdlComparison, type SdlComparison } from '@sid-tools/core/sdl';
+import {
+  compareOpenApi,
+  exportOpenApiSummary,
+  type OpenApiComparison,
+} from '@sid-tools/core/openapi';
+
+test('public OpenAPI subpath exposes clone-safe typed directional report and value-free projection', () => {
+  expectTypeOf(compareOpenApi).returns.toEqualTypeOf<OpenApiComparison>();
+  const before = JSON.stringify({
+    openapi: '3.0.3',
+    info: { title: 'synthetic-private-title', version: '1' },
+    paths: {
+      '/sample': {
+        get: { responses: { '200': { description: 'synthetic-private-description' } } },
+      },
+    },
+  });
+  const after = JSON.stringify({
+    openapi: '3.0.3',
+    info: { title: 'synthetic-private-title', version: '1' },
+    paths: {},
+  });
+  const report = compareOpenApi(before, after);
+  expect(report.counts.breaking).toBe(1);
+  expect(structuredClone(report)).toEqual(report);
+  const exported = exportOpenApiSummary(report);
+  expect(exported).not.toContain('synthetic-private');
+  expect(exported).not.toContain('"source"');
+  expect(JSON.parse(exported)).toHaveProperty('status', 'complete');
+});
 
 test('public SDL subpath exposes typed static variance and projected export without source strings', () => {
   expectTypeOf(compareSdl).returns.toEqualTypeOf<SdlComparison>();

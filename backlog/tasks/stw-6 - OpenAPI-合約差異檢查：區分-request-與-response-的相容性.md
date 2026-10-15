@@ -1,10 +1,11 @@
 ---
 id: STW-6
 title: OpenAPI 合約差異檢查：區分 request 與 response 的相容性
-status: Needs Refinement
-assignee: []
+status: Done
+assignee:
+  - '@opencode'
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-14 12:08'
+updated_date: '2026-10-15 19:46'
 labels:
   - keyword-research
   - proposal
@@ -77,12 +78,22 @@ API 規格改動需要知道消費端可能在哪裡壞掉，而不是只看 YAM
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 辨識 endpoint 移除、參數必填改變、型別／enum／response 改動並保留 JSON Pointer 定位。
-- [ ] #2 request 與 response 分別採明示規則分類 breaking、non-breaking 或需人工判讀，不能只靠文字 diff。
-- [ ] #3 內部 $ref、循環引用與不支援版本有明確行為；缺少外部引用時不宣告完整相容。
-- [ ] #4 提供代表性相容／不相容 fixture 與可下載摘要，輸入文件的格式順序變動不產生假變更。
-- [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
+- [x] #1 辨識 endpoint 移除、參數必填改變、型別／enum／response 改動並保留 JSON Pointer 定位。
+- [x] #2 request 與 response 分別採明示規則分類 breaking、non-breaking 或需人工判讀，不能只靠文字 diff。
+- [x] #3 內部 $ref、循環引用與不支援版本有明確行為；缺少外部引用時不宣告完整相容。
+- [x] #4 提供代表性相容／不相容 fixture 與可下載摘要，輸入文件的格式順序變動不產生假變更。
+- [x] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. 採 yaml2.9.1 的 iterative Parser token 預檢後才建立文件；保留數值精度、JSON Pointer／來源定位，拒絕別名、標籤、多文件、重複鍵與超量資源，不使用 toJS 或自動解析外部引用。
+2. 純核心比較 OpenAPI3.0.x endpoint、parameter、request/schema/response；request 與 response 明示反向規則，型別／enum／required/nullability 及不支援內容保守分類。內部 ref 有界解析，缺失／外部／無法證明的循環與未知內容不得宣告完整相容。
+3. 依既有風格整合雙文件、固定案例、來源導覽、明確同意的精簡下載與清除；專用 module worker20秒上限，編輯／清除／離開／逾時即終止，不使用共用 Cron fallback，不上傳／保存／分享 URL。
+4. 固定雙方向規則、JSON/YAML／順序等價、refs／循環／版本與惡意深度案例核心測試；production E2E 覆蓋 worker生命週期、隱私、下載及手機版；程式碼凍結後完整 pnpm verify、獨立 Oracle 與結構審查。
+5. 通過客觀驗收才勾五項 AC、Done 並精確暫存本卡檔案獨立 commit；實際卡關才註記後跳過。
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -98,4 +109,14 @@ API 規格改動需要知道消費端可能在哪裡壞掉，而不是只看 YAM
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-existing-core.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+2026-10-16：依使用者實作全部未完成卡片的授權啟動，舊市場 defer 不再作為跳過理由。Oracle 預先安全研究發現 YAML Composer 遞迴在病態深度可能崩潰，故採 token 階段檢查再 build、專用可終止 worker。response enum 新值與新 status 採需人工判讀，x-* 改變為未知；本機純靜態子集不代表真實 consumer／resolver 相容性。
+
+2026-10-16：已交付純本機 JSON/YAML OpenAPI3.0.x 靜態差異、request/response 規則分類與實際 JSON Pointer／使用點／定義來源導覽，專用可終止20秒 module worker、精簡下載與清除。Oracle1 發現 paths/responses extension 遺漏與誤用總量 entry 上限，已修正並補回歸；Oracle2 與結構審查 PASS。修正後完整 mise exec -- pnpm verify 無快取通過：543 單元／套件、102 production E2E、格式／strict／build／audit。既有 TypeScript7 experimental API 提示保留。證據 docs/validation/stw-6/README.md；七張截圖為修正前但內容不受影響，extension 修正由實際 worker E2E 證明。循環／外部引用及未涵蓋規則保守未知，不宣告完整 runtime 相容；下載含名稱／pointer 不匿名。僅本機提交，未 push 或部署。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+完成 OpenAPI3.0.x 本機差異工具，分開 request/response 規則、保留來源 pointers 與引用關係，提供固定案例、可取消 worker、精簡下載與清除。543 單元／套件與102 E2E、完整 verify、獨立安全複審及結構審查通過；五項 AC 有客觀證據，詳見 docs/validation/stw-6/README.md。
+<!-- SECTION:FINAL_SUMMARY:END -->

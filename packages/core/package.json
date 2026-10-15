@@ -28,6 +28,10 @@
       "types": "./dist/semver.d.mts",
       "import": "./dist/semver.mjs"
     },
+    "./openapi": {
+      "types": "./dist/openapi.d.mts",
+      "import": "./dist/openapi.mjs"
+    },
     "./sdl": {
       "types": "./dist/sdl.d.mts",
       "import": "./dist/sdl.mjs"
@@ -70,7 +74,8 @@
     "css-tree": "catalog:",
     "graphql": "catalog:",
     "lossless-json": "4.3.1",
-    "semver": "catalog:"
+    "semver": "catalog:",
+    "yaml": "catalog:"
   },
   "devDependencies": {
     "@types/css-tree": "catalog:",

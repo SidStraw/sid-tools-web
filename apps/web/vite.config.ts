@@ -22,6 +22,7 @@ export default defineConfig({
           'tools/palette/index.html',
           'tools/selectors/index.html',
           'tools/sdl/index.html',
+          'tools/openapi/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

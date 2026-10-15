@@ -92,5 +92,13 @@ export const routes = [
     description:
       '在瀏覽器比較兩份 SDL，區分 breaking、dangerous、non-breaking 與 unknown，查看型別、欄位和直接引用；不連線 API、不推論 resolver 相容性。',
   },
+  {
+    id: 'openapi',
+    path: 'tools/openapi/',
+    label: 'OpenAPI 差異',
+    title: 'OpenAPI 3.0 合約差異與來源導覽',
+    description:
+      '本機比較兩份 JSON／YAML OpenAPI 3.0.x，區分 request／response 的靜態規則、未知與需審查項目，查看引用使用點與定義；不連線 API 或載入外部引用。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

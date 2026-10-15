@@ -6,6 +6,9 @@ catalog:
   typescript: 7.0.2
   '@types/node': 24.19.1
 saveExact: true
+pmOnFail: error
+runtimeOnFail: error
+engineStrict: true
 minimumReleaseAge: 4320
 minimumReleaseAgeStrict: true
 minimumReleaseAgeIgnoreMissingTime: false

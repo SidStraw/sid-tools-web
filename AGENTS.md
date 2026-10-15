@@ -26,7 +26,7 @@ Do not edit Backlog task, draft, document, decision, or milestone markdown files
 
 ## Starter engineering rules
 
-- Use the native project-local Node/pnpm setup documented in README and prepend `.toolchain/bin` to PATH. Node is managed by pnpm `devEngines.runtime`; shared versions use the pnpm catalog. Do not change global settings.
+- Use the project-scoped mise setup documented in README (`mise install`, then `mise exec -- pnpm <command>`). Keep mise.toml and CI runtime versions aligned with package.json engines.node and packageManager. pnpm must report version mismatches instead of downloading or switching tools; do not inject `.toolchain/bin` into PATH or change global defaults. Shared dependency versions use the pnpm catalog.
 - Keep apps in `apps/*`, reusable modules in `packages/*`; use package names, public exports and `workspace:*`. Packages cannot import apps or form cycles.
 - Use `vp run` for orchestration. `pnpm verify` is the final local acceptance entry; final CI runs without task cache. Tests must exist and must execute.
 - Keep TypeScript strict and root `typeAware`/`typeCheck` enabled. Never replace package boundaries with TS paths or source aliases.

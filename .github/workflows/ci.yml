@@ -29,6 +29,7 @@ jobs:
       - uses: pnpm/setup@fbda4c85fc2e1e08721cd8763afea8f48d60f024 # v3.0.0
         with:
           dest: .toolchain
+          runtime: node@24.21.0
           require-lockfile: true
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm verify

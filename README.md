@@ -15,20 +15,19 @@
 
 ## 開發
 
-所有工具鏈安裝於專案，沒有全局安裝。已有 Node/npm 即可啟動本地 pnpm，之後由 pnpm 安裝鎖定 Node 24.21.0。
+使用既有 [mise](https://mise.jdx.dev/) 安裝工具，專案的 `mise.toml` 選用 Node 24.21.0 與 pnpm 12.8.2，不修改全域預設版本。版本須與 `package.json` 的 `engines.node`、`packageManager` 及 CI 的 `runtime` 同步；pnpm 遇到版本不符會報錯，不自動下載或切換工具。
 
 ```sh
-mkdir -p .toolchain/bin
-npm install --prefix .toolchain --no-save --package-lock=false --ignore-scripts --no-audit --no-fund pnpm@12.8.2
-ln -sf "../node_modules/@pnpm/exe.$(node -p 'process.platform + "-" + process.arch')/pnpm" .toolchain/bin/pnpm
-ln -sf ../../node_modules/.bin/node .toolchain/bin/node
-export PATH="$PWD/.toolchain/bin:$PATH"
-pnpm install --frozen-lockfile
-pnpm exec playwright install chromium
-pnpm dev
+mise trust mise.toml
+mise install
+mise exec -- pnpm install --frozen-lockfile
+mise exec -- pnpm exec playwright install chromium
+mise exec -- pnpm dev
 ```
 
-Linux 缺少瀏覽器函式庫時，使用 `pnpm exec playwright install --with-deps chromium`。重開終端機後需重新設定以上 PATH。
+已啟用 mise shell integration 的終端機可以直接使用下列 `pnpm` 指令；腳本或未啟用的終端機使用 `mise exec -- pnpm …`。Linux 缺少瀏覽器函式庫時，使用 `mise exec -- pnpm exec playwright install --with-deps chromium`。
+
+既有 checkout 請移除 shell 或腳本中手動加入 `.toolchain/bin` 的 PATH 設定，再依上述步驟安裝。`.npmrc` 的相容設定會阻止舊 pnpm 10 自動切換；pnpm 12 使用 `pnpm-workspace.yaml` 的 `pmOnFail: error` 與 `runtimeOnFail: error`。不需要清除全域 pnpm 快取或重建專案。
 
 | 指令                           | 用途                                                    |
 | ------------------------------ | ------------------------------------------------------- |
@@ -81,10 +80,9 @@ Linux 缺少瀏覽器函式庫時，使用 `pnpm exec playwright install --with-
 正式入口為 **https://tools.sid.tw/**。repo 內鎖定官方 `wrangler@4.149.0`；版本符合本專案三天發布等待期。沒有全局安裝。`wrangler.jsonc` 以 `pages_build_output_dir` 管理 Cloudflare Pages 的 `apps/web/dist`，沒有自行撰寫資產伺服器或部署 GitHub Actions。
 
 ```sh
-export PATH="$PWD/.toolchain/bin:$PATH"
-pnpm exec wrangler whoami
-pnpm verify
-pnpm deploy
+mise exec -- pnpm exec wrangler whoami
+mise exec -- pnpm verify
+mise exec -- pnpm deploy
 ```
 
 `pnpm deploy` 由 `vp run` 先建置相依套件與網站，再執行 repo 內的 Wrangler。登入憑證由 Wrangler 管理，不放入 repo。網域與公開分析站點識別碼不是部署憑證。

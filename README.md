@@ -2,7 +2,7 @@
 
 **[開啟工具：tools.sid.tw](https://tools.sid.tw/)**
 
-十個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
+十一個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
 
 | 工具                                                      | 功能                                                   |
 | --------------------------------------------------------- | ------------------------------------------------------ |
@@ -16,6 +16,7 @@
 | [Sitemap 預檢](https://tools.sid.tw/tools/sitemap/)       | XML／URL／lastmod 靜態檢查、路徑樹與原始條目定位       |
 | [EXPLAIN 檢視](https://tools.sid.tw/tools/explain/)       | PostgreSQL 計畫樹、per-loop rows 差距與原始 JSON 定位  |
 | [圖片配色](https://tools.sid.tw/tools/palette/)           | 本機取樣色票、透明混色／WCAG 對比與明確選取 CSS tokens |
+| [Selector 比較](https://tools.sid.tw/tools/selectors/)    | CSS 特異性貢獻、隔離純文字 HTML 結構與靜態命中         |
 
 採用 [SidStraw/mono-starter](https://github.com/SidStraw/mono-starter) commit `c6d6f32854f6a8fd9f5d6cd4076475e4e9170af0` 初始化，沿用 TypeScript、Vite+、pnpm workspace、嚴格檢查、跨平台 CI、Renovate 與選用 Pi 診斷。保留本專案既有 Backlog 與研究，沒有複製範本任務。
 
@@ -49,7 +50,7 @@ mise exec -- pnpm dev
 ## 結構與工具範圍
 
 - `apps/web`：共用 SPA shell、SSG 路由 HTML、工具 UI 與背景 Workers。
-- `packages/core`：工具純計算模組，以獨立公開子路徑提供給各工具（含 `@sid-tools/core/semver`、`@sid-tools/core/env-check`、`@sid-tools/core/git-diff`、`@sid-tools/core/sitemap`、`@sid-tools/core/explain`、`@sid-tools/core/palette`）。
+- `packages/core`：工具純計算模組，以獨立公開子路徑提供給各工具（含 `@sid-tools/core/semver`、`@sid-tools/core/env-check`、`@sid-tools/core/git-diff`、`@sid-tools/core/sitemap`、`@sid-tools/core/explain`、`@sid-tools/core/palette`、`@sid-tools/core/selectors`）。
 - `tests`：公開真實圖片樣本、套件介面與瀏覽器驗收。
 - `docs/validation/stw-34`、`docs/validation/phase-one`：驗收紀錄與畫面。
 - `backlog`、`research`：原始題目與需求研究。
@@ -60,7 +61,7 @@ mise exec -- pnpm dev
 
 ## SSG、SPA 與按需載入
 
-`src/routes.ts` 定義十個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
+`src/routes.ts` 定義十一個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
 
 `src/router.ts` 使用 History API，選單與上一頁／下一頁在同一份 document 切換。畫面與控制程式按工具動態載入並快取；Worker 在按下執行後建立，Lighthouse、JSON 與 Cron 計算模組再按需載入。首頁不載入 Cron parser 等其他工具套件。切換時停止 Worker／ZIP、釋放 Blob URL 並丟棄使用者輸入；已載入的程式碼可重用，輸入不快取。
 
@@ -110,6 +111,14 @@ EXPLAIN 本機上限為 1,000,000 UTF-16 字碼單元（不是 bytes）、96 層
 
 只把明確勾選、具合法不重複小寫 kebab-case 名稱的角色交給 core serializer；輸出 numeric RGB CSS variables 保留預覽小數，不含原始 alpha、圖片、檔名或任意 CSS。這是特定混色情境的 opaque tokens，不能當作任意底色的 alpha 重用，也不會自動丟棄對比失敗的選取。編輯即更新預覽／CSS 並撤銷舊下載 URL；取消／清除／離開防止非同步舊結果恢復。無遠端 URL 取圖、上傳、儲存或 URL 分享。證據與限制見 `docs/validation/stw-35/`。
 
+Selector 比較按 Run 才載入公開 `@sid-tools/core/selectors`（css-tree3.2.1）與離線 parse5@8.0.1 adapter。只接受一份逗號分隔的 CSS selector list，換行是一般 CSS 空白；整體最多20branches、每段1,000／總20,000UTF16、nesting16、AST2,048。每個 complex selector 有獨立三元組／來源貢獻；:is／:not／:has 最大參數、:where0、nth-child／nth-last-child 的 of-list 支援。未知／不支援不猜 tuple、不排名；動態狀態不執行 query，pseudo-elements／namespaces 不匹配元素；Browser SyntaxError 與有效空命中分開。
+
+已核准 **text-only HTML structure preview**，不是渲染頁面／iframe：原始 HTML 只交給 parse5 body-context、standards、scriptingEnabled:true、source locations／repair diagnostics，從未送進 DOMParser／innerHTML／srcdoc 等原生 HTML parser。先驗證50,000UTF16、2,000elements／64層／每元素64attrs／value2,000／text10,000，包含被省略子樹與 template content，超限整份拒絕。重建只用 defaultView=null 的獨立 createHTMLDocument factories；輸入衍生節點不 import／adopt／clone／附加到 live DOM。資源／事件／style attrs 獨立移除，href只留 inert a/area；script/media/template/noscript等危險及foreign根僅保留同tag childless identity placeholder，未知／自訂元素整個省略。每項省略／修復記錄且 selector metadata 參照被移除attrs/tags 另列 partial提醒。
+
+原生空 HTML style 即使附加在無 window document 仍可能產生 CSP style-src-elem 事件，所以 style 視為無法安全表達的元素，整個元素／子樹省略並記錄 partial，不放寬 CSP，也不換 namespace 假裝原元素。
+
+Native querySelectorAll 僅對可確認的 static branches 作用於這份 inert body；:scope以合成body為scope，初始表單狀態不是live互動，:root不是片段首元素。每element最高tuple只來自真正匹配的top-levelbranches，不猜logicalargument或完整cascade。原生call無法中斷，硬上限為主要防護；>200ms慢提醒，整輪>2秒後其餘未評估（不是零命中）。結構100rows、診斷／貢獻50items分頁，implied節點不杜撰來源。純文字copy含結果／貢獻／保留rows／省略與限制，失敗提供readonly手動欄位；可能含敏感名稱，非可公開分享承諾。編輯／重跑／清除／離開丟棄doc/maps/listeners與結果，stale imports不可恢復。無登入／上傳／持久化／分享URL／CSP放寬。合成案例／Chromium native support／安全與效能證據見 `docs/validation/stw-7/`。
+
 可直接重現的 Cron 範例（另有單元測試）：
 
 | 情境     | 排程／時區                      | UTC 起算             | 預覽行為                                  |
@@ -133,7 +142,7 @@ mise exec -- pnpm deploy
 
 Cloudflare Pages 原生 Git 整合沿用既有 GitHub OAuth 授權，連接 `SidStraw/sid-tools-web` 的 `main`；建置命令 `pnpm build`、輸出目錄 `apps/web/dist`，root directory 為 repo 根目錄。自動部署不需要另建使用者 API Token。手動部署使用既有 Wrangler OAuth 與 `wrangler pages deploy`。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
 
-網站在網域根路徑提供十個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。十頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
+網站在網域根路徑提供十一個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。十一頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
 
 `sid.tw` 帳號既有 Cloudflare Web Analytics 自動安裝涵蓋子網域；沿用「排除歐盟訪客」偏好，不新增重複 beacon。CSP 僅允許官方 beacon script 與指定 RUM 端點；本機無 beacon，測試仍檢查輸入不上傳。正式站頁面瀏覽與效能會送出基本統計，工具輸入、檔案、處理結果留在瀏覽器。
 

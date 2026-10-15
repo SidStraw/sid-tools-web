@@ -20,6 +20,7 @@ export default defineConfig({
           'tools/sitemap/index.html',
           'tools/explain/index.html',
           'tools/palette/index.html',
+          'tools/selectors/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

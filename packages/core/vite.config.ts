@@ -15,6 +15,7 @@ export default defineConfig({
       'src/sitemap.ts',
       'src/explain.ts',
       'src/palette.ts',
+      'src/selectors.ts',
     ],
     format: ['esm'],
     dts: true,

@@ -4,6 +4,21 @@ import { inspectImage, type ImageInfo } from '@sid-tools/core';
 import { compareSemver, type SemverComparison } from '@sid-tools/core/semver';
 import { compareEnv, type EnvComparison } from '@sid-tools/core/env-check';
 import { parseExplain, EXPLAIN_EXAMPLES, type ExplainReport } from '@sid-tools/core/explain';
+import { analyzeSelectors, type SelectorListAnalysis } from '@sid-tools/core/selectors';
+
+test('public selectors subpath exposes typed per-complex tuples, source spans and honest unknowns', () => {
+  expectTypeOf(analyzeSelectors).returns.toEqualTypeOf<SelectorListAnalysis>();
+  const text = ':where(#root) .card, .card:has(> p), :unknown-state';
+  const report = analyzeSelectors(text);
+  expect(report.selectors.map((branch) => branch.specificity)).toEqual([
+    [0, 1, 0],
+    [0, 1, 1],
+    null,
+  ]);
+  expect(report.selectors[2]?.matching).toBe('unsupported');
+  for (const branch of report.selectors)
+    expect(text.slice(branch.span.start, branch.span.end)).toBe(branch.text);
+});
 import {
   extractPalette,
   evaluateContrast,

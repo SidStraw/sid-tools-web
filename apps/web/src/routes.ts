@@ -76,5 +76,13 @@ export const routes = [
     description:
       '從本機靜態圖片取得取樣色盤，調整文字、底色與強調色，依透明混色條件檢查 WCAG 對比，明確選取 CSS variables。不傳送圖片。',
   },
+  {
+    id: 'selectors',
+    path: 'tools/selectors/',
+    label: 'Selector 比較',
+    title: 'CSS selector 特異性與隔離結構命中',
+    description:
+      '比較 CSS selector 三元組與來源貢獻，在離線解析的純文字 HTML 結構上查看靜態命中。不渲染 HTML，不模擬完整 cascade。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

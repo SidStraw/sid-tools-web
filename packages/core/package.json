@@ -28,6 +28,10 @@
       "types": "./dist/semver.d.mts",
       "import": "./dist/semver.mjs"
     },
+    "./selectors": {
+      "types": "./dist/selectors.d.mts",
+      "import": "./dist/selectors.mjs"
+    },
     "./palette": {
       "types": "./dist/palette.d.mts",
       "import": "./dist/palette.mjs"
@@ -59,10 +63,12 @@
   },
   "dependencies": {
     "cron-parser": "5.10.2",
+    "css-tree": "catalog:",
     "lossless-json": "4.3.1",
     "semver": "catalog:"
   },
   "devDependencies": {
+    "@types/css-tree": "catalog:",
     "@types/node": "catalog:",
     "@types/semver": "catalog:",
     "typescript": "catalog:",

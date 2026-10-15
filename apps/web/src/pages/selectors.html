@@ -1,0 +1,194 @@
+<main class="utility-main selectors-main">
+  <section class="tool-intro">
+    <p class="eyebrow">先分清楚：沒命中，還是不夠重？<span>SELECTOR STUDY / 11</span></p>
+    <h1>把 selector 拆開，把命中對回結構。</h1>
+    <p class="intro-copy">
+      一邊看特異性三元組，一邊看隔離副本的靜態命中。這裡只有文字結構，不渲染你貼上的
+      HTML，也不替完整 cascade 下結論。
+    </p>
+    <div class="intro-tags">
+      <span>離線 parse5 解析</span><span>不執行標記</span><span>來源範圍可回看</span>
+    </div>
+  </section>
+  <section id="workspace" class="utility-panel" aria-label="HTML 與 selector 輸入">
+    <div class="panel-heading">
+      <h2>01 ／ 放進同一個問題裡</h2>
+      <div class="export-actions">
+        <button id="demo" class="text-button">邏輯 selector</button
+        ><button id="demo-partial" class="text-button">省略與未知</button
+        ><button id="demo-repair" class="text-button">修復結構</button>
+      </div>
+    </div>
+    <div class="selectors-inputs">
+      <div>
+        <label for="html-source">HTML · body-context fragment</label
+        ><textarea
+          id="html-source"
+          spellcheck="false"
+          wrap="off"
+          autocomplete="off"
+          autocapitalize="off"
+          aria-describedby="html-help"
+          placeholder='<section class="card"><p>Hello</p></section>'
+        ></textarea>
+        <p id="html-help" class="help">
+          最多 50,000 UTF-16 字碼單元、2,000 elements、64 層。只建立無 window 的獨立
+          document；預覽永遠是文字，不是頁面／iframe。
+        </p>
+      </div>
+      <div>
+        <label for="css-source">CSS selector list · 用逗號分隔</label
+        ><textarea
+          id="css-source"
+          spellcheck="false"
+          wrap="off"
+          autocomplete="off"
+          autocapitalize="off"
+          aria-describedby="css-help"
+          placeholder=".card, .card:has(> p), :where(#app) p"
+        ></textarea>
+        <p id="css-help" class="help">
+          一份 CSS comma selector list；換行只是 CSS 空白，不是分隔符。最多 20 selectors、每段含空白
+          1,000、整份 20,000 字碼單元，nesting 16、AST 2,048。
+        </p>
+      </div>
+    </div>
+    <div class="tool-actions">
+      <button id="run" class="button primary">拆解並比對 <span aria-hidden="true">→</span></button
+      ><button id="clear" class="button secondary">清除內容</button
+      ><span id="status" role="status" aria-live="polite">貼上片段，或先試人工合成案例。</span>
+    </div>
+    <p id="error" class="notice" role="alert" hidden></p>
+  </section>
+  <section id="output" hidden aria-label="特異性與隔離命中結果">
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>02 ／ 權重與命中，分開看</h2>
+        <button id="copy" class="button secondary">複製純文字結果</button>
+      </div>
+      <p id="summary" class="result-notice"></p>
+      <p class="help">
+        三元組 (ID, class／attribute／pseudo-class, type／pseudo-element)
+        逐欄比較，不是十進位分數。已知排名只比較
+        specificity；未評估／動態仍可有已知權重，未知／不支援不排名。命中不代表會贏。
+      </p>
+      <p class="selectors-boundary">
+        不是完整 cascade：不處理 origin、!important、layers、scope proximity、source order、inline
+        style、繼承與動畫。這也不是原始網頁、可視預覽或安全清洗後可部署的 HTML。
+      </p>
+      <div id="selector-cards" class="selector-cards"></div>
+      <div class="selectors-diagnostics">
+        <h3>Tokenizer 錯誤與省略通知</h3>
+        <div id="diagnostics"></div>
+      </div>
+      <p class="help">
+        body-context standards-mode fragment；html／head／body wrapper、doctype／quirks、文件狀態與
+        parse5 repair 可能與完整網頁不同。:scope 以合成 body 為 scope，body 本身不列為來源
+        row；:root 是合成 html，不是片段第一個元素。表單狀態只比對副本的初始 attrs/default
+        state，非使用者互動。來源範圍是原始 UTF-16 offset，implied 元素不杜撰位置。
+      </p>
+      <p id="copy-status" role="status" class="help"></p>
+      <div id="copy-fallback" hidden>
+        <label for="copy-text">無法自動複製，請手動選取純文字</label
+        ><textarea
+          id="copy-text"
+          readonly
+          wrap="off"
+          aria-label="可手動複製的純文字結果"
+        ></textarea>
+      </div>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>03 ／ 用結構驗證你的直覺</h2>
+        <span class="selectors-step-note">只有 app 的固定標籤；內容一律 textContent。</span>
+      </div>
+      <div class="selectors-inspection">
+        <section class="selectors-structure" aria-label="純文字 HTML 結構">
+          <label for="tree-filter">結構篩選</label
+          ><select id="tree-filter">
+            <option value="all">所有保留的來源 rows</option>
+            <option value="matched">目前 selector 的命中 rows</option>
+          </select>
+          <div id="structure-list"></div>
+          <div id="tree-pages" class="selectors-pages"></div>
+        </section>
+        <section class="selectors-details" aria-label="選取 selector 與節點詳情">
+          <p id="selection-status" class="help" role="status" aria-live="polite"></p>
+          <div id="selector-detail"></div>
+          <div id="contributions"></div>
+          <div id="node-detail"></div>
+        </section>
+      </div>
+    </section>
+  </section>
+  <section class="tool-guide selectors-guide">
+    <h2>從局部證據，回到實際樣式問題。</h2>
+    <p>
+      免登入。HTML／selectors 只在目前頁面記憶體，不上傳、不永久保存、不放進 query／hash／分享
+      URL；編輯、清除、重整或離開會丟棄結果。複製是你主動帶走的純文字，可能含敏感
+      id／attrs／selector，分享前請檢查。
+    </p>
+    <details>
+      <summary>支援範圍、安全省略與比對界線</summary>
+      <ul>
+        <li>
+          純 css-tree AST：ID／class／attribute／type、四種一般 combinators；:is／:not／:has
+          取參數最大 tuple，:where 為零，nth-child／nth-last-child 加 pseudo-class 1 與 of-list
+          max。每個 top-level complex selector 各自 tuple；不猜哪個 logical argument
+          真正命中。貢獻來源可跳回原始 selector 範圍。
+        </li>
+        <li>
+          動態
+          hover／focus／active／target／visited／validation／autofill／modal／fullscreen／media／defined
+          等只計已知權重，不比對狀態。pseudo-elements／namespaces
+          可有已知權重，但不嘗試元素命中。未知 function／pseudo、&amp; nesting、nested
+          :has、Raw／無法確認的 forgiving branches 不給假 tuple。Browser SyntaxError
+          與有效空命中分開；瀏覽器支援不會把 parser unknown 升級成排名。
+        </li>
+        <li>
+          HTML 離線 parse5@8.0.1，body context、scriptingEnabled:true（只影響解析，不執行
+          script）、source locations／tokenizer
+          errors。樹建構修復（如隱含節點、錯置標記調整）可能沒有通知，並非完整 repair
+          diagnostics。另以離線文件解析偵測被忽略的 html／head／body wrapper、屬性與
+          doctype，不用於比對。只有 document.implementation.createHTMLDocument('') 且
+          defaultView=null 的 factories；不把原始標記送進 DOMParser／innerHTML／srcdoc
+          等瀏覽器解析器，不 import／adopt／clone 到 live document。
+        </li>
+        <li>
+          HTML
+          allowlist；script/link/meta/base/iframe/frame/frameset/object/embed/applet/param/audio/video/source/track/template/noscript/portal/fencedframe
+          與 foreign SVG／Math 根保留同標籤 childless placeholder，只留
+          id／class／data-*／aria-*／role。其子樹、未知／自訂元素及子樹不比對。style
+          無法安全保留（連空原生 style 都可能觸發 CSP），整個元素／子樹省略並明示 partial，不以假
+          namespace 代替。一般元素只保留 identity 與明確 allowlist 的文字／表單／結構
+          attrs；所有事件、style、src/srcset、srcdoc、資源／未核准 attrs 移除，href 只留在 inert
+          a／area，絕不是真連結。
+        </li>
+        <li>
+          偵測到的省略／placeholder／tokenizer 錯誤會記錄，樹修復不保證逐項通知；有通知時所有
+          selector 會有 partial 提醒，參照被移除 attrs／tags
+          另列特定警告。:not／:empty／關係可能被省略改變，0 命中也不保證原始 DOM 是零。Comments
+          不影響 :empty；whitespace text 仍保留於 inert 樹，結構清單只略過無內容的空白 row。
+        </li>
+        <li>
+          HTML 限制包含被省略的所有 AST 子樹／template content：2,000 elements、64 層、每元素64
+          attrs、每 attr value2,000、每 text
+          node10,000字碼單元；任一超限整份拒絕，不顯示截斷樹當完整。原生單次 selector call
+          無法中斷；硬上限是主要防護，每 call&gt;200ms 顯示 slow
+          提醒，整輪&gt;2秒後剩餘不再嘗試，不當作零命中。
+        </li>
+        <li>
+          目前 production E2E 的 native matching 以 Chromium 為證；其他瀏覽器 Level4／flags
+          支援可能不同。:checked／:disabled／:enabled／:default 等只反映 inert 初始結構，不是原頁面
+          live state。排名不含規則位置，element 顯示的「最高已命中 tuple」只取真的匹配的 top-level
+          branches，不是 cascade winner。
+        </li>
+        <li>
+          範例皆人工合成、非外部網頁或使用者資料。純文字結構 row 用文字與形狀標記命中，沒有渲染
+          HTML／CSS、hover 模擬、iframe、外部資源或 script 執行能力。
+        </li>
+      </ul>
+    </details>
+  </section>
+</main>

@@ -7,6 +7,7 @@ const loaders: Record<Route['id'], () => Promise<ToolModule>> = {
   'json-diff': () => import('./pages/json-diff'),
   cron: () => import('./pages/cron'),
   semver: () => import('./pages/semver'),
+  'env-check': () => import('./pages/env-check'),
 };
 const base = new URL(
   document.querySelector<HTMLMetaElement>('meta[name=app-base]')?.content ?? './',

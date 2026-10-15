@@ -2,6 +2,22 @@ import { readFile } from 'node:fs/promises';
 import { expect, expectTypeOf, test } from 'vite-plus/test';
 import { inspectImage, type ImageInfo } from '@sid-tools/core';
 import { compareSemver, type SemverComparison } from '@sid-tools/core/semver';
+import { compareEnv, type EnvComparison } from '@sid-tools/core/env-check';
+
+test('public env-check subpath exposes a typed key-only comparison with template locations for missing keys', () => {
+  expectTypeOf(compareEnv).returns.toEqualTypeOf<EnvComparison>();
+  const result = compareEnv('# template\nAPI_TOKEN=demo-secret', 'OTHER_KEY=other-secret');
+  expect(result.diagnostics).toContainEqual({
+    source: 'candidate',
+    code: 'missing',
+    key: 'API_TOKEN',
+    line: 2,
+    endLine: 2,
+    relatedLines: [2],
+  });
+  expect(JSON.stringify(result)).not.toContain('demo-secret');
+  expect(JSON.stringify(result)).not.toContain('other-secret');
+});
 
 test('public SemVer subpath exposes browser-reproducible typed comparisons', () => {
   expectTypeOf(compareSemver).returns.toEqualTypeOf<SemverComparison>();

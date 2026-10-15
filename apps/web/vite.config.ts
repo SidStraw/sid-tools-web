@@ -15,6 +15,7 @@ export default defineConfig({
           'tools/json-diff/index.html',
           'tools/cron/index.html',
           'tools/semver/index.html',
+          'tools/env-check/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

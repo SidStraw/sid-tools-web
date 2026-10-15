@@ -28,6 +28,10 @@
       "types": "./dist/semver.d.mts",
       "import": "./dist/semver.mjs"
     },
+    "./env-check": {
+      "types": "./dist/env-check.d.mts",
+      "import": "./dist/env-check.mjs"
+    },
     "./cron": {
       "types": "./dist/cron.d.mts",
       "import": "./dist/cron.mjs"

@@ -1,0 +1,144 @@
+<main class="utility-main env-main">
+  <section class="tool-intro">
+    <p class="eyebrow">部署前，多一眼確認。<span>ENV CHECK / 06</span></p>
+    <h1>少一個鍵，別等上線才發現。</h1>
+    <p class="intro-copy">對照 .env 範本，找出缺漏、重複與空值。報告以鍵名為主，分享前請先檢查。</p>
+    <div class="intro-tags">
+      <span>預設遮蔽</span><span>資料不上傳</span><span>離開即清除</span>
+    </div>
+  </section>
+  <section id="workspace" class="utility-panel" aria-label="環境設定預檢">
+    <div class="panel-heading">
+      <h2>範本 × 待檢查設定</h2>
+      <button
+        id="reveal"
+        class="text-button"
+        aria-pressed="false"
+        aria-controls="template candidate"
+      >
+        顯示輸入明文
+      </button>
+    </div>
+    <p id="mask-help" class="env-mask-note">
+      輸入已遮蔽（含鍵名、值與註解），仍可直接貼上或編輯。遮蔽只是視覺保護，不是加密；明文暫存在本頁記憶體。
+    </p>
+    <div class="input-pair">
+      <div>
+        <label for="template">01 ／ .env 範本</label
+        ><textarea
+          id="template"
+          class="env-masked"
+          placeholder="貼上專案的 .env.example"
+          spellcheck="false"
+          autocomplete="off"
+          autocapitalize="off"
+          aria-describedby="mask-help limits-help"
+        ></textarea>
+        <p class="help">範本中每個可辨識的鍵都視為必要鍵，不比較兩側的值。</p>
+      </div>
+      <div>
+        <label for="candidate">02 ／ 待檢查的 .env</label
+        ><textarea
+          id="candidate"
+          class="env-masked"
+          placeholder="貼上待部署的 .env"
+          spellcheck="false"
+          autocomplete="off"
+          autocapitalize="off"
+          aria-describedby="mask-help limits-help"
+        ></textarea>
+        <p class="help">行號依原文計算，包含註解、空白行與多行引號內容。</p>
+      </div>
+    </div>
+    <div class="env-demo-strip">
+      <span>先用合成範例試試</span>
+      <div class="export-actions">
+        <button id="demo" class="text-button">正常</button
+        ><button id="demo-missing" class="text-button">缺漏與空值</button
+        ><button id="demo-duplicate" class="text-button">重複鍵</button
+        ><button id="demo-malformed" class="text-button">格式錯誤</button>
+      </div>
+    </div>
+    <p id="limits-help" class="help">
+      每份最多 200,000 個 UTF-16 字碼單元、5,000 個實體行、每行 10,000 個字碼單元（不是
+      bytes）。超限會停止跨檔比對，不猜測缺漏鍵。
+    </p>
+    <div class="tool-actions">
+      <button id="run" class="button primary">檢查環境設定 <span aria-hidden="true">→</span></button
+      ><button id="clear" class="button secondary">清除內容</button
+      ><span id="status" role="status" aria-live="polite">貼上兩份設定，或先載入範例。</span>
+    </div>
+    <p id="error" class="notice" role="alert" hidden></p>
+  </section>
+  <section id="output" class="utility-panel output-panel" aria-label="預檢結果" hidden>
+    <div class="panel-heading">
+      <h2>只留下需要處理的事</h2>
+      <button id="export" class="button secondary">下載鍵名報告 JSON</button>
+    </div>
+    <p class="help">
+      報告只包含鍵名、位置、狀態與靜態說明，不匯出已解析的值。鍵名會列出；未加引號的多行內容可能把形似指定式的秘密片段當成鍵名。分享前請檢查鍵名清單，勿將秘密寫在鍵名中。
+    </p>
+    <div id="result"></div>
+  </section>
+  <section class="tool-guide env-guide">
+    <h2>空值，不等於少了一個鍵。</h2>
+    <div class="env-guide-grid">
+      <article>
+        <h3>EMPTY ／ 鍵在，值是空的</h3>
+        <p>
+          <code>KEY=</code>、<code>KEY=""</code>、<code>KEY=''</code> 或
+          <code>KEY= #註解</code> 都是空字串。<code>KEY=" "</code>
+          與引號內只有換行則不是空值。範本與待檢查檔的空值都會列出，供你依專案需求判斷。
+        </p>
+      </article>
+      <article>
+        <h3>MISSING ／ 連鍵也沒有</h3>
+        <p>
+          範本有鍵、待檢查檔卻沒有可辨識的指定式，才叫缺漏。缺漏結果的行號指向<strong>範本</strong>，因為待檢查檔沒有對應行。值格式錯誤仍算鍵存在，但不推測是否為空。
+        </p>
+      </article>
+    </div>
+    <details open>
+      <summary>支援的 dotenv 子集，不是 Shell</summary>
+      <ul class="env-rules">
+        <li>
+          鍵名為 <code>[A-Za-z_][A-Za-z0-9_]*</code>；使用
+          <code>KEY=value</code>，可在等號周圍加空白或 tab。不支援 <code>export</code> 前綴。
+        </li>
+        <li>支援 LF、CRLF、檔案開頭 BOM、空白行與 # 註解。不支援單獨 CR 或 tab 以外的控制字元。</li>
+        <li>
+          未加引號：第一個 <code>#</code> 開始註解，前後空白會移除；其餘
+          <code>=</code> 是值的一部分。不支援內嵌引號或反斜線。
+        </li>
+        <li>
+          單、雙引號須包住整個值，皆支援實體多行，保留空白、# 與 =。結束引號後只接受空白、tab 與 #
+          註解。
+        </li>
+        <li>
+          多行 PEM／PGP／OpenSSH 內容必須加引號。未加引號且值以 <code>-----BEGIN </code> 開頭的
+          armor 區塊會標記為不支援，並消耗到 <code>-----END</code>
+          或檔案結尾，不將區塊內的片段列為鍵名。其他未加引號的多行內容不保證可辨識；形似
+          <code>KEY=value</code> 的秘密片段仍可能列為鍵名，分享報告前請檢查。
+        </li>
+        <li>
+          單引號無跳脫；雙引號只支援
+          <code>\n</code
+          >、<code>\r</code>、<code>\t</code>、<code>\\</code>、<code>\"</code>。行尾反斜線不是續行。
+        </li>
+        <li>
+          <code>$NAME</code>、<code>${...}</code>、<code>$(...)</code>
+          與反引號皆標記為不支援，連單引號內也不例外。字面 <code>$5</code> 可用。<strong
+            >不替換變數、不執行任何輸入。</strong
+          >
+        </li>
+        <li>
+          重複鍵問題只指向首次出現行，鍵名清單與下載保留所有出現位置，不採第一筆或最後一筆優先。語法錯誤時結果是暫定，超限時不做缺漏／多餘比對。未結束的引號會消耗後續行。
+        </li>
+      </ul>
+    </details>
+    <p>
+      免登入、不上傳、不自動儲存、不放入分享
+      URL。重新整理、離開或清除會丟棄內容；下載是你主動保留鍵名報告的例外。這是有界限的靜態預檢，不驗證服務是否可連線，也不代表部署一定成功。
+    </p>
+  </section>
+</main>

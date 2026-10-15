@@ -1,10 +1,11 @@
 ---
 id: STW-1
 title: 環境設定預檢：比對 .env 範本、缺漏與重複鍵
-status: Needs Refinement
-assignee: []
+status: Done
+assignee:
+  - '@designer'
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-15 14:43'
 labels:
   - keyword-research
   - proposal
@@ -81,12 +82,27 @@ ordinal: 101
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 兩份 .env 能辨識缺漏鍵、多餘鍵、重複鍵及空字串，結果可定位原始行號。
-- [ ] #2 引號、註解、等號與多行值依公開的支援規則處理；不支援的插值或語法明確標示，不執行輸入。
-- [ ] #3 畫面預設遮蔽值，匯出的檢查報告只含鍵名與問題，不含秘密值。
-- [ ] #4 提供可重現的正常、缺漏、重複與格式錯誤範例，說明 empty 與 missing 的差別。
-- [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
+- [x] #1 兩份 .env 能辨識缺漏鍵、多餘鍵、重複鍵及空字串，結果可定位原始行號。
+- [x] #2 引號、註解、等號與多行值依公開的支援規則處理；不支援的插值或語法明確標示，不執行輸入。
+- [x] #3 畫面預設遮蔽值，匯出的檢查報告只含鍵名與問題，不含秘密值。
+- [x] #4 提供可重現的正常、缺漏、重複與格式錯誤範例，說明 empty 與 missing 的差別。
+- [x] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. 實作有大小及行數上限的純 TypeScript dotenv 子集 scanner；保留行號、重複鍵與語法診斷，compareEnv 僅回傳鍵名及問題，不回傳值。
+2. 以 focused tests 驗證 CRLF、引號、註解、等號、多行、插值限制、錯誤復原、秘密不外洩及資源上限。
+3. 交由 designer 補齊公開 subpath／建置整合及瀏覽器 UI：預設遮蔽、key-only 匯出、正常／缺漏／重複／錯誤範例、支援規則與 empty／missing 說明、清除及不傳送／不保存／不放入 URL。
+4. Parent 整合驗證完整 AC1–AC5、最終驗證及逐卡 commit；本次 core 工作不勾選 AC、不轉 Done、不建立 commit。
+
+5. Integrate built public env-check subpath and standalone lazy controller. Both editable textareas visually masked by default; explicit keyboard-accessible reveal action, demo/clear/disposal restore masking. Explain masking is visual, not encryption.
+6. Render/export only key metadata and static diagnostic messages. Missing findings label TEMPLATE lines despite candidate source. Show provisional syntax/limit caveats; provide normal/missing/duplicate/malformed synthetic examples and published subset/empty-vs-missing rules.
+7. Extend six-route navigation/no-JS/mobile/privacy coverage, add dedicated production masking/paste/edit/diagnostic/export/stale/dispose tests and durable screenshots/docs. Run focused pure/public tests, scoped strict check, production build and relevant E2E only. Parent owns final full verify/Oracle/AC/commit.
+
+8. Oracle remediation UI/docs lane only: qualify key-only report safety for unquoted multiline material, explain recognized PEM/PGP/OpenSSH armor must be quoted and inspect keys before sharing; label duplicate origin as first occurrence. Author synthetic PEM non-leakage browser regression. Do not modify core or run integrated tests/build/browser until parent coordinates core terminal; scoped authoring checks only.
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -102,4 +118,27 @@ ordinal: 101
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+## 2026-10-15 core 實作交接
+
+最新實作授權已取代先前市場暫緩決定。已新增 packages/core/src/env-check.ts 與 env-check.test.ts：compareEnv(template, candidate) 僅回傳鍵名、行號、有效／空值狀態及靜態診斷，不回傳原始值；支援明示 dotenv 子集、LF／CRLF、多行引號、重複鍵與資源上限，語法錯誤仍回傳不完整報告。
+
+已執行 mise exec -- pnpm exec vp test run packages/core/src/env-check.test.ts，21 個測試通過；僅對兩個新增檔案執行格式化。完整 contract 與證據見 .slim/deepwork/unfinished-cards-2026-10-15/stw-1-core.md。
+
+尚待 designer 整合公開 subpath、建置與 UI，完成預設遮蔽、key-only 匯出、範例／支援規則與 clear／privacy 行為；Parent 負責完整 AC 驗證及 commit。本次維持 In Progress，不勾選 AC、不轉 Done、不建立 commit。
+
+Web integration complete: public @sid-tools/core/env-check build entry, standalone lazy SSG/SPA route, default-masked editable inputs with explicit accessible reveal, key-only static-diagnostic report/JSON, correctly labeled template locations for missing keys, normal/missing/duplicate/malformed examples and complete published syntax/empty-vs-missing help. Existing env core and parent control-character fix preserved unchanged. No CSP/dependency change, storage/upload/share or secret-value output.
+Durable evidence: packages/core/src/env-check.test.ts + tests/package.test.ts passed 24/24; production pnpm build passed; tests/e2e/env-check.spec.ts + tools.spec.ts + semver.spec.ts passed 21/21 (4 dedicated env, 12 shared, 5 SemVer regression). Scoped strict checks passed with zero warnings/errors. docs/validation/stw-1/README.md maps all five AC to repository tests and records mask/paste/edit/reveal, correct source lines, secret-free real download, clear/stale/disposal/privacy/limits coverage; three production screenshots there were visually reviewed.
+Chromium 153.0.8010.12: 390px viewport/document width, computed masking disc, no page errors; E2E also passes at 320px. Evidence server stopped. Parent owns final cache-disabled mise exec -- pnpm verify, Oracle, AC/status finalization and commit. Keep In Progress/AC unchecked. No staging/commit; unrelated gitdiff/explain/palette work untouched. UI writer lane complete and ready to freeze. Supplementary handoff: .slim/deepwork/unfinished-cards-2026-10-15/stw-1-implementation.md.
+
+Oracle UI/docs remediation authored; integrated tests pending. F1 page/static messages/docs now require quotes for multiline PEM/PGP/OpenSSH and explain recognized unquoted armor rejection/consumption. Qualified safety claims: parsed values not exported, but arbitrary unquoted assignment-shaped fragments may become visible/exported keys; inspect key list before sharing. Added synthetic PEM production regression asserting incomplete report and absence of body fragments from output, key inventory and downloaded JSON, while default masking remains unchanged. F2 duplicate location label/assertion now 首次出現行; full occurrence lists remain in keys and compact export unchanged.
+Only authoring checks executed: scoped vp check for page HTML/controller, env E2E source, README and docs/validation/stw-1/README.md passed with no warnings/errors; scoped diff whitespace check passed. No core files edited, no focused unit/build/browser/fullverify run by this lane. Historical pass counts/screenshots are explicitly pre-remediation. Parent coordinates core terminal then integrated unit/public/build/env E2E, Oracle attempt2 and final verify. UI/docs lane terminal and frozen; no staging/commit/Done/AC changes. Supplementary report first verdict: remediation authored, integrated tests pending.
+
+最終驗收 2026-10-15：mise exec -- pnpm verify 通過（237 項單元／套件、29 項 production E2E、零 lint／型別警告、建置與 production audit 通過；總數含其他卡片未交付核心測試）。本卡 36 項核心測試、公開子路徑測試與 5 項專屬 E2E。獨立審查及兩次有界修正完成：PEM／PGP／OpenSSH 多行值不再洩漏為鍵名；單行閉合區塊不吞後續鍵；5000 次重複鍵的診斷參照保持線性。來源行號、遮蔽／顯示、無值匯出、清除與 SPA 隱私驗收通過。證據：packages/core/src/env-check.test.ts、tests/e2e/env-check.spec.ts、docs/validation/stw-1/。任意未加引號多行內容不屬通用秘密偵測，分享前須核對鍵名清單。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+完成本機 .env 雙檔預檢、來源行號、預設遮蔽、四組範例及不含解析值的報告匯出。修復 armor 內容誤判與重複鍵平方級配置。36 項核心測試、5 項專屬 E2E、完整 pnpm verify、結構檢查及最終獨立審查通過；限制與證據見 docs/validation/stw-1/。
+<!-- SECTION:FINAL_SUMMARY:END -->

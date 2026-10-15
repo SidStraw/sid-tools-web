@@ -2,7 +2,7 @@
 
 **[開啟工具：tools.sid.tw](https://tools.sid.tw/)**
 
-五個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
+六個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
 
 | 工具                                                      | 功能                                                  |
 | --------------------------------------------------------- | ----------------------------------------------------- |
@@ -11,6 +11,7 @@
 | [JSON 差異](https://tools.sid.tw/tools/json-diff/)        | 大整數、忽略路徑、陣列 ID 配對、衝突與匯出            |
 | [Cron 預覽](https://tools.sid.tw/tools/cron/)             | 五欄 Unix Cron、雙時區、未來 10 次與 DST 規則         |
 | [SemVer 範圍](https://tools.sid.tw/tools/semver/)         | 自訂版本集合、雙範圍逐筆理由、prerelease 與 JSON 匯出 |
+| [.env 預檢](https://tools.sid.tw/tools/env-check/)        | 雙檔鍵名比對、語法與行號、預設遮蔽及鍵名報告          |
 
 採用 [SidStraw/mono-starter](https://github.com/SidStraw/mono-starter) commit `c6d6f32854f6a8fd9f5d6cd4076475e4e9170af0` 初始化，沿用 TypeScript、Vite+、pnpm workspace、嚴格檢查、跨平台 CI、Renovate 與選用 Pi 診斷。保留本專案既有 Backlog 與研究，沒有複製範本任務。
 
@@ -44,7 +45,7 @@ mise exec -- pnpm dev
 ## 結構與工具範圍
 
 - `apps/web`：共用 SPA shell、SSG 路由 HTML、工具 UI 與背景 Workers。
-- `packages/core`：工具純計算模組，以獨立公開子路徑提供給各工具（含 `@sid-tools/core/semver`）。
+- `packages/core`：工具純計算模組，以獨立公開子路徑提供給各工具（含 `@sid-tools/core/semver`、`@sid-tools/core/env-check`）。
 - `tests`：公開真實圖片樣本、套件介面與瀏覽器驗收。
 - `docs/validation/stw-34`、`docs/validation/phase-one`：驗收紀錄與畫面。
 - `backlog`、`research`：原始題目與需求研究。
@@ -55,11 +56,13 @@ mise exec -- pnpm dev
 
 ## SSG、SPA 與按需載入
 
-`src/routes.ts` 定義五個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
+`src/routes.ts` 定義六個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
 
 `src/router.ts` 使用 History API，選單與上一頁／下一頁在同一份 document 切換。畫面與控制程式按工具動態載入並快取；Worker 在按下執行後建立，Lighthouse、JSON 與 Cron 計算模組再按需載入。首頁不載入 Cron parser 等其他工具套件。切換時停止 Worker／ZIP、釋放 Blob URL 並丟棄使用者輸入；已載入的程式碼可重用，輸入不快取。
 
 SemVer 採獨立控制程式，按下比較才載入固定引擎；有界限的純計算在頁面內執行，不啟動既有工具 Worker。編輯、清除或離開時使尚未完成的載入失效，不讓舊結果回填。
+
+.env 預檢同樣採獨立控制程式，按下檢查才載入純計算模組。兩份可編輯輸入預設視覺遮蔽整段文字，須明確操作才顯示明文；這不是加密，原始文字仍暫存在頁面記憶體。清除、載入範例與離開後重進均恢復遮蔽。結果只列鍵名、問題、行號與狀態，不匯出已解析的值。鍵名本身會顯示；未加引號的多行內容可能把形似指定式的秘密片段當成鍵名，分享前請檢查鍵名清單，勿將秘密放在鍵名中。
 
 載入中保留原畫面並顯示狀態，過期的非同步回應不會覆蓋新選擇。載入錯誤保留可操作選單，提供使用者觸發的「重新載入工具」以恢復斷線或部署後的舊 chunk URL；這個錯誤恢復動作會重新載入文件並清除輸入，不會自動反覆重載。一般工具切換不重新載入文件。此版本不提供離線快取保證。
 
@@ -69,8 +72,11 @@ SemVer 採獨立控制程式，按下比較才載入固定引擎；有界限的�
 - JSON：每份 2 MB、100 層巢狀、100,000 個比較節點、5,000 筆差異。超限拒絕完整比較，避免假稱相同。忽略規則以 `/` 路徑及 `*` 單層匹配；配對後使用 `@欄位=型別:ID` 的邏輯路徑。數字值精確比較，數字 ID 保留原始拼法（1 與 1.0 為不同 ID）。
 - Cron：固定 `cron-parser 5.10.2`、五欄數字 Unix 語法；不支援 Quartz、AWS、秒或文字別名。日與星期同時受限採 OR。起算時間為 UTC，兩個顯示時區指向相同時刻，依瀏覽器時區資料計算。
 - SemVer：固定 `node-semver 7.7.3`，`loose=false`、`includePrerelease=false`。清單須為完整嚴格版本（不接受 v 前綴／前導零），最多 500 筆、64,000 字元；每範圍最多 512 字元、16 OR 分支、64 條件詞。支援 npm 精確版本、比較子、空白 AND、`||`、caret、tilde、x/* 與連字範圍，不支援標籤、workspace:、URL、逗號 AND 或其他方言。空範圍拒絕，請明寫 `*`。任一無效輸入中止整次比較，保留清單順序與重複；build metadata 不影響匹配。
+- .env：明示 dotenv 子集，不是 Shell；鍵名 `[A-Za-z_][A-Za-z0-9_]*`，支援 LF／CRLF、BOM、# 註解、等號、單／雙引號與實體多行。未引號遇 # 開始註解，單引號無跳脫，雙引號僅支援 `\n`、`\r`、`\t`、`\\`、`\"`。不支援 export、插值、命令替換或反引號（含單引號內），從不執行／展開。每份 200,000 UTF-16 字碼單元、5,000 實體行、每行 10,000 字碼單元（不是 bytes）。語法錯誤回傳暫定結果，超限省略跨檔缺漏／多餘比較；UI 每頁 100 筆問題／鍵名，不刪除報告條目。`KEY=` 是空值不是缺漏，`KEY=" "` 不算空；重複鍵不決定優先序，缺漏位置指向範本。JSON 只含鍵名／位置／問題等中繼資料，完整出現行號集中於 `keys`；不保留原始值供重播。四種合成範例可直接重跑。測試與畫面見 `docs/validation/stw-1/`。
 
 SemVer 的 prerelease 須由同一 OR 分支明寫相同 major.minor.patch 的 prerelease 條件才納入（`*` 也排除）；`^0.2.3` 為 `>=0.2.3 <0.3.0-0`，`^0.0.3` 為 `>=0.0.3 <0.0.4-0`。只比較使用者提供集合的新增／移除，不證明整體範圍相等或包含，也不保證實際 API 相容性。不查 registry、不儲存、不上傳；下載 JSON 包含完整輸入、引擎版本、選項、正規化範圍與逐筆理由，可貼回重現。純測試見 `packages/core/src/semver.test.ts`，production 驗收見 `tests/e2e/semver.spec.ts`。
+
+.env 多行 PEM／PGP／OpenSSH 必須用引號包住。未加引號且值以 `-----BEGIN ` 開頭時，整段 armor 內容消耗至 `-----END` 或 EOF，標記不支援，不把區塊內的內容列為鍵；EOF 未結束亦列出未結束診斷。其他未加引號的多行內容不保證辨識為秘密，報告不是通用秘密掃描器，分享前須檢查鍵名。重複鍵診斷只回指首次出現行（不表示採首筆值）；`keys` 保留兩側完整出現行號。
 
 可直接重現的 Cron 範例（另有單元測試）：
 
@@ -95,7 +101,7 @@ mise exec -- pnpm deploy
 
 Cloudflare Pages 原生 Git 整合沿用既有 GitHub OAuth 授權，連接 `SidStraw/sid-tools-web` 的 `main`；建置命令 `pnpm build`、輸出目錄 `apps/web/dist`，root directory 為 repo 根目錄。自動部署不需要另建使用者 API Token。手動部署使用既有 Wrangler OAuth 與 `wrangler pages deploy`。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
 
-網站在網域根路徑提供五個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。五頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
+網站在網域根路徑提供六個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。六頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
 
 `sid.tw` 帳號既有 Cloudflare Web Analytics 自動安裝涵蓋子網域；沿用「排除歐盟訪客」偏好，不新增重複 beacon。CSP 僅允許官方 beacon script 與指定 RUM 端點；本機無 beacon，測試仍檢查輸入不上傳。正式站頁面瀏覽與效能會送出基本統計，工具輸入、檔案、處理結果留在瀏覽器。
 

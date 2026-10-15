@@ -10,6 +10,7 @@ export default defineConfig({
       'src/json-diff.ts',
       'src/cron.ts',
       'src/semver.ts',
+      'src/env-check.ts',
     ],
     format: ['esm'],
     dts: true,

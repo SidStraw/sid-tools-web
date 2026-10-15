@@ -36,5 +36,13 @@ export const routes = [
     description:
       '用自訂版本清單比較 npm SemVer 範圍，逐筆查看新增、移除與 prerelease 原因。資料不上傳。',
   },
+  {
+    id: 'env-check',
+    path: 'tools/env-check/',
+    label: '.env 預檢',
+    title: '.env 範本與環境設定預檢',
+    description:
+      '在瀏覽器比對 .env 範本，定位缺漏、多餘、重複與空值。預設遮蔽輸入，報告只含鍵名與問題。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

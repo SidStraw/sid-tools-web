@@ -1194,6 +1194,181 @@ dialog > p {
   color: #65745c;
 }
 
+.env-main textarea.env-masked {
+  -webkit-text-security: disc;
+}
+@supports not (-webkit-text-security: disc) {
+  .env-main textarea.env-masked {
+    color: transparent;
+    caret-color: var(--green);
+  }
+  .env-main textarea.env-masked::selection {
+    color: transparent;
+  }
+}
+.env-mask-note {
+  margin: 0 0 24px;
+  padding: 14px 18px;
+  background: #eef3e8;
+  border-radius: 8px;
+  color: #456144;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.env-main textarea {
+  min-height: 260px;
+}
+.env-demo-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+  padding-top: 16px;
+}
+.env-demo-strip > span {
+  font-size: 12px;
+  color: #607269;
+}
+.env-demo-strip .text-button {
+  padding: 8px 12px;
+  background: #f3f5ee;
+  border-radius: 6px;
+}
+.env-outcome {
+  font-size: 18px;
+  line-height: 1.7;
+}
+.env-counts {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin: 24px 0;
+}
+.env-count {
+  background: #f1f4ec;
+  border-radius: 10px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.env-count strong {
+  font-size: 28px;
+  font-weight: 500;
+}
+.env-count span {
+  font-size: 12px;
+}
+.env-finding {
+  border-top: 1px solid var(--line);
+  padding: 20px 0;
+}
+.env-finding-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.env-finding-heading code,
+.env-key-row code {
+  overflow-wrap: anywhere;
+  min-width: 0;
+  font-size: 15px;
+}
+.env-issue-label {
+  background: #f6eddc;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-size: 11px;
+  color: #805720;
+}
+.env-location {
+  margin-left: auto;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.env-finding p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #607269;
+  margin: 10px 0 0;
+}
+.env-pagination {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+}
+.env-pagination button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.env-key-row {
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+}
+.env-key-row span {
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.env-guide {
+  max-width: none;
+}
+.env-guide-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  font-size: 13px;
+}
+.env-guide-grid h3 {
+  font-size: 14px;
+  color: var(--green);
+}
+.env-guide code {
+  background: #eaf0e3;
+  padding: 2px 4px;
+  border-radius: 3px;
+  overflow-wrap: anywhere;
+}
+.env-guide summary {
+  cursor: pointer;
+  color: var(--green);
+  padding: 14px 0;
+}
+.env-rules {
+  padding-left: 20px;
+  font-size: 13px;
+}
+.env-rules li {
+  margin: 12px 0;
+}
+@media (max-width: 800px) {
+  .env-counts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .env-count {
+    padding: 14px 12px;
+  }
+  .env-guide-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .env-location {
+    margin-left: 0;
+  }
+  .env-demo-strip .export-actions {
+    gap: 8px;
+  }
+}
 /* Static tool pages share the same responsive navigation. */
 .site-header {
   height: auto;

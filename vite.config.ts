@@ -19,7 +19,7 @@ export default defineConfig({
   run: {
     tasks: {
       'deploy-cloudflare': {
-        command: 'wrangler deploy',
+        command: 'wrangler pages deploy --project-name sid-tools-web',
         dependsOn: ['@sid-tools/web#build'],
         cache: false,
       },

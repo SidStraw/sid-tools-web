@@ -9,7 +9,7 @@ export default defineConfig({
   use: { baseURL: 'http://127.0.0.1:4173/', browserName: 'chromium' },
   webServer: {
     command:
-      'pnpm exec wrangler dev --local --ip 127.0.0.1 --port 4173 --show-interactive-dev-session=false',
+      'pnpm exec wrangler pages dev --ip 127.0.0.1 --port 4173 --show-interactive-dev-session=false',
     url: 'http://127.0.0.1:4173/',
     reuseExistingServer: false,
   },

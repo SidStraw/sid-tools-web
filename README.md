@@ -78,7 +78,7 @@ Linux 缺少瀏覽器函式庫時，使用 `pnpm exec playwright install --with-
 
 ## Cloudflare 部署與分析
 
-正式入口為 **https://tools.sid.tw/**。repo 內鎖定官方 `wrangler@4.149.0`；版本符合本專案三天發布等待期。沒有全局安裝。`wrangler.jsonc` 以 Workers Static Assets 直接發佈 `apps/web/dist`，沒有自行撰寫 Worker 資產伺服器或部署 GitHub Actions。
+正式入口為 **https://tools.sid.tw/**。repo 內鎖定官方 `wrangler@4.149.0`；版本符合本專案三天發布等待期。沒有全局安裝。`wrangler.jsonc` 以 `pages_build_output_dir` 管理 Cloudflare Pages 的 `apps/web/dist`，沒有自行撰寫資產伺服器或部署 GitHub Actions。
 
 ```sh
 export PATH="$PWD/.toolchain/bin:$PATH"
@@ -87,11 +87,11 @@ pnpm verify
 pnpm deploy
 ```
 
-`pnpm deploy` 由 `vp run` 先建置相依套件與網站，再執行 repo 內的 Wrangler。登入憑證由 Wrangler 管理，不放入 repo。`account_id`、網域、公開分析站點識別碼都不是部署憑證。
+`pnpm deploy` 由 `vp run` 先建置相依套件與網站，再執行 repo 內的 Wrangler。登入憑證由 Wrangler 管理，不放入 repo。網域與公開分析站點識別碼不是部署憑證。
 
-Cloudflare 原生 Workers Builds 連接 `SidStraw/sid-tools-web` 的 `main`，建置命令 `pnpm build`、部署命令 `pnpm exec wrangler deploy`，root directory 為 repo 根目錄。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
+Cloudflare Pages 原生 Git 整合沿用既有 GitHub OAuth 授權，連接 `SidStraw/sid-tools-web` 的 `main`；建置命令 `pnpm build`、輸出目錄 `apps/web/dist`，root directory 為 repo 根目錄。自動部署不需要另建使用者 API Token。手動部署使用既有 Wrangler OAuth 與 `wrangler pages deploy`。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
 
-網站在網域根路徑提供四個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。四頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。`workers.dev` 及 version preview URLs 停用，避免多個可收錄的公開入口。
+網站在網域根路徑提供四個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。四頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
 
 `sid.tw` 帳號既有 Cloudflare Web Analytics 自動安裝涵蓋子網域；沿用「排除歐盟訪客」偏好，不新增重複 beacon。CSP 僅允許官方 beacon script 與指定 RUM 端點；本機無 beacon，測試仍檢查輸入不上傳。正式站頁面瀏覽與效能會送出基本統計，工具輸入、檔案、處理結果留在瀏覽器。
 

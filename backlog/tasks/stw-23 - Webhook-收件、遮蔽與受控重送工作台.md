@@ -4,7 +4,7 @@ title: Webhook 收件、遮蔽與受控重送工作台
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-15 14:03'
 labels:
   - keyword-research
   - proposal
@@ -86,4 +86,14 @@ Webhook.site 已有擷取、篩選與 replay；服務營運與敏感資料責任
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+## 2026-10-15 實作阻礙與本輪略過
+
+最新要求已取代先前因市場需求而暫緩的決定；本輪略過僅因下列輸入／證據尚未建立或確認，不代表完成。
+
+- 待補項目：尚未確認接收端的本機／自架曝露與驗證方式、重送目標允許清單、DNS／redirect／內部網路限制，以及請求量與事件保留規則。
+- 驗收影響：AC1、AC3、AC4 要求保留期限、受控重送與曝露邊界；未確認這些安全選擇，不能把任意目標代理或公開接收端當成已驗收方案。
+- 解除方式：提出接收與重送的安全邊界、遮蔽及清除規則，依執行指南取得涉及安全／架構決策的計畫核准，再實作及驗證；不預設開放公網或代用隧道服務。
+
+維持原狀態、描述與既有紀錄，所有 AC 維持未勾選；本輪不宣告完成。
 <!-- SECTION:NOTES:END -->

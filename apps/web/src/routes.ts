@@ -52,5 +52,13 @@ export const routes = [
     description:
       '在瀏覽器檢視 Git unified diff、來源行與確定性統計，明確選取檔案及 hunk，預覽後下載審查摘錄。不上傳。',
   },
+  {
+    id: 'sitemap',
+    path: 'tools/sitemap/',
+    label: 'Sitemap 預檢',
+    title: 'Sitemap XML 預檢與路徑瀏覽',
+    description:
+      '在瀏覽器檢查 Sitemap XML 結構、URL、重複與 lastmod，依原始條目瀏覽路徑樹。不爬站、不查收錄。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

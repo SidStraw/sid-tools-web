@@ -2,7 +2,7 @@
 
 **[開啟工具：tools.sid.tw](https://tools.sid.tw/)**
 
-七個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
+八個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
 
 | 工具                                                      | 功能                                                  |
 | --------------------------------------------------------- | ----------------------------------------------------- |
@@ -13,6 +13,7 @@
 | [SemVer 範圍](https://tools.sid.tw/tools/semver/)         | 自訂版本集合、雙範圍逐筆理由、prerelease 與 JSON 匯出 |
 | [.env 預檢](https://tools.sid.tw/tools/env-check/)        | 雙檔鍵名比對、語法與行號、預設遮蔽及鍵名報告          |
 | [Git diff 檢視](https://tools.sid.tw/tools/git-diff/)     | 檔案／hunk 來源導覽、明確選取、預覽後下載審查摘錄     |
+| [Sitemap 預檢](https://tools.sid.tw/tools/sitemap/)       | XML／URL／lastmod 靜態檢查、路徑樹與原始條目定位      |
 
 採用 [SidStraw/mono-starter](https://github.com/SidStraw/mono-starter) commit `c6d6f32854f6a8fd9f5d6cd4076475e4e9170af0` 初始化，沿用 TypeScript、Vite+、pnpm workspace、嚴格檢查、跨平台 CI、Renovate 與選用 Pi 診斷。保留本專案既有 Backlog 與研究，沒有複製範本任務。
 
@@ -46,7 +47,7 @@ mise exec -- pnpm dev
 ## 結構與工具範圍
 
 - `apps/web`：共用 SPA shell、SSG 路由 HTML、工具 UI 與背景 Workers。
-- `packages/core`：工具純計算模組，以獨立公開子路徑提供給各工具（含 `@sid-tools/core/semver`、`@sid-tools/core/env-check`、`@sid-tools/core/git-diff`）。
+- `packages/core`：工具純計算模組，以獨立公開子路徑提供給各工具（含 `@sid-tools/core/semver`、`@sid-tools/core/env-check`、`@sid-tools/core/git-diff`、`@sid-tools/core/sitemap`）。
 - `tests`：公開真實圖片樣本、套件介面與瀏覽器驗收。
 - `docs/validation/stw-34`、`docs/validation/phase-one`：驗收紀錄與畫面。
 - `backlog`、`research`：原始題目與需求研究。
@@ -57,7 +58,7 @@ mise exec -- pnpm dev
 
 ## SSG、SPA 與按需載入
 
-`src/routes.ts` 定義七個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
+`src/routes.ts` 定義八個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
 
 `src/router.ts` 使用 History API，選單與上一頁／下一頁在同一份 document 切換。畫面與控制程式按工具動態載入並快取；Worker 在按下執行後建立，Lighthouse、JSON 與 Cron 計算模組再按需載入。首頁不載入 Cron parser 等其他工具套件。切換時停止 Worker／ZIP、釋放 Blob URL 並丟棄使用者輸入；已載入的程式碼可重用，輸入不快取。
 
@@ -85,6 +86,12 @@ Git diff 首版支援 Git `diff --git a/path b/path` unified 子集、嚴格 Git
 
 Git 匯出為 selection-only 審查摘錄，**不是完整或可直接套用的 patch**；移除 hash、mode、section label 與未選路徑／hunk，不複製原始全域診斷。所選 hunk 的上下文與路徑仍會分享，這不是自動秘密偵測／逐行遮蔽。只有完整檔案可匯出；原始輸入其他部分不完整不妨礙明確選取其中完整檔案，但 UI 保留原始不完整警告。JSON 預覽是實際下載的 JSON；TXT 僅為 helper 的 review extract。可重現測試與畫面見 `docs/validation/stw-10/`。
 
+Sitemap 預檢使用獨立 lazy XML adapter，按下預檢才載入 `@sid-tools/core/sitemap`。以 `DOMParser` 解析前拒絕 DOCTYPE／entity 宣告（註解／CDATA 中的宣告樣式文字也拒絕）、超限內容及不支援的 XML 宣告；確認 XML 1.0／精確 Sitemap 0.9 namespace、直接子元素、欄位重複、巢狀標記與不支援結構。來源開啟標籤的行／欄位、原始 ordinal／pointer 保留，缺漏欄位回到其條目。XML 語法錯誤只提供文件層級定位，不回顯瀏覽器錯誤原文。
+
+檢查絕對 HTTP(S) loc、完整字串重複、mixed host、有效西曆 lastmod 及可選欄位，依 origin／pathname 提供路徑樹與過濾清單，query 保留在條目中。Index 子檔一律「未檢查」，沒有開站連結、遞迴抓取或 HTTP／Google 收錄推論。延伸 namespace／屬性／mixed text／processing instruction／未知元素不靜默忽略；只顯示已提取欄位並明示不完整。純靜態 JSON 報告含 URL、診斷與來源位置，不含原始 XML；可能含敏感 query，不保證可公開分享。編輯、重跑、清除、重新整理及離開都丟棄報告／篩選／Blob URL；不傳輸、不儲存、不產生分享 URL。
+
+Sitemap 協定上限為 50,000 條目、52,428,800 未壓縮 bytes；本頁本機上限為 **10,000 條目、2,000,000 UTF-8 bytes**（不是 UTF-16 字元數）、100,000 XML 元素、128 層。Bytes 依輸入框文字量測；瀏覽器可能正規化換行，不等同原始檔案大小。normalized 欄位與 pointer 合計上限 2,000,000 UTF-16 字碼單元、每欄位 4,096，loc 最多 2,047；超限不產生部分通過結果。原始字串過長可在編碼前拒絕並標為 byte 數未量測。清單每頁 50 筆；樹每層 60 節點分批顯示，超過 12 層的剩餘路徑合併一節點但保留條目。頁面靜態說明提供完整規則與四個合成範例；客觀測試與畫面見 `docs/validation/stw-17/`。
+
 可直接重現的 Cron 範例（另有單元測試）：
 
 | 情境     | 排程／時區                      | UTC 起算             | 預覽行為                                  |
@@ -108,7 +115,7 @@ mise exec -- pnpm deploy
 
 Cloudflare Pages 原生 Git 整合沿用既有 GitHub OAuth 授權，連接 `SidStraw/sid-tools-web` 的 `main`；建置命令 `pnpm build`、輸出目錄 `apps/web/dist`，root directory 為 repo 根目錄。自動部署不需要另建使用者 API Token。手動部署使用既有 Wrangler OAuth 與 `wrangler pages deploy`。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
 
-網站在網域根路徑提供七個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。七頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
+網站在網域根路徑提供八個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。八頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
 
 `sid.tw` 帳號既有 Cloudflare Web Analytics 自動安裝涵蓋子網域；沿用「排除歐盟訪客」偏好，不新增重複 beacon。CSP 僅允許官方 beacon script 與指定 RUM 端點；本機無 beacon，測試仍檢查輸入不上傳。正式站頁面瀏覽與效能會送出基本統計，工具輸入、檔案、處理結果留在瀏覽器。
 

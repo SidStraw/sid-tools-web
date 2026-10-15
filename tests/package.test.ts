@@ -4,6 +4,49 @@ import { inspectImage, type ImageInfo } from '@sid-tools/core';
 import { compareSemver, type SemverComparison } from '@sid-tools/core/semver';
 import { compareEnv, type EnvComparison } from '@sid-tools/core/env-check';
 import {
+  validateSitemap,
+  sitemapEntryPointer,
+  SITEMAP_NAMESPACE,
+  type SitemapReport,
+} from '@sid-tools/core/sitemap';
+
+test('public sitemap subpath exposes typed static validation with explicitly unchecked index children', () => {
+  expectTypeOf(validateSitemap).returns.toEqualTypeOf<SitemapReport>();
+  const report = validateSitemap({
+    kind: 'sitemapindex',
+    namespace: SITEMAP_NAMESPACE,
+    entries: [
+      {
+        ordinal: 1,
+        pointer: sitemapEntryPointer('sitemapindex', 1),
+        loc: 'https://example.test/child.xml',
+        unknownTagCount: 0,
+        duplicateFieldCount: 0,
+        nestedMarkup: false,
+      },
+    ],
+    unknownTagCount: 0,
+    structureIssueCount: 0,
+    rawUtf8Bytes: 200,
+    xmlPolicy: {
+      wellFormed: true,
+      doctypeDetected: false,
+      entityDeclarationDetected: false,
+      structureChecked: true,
+    },
+  });
+  expect(report).toMatchObject({
+    valid: true,
+    complete: false,
+    indexingStatus: 'not-checked',
+    uncheckedChildCount: 1,
+  });
+  expect(report.entries[0]).toMatchObject({
+    pointer: '/sitemapindex/sitemap[1]',
+    childStatus: 'unchecked',
+  });
+});
+import {
   parseGitDiff,
   exportGitDiffSelection,
   type GitDiffReport,

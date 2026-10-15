@@ -12,6 +12,7 @@ export default defineConfig({
       'src/semver.ts',
       'src/env-check.ts',
       'src/git-diff.ts',
+      'src/sitemap.ts',
     ],
     format: ['esm'],
     dts: true,

@@ -1,0 +1,158 @@
+<main class="utility-main sitemap-main">
+  <section class="tool-intro">
+    <p class="eyebrow">部署之前，先看看路徑長什麼樣子。<span>SITEMAP / 08</span></p>
+    <h1>從 XML 到路徑，看清網站的輪廓。</h1>
+    <p class="intro-copy">
+      檢查格式、重複網址與日期，沿著路徑回到原始條目。只讀你貼上的內容，不爬站、不查收錄。
+    </p>
+    <div class="intro-tags">
+      <span>資料不上傳</span><span>不請求列出的 URL</span><span>離開即清除</span>
+    </div>
+  </section>
+  <section id="workspace" class="utility-panel" aria-label="Sitemap XML 輸入">
+    <div class="panel-heading">
+      <h2>01 ／ 貼上 Sitemap XML</h2>
+      <div class="export-actions">
+        <button id="demo-valid" class="text-button">完整範例</button
+        ><button id="demo-issues" class="text-button">問題範例</button
+        ><button id="demo-index" class="text-button">Index 範例</button
+        ><button id="demo-unsupported" class="text-button">延伸標籤範例</button>
+      </div>
+    </div>
+    <label for="xml">原始 XML</label
+    ><textarea
+      id="xml"
+      spellcheck="false"
+      autocomplete="off"
+      autocapitalize="off"
+      aria-describedby="xml-help"
+      placeholder='&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;&#10;  &lt;url&gt;&lt;loc&gt;https://example.test/&lt;/loc&gt;&lt;/url&gt;&#10;&lt;/urlset&gt;'
+    ></textarea>
+    <p id="xml-help" class="help">
+      貼上未壓縮文字，最多 2,000,000 UTF-8 bytes、10,000 個條目；不是 2 MB 的 UTF-16 字元數。Bytes
+      依輸入框文字量測；瀏覽器可能正規化換行，不等同原始檔案大小。超限不產生部分通過結果。拒絕
+      DOCTYPE／entity 宣告，不載入外部資源。URL 與查詢參數可能含秘密，請留意螢幕分享及下載。
+    </p>
+    <div class="tool-actions">
+      <button id="run" class="button primary">預檢與瀏覽 <span aria-hidden="true">→</span></button
+      ><button id="clear" class="button secondary">清除內容</button
+      ><span id="status" role="status" aria-live="polite">貼上 XML，或先載入合成範例。</span>
+    </div>
+    <p id="error" role="alert" class="notice" hidden></p>
+  </section>
+  <section id="output" class="utility-panel output-panel" aria-label="Sitemap 靜態報告" hidden>
+    <div class="panel-heading">
+      <h2>02 ／ 靜態檢查結果</h2>
+      <button id="export" class="button secondary" disabled>下載靜態報告 JSON</button>
+    </div>
+    <p id="outcome" class="result-notice"></p>
+    <p class="sitemap-boundary">
+      這不是 HTTP 狀態或 Google 收錄檢查。Index
+      子檔只檢查連結文字與欄位，內容一律未檢查；不會自動載入。網址只顯示為文字，不提供點擊開站。
+    </p>
+    <div id="counts" class="sitemap-counts"></div>
+    <div id="diagnostics"></div>
+    <div id="browse" hidden>
+      <div class="sitemap-browse-heading">
+        <h2>03 ／ 路徑與原始條目</h2>
+        <p class="help">
+          樹依解析後的 origin／pathname 分組，查詢參數保留在清單；不是網站導覽關係或爬取結果。無效
+          URL 留在清單，不塞入路徑樹。
+        </p>
+      </div>
+      <div class="sitemap-layout">
+        <aside class="sitemap-tree" aria-label="路徑樹" tabindex="0">
+          <div class="panel-heading">
+            <h3>路徑樹</h3>
+            <button id="reset-tree" class="text-button">所有路徑</button>
+          </div>
+          <p id="tree-status" class="help">選取節點可篩選清單。</p>
+          <div id="tree"></div>
+        </aside>
+        <section class="sitemap-list" aria-label="過濾條目清單">
+          <div class="sitemap-filters">
+            <div>
+              <label for="search">搜尋 URL／lastmod</label
+              ><input id="search" type="search" autocomplete="off" placeholder="例如 /docs/…" />
+            </div>
+            <div>
+              <label for="entry-filter">條目狀態</label
+              ><select id="entry-filter">
+                <option value="all">全部條目</option>
+                <option value="issues">有診斷的條目</option>
+                <option value="duplicates">重複 URL</option>
+                <option value="invalid">無效條目</option>
+                <option value="unchecked">未檢查子檔</option>
+              </select>
+            </div>
+          </div>
+          <p id="list-status" role="status" aria-live="polite" class="help"></p>
+          <div id="entries"></div>
+          <div id="entry-pages" class="sitemap-pages"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+  <section class="tool-guide sitemap-guide">
+    <h2>有列在 Sitemap，不代表已收錄。</h2>
+    <p>
+      本頁只檢查貼上的靜態內容，不確認 URL 是否可連線、HTTP
+      狀態、robots、canonical、網站所有權、內容更新時間或 Google 收錄。lastmod
+      格式正確也不代表日期真實。Sitemap index 的子檔必須另行貼上檢查，不會遞迴抓取。
+    </p>
+    <details>
+      <summary>Sitemap 0.9 支援範圍與限制</summary>
+      <ul>
+        <li>
+          只支援 XML 1.0、UTF-8 文字、精確 namespace
+          <code>http://www.sitemaps.org/schemas/sitemap/0.9</code>。根為 <code>urlset</code> 或
+          <code>sitemapindex</code>；直接子元素分別為
+          <code>url</code>／<code>sitemap</code>，欄位也須使用相同 namespace。可用 namespace
+          prefix。拒絕 DOCTYPE／entity 宣告，即使宣告樣式文字位於註解或 CDATA 內；內建 XML
+          字元參照在此安全檢查後才解碼。
+        </li>
+        <li>
+          每條目必須有一個直接 <code>loc</code>。可選 <code>lastmod</code>；urlset 另支援
+          <code>changefreq</code>（always、hourly、daily、weekly、monthly、yearly、never）與
+          <code>priority</code>（0–1 十進位）。Index 不接受
+          changefreq／priority。欄位去除首尾空白，不支援巢狀標記；重複欄位只保留第一值並明示不完整，不挑選有利值。
+        </li>
+        <li>
+          loc 為絕對 HTTP(S) URL，最多 2,047 UTF-16
+          字碼單元。不接受帳密、fragment、空白、反斜線、控制字元或無效百分比編碼。重複依去除首尾空白後的完整
+          loc 字串比較，不自動合併等價 URL；mixed host 依 URL 解析後 host（含非預設
+          port）與第一個合法 URL 比較，scheme 差異不算 host 不同，樹則依 origin 分組。
+        </li>
+        <li>
+          lastmod 支援 W3C Datetime 六種形式：<code>YYYY</code>、<code>YYYY-MM</code>、
+          <code>YYYY-MM-DD</code>，或完整日期加 <code>Thh:mmTZD</code>、
+          <code>Thh:mm:ssTZD</code>、<code>Thh:mm:ss.sTZD</code>。 時間必須帶 Z 或
+          ±HH:MM；秒可省略，秒的小數至少一位且受欄位長度限制。不接受 leap second；年份
+          0001–9999。檢查日曆與格式，不判斷是否為真實更新日。
+        </li>
+        <li>
+          協定上限 50,000 條目、52,428,800 未壓縮 bytes；本頁較小的本機上限是 10,000 條目、2,000,000
+          UTF-8 bytes、100,000 個 XML 元素、128 層。normalized 欄位與 pointer 合計最多 2,000,000
+          UTF-16 字碼單元，每欄位最多
+          4,096。超限拒絕，不將截斷結果視為通過。過長原始字串可在編碼前拒絕，此時 byte
+          數標為未量測。
+        </li>
+        <li>
+          圖片／影片／news／hreflang 等延伸標籤、未知子元素、非 namespace 宣告的屬性、mixed
+          text、processing instruction、重複欄位及巢狀標記皆明示不支援或不完整，不靜默忽略。XML
+          語法錯誤只提供文件層級定位，不回顯瀏覽器解析器原文。
+        </li>
+        <li>
+          來源 pointer 保留原始條目順序；行／欄位為原始文字的 UTF-16
+          位置，定位開啟標籤。缺漏欄位回到其條目。清單每頁 50 筆；樹每層分批顯示 60 節點，超過 12
+          層的剩餘路徑合併成一節點，不丟失清單條目。樹保留重複與 query 變體的條目數。
+        </li>
+      </ul>
+    </details>
+    <p>
+      免登入、不上傳、不永久保存、不建立分享
+      URL。編輯會清空舊結果；清除、重新整理或離開會丟棄內容。下載是你主動儲存靜態報告的例外；報告會含已提取
+      URL、欄位與來源位置，不含原始 XML，也不保證可公開分享。
+    </p>
+  </section>
+</main>

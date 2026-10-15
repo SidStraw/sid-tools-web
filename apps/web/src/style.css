@@ -1670,6 +1670,275 @@ dialog > p {
     width: 100%;
   }
 }
+.sitemap-main #xml {
+  min-height: 250px;
+  font:
+    13px/1.8 ui-monospace,
+    monospace;
+}
+.sitemap-boundary {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #456144;
+}
+.sitemap-counts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+.sitemap-count {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+.sitemap-count strong {
+  font-size: 25px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.sitemap-count span {
+  font-size: 12px;
+}
+.sitemap-diagnostics {
+  padding: 0 18px 12px;
+  border-radius: 10px;
+  background: #f6f2e8;
+}
+.sitemap-diagnostic {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 4px 12px;
+  padding: 14px 0;
+  border-top: 1px solid #e8e2d3;
+  align-items: baseline;
+}
+.sitemap-diagnostic p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.sitemap-severity {
+  font-size: 11px;
+  font-weight: 600;
+}
+.sitemap-error {
+  color: #9a4936;
+}
+.sitemap-warning {
+  color: #7f6025;
+}
+.sitemap-info {
+  color: #41644b;
+}
+.sitemap-source {
+  font:
+    11px/1.8 ui-monospace,
+    monospace;
+  overflow-wrap: anywhere;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sitemap-diagnostic > .sitemap-source {
+  grid-column: 2;
+  justify-self: start;
+}
+.sitemap-browse-heading {
+  border-top: 1px solid var(--line);
+  margin-top: 32px;
+  padding-top: 24px;
+}
+.sitemap-browse-heading h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.sitemap-layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+  gap: 28px;
+  margin-top: 24px;
+  align-items: start;
+}
+.sitemap-tree {
+  border: 1px solid var(--line);
+  background: #f2f5ec;
+  border-radius: 12px;
+  padding: 18px;
+  min-width: 0;
+  max-height: 720px;
+  overflow: auto;
+}
+.sitemap-tree h3 {
+  font-size: 14px;
+  font-weight: 500;
+}
+.sitemap-tree .panel-heading {
+  margin-bottom: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.sitemap-tree .text-button {
+  font-size: 11px;
+}
+.sitemap-tree #tree-status {
+  overflow-wrap: anywhere;
+}
+.sitemap-main .sitemap-branches {
+  list-style: none;
+  padding-left: 12px;
+  margin: 0;
+  border-left: 1px solid #d7dfce;
+}
+.sitemap-main #tree > .sitemap-branches {
+  border-left: 0;
+  padding-left: 0;
+}
+.sitemap-main .sitemap-branches details {
+  margin: 0;
+}
+.sitemap-main .sitemap-branches summary {
+  padding: 10px 0;
+  font:
+    12px/1.8 ui-monospace,
+    monospace;
+  overflow-wrap: anywhere;
+}
+.sitemap-node {
+  font:
+    12px/1.8 ui-monospace,
+    monospace;
+  text-align: left;
+  overflow-wrap: anywhere;
+  border: 0;
+  background: transparent;
+  padding: 10px 0;
+  color: #315b4b;
+  cursor: pointer;
+}
+.sitemap-node:hover {
+  text-decoration: underline;
+}
+.sitemap-list {
+  min-width: 0;
+}
+.sitemap-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 155px;
+  gap: 16px;
+}
+.sitemap-filters label {
+  font-size: 12px;
+}
+.sitemap-filters select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fbfcf8;
+  color: #28483f;
+  font: inherit;
+  font-size: 13px;
+}
+.sitemap-entry {
+  border-top: 1px solid var(--line);
+  padding: 18px 0;
+  min-width: 0;
+}
+.sitemap-entry h3 {
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #647364;
+}
+.sitemap-loc {
+  font:
+    14px/1.8 ui-monospace,
+    monospace;
+  overflow-wrap: anywhere;
+  margin: 0 0 10px;
+}
+.sitemap-fields {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 4px 8px;
+  margin: 8px 0;
+  font:
+    11px/1.8 ui-monospace,
+    monospace;
+}
+.sitemap-fields dt {
+  color: #677768;
+}
+.sitemap-fields dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.sitemap-pages {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 0;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+.sitemap-main button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.sitemap-guide {
+  max-width: none;
+}
+.sitemap-guide summary {
+  padding: 14px 0;
+  cursor: pointer;
+  color: var(--green);
+}
+.sitemap-guide ul {
+  padding-left: 20px;
+  font-size: 13px;
+}
+.sitemap-guide li {
+  margin: 12px 0;
+}
+.sitemap-guide code {
+  background: #eaf0e3;
+  padding: 2px 4px;
+  border-radius: 3px;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 900px) {
+  .sitemap-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sitemap-tree {
+    max-height: 400px;
+  }
+}
+@media (max-width: 600px) {
+  .sitemap-main .text-button {
+    min-height: 44px;
+  }
+  .sitemap-counts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sitemap-count {
+    padding: 14px;
+  }
+  .sitemap-count strong {
+    font-size: 22px;
+  }
+  .sitemap-filters {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+}
 /* Static tool pages share the same responsive navigation. */
 .site-header {
   height: auto;

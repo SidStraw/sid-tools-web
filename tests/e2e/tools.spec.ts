@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 const sample = (name: string) =>
   resolve('research/competitor-validation-2026-10-14/samples/lighthouse', name);
-test('all seven tools are reachable from the menu and nested URLs survive reload on mobile', async ({
+test('all eight tools are reachable from the menu and nested URLs survive reload on mobile', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
@@ -15,6 +15,7 @@ test('all seven tools are reachable from the menu and nested URLs survive reload
     ['SemVer 範圍', 'semver'],
     ['.env 預檢', 'env-check'],
     ['Git diff 檢視', 'git-diff'],
+    ['Sitemap 預檢', 'sitemap'],
   ] as const) {
     await page
       .getByRole('navigation', { name: '工具選單' })
@@ -144,7 +145,15 @@ test('new tool demos run on mobile without horizontal page overflow or network s
   await page.setViewportSize({ width: 390, height: 844 });
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
-  for (const path of ['lighthouse', 'json-diff', 'cron', 'semver', 'env-check', 'git-diff']) {
+  for (const path of [
+    'lighthouse',
+    'json-diff',
+    'cron',
+    'semver',
+    'env-check',
+    'git-diff',
+    'sitemap',
+  ]) {
     await page.goto(`tools/${path}/`);
     const requests: string[] = [];
     const track = (r: import('@playwright/test').Request) => {
@@ -152,7 +161,7 @@ test('new tool demos run on mobile without horizontal page overflow or network s
         requests.push(r.url());
     };
     page.on('request', track);
-    await page.locator('#demo').click();
+    await page.locator(path === 'sitemap' ? '#demo-valid' : '#demo').click();
     await page.locator('#run').click();
     await expect(page.locator('#output')).toBeVisible();
     expect(
@@ -162,7 +171,8 @@ test('new tool demos run on mobile without horizontal page overflow or network s
     page.off('request', track);
     await page.reload();
     await expect(page.locator('#output')).toBeHidden();
-    if (path === 'git-diff') await expect(page.locator('#patch')).toHaveValue('');
+    if (path === 'sitemap') await expect(page.locator('#xml')).toHaveValue('');
+    else if (path === 'git-diff') await expect(page.locator('#patch')).toHaveValue('');
     else if (path === 'env-check') await expect(page.locator('#candidate')).toHaveValue('');
     else if (path === 'semver') await expect(page.locator('#versions')).toHaveValue('');
     else if (path !== 'cron') await expect(page.locator('#before')).toHaveValue('');
@@ -181,11 +191,12 @@ test('SSG serves full route content without JavaScript', async ({ browser }) => 
     ['tools/semver/', '範圍一改'],
     ['tools/env-check/', '少一個鍵'],
     ['tools/git-diff/', '留下要討論'],
+    ['tools/sitemap/', '從 XML 到路徑'],
   ] as const) {
     const response = await page.goto(`http://127.0.0.1:4173/${path}`);
     expect(response?.status()).toBe(200);
     await expect(page.locator('h1')).toContainText(title);
-    await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(7);
+    await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(8);
   }
   await context.close();
 });
@@ -234,7 +245,7 @@ test('initial route loads only its code; calculation dependencies wait for Run',
   await expect(page.locator('#route-loading')).toBeHidden();
   expect(
     scripts.some((url) =>
-      /\/(git-diff|env-check|semver|cron|json-diff|lighthouse|tools\.worker|image\.worker)-/.test(
+      /\/(sitemap|sitemap-xml|git-diff|env-check|semver|cron|json-diff|lighthouse|tools\.worker|image\.worker)-/.test(
         url,
       ),
     ),
@@ -292,6 +303,7 @@ test('Cloudflare root routing canonicalizes tools, exposes the sitemap, and retu
     'tools/semver/',
     'tools/env-check/',
     'tools/git-diff/',
+    'tools/sitemap/',
   ]) {
     const response = await request.get('/' + path);
     expect(response.status()).toBe(200);
@@ -306,7 +318,7 @@ test('Cloudflare root routing canonicalizes tools, exposes the sitemap, and retu
   const sitemap = await request.get('/sitemap.xml');
   expect(sitemap.status()).toBe(200);
   const xml = await sitemap.text();
-  expect(xml.match(/<loc>/g)).toHaveLength(7);
+  expect(xml.match(/<loc>/g)).toHaveLength(8);
   expect(xml).not.toContain('github.io');
   expect(await (await request.get('/robots.txt')).text()).toContain(
     'Sitemap: https://tools.sid.tw/sitemap.xml',

@@ -17,6 +17,7 @@ export default defineConfig({
           'tools/semver/index.html',
           'tools/env-check/index.html',
           'tools/git-diff/index.html',
+          'tools/sitemap/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

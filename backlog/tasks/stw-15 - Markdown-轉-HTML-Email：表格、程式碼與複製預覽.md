@@ -4,7 +4,7 @@ title: Markdown 轉 HTML Email：表格、程式碼與複製預覽
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-15 14:03'
 labels:
   - keyword-research
   - proposal
@@ -98,4 +98,14 @@ Low 保留「相容性可覆核」窄場景；普通 Markdown→HTML 不值得�
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+## 2026-10-15 實作阻礙與本輪略過
+
+最新要求已取代先前因市場需求而暫緩的決定；本輪略過僅因下列輸入／證據尚未建立或確認，不代表完成。
+
+- 待補項目：尚未確認 Gmail／Outlook 的測試版本、可用的授權測試環境，以及代表性範例的實測紀錄。
+- 驗收影響：AC4 要求兩平台的實際驗證；僅在瀏覽器預覽產生的 HTML，不能據此宣稱郵件相容性。
+- 解除方式：確認兩平台版本與授權測試方式，執行表格及程式碼等範例並保存差異與限制；無須提供信箱密碼給專案。
+
+維持原狀態、描述與既有紀錄，所有 AC 維持未勾選；本輪不宣告完成。
 <!-- SECTION:NOTES:END -->

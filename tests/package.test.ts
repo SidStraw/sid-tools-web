@@ -7,6 +7,72 @@ import { parseExplain, EXPLAIN_EXAMPLES, type ExplainReport } from '@sid-tools/c
 import { analyzeSelectors, type SelectorListAnalysis } from '@sid-tools/core/selectors';
 import { compareSdl, exportSdlComparison, type SdlComparison } from '@sid-tools/core/sdl';
 import {
+  inspectOpenApiFixtures,
+  generateOpenApiFixture,
+  validateOpenApiFixture,
+  exportOpenApiFixture,
+  exportOpenApiFixtureSummary,
+  type FixtureInspection,
+  type OpenApiFixtureReport,
+} from '@sid-tools/core/openapi-fixture';
+
+test('public fixture subpath inspects, deterministically generates and independently revalidates; exports project separately', () => {
+  expectTypeOf(inspectOpenApiFixtures).returns.toEqualTypeOf<FixtureInspection>();
+  expectTypeOf(generateOpenApiFixture).returns.toEqualTypeOf<OpenApiFixtureReport>();
+  const source = JSON.stringify({
+    openapi: '3.0.3',
+    info: { title: 'Synthetic private title', version: '1' },
+    paths: {
+      '/public-name': {
+        get: {
+          responses: {
+            '200': {
+              description: 'Synthetic private description',
+              content: {
+                'application/json': {
+                  schema: { type: 'string', default: 'Synthetic private default' },
+                  example: 'Synthetic private literal',
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+  const inspection = inspectOpenApiFixtures(source);
+  expect(inspection.status).toBe('ready');
+  expect(structuredClone(inspection)).toEqual(inspection);
+  const options = {
+    method: 'GET',
+    path: '/public-name',
+    status: '200',
+    mediaType: 'application/json',
+    seed: 'synthetic-seed',
+    sourceConfirmedSynthetic: true,
+  };
+  const report = generateOpenApiFixture(source, options);
+  expect(report.status).toBe('ready');
+  expect(structuredClone(report)).toEqual(report);
+  expect(exportOpenApiFixture(report)).toBe('"Synthetic private literal"');
+  expect(generateOpenApiFixture(source, { ...options, seed: 'other' }).fixtureJson).toBe(
+    report.fixtureJson,
+  );
+  expect(validateOpenApiFixture(source, options, '42').validation.status).toBe('failed');
+  expect(exportOpenApiFixture(validateOpenApiFixture(source, options, '42'))).toBeNull();
+  expect(
+    exportOpenApiFixture(
+      generateOpenApiFixture(source, { ...options, sourceConfirmedSynthetic: false }),
+    ),
+  ).toBeNull();
+  const summary = exportOpenApiFixtureSummary(report);
+  expect(summary).not.toContain('Synthetic private');
+  expect(summary).toContain('public-name');
+  expect(summary).toContain('synthetic-seed');
+  expect(JSON.parse(summary)).not.toHaveProperty('fixtureJson');
+  expect(JSON.parse(summary)).not.toHaveProperty('source');
+});
+import {
   compareOpenApi,
   exportOpenApiSummary,
   type OpenApiComparison,

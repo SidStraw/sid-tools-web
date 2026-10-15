@@ -100,5 +100,13 @@ export const routes = [
     description:
       '本機比較兩份 JSON／YAML OpenAPI 3.0.x，區分 request／response 的靜態規則、未知與需審查項目，查看引用使用點與定義；不連線 API 或載入外部引用。',
   },
+  {
+    id: 'openapi-fixture',
+    path: 'tools/openapi-fixture/',
+    label: '回應 Fixture',
+    title: 'OpenAPI 回應 Fixture 產生與驗證',
+    description:
+      '明確選擇 OpenAPI 3.0.x 回應，以固定 seed 產生有界 JSON 測試 fixture，查看 example 來源、獨立驗證與限制；不連線 API，不自動匿名化。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

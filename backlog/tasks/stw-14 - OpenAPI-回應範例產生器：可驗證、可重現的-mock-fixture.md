@@ -1,10 +1,11 @@
 ---
 id: STW-14
 title: OpenAPI 回應範例產生器：可驗證、可重現的 mock fixture
-status: Needs Refinement
-assignee: []
+status: Done
+assignee:
+  - '@opencode'
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-15 20:17'
 labels:
   - keyword-research
   - proposal
@@ -80,12 +81,22 @@ ordinal: 114
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 選擇 operation 與 response status 後可產生 JSON fixture，優先使用有效 example 並說明資料來源。
-- [ ] #2 相同文件、選項與 seed 得到相同結果；必填、enum、array 與基本限制在支援範圍內被驗證。
-- [ ] #3 遇到循環 $ref、未支援 oneOf／格式或外部引用時明確提示，不聲稱產物一定符合完整規格。
-- [ ] #4 可下載 fixture 與驗證摘要，所有資料為 synthetic 且不代替真實 API 契約測試。
-- [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
+- [x] #1 選擇 operation 與 response status 後可產生 JSON fixture，優先使用有效 example 並說明資料來源。
+- [x] #2 相同文件、選項與 seed 得到相同結果；必填、enum、array 與基本限制在支援範圍內被驗證。
+- [x] #3 遇到循環 $ref、未支援 oneOf／格式或外部引用時明確提示，不聲稱產物一定符合完整規格。
+- [x] #4 可下載 fixture 與驗證摘要，所有資料為 synthetic 且不代替真實 API 契約測試。
+- [x] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. 重用既有內部有界 OpenAPI YAML/JSON parser，新增獨立 fixture 純核心；列出實際 operation/status/JSON media，不啟動 mock server，不解析遠端引用。
+2. 對明示 OAS3.0.x 子集實作固定 seed 生成與分開的 instance 驗證；先驗證有效 media/schema example 並保留來源，不合格候選有診斷再 fallback。必填、enum、array、基本界限與 response readOnly/writeOnly 明確處理；unsupported/ref循環/無可行值不得稱有效。
+3. 生成前要求使用者確認來源文件與 literals 僅含測試資料，區分沿用 example/enum 與本機生成，不能宣稱匿名化或實際 API 行為。相同文件、選項、seed 結果固定，不新增 sampler/AJV。
+4. 整合專用可終止 module worker、文件與選擇器、固定 synthetic 範例、驗證／來源明細及明確下載 fixture/精簡摘要；清除／編輯／離開／逾時即終止，無上傳／保存／分享 URL。
+5. 核心 deterministic/獨立驗證/unsupported/資源/隱私回歸與 production E2E/手機截圖；程式碼凍結後完整 pnpm verify、Oracle及結構審查，通過才勾 AC、Done 與獨立 commit。
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -101,4 +112,14 @@ Redocly sampler 與 seeded mock 產品已有樣本生成；卡片的受限且經
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+2026-10-16：依使用者實作全部未完成卡片授權啟動，舊市場 defer 不再作為跳過理由。採 bounded generator + separate validator，無新增依賴；OAS3.0 example 優先序為本工具明示政策而非規格規定。來源 example/enum 可能是真實資料，生成前需明確確認僅測試資料並揭露沿用來源，不能自動聲稱 synthetic／匿名化。
+
+2026-10-16：完成本機 OpenAPI3.0.x operation/status/JSON media 選擇、有效 example 優先、固定 seed 生成與分開的 instance 驗證，包含來源與拒絕候選診斷、可終止專用 worker、fixture／精簡摘要下載。來源確認僅含測試資料為使用者聲明，不代表自動匿名化；沿用 example/enum 明確揭露。完整 mise exec -- pnpm verify 無快取通過：616 單元／套件、114 production E2E、格式／strict／build／audit；既有 TypeScript7 experimental API 提示保留。獨立 Oracle1 與結構審查 PASS，八張目前合成截圖已檢視。證據 docs/validation/stw-14/README.md。接受靜態子集、有限數值／資源／attempt、unsupported 拒絕限制，不代替真實 API 契約測試；未 push 或部署。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+已交付可重現 OpenAPI response fixture：固定 seed、有效 example 優先、獨立驗證、來源診斷與本機下載。616 單元／套件及114 E2E、完整 verify、獨立語意／安全及結構審查通過；五項 AC 有客觀證據，詳見 docs/validation/stw-14/README.md。
+<!-- SECTION:FINAL_SUMMARY:END -->

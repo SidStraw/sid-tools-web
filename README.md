@@ -2,23 +2,24 @@
 
 **[開啟工具：tools.sid.tw](https://tools.sid.tw/)**
 
-十三個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
+十四個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
 
-| 工具                                                      | 功能                                                   |
-| --------------------------------------------------------- | ------------------------------------------------------ |
-| [圖片壓縮](https://tools.sid.tw/)                         | 批次指定大小、尺寸與格式，逐檔檢查與 ZIP 下載          |
-| [Lighthouse 比較](https://tools.sid.tw/tools/lighthouse/) | 量測條件警告、分類分數、原始指標與稽核差異             |
-| [JSON 差異](https://tools.sid.tw/tools/json-diff/)        | 大整數、忽略路徑、陣列 ID 配對、衝突與匯出             |
-| [Cron 預覽](https://tools.sid.tw/tools/cron/)             | 五欄 Unix Cron、雙時區、未來 10 次與 DST 規則          |
-| [SemVer 範圍](https://tools.sid.tw/tools/semver/)         | 自訂版本集合、雙範圍逐筆理由、prerelease 與 JSON 匯出  |
-| [.env 預檢](https://tools.sid.tw/tools/env-check/)        | 雙檔鍵名比對、語法與行號、預設遮蔽及鍵名報告           |
-| [Git diff 檢視](https://tools.sid.tw/tools/git-diff/)     | 檔案／hunk 來源導覽、明確選取、預覽後下載審查摘錄      |
-| [Sitemap 預檢](https://tools.sid.tw/tools/sitemap/)       | XML／URL／lastmod 靜態檢查、路徑樹與原始條目定位       |
-| [EXPLAIN 檢視](https://tools.sid.tw/tools/explain/)       | PostgreSQL 計畫樹、per-loop rows 差距與原始 JSON 定位  |
-| [圖片配色](https://tools.sid.tw/tools/palette/)           | 本機取樣色票、透明混色／WCAG 對比與明確選取 CSS tokens |
-| [Selector 比較](https://tools.sid.tw/tools/selectors/)    | CSS 特異性貢獻、隔離純文字 HTML 結構與靜態命中         |
-| [GraphQL 差異](https://tools.sid.tw/tools/sdl/)           | 兩份 SDL 靜態分類、型別／欄位來源與直接引用導覽        |
-| [OpenAPI 差異](https://tools.sid.tw/tools/openapi/)       | JSON／YAML 合約雙方向分類、引用使用點與定義導覽        |
+| 工具                                                        | 功能                                                   |
+| ----------------------------------------------------------- | ------------------------------------------------------ |
+| [圖片壓縮](https://tools.sid.tw/)                           | 批次指定大小、尺寸與格式，逐檔檢查與 ZIP 下載          |
+| [Lighthouse 比較](https://tools.sid.tw/tools/lighthouse/)   | 量測條件警告、分類分數、原始指標與稽核差異             |
+| [JSON 差異](https://tools.sid.tw/tools/json-diff/)          | 大整數、忽略路徑、陣列 ID 配對、衝突與匯出             |
+| [Cron 預覽](https://tools.sid.tw/tools/cron/)               | 五欄 Unix Cron、雙時區、未來 10 次與 DST 規則          |
+| [SemVer 範圍](https://tools.sid.tw/tools/semver/)           | 自訂版本集合、雙範圍逐筆理由、prerelease 與 JSON 匯出  |
+| [.env 預檢](https://tools.sid.tw/tools/env-check/)          | 雙檔鍵名比對、語法與行號、預設遮蔽及鍵名報告           |
+| [Git diff 檢視](https://tools.sid.tw/tools/git-diff/)       | 檔案／hunk 來源導覽、明確選取、預覽後下載審查摘錄      |
+| [Sitemap 預檢](https://tools.sid.tw/tools/sitemap/)         | XML／URL／lastmod 靜態檢查、路徑樹與原始條目定位       |
+| [EXPLAIN 檢視](https://tools.sid.tw/tools/explain/)         | PostgreSQL 計畫樹、per-loop rows 差距與原始 JSON 定位  |
+| [圖片配色](https://tools.sid.tw/tools/palette/)             | 本機取樣色票、透明混色／WCAG 對比與明確選取 CSS tokens |
+| [Selector 比較](https://tools.sid.tw/tools/selectors/)      | CSS 特異性貢獻、隔離純文字 HTML 結構與靜態命中         |
+| [GraphQL 差異](https://tools.sid.tw/tools/sdl/)             | 兩份 SDL 靜態分類、型別／欄位來源與直接引用導覽        |
+| [OpenAPI 差異](https://tools.sid.tw/tools/openapi/)         | JSON／YAML 合約雙方向分類、引用使用點與定義導覽        |
+| [回應 Fixture](https://tools.sid.tw/tools/openapi-fixture/) | 明確選取 JSON 回應、固定 seed、獨立驗證與資料來源      |
 
 採用 [SidStraw/mono-starter](https://github.com/SidStraw/mono-starter) commit `c6d6f32854f6a8fd9f5d6cd4076475e4e9170af0` 初始化，沿用 TypeScript、Vite+、pnpm workspace、嚴格檢查、跨平台 CI、Renovate 與選用 Pi 診斷。保留本專案既有 Backlog 與研究，沒有複製範本任務。
 
@@ -52,7 +53,7 @@ mise exec -- pnpm dev
 ## 結構與工具範圍
 
 - `apps/web`：共用 SPA shell、SSG 路由 HTML、工具 UI 與背景 Workers。
-- `packages/core`：工具純計算模組，以獨立公開子路徑提供給各工具（含 `@sid-tools/core/semver`、`@sid-tools/core/env-check`、`@sid-tools/core/git-diff`、`@sid-tools/core/sitemap`、`@sid-tools/core/explain`、`@sid-tools/core/palette`、`@sid-tools/core/selectors`、`@sid-tools/core/sdl`、`@sid-tools/core/openapi`）。
+- `packages/core`：工具純計算模組，以獨立公開子路徑提供給各工具（含 `@sid-tools/core/semver`、`@sid-tools/core/env-check`、`@sid-tools/core/git-diff`、`@sid-tools/core/sitemap`、`@sid-tools/core/explain`、`@sid-tools/core/palette`、`@sid-tools/core/selectors`、`@sid-tools/core/sdl`、`@sid-tools/core/openapi`、`@sid-tools/core/openapi-fixture`）。
 - `tests`：公開真實圖片樣本、套件介面與瀏覽器驗收。
 - `docs/validation/stw-34`、`docs/validation/phase-one`：驗收紀錄與畫面。
 - `backlog`、`research`：原始題目與需求研究。
@@ -63,7 +64,7 @@ mise exec -- pnpm dev
 
 ## SSG、SPA 與按需載入
 
-`src/routes.ts` 定義十三個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
+`src/routes.ts` 定義十四個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
 
 `src/router.ts` 使用 History API，選單與上一頁／下一頁在同一份 document 切換。畫面與控制程式按工具動態載入並快取；Worker 在按下執行後建立，Lighthouse、JSON 與 Cron 計算模組再按需載入。首頁不載入 Cron parser 等其他工具套件。切換時停止 Worker／ZIP、釋放 Blob URL 並丟棄使用者輸入；已載入的程式碼可重用，輸入不快取。
 
@@ -133,6 +134,16 @@ OpenAPI 差異只在 Run 建立**每次獨立的 module worker**，由 worker �
 
 Request收窄接受範圍breaking，response削弱回傳保證breaking；responseenum新值/status新增review不保證breaking。Rule/category/reason與逐側issues、原始JSONPointer/UTF16range/line/column、安全純文字來源導覽；refuse-site與resolveddefinition分開，sharedfindings前20operationuses+完整count，不是clientimpact。Findings與issues50筆分頁，direction/category/operation-pointer-rule篩選。JSON/YAML順序等價、深度拒絕、未知/invalid與workerlife/privacy/export的可重現synthetic evidence見`docs/validation/stw-6/README.md`。不儲存／上傳／分享URL／記錄輸入，不執行schema或連線endpoint。
 
+回應 Fixture 先明確檢查 JSON／YAML OpenAPI 3.0.x，再逐一選 method／path／status／JSON media；只列文件實際選擇，不猜 default／2XX。Inspection ready 只代表可列出選擇，不代表 schema 有效。來源、examples、defaults、enums 須由使用者確認僅含測試資料，否則 confirmation-required／無 fixture。這不是匿名化：example／enum 原樣沿用，seed／名稱／pointers 也可能敏感。
+
+優先序是本工具政策，不是 OAS 規範：有效 media.example 或選定 named examples.value → root schema.example → 固定 seed 生成。具名預設為排序第一個，不依 seed 抽選；改 seed 不覆蓋有效 example。無效候選留下 rejected provenance／warnings 後再 fallback，default 忽略並提示。相同文件／選項／seed 的 JSON 位元組相同；arrayLength 可留空或 0–100，僅影響生成 arrays，仍受各 schema bounds 限制。
+
+獨立 validator 驗證有限 object／array／string／integer／number／boolean、nullable／enum、required、response readOnly 保留／writeOnly 排除、boolean additionalProperties、基本 numeric bounds、Unicode codepoint 長度、array bounds／uniqueItems。所有 optional／writeOnly schema 也檢查；format／pattern／composition／未知欄位／外部或循環 refs 等拒絕產出，不 fetch／執行。僅有限 roundtrip numeric、safe integer、絕對值 ≤1e12，不默默捨入。Ready + passed 只涵蓋支援子集，不代替真實 API 契約測試；no-valid-fixture 不是無解證明。
+
+沿用 parser 1M UTF-16／depth100／token objects200K／每 collection entries10K／scalar100K。Fixture 限 schema depth24／nodes2K、ref hops16／resolutions10K、output100K units／instance nodes10K、array100／string2,048 codepoints、enum128／32,768 units、attempts256／validation work50K、selections2K、seed128。選擇與 issues／provenance 以50筆分批；來源使用點／定義與 instance pointer 分開，來源選取使用原始 UTF-16 end-exclusive 範圍。
+
+只有明確 inspect／generate 才建立每次獨立的 `openapi-fixture.worker`，使用公開 `@sid-tools/core/openapi-fixture`。20秒 timeout、cancel、edit、clear、new request、dispose、error/messageerror 終止；拒絕晚到／錯誤種類／不合形狀的訊息，無 shared worker／main-thread parser fallback。公開 `validateOpenApiFixture` 提供獨立 caller JSON 檢查，本頁不另擴大為 JSON 編輯器。Fixture 與摘要分開明確下載，只呼叫 `exportOpenApiFixture`／`exportOpenApiFixtureSummary`，不 stringify 原始 report；前者含實際值，後者只有 metadata。Blob URL 在1秒／reset／dispose／failure 回收，晚到 helper import 不恢復舊下載。不登入／上傳／保存／記錄輸入／query／hash／分享 URL，不放寬 CSP；案例及證據見 `docs/validation/stw-14/README.md`。
+
 可直接重現的 Cron 範例（另有單元測試）：
 
 | 情境     | 排程／時區                      | UTC 起算             | 預覽行為                                  |
@@ -156,7 +167,7 @@ mise exec -- pnpm deploy
 
 Cloudflare Pages 原生 Git 整合沿用既有 GitHub OAuth 授權，連接 `SidStraw/sid-tools-web` 的 `main`；建置命令 `pnpm build`、輸出目錄 `apps/web/dist`，root directory 為 repo 根目錄。自動部署不需要另建使用者 API Token。手動部署使用既有 Wrangler OAuth 與 `wrangler pages deploy`。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
 
-網站在網域根路徑提供十三個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。十三頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
+網站在網域根路徑提供十四個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。十四頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
 
 `sid.tw` 帳號既有 Cloudflare Web Analytics 自動安裝涵蓋子網域；沿用「排除歐盟訪客」偏好，不新增重複 beacon。CSP 僅允許官方 beacon script 與指定 RUM 端點；本機無 beacon，測試仍檢查輸入不上傳。正式站頁面瀏覽與效能會送出基本統計，工具輸入、檔案、處理結果留在瀏覽器。
 

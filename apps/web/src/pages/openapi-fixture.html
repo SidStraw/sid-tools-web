@@ -1,0 +1,236 @@
+<main class="utility-main fx-main">
+  <section class="tool-intro">
+    <p class="eyebrow">一份回應，連同它的來歷。<span>FIXTURE STUDY / 14</span></p>
+    <h1>先知道來源，再拿來測試。</h1>
+    <p class="intro-copy">
+      從 OpenAPI 3.0.x 選定一個 JSON 回應，優先驗證來源 example，或以固定 seed 產生有界
+      fixture。把驗證、被拒絕的候選與來源一起留下，不把測試資料當成真實 API 保證。
+    </p>
+    <div class="intro-tags">
+      <span>獨立驗證支援子集</span><span>固定 seed · 可重現</span
+      ><span>本機，不開 mock server</span>
+    </div>
+  </section>
+  <section class="utility-panel">
+    <div class="panel-heading">
+      <h2>01 ／ 放入文件，明確檢查</h2>
+      <span class="fx-caption">SOURCE → INSPECT → SELECT</span>
+    </div>
+    <div class="fx-demos">
+      <button id="demo" class="text-button">必填 / enum / array</button
+      ><button id="demo-inline" class="text-button">有效 inline example</button
+      ><button id="demo-fallback" class="text-button">拒絕 example，再生成</button
+      ><button id="demo-schema" class="text-button">Schema example / $ref</button
+      ><button id="demo-named" class="text-button">具名 examples</button
+      ><button id="demo-unsupported" class="text-button">不支援與循環引用</button
+      ><button id="demo-invalid" class="text-button">無效 YAML</button
+      ><button id="demo-version" class="text-button">3.1 版本界線</button>
+    </div>
+    <p id="demo-note" class="help">固定案例皆人工合成。載入、輸入或選項變動不會自動解析。</p>
+    <label for="source">OpenAPI 來源 · JSON / YAML</label
+    ><textarea
+      id="source"
+      spellcheck="false"
+      wrap="off"
+      autocomplete="off"
+      autocapitalize="off"
+      aria-describedby="source-scope"
+      placeholder="openapi: 3.0.3&#10;info: {title: Synthetic, version: '1'}&#10;paths: {}"
+    ></textarea>
+    <p id="source-scope" class="help">
+      只支援 3.0.x。YAML 1.2 core JSON-compatible grammar，包含 JSON 但不是 strict JSON；拒絕
+      aliases／anchors／tags／directives／多文件／merge／重複鍵。每份 1M UTF-16、token depth
+      100、token objects 200K、每 collection 10K entries、scalar 100K。按檢查才建立專用 module
+      worker，最多 20 秒，不在主執行緒解析。
+    </p>
+    <div class="tool-actions">
+      <button id="inspect" class="button primary">
+        檢查可選回應 <span aria-hidden="true">→</span></button
+      ><button id="cancel" class="button secondary" disabled>取消工作</button
+      ><button id="clear" class="button secondary">清除內容</button
+      ><span id="status" role="status" aria-live="polite"
+        >尚未檢查；來源只留在目前頁面記憶體。</span
+      >
+    </div>
+    <p id="error" class="notice" role="alert" hidden></p>
+    <div id="inspection" hidden>
+      <p id="inspection-state" class="result-notice" role="status"></p>
+      <div id="inspection-issues"></div>
+    </div>
+  </section>
+  <section id="choices" class="utility-panel" hidden>
+    <div class="panel-heading">
+      <h2>02 ／ 選一份實際回應</h2>
+      <span id="selection-count" class="fx-caption"></span>
+    </div>
+    <p class="help">
+      只列文件實際存在的 method／path／status／JSON media；不猜 default、2XX 或
+      wildcard。請依序明確選取，不自動套用第一個回應。選項最多 2,000；清單每批顯示 50 個，可翻頁。
+    </p>
+    <div class="fx-selectors">
+      <div>
+        <label for="method">Method</label
+        ><select id="method"></select>
+      </div>
+      <div>
+        <label for="path">Path</label
+        ><select id="path"></select>
+      </div>
+      <div>
+        <label for="response-status">Response status</label
+        ><select id="response-status"></select>
+      </div>
+      <div>
+        <label for="media">JSON media</label
+        ><select id="media"></select>
+      </div>
+    </div>
+    <div id="selection-pages" class="fx-pages"></div>
+    <div id="selection-detail" class="fx-selection"></div>
+    <div class="fx-options">
+      <div>
+        <label for="example">Example 策略</label
+        ><select id="example" disabled></select>
+        <p class="help">預設依名稱排序第一個，不依 seed 抽選。可明確選具名 example。</p>
+      </div>
+      <div>
+        <label for="seed">Seed · 字串，最多 128 UTF-16</label
+        ><input id="seed" type="text" value="fixture-study" maxlength="128" autocomplete="off" />
+        <p class="help">同文件／選項／seed，JSON 位元組相同。Seed 本身可能敏感。</p>
+      </div>
+      <div>
+        <label for="array-length">生成 array 長度 · 可留空</label
+        ><input
+          id="array-length"
+          type="number"
+          min="0"
+          max="100"
+          step="1"
+          placeholder="依 schema 與 seed"
+        />
+        <p class="help">
+          0–100，套用所有生成 array；不改 copied examples／enums。仍須滿足各 schema bounds。
+        </p>
+      </div>
+    </div>
+    <div class="fx-confirm-box">
+      <label class="fx-confirm" for="source-confirm"
+        ><input id="source-confirm" type="checkbox" />我確認來源文件、examples、defaults、enums
+        僅含測試資料。</label
+      >
+      <p class="help">
+        這是您的確認，不是自動匿名化。Example／enum 會原樣沿用，可能含敏感值；不稱它們為 server
+        實測回應。有效 example 優先，改 seed 不覆蓋它。
+      </p>
+    </div>
+    <div class="tool-actions">
+      <button id="run" class="button primary" disabled>
+        產生並驗證 fixture <span aria-hidden="true">→</span></button
+      ><span class="help">未確認仍可查看 confirmation-required；不會產出 fixture。</span>
+    </div>
+  </section>
+  <section id="output" hidden aria-label="Fixture 產生與驗證結果">
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>03 ／ 產物與驗證，分開核對</h2>
+        <span id="report-state" class="fx-state"></span>
+      </div>
+      <p id="result-note" class="result-notice" role="status"></p>
+      <div class="fx-result-grid">
+        <section>
+          <div class="fx-preview-head">
+            <h3>JSON fixture · 實際值</h3>
+            <span id="fixture-size" class="fx-caption"></span>
+          </div>
+          <pre id="fixture" tabindex="0" aria-label="JSON fixture 純文字"></pre>
+          <p class="help">
+            僅 ready + validation passed 可顯示／下載產物；否則無 fixture。不是所有 literals
+            自動成為 synthetic，也不是 API 契約測試。
+          </p>
+        </section>
+        <section>
+          <h3>獨立 validator</h3>
+          <p id="validation-state" class="fx-validation"></p>
+          <div id="validation-issues"></div>
+          <h3>候選／生成診斷</h3>
+          <div id="report-issues"></div>
+        </section>
+      </div>
+      <details class="fx-scope">
+        <summary>這次支援的靜態子集與限額</summary>
+        <ul id="supported-scope"></ul>
+        <p class="help">
+          Explicit
+          type；object／array／string／integer／number／boolean、nullable／enum、required／readOnly／writeOnly、boolean
+          additionalProperties、基本 numeric bounds、Unicode codepoint 長度、array
+          bounds／uniqueItems。Response readOnly 保留與必填；writeOnly
+          省略且不能出現在回應。Optional／writeOnly schema 也全面 preflight，example 不繞過
+          unsupported。
+        </p>
+        <p class="help">
+          拒絕 format／pattern／oneOf 等 composition／schema-valued additionalProperties／unknown
+          keywords／外部或循環 refs。只用有限 numeric roundtrip、safe integer、絕對值
+          ≤1e12，不四捨五入 unsafe precision。Schema depth 24／nodes 2,000、ref hops 16／resolutions
+          10K、output 100K units／instance nodes 10K、array 100／string 2,048 codepoints、enum
+          128／32,768 units、attempts 256／validation work 50K。No-valid-fixture 不是證明 schema
+          無解。
+        </p>
+      </details>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>04 ／ 看見沿用、拒絕與嘗試</h2>
+        <span class="fx-caption">PROVENANCE / NOT ANONYMIZATION</span>
+      </div>
+      <p class="help">
+        本工具政策，不是 OAS 規範優先序：media.example／選定 named examples.value → resolved root
+        schema.example → seeded generation。候選均獨立驗證，default 忽略並提示，不當
+        example。每列保留 instance pointer、來源使用點與定義；rejected warning 不因 fallback passed
+        而隱藏。
+      </p>
+      <div id="provenance"></div>
+      <p id="source-status" class="help" role="status" aria-live="polite"></p>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>05 ／ 帶走內容，或只帶走來歷</h2>
+        <span class="fx-caption">TWO DELIBERATE DOWNLOADS</span>
+      </div>
+      <label class="fx-confirm"
+        ><input id="download-confirm" type="checkbox" />我已檢查產物與
+        seed／名稱／pointers；了解內容及摘要仍可能敏感。</label
+      >
+      <div class="fx-downloads">
+        <section>
+          <h3>Fixture JSON</h3>
+          <p class="help">包含實際沿用／生成值。請檢查後再分享，不是匿名化資料。</p>
+          <button id="export-fixture" class="button secondary" disabled>下載 fixture</button>
+        </section>
+        <section>
+          <h3>驗證／來源摘要</h3>
+          <p class="help">
+            只含狀態、codes、選項／seed、選擇與位置、provenance、限額。不含文件／fixture／example／default／enum
+            literals。
+          </p>
+          <button id="export-summary" class="button secondary" disabled>下載精簡摘要</button>
+        </section>
+      </div>
+      <p id="export-status" class="help" role="status"></p>
+    </section>
+  </section>
+  <section class="tool-guide">
+    <h2>可重現的測試起點，不是真實服務的替身。</h2>
+    <p>
+      免登入，不 fetch refs／externalValue，不執行程式、不架 mock
+      server、不上傳／記錄來源、不保存或放進 query／hash／分享 URL。所有資源隨網站提供。檢查 ready
+      只是列出回應，不是完整 OAS 或 schema 有效；生成 passed 僅代表支援子集，不保證真實 API 行為。
+    </p>
+    <p>
+      每次明確檢查／產生建立獨立 worker。20
+      秒逾時、取消、重跑、來源／選項變動、清除或離開會終止舊工作，沒有主執行緒
+      fallback。來源編輯也清除檢查與測試資料確認；選項編輯保留未改動文件的檢查，但清除
+      fixture／下載。位置是原始 UTF-16 end-exclusive，行／欄從 1 起算。匯出只使用公開投影
+      helper，下載連結短期回收。
+    </p>
+  </section>
+</main>

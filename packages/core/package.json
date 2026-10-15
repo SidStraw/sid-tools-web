@@ -28,6 +28,10 @@
       "types": "./dist/semver.d.mts",
       "import": "./dist/semver.mjs"
     },
+    "./openapi-fixture": {
+      "types": "./dist/openapi-fixture.d.mts",
+      "import": "./dist/openapi-fixture.mjs"
+    },
     "./openapi": {
       "types": "./dist/openapi.d.mts",
       "import": "./dist/openapi.mjs"

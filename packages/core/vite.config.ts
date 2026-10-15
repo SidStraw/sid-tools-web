@@ -18,6 +18,7 @@ export default defineConfig({
       'src/selectors.ts',
       'src/sdl.ts',
       'src/openapi.ts',
+      'src/openapi-fixture.ts',
     ],
     format: ['esm'],
     dts: true,

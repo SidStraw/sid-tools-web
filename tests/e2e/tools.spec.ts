@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 const sample = (name: string) =>
   resolve('research/competitor-validation-2026-10-14/samples/lighthouse', name);
-test('all four tools are reachable from the menu and nested URLs survive reload on mobile', async ({
+test('all five tools are reachable from the menu and nested URLs survive reload on mobile', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
@@ -12,6 +12,7 @@ test('all four tools are reachable from the menu and nested URLs survive reload 
     ['Lighthouse 比較', 'lighthouse'],
     ['JSON 差異', 'json-diff'],
     ['Cron 預覽', 'cron'],
+    ['SemVer 範圍', 'semver'],
   ] as const) {
     await page
       .getByRole('navigation', { name: '工具選單' })
@@ -141,7 +142,7 @@ test('new tool demos run on mobile without horizontal page overflow or network s
   await page.setViewportSize({ width: 390, height: 844 });
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
-  for (const path of ['lighthouse', 'json-diff', 'cron']) {
+  for (const path of ['lighthouse', 'json-diff', 'cron', 'semver']) {
     await page.goto(`tools/${path}/`);
     const requests: string[] = [];
     const track = (r: import('@playwright/test').Request) => {
@@ -159,7 +160,8 @@ test('new tool demos run on mobile without horizontal page overflow or network s
     page.off('request', track);
     await page.reload();
     await expect(page.locator('#output')).toBeHidden();
-    if (path !== 'cron') await expect(page.locator('#before')).toHaveValue('');
+    if (path === 'semver') await expect(page.locator('#versions')).toHaveValue('');
+    else if (path !== 'cron') await expect(page.locator('#before')).toHaveValue('');
   }
   expect(errors).toEqual([]);
 });
@@ -172,11 +174,12 @@ test('SSG serves full route content without JavaScript', async ({ browser }) => 
     ['tools/lighthouse/', '先看條件'],
     ['tools/json-diff/', '讓變動'],
     ['tools/cron/', '下一次'],
+    ['tools/semver/', '範圍一改'],
   ] as const) {
     const response = await page.goto(`http://127.0.0.1:4173/${path}`);
     expect(response?.status()).toBe(200);
     await expect(page.locator('h1')).toContainText(title);
-    await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(4);
+    await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(5);
   }
   await context.close();
 });
@@ -224,7 +227,9 @@ test('initial route loads only its code; calculation dependencies wait for Run',
   await page.goto('./');
   await expect(page.locator('#route-loading')).toBeHidden();
   expect(
-    scripts.some((url) => /\/(cron|json-diff|lighthouse|tools\.worker|image\.worker)-/.test(url)),
+    scripts.some((url) =>
+      /\/(semver|cron|json-diff|lighthouse|tools\.worker|image\.worker)-/.test(url),
+    ),
   ).toBe(false);
   await page.getByRole('link', { name: 'Cron 預覽', exact: true }).click();
   await expect(page).toHaveURL(/tools\/cron\/$/);
@@ -271,7 +276,13 @@ test('Cloudflare root routing canonicalizes tools, exposes the sitemap, and retu
   page,
   request,
 }) => {
-  for (const path of ['', 'tools/lighthouse/', 'tools/json-diff/', 'tools/cron/']) {
+  for (const path of [
+    '',
+    'tools/lighthouse/',
+    'tools/json-diff/',
+    'tools/cron/',
+    'tools/semver/',
+  ]) {
     const response = await request.get('/' + path);
     expect(response.status()).toBe(200);
     expect(await response.text()).toContain(`rel="canonical" href="https://tools.sid.tw/${path}"`);
@@ -285,7 +296,7 @@ test('Cloudflare root routing canonicalizes tools, exposes the sitemap, and retu
   const sitemap = await request.get('/sitemap.xml');
   expect(sitemap.status()).toBe(200);
   const xml = await sitemap.text();
-  expect(xml.match(/<loc>/g)).toHaveLength(4);
+  expect(xml.match(/<loc>/g)).toHaveLength(5);
   expect(xml).not.toContain('github.io');
   expect(await (await request.get('/robots.txt')).text()).toContain(
     'Sitemap: https://tools.sid.tw/sitemap.xml',

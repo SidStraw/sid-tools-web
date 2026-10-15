@@ -9,6 +9,7 @@ export default defineConfig({
       'src/lighthouse.ts',
       'src/json-diff.ts',
       'src/cron.ts',
+      'src/semver.ts',
     ],
     format: ['esm'],
     dts: true,

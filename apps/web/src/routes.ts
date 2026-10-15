@@ -28,5 +28,13 @@ export const routes = [
     title: 'Cron 排程與時區預覽',
     description: '預覽五欄 Unix Cron 未來十次執行時間，對照 IANA 時區與夏令時間。',
   },
+  {
+    id: 'semver',
+    path: 'tools/semver/',
+    label: 'SemVer 範圍',
+    title: 'SemVer 版本範圍比較',
+    description:
+      '用自訂版本清單比較 npm SemVer 範圍，逐筆查看新增、移除與 prerelease 原因。資料不上傳。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

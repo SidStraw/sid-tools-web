@@ -18,3 +18,5 @@ playwright-report/
 .wrangler/
 .dev.vars
 .dev.vars.*
+.slim/deepwork/
+/status-cache.json

@@ -1,10 +1,11 @@
 ---
 id: STW-37
 title: SemVer 範圍與升級條件的互動式檢查
-status: Needs Refinement
-assignee: []
+status: Done
+assignee:
+  - '@designer'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 12:08'
+updated_date: '2026-10-15 14:21'
 labels:
   - keyword-research
   - proposal
@@ -69,11 +70,22 @@ caret、tilde、0.x 與 prerelease 的匹配規則容易被誤解，適合以版
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 以已知版本集合驗證精確版本、範圍、caret、tilde 及 prerelease 行為。
-- [ ] #2 0.x、無效版本與不支援語法給出明確解釋，不猜測匹配結果。
-- [ ] #3 比較兩個範圍時列出新增／移除的匹配版本及理由。
-- [ ] #4 清楚區分 SemVer 宣告與實際 API 相容性，所有計算可在瀏覽器重現。
+- [x] #1 以已知版本集合驗證精確版本、範圍、caret、tilde 及 prerelease 行為。
+- [x] #2 0.x、無效版本與不支援語法給出明確解釋，不猜測匹配結果。
+- [x] #3 比較兩個範圍時列出新增／移除的匹配版本及理由。
+- [x] #4 清楚區分 SemVer 宣告與實際 API 相容性，所有計算可在瀏覽器重現。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. Add a bounded strict SemVer core public subpath backed by pinned node-semver; document supported npm syntax, default prerelease gating and 0.x caret behavior. Reject invalid input atomically.
+2. Integrate an on-demand SSG + SPA route with existing responsive shell, supplied-version comparison, per-range reasons, clear/demo and reproducible JSON export; no registry/network/storage or CSP changes.
+3. Add pure/public-export and production browser coverage for all four AC, privacy, lifecycle and responsive design; capture desktop/mobile evidence.
+4. Record evidence and hand off In Progress for parent final verify, Oracle review and commit. User authorization supersedes historical market wait notes.
+
+5. Oracle remediation: reject empty OR branches after bounds checks, test leading/trailing/whitespace/repeated empty branches and explicit wildcards, verify engine label against installed package version, add production stale-result/error regression; rerun focused tests/build/check and preserve accepted UI unchanged.
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -89,4 +101,21 @@ caret、tilde、0.x 與 prerelease 的匹配規則容易被誤解，適合以版
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-existing-core.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+Implemented the SemVer public core subpath, pinned node-semver 7.7.3, on-demand SSG/SPA route, strict bounded inputs and two-range per-version reasons, clear/demo and reproducible JSON export. No CSP change, registry lookup or storage.
+Evidence: 36 pure SemVer tests + 2 public package tests passed; production build passed; 16 production browser tests (4 SemVer + 12 existing route/privacy tests) passed. Changed-file vp check passed with zero warnings/errors. Root vp check initially stops on pre-existing/untracked status-cache.json formatting; file left untouched for parent.
+Desktop/mobile screenshots reviewed at .slim/deepwork/unfinished-cards-2026-10-15/stw-37-evidence/. Chromium 153.0.8010.12, 390px document width = viewport width, no runtime errors. Browser desktop-tool connection unavailable; Playwright production browser used for all functional and visual evidence.
+Keep In Progress with AC unchecked: parent owns final cache-disabled verify, Oracle review, finalization and commit. Full handoff report: .slim/deepwork/unfinished-cards-2026-10-15/stw-37-implementation.md.
+
+Oracle remediation complete: reject trimmed-empty || branches after bounds rather than allowing native wildcard normalization. Added nine leading/trailing/repeated/whitespace cases in both A and B, four explicit */x acceptance cases, and test-only installed-version/engine-label drift assertion. No UI, layout, dependency or production Node-import changes.
+Durable repository evidence: packages/core/src/semver.test.ts + tests/package.test.ts passed 52/52; production pnpm build passed; tests/e2e/semver.spec.ts passed 5/5 including new stale-result/empty-OR/error/recovery regression; scoped strict check passed without warnings. docs/validation/stw-37/README.md records commands/AC mapping and three production screenshots now live in that repository directory. These test sources and final pnpm verify are the acceptance evidence; ignored .slim report is supplementary.
+Parent reported pre-remediation full pnpm verify PASS (85 unit, 23 browser, build/audit); final post-remediation mise exec -- pnpm verify remains parent-owned before acceptance/commit. Kept In Progress and AC unchecked; no staging/commit, unrelated gitdiff/env/explain source untouched.
+
+最終驗收：2026-10-15 mise exec -- pnpm verify 通過（166 項單元／套件測試、24 項 production E2E、格式／型別／建置與 production audit）；總數包含其他卡片尚未交付的純核心測試。STW-37 有 50 項核心測試、公開子路徑測試與 5 項專屬 E2E。Oracle 複審確認空白 OR 分支已拒絕，結構檢查確認公開套件邊界與按需載入。Git diff 核心另有一則非錯誤 lint 警告，不屬本卡提交。可重現證據：packages/core/src/semver.test.ts、tests/e2e/semver.spec.ts、docs/validation/stw-37/。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+完成固定 node-semver 7.7.3 的雙範圍比較、逐筆原因、0.x／prerelease 規則與可重現匯出；拒絕無效版本及空白 OR 分支。50 項核心測試、5 項專屬 production E2E、完整 pnpm verify 與獨立複審通過；證據見 docs/validation/stw-37/。
+<!-- SECTION:FINAL_SUMMARY:END -->

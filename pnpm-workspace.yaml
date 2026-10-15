@@ -5,6 +5,8 @@ catalog:
   vite-plus: 1.0.0
   typescript: 7.0.2
   '@types/node': 24.19.1
+  semver: 7.7.3
+  '@types/semver': 7.7.1
 saveExact: true
 pmOnFail: error
 runtimeOnFail: error

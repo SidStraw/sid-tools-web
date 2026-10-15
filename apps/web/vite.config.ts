@@ -14,6 +14,7 @@ export default defineConfig({
           'tools/lighthouse/index.html',
           'tools/json-diff/index.html',
           'tools/cron/index.html',
+          'tools/semver/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

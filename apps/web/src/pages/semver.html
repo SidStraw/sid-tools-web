@@ -1,0 +1,115 @@
+<main class="utility-main semver-main">
+  <section class="tool-intro">
+    <p class="eyebrow">少一點猜測，多一點確認。<span>SEMVER / 05</span></p>
+    <h1>範圍一改，哪些版本留下？</h1>
+    <p class="intro-copy">貼上已知版本，對照兩個 npm 範圍。看見每一筆的去留，也看懂原因。</p>
+    <div class="intro-tags">
+      <span>資料不上傳</span><span>不查 registry</span><span>離開即清除</span>
+    </div>
+  </section>
+  <section id="workspace" class="utility-panel" aria-label="SemVer 範圍比較">
+    <div class="panel-heading">
+      <h2>用你的版本集合驗證</h2>
+      <button id="demo" class="text-button">載入示範</button>
+    </div>
+    <div class="semver-workbench">
+      <div>
+        <label for="versions">01 ／ 已知版本清單</label>
+        <textarea
+          id="versions"
+          placeholder="0.2.3&#10;0.2.9&#10;0.3.0-beta.1&#10;0.3.0&#10;1.0.0"
+          spellcheck="false"
+          autocomplete="off"
+          maxlength="64000"
+          aria-describedby="versions-help"
+        ></textarea>
+        <p id="versions-help" class="help">
+          換行、空白或逗號分隔，最多 500 筆。須為完整版本，不接受 v 前綴；重複版本保留原順序。
+        </p>
+      </div>
+      <div class="semver-range-stack">
+        <label for="range-a">02 ／ 原範圍 A</label
+        ><input
+          id="range-a"
+          placeholder="^0.2.3"
+          spellcheck="false"
+          autocomplete="off"
+          maxlength="512"
+          aria-describedby="range-help"
+        />
+        <div class="semver-direction" aria-hidden="true">↓ <span>變更條件，不猜相容性</span></div>
+        <label for="range-b">03 ／ 新範圍 B</label
+        ><input
+          id="range-b"
+          placeholder="^0.3.0-beta.1"
+          spellcheck="false"
+          autocomplete="off"
+          maxlength="512"
+          aria-describedby="range-help"
+        />
+        <p id="range-help" class="help">
+          精確版本、&gt;= / &lt;、^、~、x/*、空白 AND、|| OR、1.2.3 - 2.0.0。每範圍最多 512
+          字元；空白不代表 *。
+        </p>
+      </div>
+    </div>
+    <div class="semver-policy">
+      <strong>固定規則</strong><span>node-semver 7.7.3 · strict · 預設排除 prerelease</span>
+    </div>
+    <div class="tool-actions">
+      <button id="run" class="button primary">比較版本範圍 <span aria-hidden="true">→</span></button
+      ><button id="clear" class="button secondary">清除資料</button
+      ><span id="status" role="status" aria-live="polite">填入清單與兩個範圍，或先試示範。</span>
+    </div>
+    <p id="error" class="notice" role="alert" hidden></p>
+  </section>
+  <section id="output" class="utility-panel output-panel" aria-label="比較結果" hidden>
+    <div class="panel-heading">
+      <h2>版本的去留</h2>
+      <button id="export" class="button secondary">下載比較 JSON</button>
+    </div>
+    <p class="help">
+      只代表提供清單內的差異，不證明所有可能版本的範圍關係。新增／移除均以 A → B 為準。
+    </p>
+    <div id="result"></div>
+  </section>
+  <section class="tool-guide semver-guide">
+    <h2>版本宣告，不是相容性保證。</h2>
+    <p>
+      SemVer 範圍只檢查版本宣告，不保證實際 API
+      相容性。升級前請另查變更紀錄並執行測試；這裡不會安裝套件或查詢 registry。
+    </p>
+    <div class="semver-rule-grid">
+      <article>
+        <h3>01 ／ 先看最左邊的非零位</h3>
+        <p>
+          <code>^1.2.3</code> 允許到 2.0.0 之前；<code>~1.2.3</code> 只到 1.3.0 之前。0.x 不代表穩定
+          API：<code>^0.2.3</code> 到 0.3.0 之前，<code>^0.0.3</code> 只到 0.0.4 之前（上界皆排除其
+          prerelease）。
+        </p>
+      </article>
+      <article>
+        <h3>02 ／ prerelease 要明確納入</h3>
+        <p>
+          預設排除 prerelease，<code>*</code> 也不例外。同一個 OR 分支必須明寫相同 major.minor.patch
+          的 prerelease 條件；<code>&gt;=1.2.3-beta.1</code> 可含 1.2.3-beta.2，但不會自動納入
+          1.3.0-beta.1。
+        </p>
+      </article>
+    </div>
+    <details>
+      <summary>語法、限制與資料處理</summary>
+      <p>
+        採 node-semver
+        7.7.3，loose=false、includePrerelease=false；建置資訊（+build）不影響匹配。版本清單上限
+        64,000 字元、500 筆；每範圍最多 512 字元、16 個 OR 分支、64 個條件詞。版本號數字須在
+        JavaScript 安全整數內。任一輸入無效就停止，不猜測或略過。
+      </p>
+      <p>
+        不支援 latest、workspace:、URL、逗號 AND
+        或其他套件管理器方言。所有計算都在瀏覽器記憶體執行，不上傳、不自動儲存、不產生分享連結。編輯即隱藏舊結果；清除、重整或離開頁面會丟棄輸入。下載
+        JSON 是你主動儲存的例外，包含原始輸入、固定引擎規則與每筆原因，可貼回頁面重現。
+      </p>
+    </details>
+  </section>
+</main>

@@ -1,0 +1,204 @@
+{
+  "testedAt": "2026-10-15T11:04:59.461Z",
+  "base": "https://tools.sid.tw/",
+  "routeChecks": [
+    {
+      "path": "",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/"
+    },
+    {
+      "path": "tools/lighthouse/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/lighthouse/"
+    },
+    {
+      "path": "tools/json-diff/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/json-diff/"
+    },
+    {
+      "path": "tools/cron/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/cron/"
+    }
+  ],
+  "oldPagesStatus": 404,
+  "ssgAndCanonical": true,
+  "sitemapEntries": 4,
+  "missingAssetStatus": 404,
+  "singleSPA": true,
+  "backForwardReload": true,
+  "image": {
+    "format": "image/png",
+    "width": 1024,
+    "height": 1024
+  },
+  "lighthouse": {
+    "delta": 16,
+    "conditionWarnings": true
+  },
+  "json": {
+    "preciseIntegerExport": true,
+    "ignoreExport": true
+  },
+  "cron": {
+    "tenInstants": true,
+    "clipboard": true,
+    "dstUTC": "2026-03-08T07:30:00.000Z"
+  },
+  "privacy": {
+    "privateInputMarkerFoundInPosts": false,
+    "onlyRUMPosts": true,
+    "persistedEntries": 0
+  },
+  "analytics": {
+    "beacons": [
+      {
+        "endpoint": "https://tools.sid.tw/cdn-cgi/rum",
+        "status": 204,
+        "eventType": 1,
+        "location": "https://tools.sid.tw/",
+        "fieldNames": [
+          "bi",
+          "eventType",
+          "firstContentfulPaint",
+          "firstPaint",
+          "location",
+          "memory",
+          "nt",
+          "pageloadId",
+          "siteToken",
+          "st",
+          "startTime",
+          "timingsV2",
+          "versions"
+        ]
+      },
+      {
+        "endpoint": "https://tools.sid.tw/cdn-cgi/rum",
+        "status": 204,
+        "fieldNames": []
+      },
+      {
+        "endpoint": "https://tools.sid.tw/cdn-cgi/rum",
+        "status": 204,
+        "eventType": 1,
+        "location": "https://tools.sid.tw/tools/lighthouse/",
+        "referrer": "https://tools.sid.tw/",
+        "fieldNames": [
+          "bi",
+          "eventType",
+          "location",
+          "n",
+          "nt",
+          "pageloadId",
+          "referrer",
+          "siteToken",
+          "st",
+          "startTime",
+          "versions"
+        ]
+      },
+      {
+        "endpoint": "https://tools.sid.tw/cdn-cgi/rum",
+        "status": 204,
+        "eventType": 1,
+        "location": "https://tools.sid.tw/tools/json-diff/",
+        "referrer": "https://tools.sid.tw/tools/lighthouse/",
+        "fieldNames": [
+          "bi",
+          "eventType",
+          "location",
+          "n",
+          "nt",
+          "pageloadId",
+          "referrer",
+          "siteToken",
+          "st",
+          "startTime",
+          "versions"
+        ]
+      },
+      {
+        "endpoint": "https://tools.sid.tw/cdn-cgi/rum",
+        "status": 204,
+        "fieldNames": []
+      },
+      {
+        "endpoint": "https://tools.sid.tw/cdn-cgi/rum",
+        "status": 204,
+        "fieldNames": []
+      },
+      {
+        "endpoint": "https://tools.sid.tw/cdn-cgi/rum",
+        "status": 204,
+        "eventType": 1,
+        "location": "https://tools.sid.tw/tools/cron/",
+        "referrer": "https://tools.sid.tw/tools/json-diff/",
+        "fieldNames": [
+          "bi",
+          "eventType",
+          "location",
+          "n",
+          "nt",
+          "pageloadId",
+          "referrer",
+          "siteToken",
+          "st",
+          "startTime",
+          "versions"
+        ]
+      },
+      {
+        "endpoint": "https://tools.sid.tw/cdn-cgi/rum",
+        "status": 204,
+        "eventType": 1,
+        "location": "https://tools.sid.tw/tools/cron/",
+        "referrer": "https://tools.sid.tw/tools/cron/",
+        "fieldNames": [
+          "bi",
+          "eventType",
+          "location",
+          "n",
+          "nt",
+          "pageloadId",
+          "referrer",
+          "siteToken",
+          "st",
+          "startTime",
+          "versions"
+        ]
+      },
+      {
+        "endpoint": "https://tools.sid.tw/cdn-cgi/rum",
+        "status": 204,
+        "fieldNames": []
+      },
+      {
+        "endpoint": "https://tools.sid.tw/cdn-cgi/rum",
+        "status": 204,
+        "eventType": 1,
+        "location": "https://tools.sid.tw/tools/cron/",
+        "fieldNames": [
+          "bi",
+          "eventType",
+          "firstContentfulPaint",
+          "firstPaint",
+          "location",
+          "memory",
+          "nt",
+          "pageloadId",
+          "siteToken",
+          "st",
+          "startTime",
+          "timingsV2",
+          "versions"
+        ]
+      }
+    ],
+    "cspErrors": []
+  },
+  "mobileOverflow": false,
+  "pageErrors": []
+}

@@ -13,6 +13,7 @@ export default defineConfig({
       'src/env-check.ts',
       'src/git-diff.ts',
       'src/sitemap.ts',
+      'src/explain.ts',
     ],
     format: ['esm'],
     dts: true,

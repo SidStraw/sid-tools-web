@@ -60,5 +60,13 @@ export const routes = [
     description:
       '在瀏覽器檢查 Sitemap XML 結構、URL、重複與 lastmod，依原始條目瀏覽路徑樹。不爬站、不查收錄。',
   },
+  {
+    id: 'explain',
+    path: 'tools/explain/',
+    label: 'EXPLAIN 檢視',
+    title: 'PostgreSQL EXPLAIN JSON 計畫檢視',
+    description:
+      '在瀏覽器瀏覽 PostgreSQL EXPLAIN JSON 節點樹、估計與實測 rows 差距，依 JSON Pointer 回到來源。不連資料庫、不執行 SQL。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

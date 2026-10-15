@@ -1939,6 +1939,302 @@ dialog > p {
     gap: 8px;
   }
 }
+.explain-main #plan {
+  min-height: 260px;
+  font:
+    13px/1.8 ui-monospace,
+    monospace;
+}
+.explain-mode {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.8;
+  color: #315b4b;
+}
+.explain-caveat {
+  background: #eef3e8;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.explain-caveat strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+.explain-caveat p {
+  margin: 8px 0 0;
+}
+.explain-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+.explain-metric {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  min-width: 0;
+}
+.explain-metric dt {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #607269;
+}
+.explain-metric dd {
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.explain-source {
+  font:
+    10px/1.8 ui-monospace,
+    monospace;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+.explain-diagnostics {
+  background: #f6f2e8;
+  border-radius: 10px;
+  padding: 0 18px 14px;
+}
+.explain-diagnostic {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 4px 10px;
+  border-top: 1px solid #e6e0d1;
+  padding: 14px 0;
+  align-items: baseline;
+}
+.explain-diagnostic > span {
+  font-size: 11px;
+  font-weight: 600;
+  color: #805720;
+}
+.explain-diagnostic > p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.explain-diagnostic > button {
+  grid-column: 2;
+  justify-self: start;
+}
+.explain-pages {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 0;
+  font-size: 12px;
+}
+.explain-browse-heading {
+  border-top: 1px solid var(--line);
+  margin-top: 30px;
+  padding-top: 24px;
+}
+.explain-browse-heading h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.explain-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 290px) minmax(0, 1fr);
+  gap: 28px;
+  margin-top: 24px;
+  align-items: start;
+}
+.explain-tree {
+  background: #f2f5ec;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  min-width: 0;
+  max-height: 740px;
+  overflow: auto;
+}
+.explain-tree h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+.explain-main .explain-branches {
+  list-style: none;
+  padding-left: 12px;
+  margin: 0;
+  border-left: 1px solid #d7dfce;
+}
+.explain-main #tree > .explain-branches {
+  border-left: 0;
+  padding: 0;
+}
+.explain-branches li {
+  padding: 8px 0;
+}
+.explain-node-button {
+  display: block;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: left;
+  background: transparent;
+  color: #315b4b;
+  cursor: pointer;
+  font:
+    12px/1.8 ui-monospace,
+    monospace;
+  overflow-wrap: anywhere;
+}
+.explain-node-button:hover {
+  background: #e4ebdc;
+}
+.explain-node-button[aria-pressed='true'] {
+  background: #214f43;
+  color: #fff;
+}
+.explain-tree-gap {
+  display: block;
+  font-size: 10px;
+  line-height: 1.8;
+  padding: 6px 10px;
+  color: #657761;
+  overflow-wrap: anywhere;
+}
+.explain-main .explain-branches details {
+  margin: 0;
+}
+.explain-main .explain-branches summary {
+  padding: 8px 0;
+  font-size: 11px;
+}
+.explain-detail {
+  min-width: 0;
+}
+.explain-detail > .help {
+  overflow-wrap: anywhere;
+}
+.explain-detail h3 {
+  font-size: 22px;
+  margin: 10px 0;
+  overflow-wrap: anywhere;
+}
+.explain-detail h4 {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.8;
+  margin: 28px 0 12px;
+}
+.explain-identity {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 6px 12px;
+  font:
+    11px/1.8 ui-monospace,
+    monospace;
+  margin: 18px 0;
+}
+.explain-identity dt {
+  color: #68796a;
+}
+.explain-identity dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.explain-comparison {
+  border-left: 3px solid #a68a36;
+  background: #f8f4e7;
+  padding: 16px;
+  margin: 20px 0;
+}
+.explain-comparison span {
+  display: block;
+  font-size: 11px;
+  color: #7d6939;
+}
+.explain-comparison strong {
+  display: block;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin: 8px 0;
+  overflow-wrap: anywhere;
+}
+.explain-comparison p {
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0;
+}
+.explain-derived {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(80px, auto);
+  gap: 12px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #f4f6ef;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.explain-derived dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.explain-main button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.explain-guide {
+  max-width: none;
+}
+.explain-guide summary {
+  padding: 14px 0;
+  cursor: pointer;
+  color: var(--green);
+}
+.explain-guide ul {
+  padding-left: 20px;
+  font-size: 13px;
+}
+.explain-guide li {
+  margin: 12px 0;
+}
+.explain-guide code {
+  background: #eaf0e3;
+  padding: 2px 4px;
+  border-radius: 3px;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 900px) {
+  .explain-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .explain-tree {
+    max-height: 400px;
+  }
+}
+@media (max-width: 600px) {
+  .explain-main .text-button {
+    min-height: 44px;
+  }
+  .explain-metrics {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .explain-identity {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+  .explain-identity dd {
+    margin-bottom: 8px;
+  }
+}
 /* Static tool pages share the same responsive navigation. */
 .site-header {
   height: auto;

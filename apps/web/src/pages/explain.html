@@ -1,0 +1,163 @@
+<main class="utility-main explain-main">
+  <section class="tool-intro">
+    <p class="eyebrow">看估計與實測，先把單位分清楚。<span>EXPLAIN / 09</span></p>
+    <h1>沿著計畫樹，找到 rows 的落差。</h1>
+    <p class="intro-copy">
+      檢視既有 PostgreSQL EXPLAIN JSON，逐一對照節點、loops 與來源。這是觀察工具，不是自動 SQL
+      最佳化。
+    </p>
+    <div class="intro-tags">
+      <span>資料不上傳</span><span>不連資料庫</span><span>不執行 SQL</span>
+    </div>
+  </section>
+  <section id="workspace" class="utility-panel" aria-label="EXPLAIN JSON 輸入">
+    <div class="panel-heading">
+      <h2>01 ／ 貼上既有計畫</h2>
+      <div class="export-actions">
+        <button id="demo" class="text-button">ANALYZE 範例</button
+        ><button id="demo-estimate" class="text-button">只有 EXPLAIN</button
+        ><button id="demo-partial" class="text-button">部分實測／未執行</button>
+      </div>
+    </div>
+    <p class="help">範例皆為人工合成的 PostgreSQL-shaped fixture，不是真實資料庫量測或效能基準。</p>
+    <label for="plan">原始 EXPLAIN FORMAT JSON</label
+    ><textarea
+      id="plan"
+      spellcheck="false"
+      wrap="off"
+      autocomplete="off"
+      autocapitalize="off"
+      aria-describedby="plan-help"
+      placeholder='[{"Plan":{"Node Type":"Seq Scan","Startup Cost":0,"Total Cost":25,"Plan Rows":10}}]'
+    ></textarea>
+    <p id="plan-help" class="help">
+      只接受一個 statement 的原生 JSON array wrapper。最多 1,000,000 UTF-16 字碼單元（非
+      bytes）、2,000 節點、32 層計畫。PostgreSQL 12–18
+      常用欄位子集，不偵測伺服器版本。原始計畫、關聯名稱與條件可能含秘密，請留意螢幕分享。
+    </p>
+    <div class="tool-actions">
+      <button id="run" class="button primary">檢視計畫 <span aria-hidden="true">→</span></button
+      ><button id="clear" class="button secondary">清除內容</button
+      ><span id="status" role="status" aria-live="polite">貼上 JSON，或先載入合成範例。</span>
+    </div>
+    <p id="error" class="notice" role="alert" hidden></p>
+  </section>
+  <section id="output" class="utility-panel output-panel" aria-label="EXPLAIN 靜態報告" hidden>
+    <div class="panel-heading">
+      <h2>02 ／ 支援範圍與觀察</h2>
+      <button id="export" class="button secondary" disabled>下載靜態報告 JSON</button>
+    </div>
+    <p id="outcome" class="result-notice"></p>
+    <p id="mode" class="explain-mode"></p>
+    <div class="explain-caveat">
+      <strong>不是 self time，也不是可相加的總時間。</strong>
+      <p>
+        Actual Rows／節點 timing 是 per-loop 平均；節點時間包含子節點工作。Time × loops
+        是單一節點的近似 inclusive 量，不是 query wall-clock。父子 timing／buffers
+        不相加、不相減；buffer counters 不乘 loops，平行工作可能重疊。Cost 是 planner 單位，不是
+        ms。
+      </p>
+    </div>
+    <div id="statement" class="explain-statement"></div>
+    <div id="diagnostics"></div>
+    <div id="browse" hidden>
+      <div class="explain-browse-heading">
+        <h2>03 ／ 選一個節點，對照來源</h2>
+        <p class="help">
+          rows 以每 loop 比較；差距 ≥10
+          倍只提示觀察，不證明原因、索引需求或已實測改善。缺值顯示未知，loops=0 不作估計差距判讀。
+        </p>
+      </div>
+      <div class="explain-layout">
+        <aside class="explain-tree" aria-label="計畫節點樹" tabindex="0">
+          <h3>計畫樹 · 原始順序</h3>
+          <p class="help">展開分支，再選節點；每批 60 個同層節點。</p>
+          <div id="tree"></div>
+        </aside>
+        <section class="explain-detail" aria-label="選取節點詳情">
+          <p id="selection-status" role="status" aria-live="polite" class="help"></p>
+          <div id="node"></div>
+        </section>
+      </div>
+    </div>
+    <p class="help">
+      下載僅含支援的靜態報告，不含任意未知欄位或原始 JSON；關聯／schema／alias
+      等名稱仍可能敏感，不保證可公開分享。不附 SQL 或自動調整動作。
+    </p>
+  </section>
+  <section class="tool-guide explain-guide">
+    <h2>計畫是觀察依據，不是最佳化成果。</h2>
+    <p>
+      只讀既有輸出，不連資料庫、不執行查詢、不建立索引。節點 rows
+      差距可能值得檢查，但本頁不推論因果、瓶頸或改善效果；無法驗證資料來源或是否真的使用 ANALYZE。
+    </p>
+    <details>
+      <summary>PostgreSQL 12–18 欄位子集、單位與限制</summary>
+      <ul>
+        <li>
+          只接受單一 statement 的 <code>[{"Plan":{…}}]</code>；不接受裸
+          Plan、文字／YAML／XML、其他資料庫格式或多 statement。不偵測 PostgreSQL
+          版本，也不宣稱支援每種 extension。每節點必須有非空白 Node Type；Plans 必須是合法節點陣列。
+        </li>
+        <li>
+          提取 Node Type、Relation Name、Schema、Alias、Parent Relationship、Plans、Startup／Total
+          Cost、Plan Rows、Actual Rows／Loops、Actual Startup／Total Time 與下列
+          buffers。其他欄位只計數並提示省略，不回傳原始物件。Plan Width、Parallel
+          Aware、Workers、JIT、Triggers、Filter、join／index-specific details 目前也不分析。
+        </li>
+        <li>
+          Startup／Total Cost 是 planner 單位，不是 ms。Actual Rows、Actual Startup／Total Time 是每
+          loop 平均；timing 為 ms。Rows × loops 與 Total Time × loops 僅在兩者存在且 loops&gt;0
+          時計算近似值，不能當作全查詢 wall-clock，也不是 exclusive time。Statement
+          Planning／Execution Time 獨立顯示，不用節點加總代替。
+        </li>
+        <li>
+          所有節點都有有效 Actual Rows＋Actual Loops 才標為「具 ANALYZE rows／loops」；TIMING OFF
+          也可能符合，缺時間不補造。有任一 actual 欄位或 statement Execution
+          Time，但配對不完整時標「部分實測」。完全沒有這些證據才標「只有
+          EXPLAIN」。這是欄位分類，不是執行參數認證。缺值維持 null／absent，明示未知，不補零。
+        </li>
+        <li>
+          PostgreSQL 18 以前，Actual Rows 的每 loop 平均會四捨五入為整數；PG18
+          可輸出小數。本頁不偵測版本。若為 PG ≤17 的整數四捨五入，rows × loops 與真實總 rows
+          的誤差最多 0.5 × loops：100000 loops 即最多 50000 rows。顯示為 0 仍可能隱藏每 loop &lt;0.5
+          rows，乘積不是精確真實總數。節點時間若依 3 位小數四捨五入，time × loops 的誤差最多 0.0005
+          × loops ms；100000 loops 即最多 50 ms。
+        </li>
+        <li>
+          估計與每 loop actual 顯示值都為正時，factor=較大值÷較小值；≥10 倍標示低估／高估。Plan
+          Rows=0 或 Actual Rows 顯示為 0 有獨立狀態，不顯示無限倍；兩者顯示皆零且 loops&gt;0
+          視為顯示值相同，不保證真實 rows 為零。Loops=0
+          為未執行，保留原始零值但不計算乘積或誤差；缺值或衍生溢位不假設結果。
+        </li>
+        <li>
+          數值須有限且非負；loops／block counters 須 safe integer，rows／cost／time
+          可為小數。字串、null、boolean、負數、非有限值均報錯。Startup 大於 Total 報不一致。缺
+          Startup Cost／Total Cost／Plan Rows
+          會提示不完整；可有局部欄位錯誤但保留結構，不可冒稱整份通過。
+        </li>
+        <li>
+          Buffers：Shared／Local Hit、Read、Dirtied、Written Blocks；Temp Read／Written Blocks；I/O
+          Read／Write Time 與 Shared／Local／Temp I/O Read／Write Time。Blocks 是原始 counters，I/O
+          Time 為原始 ms；不乘 loops、不合併父子。沒有提供的 key 不補零。
+        </li>
+        <li>
+          本機上限：1,000,000 UTF-16 字碼單元、96 層 JSON containers、10,000 containers、2,000 plan
+          節點、32 plan 層。字串內括號不算
+          container；包含將省略的資料也受限制。結構／資源錯誤不顯示截斷樹當完整結果；JSON
+          錯誤不回顯解析器原文。
+        </li>
+        <li>
+          JSON Pointer 是來源位置／節點 ID，例如
+          <code>/0/Plan/Plans/0</code
+          >，不是原始行號或跨版本身份。來源按鈕選取原始值；缺漏欄位回到最近存在的父層，不杜撰位置。標準
+          JSON.parse 重複 key 以最後一個值為準；本頁不是重複 key 偵測器。編輯或重跑會重設節點選取。
+        </li>
+      </ul>
+    </details>
+    <p>
+      免登入、不上傳、不永久保存、不放入分享
+      URL。編輯、清除、重新整理或離開會丟棄輸入與結果。你主動下載的靜態報告是例外；分享前請檢查名稱與欄位內容。
+    </p>
+  </section>
+</main>

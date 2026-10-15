@@ -2,7 +2,7 @@
 
 **[開啟工具：tools.sid.tw](https://tools.sid.tw/)**
 
-八個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
+九個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
 
 | 工具                                                      | 功能                                                  |
 | --------------------------------------------------------- | ----------------------------------------------------- |
@@ -14,6 +14,7 @@
 | [.env 預檢](https://tools.sid.tw/tools/env-check/)        | 雙檔鍵名比對、語法與行號、預設遮蔽及鍵名報告          |
 | [Git diff 檢視](https://tools.sid.tw/tools/git-diff/)     | 檔案／hunk 來源導覽、明確選取、預覽後下載審查摘錄     |
 | [Sitemap 預檢](https://tools.sid.tw/tools/sitemap/)       | XML／URL／lastmod 靜態檢查、路徑樹與原始條目定位      |
+| [EXPLAIN 檢視](https://tools.sid.tw/tools/explain/)       | PostgreSQL 計畫樹、per-loop rows 差距與原始 JSON 定位 |
 
 採用 [SidStraw/mono-starter](https://github.com/SidStraw/mono-starter) commit `c6d6f32854f6a8fd9f5d6cd4076475e4e9170af0` 初始化，沿用 TypeScript、Vite+、pnpm workspace、嚴格檢查、跨平台 CI、Renovate 與選用 Pi 診斷。保留本專案既有 Backlog 與研究，沒有複製範本任務。
 
@@ -47,7 +48,7 @@ mise exec -- pnpm dev
 ## 結構與工具範圍
 
 - `apps/web`：共用 SPA shell、SSG 路由 HTML、工具 UI 與背景 Workers。
-- `packages/core`：工具純計算模組，以獨立公開子路徑提供給各工具（含 `@sid-tools/core/semver`、`@sid-tools/core/env-check`、`@sid-tools/core/git-diff`、`@sid-tools/core/sitemap`）。
+- `packages/core`：工具純計算模組，以獨立公開子路徑提供給各工具（含 `@sid-tools/core/semver`、`@sid-tools/core/env-check`、`@sid-tools/core/git-diff`、`@sid-tools/core/sitemap`、`@sid-tools/core/explain`）。
 - `tests`：公開真實圖片樣本、套件介面與瀏覽器驗收。
 - `docs/validation/stw-34`、`docs/validation/phase-one`：驗收紀錄與畫面。
 - `backlog`、`research`：原始題目與需求研究。
@@ -58,7 +59,7 @@ mise exec -- pnpm dev
 
 ## SSG、SPA 與按需載入
 
-`src/routes.ts` 定義八個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
+`src/routes.ts` 定義九個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
 
 `src/router.ts` 使用 History API，選單與上一頁／下一頁在同一份 document 切換。畫面與控制程式按工具動態載入並快取；Worker 在按下執行後建立，Lighthouse、JSON 與 Cron 計算模組再按需載入。首頁不載入 Cron parser 等其他工具套件。切換時停止 Worker／ZIP、釋放 Blob URL 並丟棄使用者輸入；已載入的程式碼可重用，輸入不快取。
 
@@ -92,6 +93,14 @@ Sitemap 預檢使用獨立 lazy XML adapter，按下預檢才載入 `@sid-tools/
 
 Sitemap 協定上限為 50,000 條目、52,428,800 未壓縮 bytes；本頁本機上限為 **10,000 條目、2,000,000 UTF-8 bytes**（不是 UTF-16 字元數）、100,000 XML 元素、128 層。Bytes 依輸入框文字量測；瀏覽器可能正規化換行，不等同原始檔案大小。normalized 欄位與 pointer 合計上限 2,000,000 UTF-16 字碼單元、每欄位 4,096，loc 最多 2,047；超限不產生部分通過結果。原始字串過長可在編碼前拒絕並標為 byte 數未量測。清單每頁 50 筆；樹每層 60 節點分批顯示，超過 12 層的剩餘路徑合併一節點但保留條目。頁面靜態說明提供完整規則與四個合成範例；客觀測試與畫面見 `docs/validation/stw-17/`。
 
+EXPLAIN 檢視採獨立 lazy controller，按檢視才載入公開 `@sid-tools/core/explain` parser。支援 PostgreSQL **12–18 常用 EXPLAIN FORMAT JSON 欄位子集**，只接受原生單一 statement wrapper `[{"Plan":{…}}]`；不偵測伺服器版本、不連資料庫、不執行 SQL、不建立索引。樹狀導覽選取單一節點，顯示 cost／rows／loops／timing／buffer 與 JSON Pointer；來源按鈕定位原始 JSON 值，不宣稱原始行號，缺欄位回到父層。重複 key 沿用 JSON.parse 最後值語意，來源定位也跟隨最後值／物件，不挑第一個看起來相同的 key。
+
+Planner cost **不是 ms**。Actual Rows／節點 Startup／Total Time 是 per-loop 平均；time × loops 只是單一節點的近似 inclusive 量，不是 query wall-clock。節點包含子工作，父子 timing／buffers 不相加、不相減、不計 self time；block counters／I/O time 也不乘 loops。Statement Planning／Execution Time 獨立顯示，不用節點總和代替。估計差距比較 Plan Rows 與每 loop Actual Rows，≥10 倍只作低估／高估觀察；零分母、loops=0、缺值與衍生 overflow 分別呈現，不補造零、Infinity 或最佳化成效。
+
+所有節點具有效 Actual Rows／Loops 配對時標為具 ANALYZE rows／loops（TIMING OFF 仍可能沒有節點時間），部分證據標為 partial actuals，無證據才標 EXPLAIN-only；這不是執行選項認證。Plan Width、Parallel Aware、Workers／JIT／Triggers／Filter／join／index-specific details 等目前不分析，未知欄位計數省略並明示不完整。缺基礎 cost／Plan Rows 也不冒稱完整，局部錯誤保留結構但標未通過。數值需有限非負，loops／block counters 為 safe integers；字串／null／不一致值明示錯誤。
+
+EXPLAIN 本機上限為 1,000,000 UTF-16 字碼單元（不是 bytes）、96 層 JSON containers、10,000 containers、2,000 節點、32 層 plan；省略內容也受限，不回傳截斷樹假裝完整。原始 SQL／JSON 從不執行／傳送／儲存／放入分享 URL。編輯、重跑、清除及離開會重設報告／節點／來源位置與 Blob URL；Run-only import 有 stale guard。下載僅含支援欄位的靜態報告，不含原始 JSON 或未知欄位，但名稱仍可能敏感。頁面三個固定範例皆人工合成，不宣稱真實資料庫量測；驗證與畫面見 `docs/validation/stw-12/`。
+
 可直接重現的 Cron 範例（另有單元測試）：
 
 | 情境     | 排程／時區                      | UTC 起算             | 預覽行為                                  |
@@ -115,7 +124,7 @@ mise exec -- pnpm deploy
 
 Cloudflare Pages 原生 Git 整合沿用既有 GitHub OAuth 授權，連接 `SidStraw/sid-tools-web` 的 `main`；建置命令 `pnpm build`、輸出目錄 `apps/web/dist`，root directory 為 repo 根目錄。自動部署不需要另建使用者 API Token。手動部署使用既有 Wrangler OAuth 與 `wrangler pages deploy`。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
 
-網站在網域根路徑提供八個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。八頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
+網站在網域根路徑提供九個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。九頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
 
 `sid.tw` 帳號既有 Cloudflare Web Analytics 自動安裝涵蓋子網域；沿用「排除歐盟訪客」偏好，不新增重複 beacon。CSP 僅允許官方 beacon script 與指定 RUM 端點；本機無 beacon，測試仍檢查輸入不上傳。正式站頁面瀏覽與效能會送出基本統計，工具輸入、檔案、處理結果留在瀏覽器。
 

@@ -18,6 +18,7 @@ export default defineConfig({
           'tools/env-check/index.html',
           'tools/git-diff/index.html',
           'tools/sitemap/index.html',
+          'tools/explain/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

@@ -3,6 +3,21 @@ import { expect, expectTypeOf, test } from 'vite-plus/test';
 import { inspectImage, type ImageInfo } from '@sid-tools/core';
 import { compareSemver, type SemverComparison } from '@sid-tools/core/semver';
 import { compareEnv, type EnvComparison } from '@sid-tools/core/env-check';
+import { parseExplain, EXPLAIN_EXAMPLES, type ExplainReport } from '@sid-tools/core/explain';
+
+test('public explain subpath exposes typed synthetic per-loop, inclusive and independent statement metrics', () => {
+  expectTypeOf(parseExplain).returns.toEqualTypeOf<ExplainReport>();
+  const example = EXPLAIN_EXAMPLES.find((example) => example.id === 'analyze-loops');
+  expect(example?.provenance).toBe('synthetic');
+  const report = parseExplain(example?.text ?? '');
+  expect(report.root?.children[0]?.estimate.factor).toBe(10);
+  expect(report.root?.children[0]?.approximateRowsAcrossLoops).toBe(100);
+  expect(report.root?.children[0]?.approximateInclusiveMsAcrossLoops).toBe(5);
+  expect(report.executionTime).toEqual({ value: 9, pointer: '/0/Execution Time' });
+  expect(report.root?.children[0]?.actualTotalTime?.pointer).toBe(
+    '/0/Plan/Plans/0/Actual Total Time',
+  );
+});
 import {
   validateSitemap,
   sitemapEntryPointer,

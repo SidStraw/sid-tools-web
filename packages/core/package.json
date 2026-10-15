@@ -28,6 +28,10 @@
       "types": "./dist/semver.d.mts",
       "import": "./dist/semver.mjs"
     },
+    "./explain": {
+      "types": "./dist/explain.d.mts",
+      "import": "./dist/explain.mjs"
+    },
     "./sitemap": {
       "types": "./dist/sitemap.d.mts",
       "import": "./dist/sitemap.mjs"

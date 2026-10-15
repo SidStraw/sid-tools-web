@@ -10,6 +10,7 @@ const loaders: Record<Route['id'], () => Promise<ToolModule>> = {
   'env-check': () => import('./pages/env-check'),
   'git-diff': () => import('./pages/git-diff'),
   sitemap: () => import('./pages/sitemap'),
+  explain: () => import('./pages/explain'),
 };
 const base = new URL(
   document.querySelector<HTMLMetaElement>('meta[name=app-base]')?.content ?? './',

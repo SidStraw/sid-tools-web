@@ -1,0 +1,132 @@
+<main class="utility-main diff-main">
+  <section class="tool-intro">
+    <p class="eyebrow">看清變更，再決定分享什麼。<span>GIT DIFF / 07</span></p>
+    <h1>留下要討論的，排除不該分享的。</h1>
+    <p class="intro-copy">檢視檔案與 hunk、回到來源行。摘要只數實際變更，不猜測改動原因。</p>
+    <div class="intro-tags">
+      <span>資料不上傳</span><span>預設不選取</span><span>離開即清除</span>
+    </div>
+  </section>
+  <section id="workspace" class="utility-panel" aria-label="Git diff 輸入">
+    <div class="panel-heading">
+      <h2>01 ／ 貼上 Git unified diff</h2>
+      <div class="export-actions">
+        <button id="demo" class="text-button">載入選取示範</button
+        ><button id="demo-invalid" class="text-button">不完整／二進位示範</button>
+      </div>
+    </div>
+    <label for="patch">原始 diff</label
+    ><textarea
+      id="patch"
+      spellcheck="false"
+      autocomplete="off"
+      autocapitalize="off"
+      placeholder="diff --git a/path b/path&#10;--- a/path&#10;+++ b/path&#10;@@ -1 +1 @@&#10;-before&#10;+after"
+      aria-describedby="diff-input-help"
+    ></textarea>
+    <p id="diff-input-help" class="help">
+      僅支援 git diff --git 子集，不讀取 repo、不執行 patch。每份最多 1,000,000 UTF-16
+      字碼單元、20,000 實體行、每行 20,000 字碼單元（不是
+      bytes）。原始輸入與檢視內容仍可能含秘密，請留意螢幕分享。
+    </p>
+    <div class="tool-actions">
+      <button id="run" class="button primary">檢視變更 <span aria-hidden="true">→</span></button
+      ><button id="clear" class="button secondary">清除內容</button
+      ><span id="status" role="status" aria-live="polite">貼上 diff，或先載入合成示範。</span>
+    </div>
+    <p id="error" class="notice" role="alert" hidden></p>
+  </section>
+  <section id="output" class="utility-panel output-panel" aria-label="變更檢視" hidden>
+    <div class="panel-heading">
+      <h2>02 ／ 檢視與選取</h2>
+      <button id="deselect" class="text-button">取消全部選取</button>
+    </div>
+    <p class="diff-safety">
+      預設不選任何內容。先選檔案，再逐一勾選要帶出的 hunk；選檔案不會自動選 hunk。hunk
+      的上下文也會匯出，這不是自動秘密偵測或逐行遮蔽。分享前請確認路徑與內容。
+    </p>
+    <div id="result"></div>
+    <div class="diff-selection-bar">
+      <span id="selection-status" role="status" aria-live="polite">尚未選取任何檔案或 hunk。</span
+      ><button id="preview-run" class="button secondary" disabled>預覽選取摘錄</button>
+    </div>
+    <p id="selection-error" class="notice" role="alert" hidden></p>
+  </section>
+  <section id="preview" class="utility-panel output-panel" aria-label="匯出預覽" hidden>
+    <div class="panel-heading">
+      <h2>03 ／ 確認後，再下載</h2>
+      <div class="export-actions">
+        <button id="export" class="button secondary" disabled>下載選取 JSON</button
+        ><button id="export-text" class="button secondary" disabled>下載審查摘錄 TXT</button>
+      </div>
+    </div>
+    <p class="result-notice">
+      這是明確選取內容的審查摘錄，不是完整或可直接套用的 patch。原始 hash、mode、hunk section label
+      不會帶出；未選檔案與 hunk 不會匯出，但所選路徑及 hunk 上下文仍會列出。
+    </p>
+    <p id="preview-scope" class="help"></p>
+    <details open>
+      <summary>實際審查摘錄文字</summary>
+      <pre id="preview-patch" class="diff-preview-code"></pre>
+    </details>
+    <details>
+      <summary>實際 JSON 內容</summary>
+      <pre id="preview-json" class="diff-preview-code"></pre>
+    </details>
+  </section>
+  <section class="tool-guide diff-guide">
+    <h2>看見的差異，不等於改動意圖。</h2>
+    <p>
+      檔案類型、hunk 數與增刪行數都由輸入計算；不使用
+      AI、不推測原因、影響或執行成功。結果不完整時只列「已觀察」統計，並保留來源位置。原始 diff
+      行號是貼上內容的實體行；舊／新行號則是被修改檔案兩側的位置，兩者不同。
+    </p>
+    <details>
+      <summary>支援格式、限制與匯出規則</summary>
+      <ul class="diff-rules">
+        <li>
+          只支援 <code>diff --git a/path b/path</code> 區塊、相符的 <code>--- / +++</code> 與
+          <code>@@</code> hunks；<code>/dev/null</code> 表示不存在的一側。不支援 plain
+          unified、combined diff、copy、timestamp 或任意前言，不猜測格式。
+        </li>
+        <li>
+          辨識 index hash、new/deleted file mode、成對 old/new mode、similarity index 與 rename
+          from/to；標頭只可出現一次並先於 hunk，路徑與 metadata 必須一致。新增／刪除認證需標準
+          mode；無 hunk 的空白新增／刪除不認定完整。純 rename 須 100% similarity 且無內容 index；純
+          mode 變更須成對且無內容 index。
+        </li>
+        <li>
+          無引號路徑不得含空白。含空白需 Git C 引號，支援 a、b、t、n、v、f、r、反斜線、雙引號與三位
+          octal UTF-8 bytes；拒絕無效 UTF-8、NUL 與未知跳脫。匯出重新引用路徑，避免換行注入標頭。
+        </li>
+        <li>
+          Hunk 為 <code>@@ -start[,count] +start[,count] @@</code>，省略 count 視為 1。數字為
+          0–1,000,000,000 安全整數，start=0 時 count 也須為
+          0；驗證實際計數、範圍順序與無重疊，且至少有一行增刪。no-newline marker
+          需緊接該側最後一行，不計入內容行數。
+        </li>
+        <li>
+          二進位／NUL 不解碼；未知標頭、無效 hunk、截斷與不一致會明示不完整。超限或 NUL
+          只回診斷、不保留部分檔案。支援 LF／CRLF，統一為
+          LF；最後一個結尾換行不計入實體行數，也可不帶結尾換行。
+        </li>
+        <li>
+          完整檔案才可匯出；原始輸入有其他不完整區塊時，仍可明確選取其中的完整檔案。內容檔需檔案與
+          hunk 都選取，純 rename／mode metadata 檔只需明確選檔案。預覽與下載都只使用選取 helper
+          重建結果，不匯出全份原始 report 或全域診斷。mode-only 摘錄不包含原 mode
+          變更；新增／刪除摘錄省略 mode，不保證可重解析或套用。
+        </li>
+        <li>
+          檔案／hunk ID
+          依當次來源行號建立，不是跨版本身份。任何編輯或重跑都清空選取；變更選取即丟棄舊預覽，須重新預覽才能下載。原始檢視保留整份已解析
+          hunk 文字；匯出不等於已匿名化。
+        </li>
+      </ul>
+    </details>
+    <p>
+      免登入、不上傳、不永久保存、不產生分享
+      URL。清除、重新整理或離開會丟棄輸入與選取；下載是你主動儲存選取摘錄的例外。此工具不會套用
+      patch 或執行輸入。
+    </p>
+  </section>
+</main>

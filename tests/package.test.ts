@@ -3,6 +3,25 @@ import { expect, expectTypeOf, test } from 'vite-plus/test';
 import { inspectImage, type ImageInfo } from '@sid-tools/core';
 import { compareSemver, type SemverComparison } from '@sid-tools/core/semver';
 import { compareEnv, type EnvComparison } from '@sid-tools/core/env-check';
+import {
+  parseGitDiff,
+  exportGitDiffSelection,
+  type GitDiffReport,
+  type GitDiffExport,
+} from '@sid-tools/core/git-diff';
+
+test('public git-diff subpath exposes typed source-grounded parsing and explicit selection export', () => {
+  expectTypeOf(parseGitDiff).returns.toEqualTypeOf<GitDiffReport>();
+  expectTypeOf(exportGitDiffSelection).returns.toEqualTypeOf<GitDiffExport>();
+  const report = parseGitDiff(
+    'diff --git a/ok.txt b/ok.txt\n--- a/ok.txt\n+++ b/ok.txt\n@@ -1 +1 @@\n-before\n+after',
+  );
+  expect(report.files[0]?.hunks[0]?.sourceLine).toBe(4);
+  expect(exportGitDiffSelection(report, { fileIds: ['file-1'], hunkIds: [] }).files).toEqual([]);
+  expect(
+    exportGitDiffSelection(report, { fileIds: ['file-1'], hunkIds: ['file-1-hunk-4'] }).summary,
+  ).toMatchObject({ files: 1, addedLines: 1, deletedLines: 1 });
+});
 
 test('public env-check subpath exposes a typed key-only comparison with template locations for missing keys', () => {
   expectTypeOf(compareEnv).returns.toEqualTypeOf<EnvComparison>();

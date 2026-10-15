@@ -11,6 +11,7 @@ export default defineConfig({
       'src/cron.ts',
       'src/semver.ts',
       'src/env-check.ts',
+      'src/git-diff.ts',
     ],
     format: ['esm'],
     dts: true,

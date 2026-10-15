@@ -44,5 +44,13 @@ export const routes = [
     description:
       '在瀏覽器比對 .env 範本，定位缺漏、多餘、重複與空值。預設遮蔽輸入，報告只含鍵名與問題。',
   },
+  {
+    id: 'git-diff',
+    path: 'tools/git-diff/',
+    label: 'Git diff 檢視',
+    title: 'Git diff 檢視與選取摘錄',
+    description:
+      '在瀏覽器檢視 Git unified diff、來源行與確定性統計，明確選取檔案及 hunk，預覽後下載審查摘錄。不上傳。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

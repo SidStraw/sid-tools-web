@@ -16,6 +16,7 @@ export default defineConfig({
           'tools/cron/index.html',
           'tools/semver/index.html',
           'tools/env-check/index.html',
+          'tools/git-diff/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

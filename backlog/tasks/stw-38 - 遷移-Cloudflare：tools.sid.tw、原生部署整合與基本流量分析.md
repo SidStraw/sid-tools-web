@@ -5,7 +5,7 @@ status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-15 10:29'
-updated_date: '2026-10-15 11:06'
+updated_date: '2026-10-15 11:09'
 labels: []
 dependencies: []
 priority: high
@@ -42,6 +42,8 @@ repo 內 Wrangler 4.149.0 已安裝；最新版不符三天發布等待期，未
 使用者指出既有 repo 整合只需 GitHub/Cloudflare OAuth。確認 Workers Builds 的新部署 Token 是 Workers 路線需求，純靜態站改用 Pages 原生 Git 整合更符合使用者預期；未建立任何新 Token。已上線 Worker 可暫時維持服務，待 Pages 成功再移轉網域。
 
 完成 Pages 原生 Git OAuth 整合，未建立新 API Token；main 自動部署啟用，afbab67 首次 Git 建置與部署成功，tools.sid.tw domain/verification/validation active、SSL 啟用，臨時 Worker 只解除該網域綁定。原生 Bulk Redirect 已實測 pages.dev 301 保留深層路徑/查詢，hash 預覽 noindex；舊 GitHub Pages HTTP404。Pages runtime pnpm verify：27 unit/package +19 E2E PASS，GitHub Verify 38723715383 Linux/macOS PASS。2026-10-15T11:04:59Z 正式站四工具真實樣本/下載/SPA/深層重整/手機與 RUM204 PASS，測試輸入不在 POST，無 CSP/page error。Web Analytics 沿用排除歐盟偏好，報表已篩選 tools.sid.tw；自然流量尚待累積。詳見 docs/validation/cloudflare/README.md 與 public-smoke.json。
+
+追加遠端實證：push 204925d 後原生 deployment_trigger.type=github:push，898cc659-0c7a-4cb4-a0ef-8613d26989c1 於 2026-10-15T11:08:24Z build/deploy success。11:08:34Z host=tools.sid.tw 儀表板已入庫 3 visits /4 page views，包含 1 次軟式導覽；僅作分析入庫證據，含驗收活動，不宣告自然流量。截圖 web-analytics-report.png 已排除帳號資訊。
 <!-- SECTION:NOTES:END -->
 
 ## Final Summary

@@ -11,6 +11,7 @@
 - 建置環境：`PNPM_VERSION=12.8.2`、`NODE_VERSION=24.21.0`；與 packageManager / devEngines 相同。
 - `wrangler.jsonc` 的 `pages_build_output_dir` 管理輸出；`pnpm deploy` 透過 `vp run` 建置並執行 repo 內的 `wrangler pages deploy`。
 - 首次 Git 建置：commit `afbab670932908abadd25826b3b7fac4c7ac8360`，部署 ID `4ee6848a-1a58-442b-b176-d4fcf3e5949e`，clone/build/deploy 全部 success。
+- Git 自動觸發實測：push `204925db4dae389ee4f269d84cd6fff8ed117ab1` 後，`deployment_trigger.type=github:push`；部署 `898cc659-0c7a-4cb4-a0ef-8613d26989c1` 於 `2026-10-15T11:08:24.604Z` 成功。
 - `tools.sid.tw` CNAME 指向 `sid-tools-web.pages.dev`，Proxy 開啟。Pages domain / verification / validation 均為 active，SSL 已啟用。
 - 遷移過程的臨時 Worker 已解除正式網域綁定；Worker 資產版本保留，workers.dev / preview 停用，沒有另一個公開入口。
 
@@ -61,6 +62,10 @@ GitHub [Verify 38723715383](https://github.com/SidStraw/sid-tools-web/actions/ru
 正式站四個 SPA 路由均觀察到官方 `https://tools.sid.tw/cdn-cgi/rum` POST **204**。公開測試記錄只保留端點、狀態、路徑和欄位名稱，不保留 siteToken / pageloadId 值；測試輸入標記沒有出現在 POST，所有非 GET 都只有官方 RUM，沒有檔案上傳。
 
 [工具站頁面報表（需登入）](https://dash.cloudflare.com/3a87f6e3222f46be8ffc89c0416a1189/web-analytics/overview/page-views?siteTag~in=b15c9a625f28462ebf3c8aa6be4c6c66&excludeBots=Yes&host=tools.sid.tw) 已篩選 `host=tools.sid.tw`。可查看 page views、visits、路徑、參照來源、國家、瀏覽器 / 裝置與 Core Web Vitals；新站資料仍需累積，不把驗收流量當成自然搜尋需求。
+
+`2026-10-15T11:08:34Z` 儀表板已顯示 3 visits / 4 page views，含首頁與 Lighthouse 路徑，以及 1 次軟式導覽；這只是報表入庫證據，數字包含驗收活動，不作自然流量成效宣告。
+
+![工具站頁面報表](web-analytics-report.png)
 
 統計可能受排除歐盟、機器人過濾、廣告阻擋器及網路影響。Edge 資源請求數不是人數；此版本沒有自訂工具成功事件、UTM 歸因或 Google 關鍵字曝光資料。工具輸入、檔案及結果仍只在瀏覽器處理。
 

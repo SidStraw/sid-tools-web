@@ -4,7 +4,7 @@ title: 加密環境設定的本機交接與部署預檢
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-15 14:03'
 labels:
   - keyword-research
   - proposal
@@ -92,4 +92,14 @@ SOPS 已支援 dotenv 與 exec-env；交接／部署前檢查仍可能成立，�
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+## 2026-10-15 實作阻礙與本輪略過
+
+最新要求已取代先前因市場需求而暫緩的決定；本輪略過僅因下列輸入／證據尚未建立或確認，不代表完成。
+
+- 待補項目：尚未確認既有 provider／加密格式、金鑰取得與生命週期、允許修改的檔案，以及恢復／輪替／秘密傳遞邊界；這些安全選擇的計畫尚未獲確認核准。
+- 驗收影響：AC1 與 AC4 明定格式及安全邊界，AC2、AC3 還需錯誤金鑰／損壞資料和失敗復原證據；不能自行決定信任模型後宣稱完成。
+- 解除方式：提出沿用成熟方案（例如 SOPS＋age）的有界計畫，依執行指南取得安全／架構決策核准，再以自行產生的測試金鑰及已知資料驗證。正式環境金鑰不是此驗收的必要輸入，不自創加密格式。
+
+維持原狀態、描述與既有紀錄，所有 AC 維持未勾選；本輪不宣告完成。
 <!-- SECTION:NOTES:END -->

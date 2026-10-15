@@ -5,16 +5,17 @@ status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 14:11'
+updated_date: '2026-10-15 13:30'
 labels:
   - keyword-research
-  - proposal
   - monorepo-expansion
   - delivery-web
   - web-first
   - demand-reviewed-2026-10-14
-  - validate-next
   - competitor-tested-2026-10-14
+  - released
+  - phase-one
+  - market-validation-pending
 dependencies: []
 references:
   - >-
@@ -31,8 +32,9 @@ references:
   - 'https://compress-picture.com/compress-image-to-100kb'
   - 'https://www.seodata.dev/llms.txt'
   - 'https://compress-picture.com/compress-png'
-  - 'https://sidstraw.github.io/sid-tools-web/'
   - 'https://github.com/SidStraw/sid-tools-web/actions/runs/38572215704'
+  - 'https://tools.sid.tw/'
+  - 'https://github.com/SidStraw/sid-tools-web/actions/runs/38725310119'
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
@@ -42,6 +44,8 @@ documentation:
   - research/competitor-validation-2026-10-14/README.md
   - research/competitor-validation-2026-10-14/search-demand.md
   - docs/validation/stw-34/README.md
+  - docs/validation/cloudflare/README.md
+  - docs/validation/cloudflare/public-smoke.json
 priority: medium
 type: feature
 ordinal: 1
@@ -50,13 +54,19 @@ ordinal: 1
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
+## 最新交付狀態（2026-10-15）
+
+Done，Web 首版已上線：[開啟工具](https://tools.sid.tw/)。四工具共用單一 SSG + SPA、選單與按需載入；計算在瀏覽器處理。已遷移 Cloudflare Pages，GitHub Pages 關閉。
+
+功能交付不代表搜尋量、排名或流量收益已驗證；CLI/CI/IDE 等延伸不列入本次完成範圍。歷史研究與競品證據保留於下方及原紀錄。
+
 ## 使用情境與發展空間
 
 上架素材常受檔案大小、尺寸與透明背景限制；以輸出預算為目標比單純換副檔名更有操作價值。
 
 ## 交付形式與首版邊界
 
-主要形式：web。順序：Web 優先候選。
+主要形式：Web，首版已交付；CLI 延伸仍為候選。
 
 先在瀏覽器批次處理常見靜態圖片，提供前後預覽、每檔結果及 ZIP 下載。
 
@@ -72,11 +82,11 @@ ordinal: 1
 
 來源固定 commit：2fe7b09f59f721a02c558cbd6f73cc8f218ce007。來源 competition 可能把 API 錯誤記為 0，詞頻只是同一 pipeline 的取樣；不推論搜尋量、收入或實際使用者數。
 
-## 細化時需確認
+## 原研究階段的細化條件
 
 依 docs/product-direction.md 保留有發展空間的題目。先確認真實案例、既有替代方案與增量價值、首版格式／平台、交付成本；成熟工具可整合，不要求重造底層引擎。Medium／Low 表示目前的開發順序，Low 不代表低價值。需求、技術及付費意願尚未驗證。
 
-目前只建立候選卡，不因 monorepo 預設框架、provider、workspace 切法或基礎設施；完成必要細化後再決定是否轉 To Do。
+原研究階段只建立候選卡，不因 monorepo 預設框架或基礎設施。其後使用者已授權 Web 首版實作；現行架構與交付狀態見本卡開頭，研究來源限制仍保留。
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
@@ -90,7 +100,7 @@ ordinal: 1
 ## Implementation Plan
 
 <!-- SECTION:PLAN:BEGIN -->
-1. 依使用者授權採 mono-starter c6d6f32 初始化既有專案，保留研究與 Backlog，工具鏈維持 project-local。2. 完成靜態瀏覽器圖片工具：JPEG/PNG/WebP、明確 KB/KiB 與尺寸限制、逐檔結果與未達標原因、前後預覽及 ZIP；保留透明度或明確選擇白底，拒絕動畫，支援方向。3. 加入容量與像素限制、取消/清除、無上傳流程，以真實圖片及邊界測試驗證 AC。4. 執行範本 pnpm verify 與無頭瀏覽器驗收，建立 GitHub Pages workflow；確認目標 repository 後部署並驗證公開頁面。
+1. 依使用者授權採 mono-starter c6d6f32 初始化既有專案，保留研究與 Backlog，工具鏈維持 project-local。2. 完成靜態瀏覽器圖片工具：JPEG/PNG/WebP、明確 KB/KiB 與尺寸限制、逐檔結果與未達標原因、前後預覽及 ZIP；保留透明度或明確選擇白底，拒絕動畫，支援方向。3. 加入容量與像素限制、取消/清除、無上傳流程，以真實圖片及邊界測試驗證 AC。4. 執行範本 pnpm verify 與無頭瀏覽器驗收，使用 repo-local Wrangler、Pages 原生 Git OAuth 部署 tools.sid.tw，停用 GitHub Pages，驗證正式頁面。 最終架構：四工具共用單一 History SPA，建置產生完整 SSG HTML、工具與計算依需求載入，切換時清理工作及輸入；部署與分析驗收記於 STW-38。本機維護使用 mise exec -- pnpm <command>（STW-39）。
 <!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
@@ -131,10 +141,12 @@ Compress Picture的100KB流程輸出102,170／102,268／76,356 bytes，全部小
 2026-10-14 21:33 Asia/Taipei：使用者明確授權建立公開 SidStraw/sid-tools-web 並部署 Pages。已推送 4e07da8；Actions run 38572215704 的 Linux、macOS完整驗收與Pages部署皆success。公開 https://sidstraw.github.io/sid-tools-web/ HTTP200，獨立無頭Chromium實跑三張真實圖，WebP輸出99,066／99,968／55,656 bytes，皆符合100,000 bytes及1000×1000上限；透明背景、前後預覽、ZIP下載解壓、手機寬度及無圖片HTTP上傳皆驗證通過。先前部署中404已由部署完成後實測取代。證據見 docs/validation/stw-34/pages-smoke.json、github-first-deployment.json 與公開站截圖。
 
 圖片工具已整合到四工具共用 SSG + SPA，保留原網址與既有功能；切換會停止編碼/ZIP 並釋放資料。原 7 個圖片 E2E 全數回歸通過，公開站 PNG 下載已實測。部署 ceb5f50 / workflow 38577696921，證據 docs/validation/phase-one/README.md。
+
+2026-10-15 看板同步：現行正式入口為 https://tools.sid.tw/，四工具共用單一 SSG + SPA、選單與按需載入；計算在瀏覽器處理。已遷移 Cloudflare Pages，GitHub Pages 關閉。STW-38 已完成部署/SEO/分析驗收，先前等待遠端驗收的進度已解除；Web Analytics 已驗證頁面與 SPA 統計，工具輸入不上傳。保留歷史測試記錄；本次重新確認 HTTP200、canonical、舊 GitHub Pages HTTP404 與 CI 38725310119 的 Linux/macOS success。移除 proposal/validate-next，標示 released/phase-one/market-validation-pending。功能完成與市場驗證分開。
 <!-- SECTION:NOTES:END -->
 
 ## Final Summary
 
 <!-- SECTION:FINAL_SUMMARY:BEGIN -->
-以 mono-starter c6d6f32 初始化 TypeScript/Vite+ monorepo，交付瀏覽器本機批次圖片預算工具並部署 GitHub Pages。四項AC已驗證；本機與GitHub Linux/macOS的pnpm verify通過（13單元／套件＋7瀏覽器測試，production audit無已知弱點）。公開站實際處理、透明度、預覽、ZIP及手機布局驗證通過。工具：https://sidstraw.github.io/sid-tools-web/；證據：docs/validation/stw-34/README.md。
+本機批次圖片預算工具已交付：JPEG/PNG/WebP、KB/KiB、尺寸限制、逐檔達標說明、預覽與 ZIP，含透明背景、EXIF 方向、動畫拒絕及取消/清除。四工具共用單一 SSG + SPA、選單與按需載入；計算在瀏覽器處理。已遷移 Cloudflare Pages，GitHub Pages 關閉。 正式網址：https://tools.sid.tw/。既有完整驗收：27 unit/package +19 E2E、Linux/macOS CI 與正式站真實樣本/下載/SPA 驗證通過；證據 docs/validation/cloudflare/README.md、public-smoke.json。2026-10-15 看板同步重新唯讀確認正式網址 HTTP200/canonical、舊站 HTTP404 及已部署 commit 931860f 的 CI success；本次沒有重跑整套功能測試。自然流量成效與其他介面延伸仍未驗證。
 <!-- SECTION:FINAL_SUMMARY:END -->

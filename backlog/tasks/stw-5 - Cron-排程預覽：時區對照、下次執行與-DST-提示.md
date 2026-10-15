@@ -5,17 +5,18 @@ status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-14 14:11'
+updated_date: '2026-10-15 13:30'
 labels:
   - keyword-research
-  - proposal
   - developer-tools
   - delivery-web
   - web-first
   - extension-cli
   - extension-ide
   - demand-reviewed-2026-10-14
-  - validate-next
+  - released
+  - phase-one
+  - market-validation-pending
 dependencies: []
 references:
   - >-
@@ -31,12 +32,16 @@ references:
   - 'https://github.com/NousResearch/hermes-agent/issues/66436'
   - 'https://cronwizard.com/dst'
   - 'https://cron.dag.io/'
+  - 'https://tools.sid.tw/tools/cron/'
+  - 'https://github.com/SidStraw/sid-tools-web/actions/runs/38725310119'
 documentation:
   - research/keyword-review-2026-10-04/README.md
   - research/keyword-review-2026-10-04/keyword-decisions.json
   - docs/product-direction.md
   - research/tool-portfolio-review-2026-10-14/demand-review.md
   - research/tool-portfolio-review-2026-10-14/demand-existing-core.md
+  - docs/validation/cloudflare/README.md
+  - docs/validation/cloudflare/public-smoke.json
 priority: medium
 type: feature
 ordinal: 4
@@ -45,6 +50,12 @@ ordinal: 4
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
+## 最新交付狀態（2026-10-15）
+
+Done，Web 首版已上線：[開啟工具](https://tools.sid.tw/tools/cron/)。四工具共用單一 SSG + SPA、選單與按需載入；計算在瀏覽器處理。已遷移 Cloudflare Pages，GitHub Pages 關閉。
+
+功能交付不代表搜尋量、排名或流量收益已驗證；CLI/CI/IDE 等延伸不列入本次完成範圍。歷史研究與競品證據保留於下方及原紀錄。
+
 ## 使用情境與保留理由
 
 看懂 Cron 的文字說明仍可能選錯伺服器時區或遇到 DST 缺時／重複時間。來源涵蓋 builder、validator、translator 與 visualizer，可合為一個排程檢查情境。
@@ -67,9 +78,9 @@ ordinal: 4
 
 來源固定於 `2fe7b09f59f721a02c558cbd6f73cc8f218ce007`；範圍為 logs/2026_01/19_035446.md 至 logs/2026_08/30_032855.md。以上次數只代表 pipeline 重複取樣，不是搜尋量或獨立使用者數。
 
-## 啟動前的決策
+## 原研究階段的啟動條件
 
-目前為 Needs Refinement，表示值得保留的產品候選。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。
+研究階段曾為 Needs Refinement，作為值得保留的產品候選。以下為當時的啟動門檻，現行交付狀態見本卡開頭。先以實際工作範例比較既有工具、確認差異價值與可接受的首版範圍，再轉 To Do；不要因建立卡片就開始實作或新增框架。High／Medium 表示本專案建議驗證順序，不是 SEO 收益預測。
 
 來源的 competition 是搜尋結果筆數估算，API 錯誤也可能回傳 0，且 AI 摘要只看到前 10 筆。搜尋量、排名難度與付費意願均未獲驗證；不採信「零競爭、保證排名」敘述。
 
@@ -77,7 +88,7 @@ ordinal: 4
 
 主要交付：Web 優先，保留本卡既有的瀏覽器首版範圍與驗收條件。
 
-延伸方向：CLI／IDE 的排程檢查。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸是產品候選，尚未選定共用套件、workspace 或實作框架。
+延伸方向：CLI／IDE 的排程檢查。同一工作成果的其他介面先記在本卡，不按平台複製卡片。使用者已確認 monorepo 不限 Web；上述延伸仍是產品候選；目前 Web 首版已採 apps/web、packages/core、TypeScript/Vite+ 與 pnpm workspace，CLI/CI/IDE 延伸尚未實作。
 
 參見 docs/product-direction.md；交付形式與開發順序可以細化，已有來源限制仍適用。
 <!-- SECTION:DESCRIPTION:END -->
@@ -94,7 +105,7 @@ ordinal: 4
 ## Implementation Plan
 
 <!-- SECTION:PLAN:BEGIN -->
-使用固定版本 cron-parser，限制五欄數字 Unix Cron，提供 IANA 時區與未來十次雙時區預覽、複製及下載；驗證 DST、月底、閏年與不支援方言，隨四工具一起部署。
+使用固定版本 cron-parser，限制五欄數字 Unix Cron，提供 IANA 時區與未來十次雙時區預覽、複製及下載；驗證 DST、月底、閏年與不支援方言，隨四工具一起部署。 最終架構：四工具共用單一 History SPA，建置產生完整 SSG HTML、工具與計算依需求載入，切換時清理工作及輸入；部署與分析驗收記於 STW-38。本機維護使用 mise exec -- pnpm <command>（STW-39）。
 <!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
@@ -115,10 +126,12 @@ ordinal: 4
 納入單一 SSG + SPA，Cron parser 只在操作 Cron 時載入；新增路由切換清理與載入驗收。
 
 本機 pnpm verify PASS：27 個單元/套件測試、18 個 production E2E，無格式/lint/型別錯誤與已知 production 漏洞。四工具共用 SSG + SPA；直接網址、前後頁、切換清理、動態載入、斷線恢復、快速切換、下載與無上傳已實測。細節 docs/validation/phase-one/README.md。維持 In Progress，等待遠端 CI/Pages 公開站驗收。
+
+2026-10-15 看板同步：現行正式入口為 https://tools.sid.tw/tools/cron/，四工具共用單一 SSG + SPA、選單與按需載入；計算在瀏覽器處理。已遷移 Cloudflare Pages，GitHub Pages 關閉。STW-38 已完成部署/SEO/分析驗收，先前等待遠端驗收的進度已解除；Web Analytics 已驗證頁面與 SPA 統計，工具輸入不上傳。保留歷史測試記錄；本次重新確認 HTTP200、canonical、舊 GitHub Pages HTTP404 與 CI 38725310119 的 Linux/macOS success。移除 proposal/validate-next，標示 released/phase-one/market-validation-pending。功能完成與市場驗證分開。
 <!-- SECTION:NOTES:END -->
 
 ## Final Summary
 
 <!-- SECTION:FINAL_SUMMARY:BEGIN -->
-已部署五欄 Unix Cron 預覽，提供逐欄說明、未來十次、兩個 IANA 時區及 UTC 對照、複製與 TXT 下載。DST 缺時/重複、月底、閏年、OR 規則及不支援方言均有固定測試與公開範例。共用單一 SSG + SPA；計算套件僅執行時載入。 本機及 Linux/macOS CI：27 單元/套件測試、18 production E2E PASS；公開站實測亦 PASS。部署 commit ceb5f50，workflow 38577696921。證據 docs/validation/phase-one/README.md、public-smoke.json。此完成狀態代表功能交付，不代表流量假設已驗證。
+五欄 Unix Cron 預覽已交付：逐欄說明、未來十次、雙 IANA 時區與 UTC、DST 規則/範例、複製與 TXT 下載；明確拒絕不支援方言。四工具共用單一 SSG + SPA、選單與按需載入；計算在瀏覽器處理。已遷移 Cloudflare Pages，GitHub Pages 關閉。 正式網址：https://tools.sid.tw/tools/cron/。既有完整驗收：27 unit/package +19 E2E、Linux/macOS CI 與正式站真實樣本/下載/SPA 驗證通過；證據 docs/validation/cloudflare/README.md、public-smoke.json。2026-10-15 看板同步重新唯讀確認正式網址 HTTP200/canonical、舊站 HTTP404 及已部署 commit 931860f 的 CI success；本次沒有重跑整套功能測試。自然流量成效與其他介面延伸仍未驗證。
 <!-- SECTION:FINAL_SUMMARY:END -->

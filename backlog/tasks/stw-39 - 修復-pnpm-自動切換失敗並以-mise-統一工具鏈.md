@@ -5,9 +5,13 @@ status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-15 12:57'
-updated_date: '2026-10-15 13:02'
-labels: []
+updated_date: '2026-10-15 13:30'
+labels:
+  - local-verified
+  - remote-validation-pending
 dependencies: []
+documentation:
+  - README.md
 priority: high
 type: bug
 ordinal: 2137
@@ -37,10 +41,12 @@ ordinal: 2137
 
 <!-- SECTION:NOTES:BEGIN -->
 已建立專案 mise.toml，安裝並選用 Node 24.21.0 / pnpm 12.8.2，未修改全域預設。新增 pnpm 10 的 .npmrc 相容設定、pnpm 12 的 pmOnFail/runtimeOnFail 與 engineStrict；engines.node 取代 devEngines.runtime。pnpm 重新產生 lockfile 僅刪除 137 行 Node runtime，應用相依版本未變。README、AGENTS 與兩份 workflow 同步；現有 pinned pnpm/setup v3 支援 runtime: node@24.21.0，無需新增 action。驗證：mise 與 pnpm exec（含 workspace）均使用 mise Node；pnpm 10.33.2 直接拒絕專案版本，pnpm 12.8.2 在隔離 fixture 拒絕 12.8.1 要求，Node 24.15.0 在 engineStrict fixture 被拒絕。最終 frozen-lockfile 安裝 PASS；pnpm verify PASS，0/6 task cache hits，27 個單元測試與 19 個瀏覽器測試通過，格式/lint/typecheck/build 通過，production audit 無已知弱點。初次沙箱安裝受 registry DNS 限制，取得執行權限後成功；沒有關閉供應鏈檢查。GitHub Linux/macOS CI 尚未遠端執行，未 push 或部署。
+
+2026-10-15 看板同步：本機 commit 4d2f6ec 已完成工具鏈與本機驗收；origin/main 仍為 931860f，該 commit 尚未 push。Done 僅表示本卡四項本機/設定 AC 完成，不表示新版 mise 設定已經 GitHub Linux/macOS CI 或 Cloudflare 原生 Git 建置驗證。新增 local-verified / remote-validation-pending 標籤，保留既有驗收限制。
 <!-- SECTION:NOTES:END -->
 
 ## Final Summary
 
 <!-- SECTION:FINAL_SUMMARY:BEGIN -->
-修復 pnpm 自動切換 ENOEXEC，改由專案 mise 設定提供指定 Node/pnpm，版本不符直接報錯；文件與 CI 同步。frozen 安裝及完整無快取 verify 通過（27 unit、19 E2E）。
+修復 pnpm 自動切換 ENOEXEC，改由專案 mise 設定提供指定 Node/pnpm，版本不符直接報錯；文件與 CI 同步。frozen 安裝及完整無快取 verify 通過（27 unit、19 E2E）。 本機 commit 4d2f6ec；尚未 push，GitHub Linux/macOS CI 與 Cloudflare 建置驗證未執行。
 <!-- SECTION:FINAL_SUMMARY:END -->

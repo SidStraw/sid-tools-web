@@ -5,9 +5,18 @@ status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-15 10:29'
-updated_date: '2026-10-15 11:09'
-labels: []
+updated_date: '2026-10-15 13:30'
+labels:
+  - cloudflare-pages
+  - deployed
+  - web-analytics
 dependencies: []
+references:
+  - 'https://tools.sid.tw/'
+  - 'https://github.com/SidStraw/sid-tools-web/actions/runs/38725310119'
+documentation:
+  - docs/validation/cloudflare/README.md
+  - docs/validation/cloudflare/public-smoke.json
 priority: high
 type: chore
 ordinal: 1137
@@ -44,6 +53,8 @@ repo 內 Wrangler 4.149.0 已安裝；最新版不符三天發布等待期，未
 完成 Pages 原生 Git OAuth 整合，未建立新 API Token；main 自動部署啟用，afbab67 首次 Git 建置與部署成功，tools.sid.tw domain/verification/validation active、SSL 啟用，臨時 Worker 只解除該網域綁定。原生 Bulk Redirect 已實測 pages.dev 301 保留深層路徑/查詢，hash 預覽 noindex；舊 GitHub Pages HTTP404。Pages runtime pnpm verify：27 unit/package +19 E2E PASS，GitHub Verify 38723715383 Linux/macOS PASS。2026-10-15T11:04:59Z 正式站四工具真實樣本/下載/SPA/深層重整/手機與 RUM204 PASS，測試輸入不在 POST，無 CSP/page error。Web Analytics 沿用排除歐盟偏好，報表已篩選 tools.sid.tw；自然流量尚待累積。詳見 docs/validation/cloudflare/README.md 與 public-smoke.json。
 
 追加遠端實證：push 204925d 後原生 deployment_trigger.type=github:push，898cc659-0c7a-4cb4-a0ef-8613d26989c1 於 2026-10-15T11:08:24Z build/deploy success。11:08:34Z host=tools.sid.tw 儀表板已入庫 3 visits /4 page views，包含 1 次軟式導覽；僅作分析入庫證據，含驗收活動，不宣告自然流量。截圖 web-analytics-report.png 已排除帳號資訊。
+
+2026-10-15 看板同步：重新確認正式四頁 HTTP200/canonical、舊 GitHub Pages HTTP404；已部署 commit 931860f 的 GitHub Verify 38725310119 Linux/macOS 均 success。已把四工具卡的現行網址、SSG + SPA、驗收引用與交付標籤對齊本卡。STW-39 的 mise 調整目前只有本機 commit，未誤記為正式站已部署。
 <!-- SECTION:NOTES:END -->
 
 ## Final Summary

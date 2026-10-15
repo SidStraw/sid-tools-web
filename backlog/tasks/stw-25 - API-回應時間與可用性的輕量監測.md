@@ -4,7 +4,7 @@ title: API 回應時間與可用性的輕量監測
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-15 14:03'
 labels:
   - keyword-research
   - proposal
@@ -85,4 +85,14 @@ Uptime Kuma 已支援 HTTP/JSON query 等監控及通知；需要持續執行服
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+## 2026-10-15 實作阻礙與本輪略過
+
+最新要求已取代先前因市場需求而暫緩的決定；本輪略過僅因下列輸入／證據尚未建立或確認，不代表完成。
+
+- 待補項目：尚未確認持續量測 runner／排程位置、允許的 endpoint 與網路邊界，以及憑證取得／遮蔽、歷史資料保留和頻率／並行上限。
+- 驗收影響：AC1 至 AC4 要求可定位的實際量測、受控請求、秘密資料規則及未執行／失敗／缺漏區分；瀏覽器分頁輪詢不能冒充可靠的持續監測證據。
+- 解除方式：提出本機或自架 runner、允許目標與儲存／保留規則，取得安全與架構計畫核准後，以受控測試 endpoint 驗證排程及缺漏。告警為另行選擇與授權，不要求先提供通知憑證。
+
+維持原狀態、描述與既有紀錄，所有 AC 維持未勾選；本輪不宣告完成。
 <!-- SECTION:NOTES:END -->

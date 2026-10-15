@@ -1,0 +1,4 @@
+services:
+  web:
+    image: synthetic:web
+    depends_on: ['${SYNTHETIC_DEPENDENCY}']

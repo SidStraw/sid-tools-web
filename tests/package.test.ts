@@ -6,6 +6,28 @@ import { compareEnv, type EnvComparison } from '@sid-tools/core/env-check';
 import { parseExplain, EXPLAIN_EXAMPLES, type ExplainReport } from '@sid-tools/core/explain';
 import { analyzeSelectors, type SelectorListAnalysis } from '@sid-tools/core/selectors';
 import { compareSdl, exportSdlComparison, type SdlComparison } from '@sid-tools/core/sdl';
+import { analyzeCompose, exportComposeSummary, type ComposeReport } from '@sid-tools/core/compose';
+
+test('public Compose subpath exposes typed clone-safe bounded static graph and explicit metadata-only projection', () => {
+  expectTypeOf(analyzeCompose).returns.toEqualTypeOf<ComposeReport>();
+  const source =
+    'services:\n  app:\n    image: synthetic-private-image\n    depends_on: [db]\n    volumes: [data:/synthetic-private-path]\n  db:\n    image: synthetic-private-db\nvolumes:\n  data: {}\n';
+  const report = analyzeCompose(source);
+  expect(report.status).toBe('complete');
+  expect(structuredClone(report)).toEqual(report);
+  expect(report.dependencies[0]!.status).toBe('declared');
+  expect(report.networks.some((resource) => resource.implicit)).toBe(true);
+  const summary = exportComposeSummary(report);
+  expect(summary).not.toContain('synthetic-private');
+  expect(summary).not.toContain('services:');
+  expect(JSON.parse(summary)).not.toHaveProperty('source');
+  expect(JSON.parse(summary)).toHaveProperty('format', 'sid-tools/compose-static/v1');
+  const missing = analyzeCompose(
+    'services:\n  app:\n    image: synthetic\n    depends_on:\n      missing:\n        condition: service_started\n        required: false\n',
+  );
+  expect(missing.status).toBe('invalid');
+  expect(missing.dependencies[0]!.status).toBe('missing');
+});
 import { parseSqlDdl, exportSqlDdlSummary, type SqlDdlReport } from '@sid-tools/core/sql-ddl';
 
 test('public SQL DDL subpath exposes clone-safe declaration model, source binding and explicit metadata-only export', () => {

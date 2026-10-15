@@ -1,0 +1,7 @@
+services:
+  first:
+    image: synthetic:first
+    depends_on: [second]
+  second:
+    image: synthetic:second
+    depends_on: [first]

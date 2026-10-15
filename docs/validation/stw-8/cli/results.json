@@ -1,0 +1,933 @@
+{
+  "metadata": {
+    "executable": "/usr/local/bin/docker-compose",
+    "sha256": "4a728ee98f89005a90198a9be791e8fdaebbcb5e6af9721251efe0113df37759",
+    "version": {
+      "command": ["/usr/local/bin/docker-compose", "version"],
+      "exitCode": 0,
+      "stdout": "Docker Compose version v5.5.0\n",
+      "stderr": ""
+    },
+    "configHelp": {
+      "command": ["/usr/local/bin/docker-compose", "config", "--help"],
+      "exitCode": 0,
+      "stdout": "Usage:  docker compose config [OPTIONS] [SERVICE...]\n\nParse, resolve and render compose file in canonical format\n\nOptions:\n      --dry-run                 Execute command in dry run mode\n      --environment             Print environment used for interpolation.\n      --format string           Format the output. Values: [yaml | json]\n      --hash string             Print the service config hash, one per line.\n      --images                  Print the image names, one per line.\n      --lock-image-digests      Produces an override file with image digests\n      --models                  Print the model names, one per line.\n      --networks                Print the network names, one per line.\n      --no-consistency          Don't check model consistency - warning:\n                                may produce invalid Compose output\n      --no-env-resolution       Don't resolve service env files\n      --no-interpolate          Don't interpolate environment variables\n      --no-normalize            Don't normalize compose model\n      --no-path-resolution      Don't resolve file paths\n  -o, --output string           Save to file (default to stdout)\n      --profiles                Print the profile names, one per line.\n  -q, --quiet                   Only validate the configuration, don't\n                                print anything\n      --resolve-image-digests   Pin image tags to digests\n      --services                Print the service names, one per line.\n      --variables               Print model variables and default values.\n      --volumes                 Print the volume names, one per line.\n",
+      "stderr": ""
+    },
+    "environment": {
+      "PATH": "/usr/bin:/bin",
+      "HOME": "<fresh>/home",
+      "DOCKER_CONFIG": "<fresh>/docker-config",
+      "COMPOSE_DISABLE_ENV_FILE": "1",
+      "COMPOSE_ANSI": "never",
+      "NO_COLOR": "1",
+      "LANG": "C",
+      "LC_ALL": "C"
+    },
+    "timeoutSecondsPerCommand": 20,
+    "maxOutputBytesPerCommand": 65536
+  },
+  "results": [
+    {
+      "case": "01-depends-short",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"db\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"image\": \"synthetic:db\",\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"web\": {\n      \"command\": null,\n      \"depends_on\": {\n        \"db\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "01-depends-short",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"db\": {\n      \"image\": \"synthetic:db\",\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"web\": {\n      \"depends_on\": {\n        \"db\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "02-depends-long",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"db\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"image\": \"synthetic:db\",\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"web\": {\n      \"command\": null,\n      \"depends_on\": {\n        \"db\": {\n          \"condition\": \"service_healthy\",\n          \"restart\": true,\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "02-depends-long",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"db\": {\n      \"image\": \"synthetic:db\",\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"web\": {\n      \"depends_on\": {\n        \"db\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true,\n          \"restart\": true\n        }\n      },\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "03-missing-required",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "service \"web\" depends on undefined service \"missing\": invalid compose project\n"
+    },
+    {
+      "case": "03-missing-required",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"depends_on\": {\n        \"missing\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "04-missing-optional",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "service \"web\" depends on undefined service \"missing\": invalid compose project\n"
+    },
+    {
+      "case": "04-missing-optional",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"depends_on\": {\n        \"missing\": {\n          \"condition\": \"service_started\",\n          \"required\": false\n        }\n      },\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "05-cycle",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "dependency cycle detected: first -> second -> first\n"
+    },
+    {
+      "case": "05-cycle",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"first\": {\n      \"depends_on\": {\n        \"second\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"image\": \"synthetic:first\",\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"second\": {\n      \"depends_on\": {\n        \"first\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"image\": \"synthetic:second\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "06-network-defaults",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"absent\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"image\": \"synthetic:test\",\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"empty-list\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"image\": \"synthetic:test\",\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"empty-map\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"image\": \"synthetic:test\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "06-network-defaults",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"absent\": {\n      \"image\": \"synthetic:test\",\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"empty-list\": {\n      \"image\": \"synthetic:test\",\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"empty-map\": {\n      \"image\": \"synthetic:test\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "07-network-explicit",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"internal\": {\n      \"name\": \"stw8oracle_internal\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"list\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"image\": \"synthetic:test\",\n      \"networks\": {\n        \"internal\": null\n      }\n    },\n    \"map\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"image\": \"synthetic:test\",\n      \"networks\": {\n        \"internal\": {\n          \"aliases\": [\n            \"synthetic-alias\"\n          ]\n        }\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "07-network-explicit",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"internal\": {\n      \"name\": \"stw8oracle_internal\"\n    },\n    \"unused\": {\n      \"name\": \"stw8oracle_unused\"\n    }\n  },\n  \"services\": {\n    \"list\": {\n      \"image\": \"synthetic:test\",\n      \"networks\": {\n        \"internal\": null\n      }\n    },\n    \"map\": {\n      \"image\": \"synthetic:test\",\n      \"networks\": {\n        \"internal\": {\n          \"aliases\": [\n            \"synthetic-alias\"\n          ]\n        }\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "08-network-undeclared",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "service \"web\" refers to undefined network missing: invalid compose project\n"
+    },
+    {
+      "case": "08-network-undeclared",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"services\": {\n    \"web\": {\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"missing\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "09-volumes",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"volumes\": [\n        {\n          \"type\": \"volume\",\n          \"source\": \"data\",\n          \"target\": \"/data\",\n          \"volume\": {}\n        },\n        {\n          \"type\": \"bind\",\n          \"source\": \"./synthetic-bind\",\n          \"target\": \"/bind\",\n          \"bind\": {}\n        },\n        {\n          \"type\": \"volume\",\n          \"target\": \"/anonymous\",\n          \"volume\": {}\n        },\n        {\n          \"type\": \"volume\",\n          \"source\": \"other\",\n          \"target\": \"/long\",\n          \"read_only\": true\n        },\n        {\n          \"type\": \"bind\",\n          \"source\": \"./synthetic-long-bind\",\n          \"target\": \"/long-bind\"\n        }\n      ]\n    }\n  },\n  \"volumes\": {\n    \"data\": {\n      \"name\": \"stw8oracle_data\"\n    },\n    \"other\": {\n      \"name\": \"stw8oracle_other\"\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "09-volumes",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"volumes\": [\n        {\n          \"source\": \"data\",\n          \"target\": \"/data\",\n          \"type\": \"volume\",\n          \"volume\": {}\n        },\n        {\n          \"bind\": {\n            \"create_host_path\": true\n          },\n          \"source\": \"./synthetic-bind\",\n          \"target\": \"/bind\",\n          \"type\": \"bind\"\n        },\n        {\n          \"target\": \"/anonymous\",\n          \"type\": \"volume\",\n          \"volume\": {}\n        },\n        {\n          \"read_only\": true,\n          \"source\": \"other\",\n          \"target\": \"/long\",\n          \"type\": \"volume\"\n        },\n        {\n          \"source\": \"./synthetic-long-bind\",\n          \"target\": \"/long-bind\",\n          \"type\": \"bind\"\n        }\n      ]\n    }\n  },\n  \"volumes\": {\n    \"data\": {\n      \"name\": \"stw8oracle_data\"\n    },\n    \"other\": {\n      \"name\": \"stw8oracle_other\"\n    },\n    \"unused\": {\n      \"name\": \"stw8oracle_unused\"\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "10-volume-undeclared",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "service \"web\" refers to undefined volume missing: invalid compose project\n"
+    },
+    {
+      "case": "10-volume-undeclared",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"volumes\": [\n        {\n          \"source\": \"missing\",\n          \"target\": \"/data\",\n          \"type\": \"volume\",\n          \"volume\": {}\n        }\n      ]\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "11-external",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"outside\": {\n      \"name\": \"synthetic-external-network\",\n      \"ipam\": {},\n      \"external\": true\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"outside\": null\n      },\n      \"volumes\": [\n        {\n          \"type\": \"volume\",\n          \"source\": \"outside\",\n          \"target\": \"/data\",\n          \"volume\": {}\n        }\n      ]\n    }\n  },\n  \"volumes\": {\n    \"outside\": {\n      \"name\": \"synthetic-external-volume\",\n      \"external\": true\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "11-external",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"outside\": {\n      \"external\": true,\n      \"name\": \"synthetic-external-network\"\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"outside\": null\n      },\n      \"volumes\": [\n        {\n          \"source\": \"outside\",\n          \"target\": \"/data\",\n          \"type\": \"volume\",\n          \"volume\": {}\n        }\n      ]\n    }\n  },\n  \"volumes\": {\n    \"outside\": {\n      \"external\": true,\n      \"name\": \"synthetic-external-volume\"\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "12-profile-required",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "service \"web\" depends on undefined service \"db\": invalid compose project\n"
+    },
+    {
+      "case": "12-profile-required",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"db\": {\n      \"image\": \"synthetic:db\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"profiles\": [\n        \"database\"\n      ]\n    },\n    \"web\": {\n      \"depends_on\": {\n        \"db\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "13-profile-optional",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"command\": null,\n      \"depends_on\": {\n        \"db\": {\n          \"condition\": \"service_started\",\n          \"required\": false\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "13-profile-optional",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"db\": {\n      \"image\": \"synthetic:db\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"profiles\": [\n        \"database\"\n      ]\n    },\n    \"web\": {\n      \"depends_on\": {\n        \"db\": {\n          \"condition\": \"service_started\",\n          \"required\": false\n        }\n      },\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "14-extension",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  },\n  \"x-synthetic\": {\n    \"purpose\": \"graph-evidence\"\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "14-extension",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"x-synthetic\": \"ignored-by-graph\"\n    }\n  },\n  \"x-synthetic\": {\n    \"purpose\": \"graph-evidence\"\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "15-unknown-service-field",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "validating <fixture-dir>/compose.yaml: services.web additional properties 'not_a_compose_field' not allowed\n"
+    },
+    {
+      "case": "15-unknown-service-field",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "validating <fixture-dir>/compose.yaml: services.web additional properties 'not_a_compose_field' not allowed\n"
+    },
+    {
+      "case": "16-unknown-top-field",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "validating <fixture-dir>/compose.yaml:  additional properties 'not_a_compose_field' not allowed\n"
+    },
+    {
+      "case": "16-unknown-top-field",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "validating <fixture-dir>/compose.yaml:  additional properties 'not_a_compose_field' not allowed\n"
+    },
+    {
+      "case": "17-interpolated-reference",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "time=\"2026-10-16T05:00:42+08:00\" level=warning msg=\"The \\\"SYNTHETIC_DEPENDENCY\\\" variable is not set. Defaulting to a blank string.\"\nservice \"web\" depends on undefined service \"\": invalid compose project\n"
+    },
+    {
+      "case": "17-interpolated-reference",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"depends_on\": {\n        \"${SYNTHETIC_DEPENDENCY}\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "18-interpolation",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"environment\": {\n        \"BRACED\": \"\",\n        \"DEFAULT_COLON\": \"fallback\",\n        \"DEFAULT_MINUS\": \"fallback\",\n        \"ESCAPED\": \"$$SYNTHETIC_UNSET\",\n        \"PLAIN\": \"\"\n      },\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": "time=\"2026-10-16T05:00:42+08:00\" level=warning msg=\"The \\\"SYNTHETIC_UNSET\\\" variable is not set. Defaulting to a blank string.\"\ntime=\"2026-10-16T05:00:42+08:00\" level=warning msg=\"The \\\"SYNTHETIC_UNSET\\\" variable is not set. Defaulting to a blank string.\"\n"
+    },
+    {
+      "case": "18-interpolation",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"environment\": {\n        \"BRACED\": \"${SYNTHETIC_UNSET}\",\n        \"DEFAULT_COLON\": \"${SYNTHETIC_UNSET:-fallback}\",\n        \"DEFAULT_MINUS\": \"${SYNTHETIC_UNSET-fallback}\",\n        \"ESCAPED\": \"$$SYNTHETIC_UNSET\",\n        \"PLAIN\": \"$SYNTHETIC_UNSET\"\n      },\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "19-include",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"db\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"image\": \"synthetic:db\",\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"web\": {\n      \"command\": null,\n      \"depends_on\": {\n        \"db\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "19-include",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"db\": {\n      \"image\": \"synthetic:db\",\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"web\": {\n      \"depends_on\": {\n        \"db\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "20-extends",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"environment\": {\n        \"BASE\": \"synthetic\",\n        \"CHILD\": \"synthetic\"\n      },\n      \"image\": \"synthetic:base\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "20-extends",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"environment\": [\n        \"BASE=synthetic\",\n        \"CHILD=synthetic\"\n      ],\n      \"image\": \"synthetic:base\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "21-profile-active",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--profile",
+        "database",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"db\": {\n      \"profiles\": [\n        \"database\"\n      ],\n      \"command\": null,\n      \"entrypoint\": null,\n      \"image\": \"synthetic:db\",\n      \"networks\": {\n        \"default\": null\n      }\n    },\n    \"web\": {\n      \"profiles\": [\n        \"database\"\n      ],\n      \"command\": null,\n      \"depends_on\": {\n        \"db\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "21-profile-active",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--profile",
+        "database",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"db\": {\n      \"image\": \"synthetic:db\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"profiles\": [\n        \"database\"\n      ]\n    },\n    \"web\": {\n      \"depends_on\": {\n        \"db\": {\n          \"condition\": \"service_started\",\n          \"required\": true\n        }\n      },\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      },\n      \"profiles\": [\n        \"database\"\n      ]\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "22-network-explicit-default",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"command\": null,\n      \"entrypoint\": null,\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "22-network-explicit-default",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"stw8oracle\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"stw8oracle_default\"\n    }\n  },\n  \"services\": {\n    \"web\": {\n      \"image\": \"synthetic:web\",\n      \"networks\": {\n        \"default\": null\n      }\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "case": "23-network-null",
+      "mode": "normal-consistency",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "validating <fixture-dir>/compose.yaml: services.null-value.networks must be a array\n"
+    },
+    {
+      "case": "23-network-null",
+      "mode": "no-interpolate",
+      "command": [
+        "/usr/local/bin/docker-compose",
+        "--project-name",
+        "stw8oracle",
+        "--file",
+        "compose.yaml",
+        "config",
+        "--format",
+        "json",
+        "--no-interpolate",
+        "--no-env-resolution",
+        "--no-path-resolution"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "validating <fixture-dir>/compose.yaml: services.null-value.networks must be a array\n"
+    }
+  ]
+}

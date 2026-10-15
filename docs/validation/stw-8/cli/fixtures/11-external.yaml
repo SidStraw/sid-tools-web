@@ -1,0 +1,13 @@
+services:
+  web:
+    image: synthetic:web
+    networks: [outside]
+    volumes: [outside:/data]
+networks:
+  outside:
+    external: true
+    name: synthetic-external-network
+volumes:
+  outside:
+    external: true
+    name: synthetic-external-volume

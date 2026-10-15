@@ -1,0 +1,9 @@
+services:
+  web:
+    image: synthetic:web
+    environment:
+      PLAIN: $SYNTHETIC_UNSET
+      BRACED: ${SYNTHETIC_UNSET}
+      DEFAULT_COLON: ${SYNTHETIC_UNSET:-fallback}
+      DEFAULT_MINUS: ${SYNTHETIC_UNSET-fallback}
+      ESCAPED: $$SYNTHETIC_UNSET

@@ -1,0 +1,5 @@
+services:
+  base:
+    image: synthetic:base
+    environment:
+      BASE: synthetic

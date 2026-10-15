@@ -116,5 +116,13 @@ export const routes = [
     description:
       '本機讀取有界 PostgreSQL CREATE TABLE 子集，以原生 SVG 查看資料表、欄位、明示外鍵與來源；區分已解析、本機候選與未解決，不連線資料庫、不執行 migration。',
   },
+  {
+    id: 'compose',
+    path: 'tools/compose/',
+    label: 'Compose 預檢',
+    title: 'Docker Compose 靜態預檢與服務相依圖',
+    description:
+      '在瀏覽器檢查單份 Compose YAML 的有限結構、服務相依與 network／volume 引用，查看來源、profiles 與未解析狀態；不連 Docker、不執行服務、不解析環境或多檔。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

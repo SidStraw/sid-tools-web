@@ -1,0 +1,18 @@
+services:
+  web:
+    image: synthetic:web
+    volumes:
+      - data:/data
+      - ./synthetic-bind:/bind
+      - /anonymous
+      - type: volume
+        source: other
+        target: /long
+        read_only: true
+      - type: bind
+        source: ./synthetic-long-bind
+        target: /long-bind
+volumes:
+  data: {}
+  other: {}
+  unused: {}

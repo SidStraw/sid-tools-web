@@ -1,10 +1,11 @@
 ---
 id: STW-8
 title: Docker Compose 靜態預檢與服務相依圖
-status: Needs Refinement
-assignee: []
+status: Done
+assignee:
+  - '@opencode'
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-15 21:31'
 labels:
   - keyword-research
   - proposal
@@ -82,12 +83,22 @@ Compose YAML 能解析不代表 service、network、volume 或 depends_on 引用
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 標示使用的 Compose 規格版本，結構問題可定位 YAML 路徑或行號。
-- [ ] #2 列出 service、network、volume 與 depends_on 關係，缺少引用對象及循環依賴有提示。
-- [ ] #3 未提供的環境變數與多檔合併需求明確顯示為未解析，不以空字串冒充有效設定。
-- [ ] #4 比較官方 Compose CLI 的固定範例結果，說明靜態通過不等於執行或健康檢查通過。
-- [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
+- [x] #1 標示使用的 Compose 規格版本，結構問題可定位 YAML 路徑或行號。
+- [x] #2 列出 service、network、volume 與 depends_on 關係，缺少引用對象及循環依賴有提示。
+- [x] #3 未提供的環境變數與多檔合併需求明確顯示為未解析，不以空字串冒充有效設定。
+- [x] #4 比較官方 Compose CLI 的固定範例結果，說明靜態通過不等於執行或健康檢查通過。
+- [x] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. 使用既有 yaml2.9.1，獨立有界 Parser→Composer adapter，保留 YAML 路徑與來源範圍；單一 Compose 文件的 service/network/volume/depends_on 子集，不新增 runtime/schema 相依套件。
+2. 以 compose-spec snapshot914ec15d1fa498969c0df5c1d672306db3256089 作規格參考，區分結構錯誤、缺失引用、循環、外部資源與 profile 條件。插值、anchors/aliases、多檔 include/extends/merge 明示未解析，不讀環境或檔案、不冒充完整 Compose 驗證。
+3. 平行建立本機官方 Compose v5.5.0 config 固定案例比對與核心測試；隔離 HOME/DOCKER_CONFIG/env，僅 config，不連 daemon、不執行服務。
+4. 核心 API 穩定後整合專用可終止 worker、可定位來源的安全文字相依圖、service/network/volume 清單與清除功能；不保存、不上傳、不寫分享 URL。
+5. 測試覆蓋引用/循環/預設 network/volume/profile/插值/unsupported/來源/惡意資源限制；production E2E 驗證實際 worker、圖與來源導覽、隱私、清除及手機版。凍結後完整 pnpm verify、獨立 Oracle 與結構審查，五項 AC 通過才 Done 並獨立 commit。
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -103,4 +114,14 @@ Compose YAML 能解析不代表 service、network、volume 或 depends_on 引用
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+2026-10-16：依使用者實作所有未完成卡片授權啟動，舊市場 defer 不再作為略過理由。採離線單檔靜態 graph/reference 子集，不宣稱完整 schema 或部署成功；安裝中的官方 Compose v5.5.0 僅用於隔離固定案例驗證，不成為產品 runtime。
+
+2026-10-16 final acceptance: Parent accepted fresh mise exec -- pnpm verify (sh_1417609c7001XrVxq346U7ND9b): 827 unit/public + 138 production E2E, 204 formatted/103 strict type-aware files, build/audit PASS, cache0/6. Initial six CLI formatting failures were repaired with parsed YAML/JSON semantic equality and 129 focused tests before fresh full PASS. Independent Oracle attempt1 and structure PASS, no material findings. Durable five-AC evidence: docs/validation/stw-8/README.md; official v5.5.0 23 fixtures/46 commands and 68 actual-core comparison tests in cli/comparison.md; dedicated worker/browser privacy/source/clear tests and ten reviewed production screenshots. No DoD items configured. Accepted limitations: anchors/aliases unsupported even inside x-*; 500 diagnostics fail safe to limit/no model; profile activation and extends conditional; interpolation/include/extends unknown, never substituted empty; unknown fields partial, not full schema/runtime/health proof. Docs-only final linkage formatted/checked; full verify not repeated. No source changes, reserved lane writes, push or deployment during finalization.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Delivered bounded single-document Compose static preflight with pinned specification, source-located diagnostics, declaration/dependency/attachment graphs and conditional SCCs, Run-only dedicated worker, safe text UI, clear/cancel and consented metadata export. Concrete undeclared dependencies are invalid even required:false; profiles/interpolation/multifile remain honestly unresolved. Accepted 827 unit/public and 138 production E2E tests, build/audit, 204 formatted/103 strict checks, cache0/6; independent Oracle1 and structure PASS. Official CLI evidence:23 fixtures/46 commands,68 offline comparison tests; ten production screenshots. Five AC verified; no DoD configured. Evidence and accepted limits: docs/validation/stw-8/README.md.
+<!-- SECTION:FINAL_SUMMARY:END -->

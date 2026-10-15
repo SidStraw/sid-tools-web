@@ -2,7 +2,7 @@
 
 **[開啟工具：tools.sid.tw](https://tools.sid.tw/)**
 
-十五個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
+十六個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
 
 | 工具                                                        | 功能                                                   |
 | ----------------------------------------------------------- | ------------------------------------------------------ |
@@ -21,6 +21,7 @@
 | [OpenAPI 差異](https://tools.sid.tw/tools/openapi/)         | JSON／YAML 合約雙方向分類、引用使用點與定義導覽        |
 | [回應 Fixture](https://tools.sid.tw/tools/openapi-fixture/) | 明確選取 JSON 回應、固定 seed、獨立驗證與資料來源      |
 | [SQL 關聯圖](https://tools.sid.tw/tools/sql-ddl/)           | PostgreSQL 建表宣告、來源連結、原生 SVG 與資料表文件   |
+| [Compose 預檢](https://tools.sid.tw/tools/compose/)         | 單份 Compose YAML 靜態子集、服務相依與資源引用         |
 
 採用 [SidStraw/mono-starter](https://github.com/SidStraw/mono-starter) commit `c6d6f32854f6a8fd9f5d6cd4076475e4e9170af0` 初始化，沿用 TypeScript、Vite+、pnpm workspace、嚴格檢查、跨平台 CI、Renovate 與選用 Pi 診斷。保留本專案既有 Backlog 與研究，沒有複製範本任務。
 
@@ -65,7 +66,7 @@ mise exec -- pnpm dev
 
 ## SSG、SPA 與按需載入
 
-`src/routes.ts` 定義十五個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
+`src/routes.ts` 定義十六個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
 
 `src/router.ts` 使用 History API，選單與上一頁／下一頁在同一份 document 切換。畫面與控制程式按工具動態載入並快取；Worker 在按下執行後建立，Lighthouse、JSON 與 Cron 計算模組再按需載入。首頁不載入 Cron parser 等其他工具套件。切換時停止 Worker／ZIP、釋放 Blob URL 並丟棄使用者輸入；已載入的程式碼可重用，輸入不快取。
 
@@ -155,6 +156,16 @@ App-owned 原生 SVG 使用 createElementNS／textContent／固定 attrs／數�
 
 SVG 含可讀 metadata、coverage／diagnostic count 與 partial／invalid 不完整 legend，不含 raw SQL/default/literals/comment body／來源 snippets。摘要只按明確同意後 lazy 呼叫 `exportSqlDdlSummary`，不 stringify report/rawfallback。名稱／型別仍敏感，不是匿名化；SVG/summary獨立下載，BlobURL1秒／reset／dispose／failure回收，晚到 helper 不恢復舊下載。Synthetic qualified/self/composite/candidate/unsupported/lexical/invalid/limit/hostile案例及證據見 `docs/validation/stw-13/README.md`。
 
+Compose 預檢只在 Run 啟動獨立 `compose.worker`，公開 `@sid-tools/core/compose` 提供 `analyzeCompose`／`exportComposeSummary` 與規格參考／限額／型別；不是 runtime Compose 實作。單份 YAML、有界 services／depends_on／profiles／networks／selected mounts 子集。依賴、network attachment、named／bind／anonymous mounts 分軌呈現，selected-service 焦點圖只顯示所有 outgoing records、每批50，不冒充完整部署圖；等同文字清單、完整 counts 與 summary 保留所有接受 records。Missing／unresolved 不造節點或確定連線，implicit default 與 external not-checked 明示；不因未使用的宣告建立 attachment。
+
+沒有選任何 profiles；有定義的 optional profiled target 是 conditional，不等於 undeclared，也不自動啟用。具體 undeclared dependency 即使 required:false 仍是 reference error，對齊觀測官方 Compose v5.5.0 primary config。Cycles 是 declared SCC 成員而非啟動順序；conditional SCC 不宣稱所有 activation 都失敗，無條件 subcycle 另標錯誤。Service networks absent／空集合才推導 default，null 無效；network_mode／繼承未知不猜連接。Image 只保留宣告狀態，service_healthy／completed 不是觀測結果；外部資源／bind path 存在性皆未檢查。
+
+參考 [compose-spec schema snapshot 914ec15…](https://github.com/compose-spec/compose-spec/blob/914ec15d1fa498969c0df5c1d672306db3256089/schema/compose-spec.json)（schema 更新2026-09-17），不是完整 schema validation／resolved application／服務啟動健康驗證。官方 Compose v5.5.0 已隔離執行23個固定合成案例、46次 config；primary 使用 `config --format json --no-env-resolution --no-path-resolution`，secondary 加 `--no-interpolate`。此版本 secondary 接受部分 primary 拒絕的 missing refs／cycles，exit0不能當一致性證明。CLI 仍可解析 include／extends／defaults，且會對缺少變數代空字串；本工具不讀環境／檔案，所有插值（即使有 default）保持 unresolved，從不代空。CLI config 也不證明 runtime／health／external existence。可重現設定、固定觀測結果與逐案例比較見 `docs/validation/stw-8/cli/README.md`、`results.json`、`comparison.md`；產品不執行 CLI、不連 daemon、不下載 schema。
+
+Include／extends／多檔合併／env_file／YAML aliases／anchors／tags／merge／directives／多文件不支援，x-* 明示忽略；其他未知設定保守 partial。每份500K UTF16、tokens／nodes100K、depth64、每collection10K、token／scalar65,536、name／key256、services／networks／volumes各128、references4000、diagnostics500、graphwork100K、path2048／總1M。Limit 清除模型。20秒 worker timeout，加上成功／重跑／編輯／取消／清除／離開／error/messageerror 皆終止，嚴格 revision／identity／id／kind／shape guards，無主執行緒或 shared worker fallback。原始 UTF16/end-exclusive/path/1-based line-column 來源導覽，dynamic keys 用 @dynamic:index。名稱全為 textContent，沒有 user HTML 或外部資源。
+
+摘要須明確同意後 lazy 公開 helper 投影；無 raw YAML/report/image/env/commands/mount paths／任意值，不是匿名化（名稱／profiles／來源 paths 仍敏感）。不另輸出 SVG。Blob1秒／reset／dispose／failure回收，晚到 helper 不恢復舊下載。無登入／網路／DB／永久儲存／輸入logging／query／hash／分享 URL。UI／production 證據見 `docs/validation/stw-8/README.md`。
+
 可直接重現的 Cron 範例（另有單元測試）：
 
 | 情境     | 排程／時區                      | UTC 起算             | 預覽行為                                  |
@@ -178,7 +189,7 @@ mise exec -- pnpm deploy
 
 Cloudflare Pages 原生 Git 整合沿用既有 GitHub OAuth 授權，連接 `SidStraw/sid-tools-web` 的 `main`；建置命令 `pnpm build`、輸出目錄 `apps/web/dist`，root directory 為 repo 根目錄。自動部署不需要另建使用者 API Token。手動部署使用既有 Wrangler OAuth 與 `wrangler pages deploy`。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
 
-網站在網域根路徑提供十五個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。十五頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
+網站在網域根路徑提供十六個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。十六頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
 
 `sid.tw` 帳號既有 Cloudflare Web Analytics 自動安裝涵蓋子網域；沿用「排除歐盟訪客」偏好，不新增重複 beacon。CSP 僅允許官方 beacon script 與指定 RUM 端點；本機無 beacon，測試仍檢查輸入不上傳。正式站頁面瀏覽與效能會送出基本統計，工具輸入、檔案、處理結果留在瀏覽器。
 

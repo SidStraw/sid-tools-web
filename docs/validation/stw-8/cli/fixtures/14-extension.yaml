@@ -1,0 +1,5 @@
+x-synthetic: { purpose: graph-evidence }
+services:
+  web:
+    image: synthetic:web
+    x-synthetic: ignored-by-graph

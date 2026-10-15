@@ -1,0 +1,8 @@
+services:
+  web:
+    image: synthetic:web
+    profiles: [database]
+    depends_on: [db]
+  db:
+    image: synthetic:db
+    profiles: [database]

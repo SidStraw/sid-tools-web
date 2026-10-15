@@ -1,0 +1,4 @@
+services:
+  web:
+    image: synthetic:web
+    not_a_compose_field: synthetic

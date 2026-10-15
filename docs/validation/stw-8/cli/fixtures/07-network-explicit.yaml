@@ -1,0 +1,12 @@
+services:
+  list:
+    image: synthetic:test
+    networks: [internal]
+  map:
+    image: synthetic:test
+    networks:
+      internal:
+        aliases: [synthetic-alias]
+networks:
+  internal: {}
+  unused: {}

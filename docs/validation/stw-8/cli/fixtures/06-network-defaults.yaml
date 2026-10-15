@@ -1,0 +1,9 @@
+services:
+  absent:
+    image: synthetic:test
+  empty-list:
+    image: synthetic:test
+    networks: []
+  empty-map:
+    image: synthetic:test
+    networks: {}

@@ -1,0 +1,7 @@
+services:
+  web:
+    extends:
+      file: synthetic-base.yaml
+      service: base
+    environment:
+      CHILD: synthetic

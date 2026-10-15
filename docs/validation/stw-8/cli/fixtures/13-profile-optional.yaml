@@ -1,0 +1,10 @@
+services:
+  web:
+    image: synthetic:web
+    depends_on:
+      db:
+        condition: service_started
+        required: false
+  db:
+    image: synthetic:db
+    profiles: [database]

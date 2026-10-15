@@ -1,0 +1,5 @@
+include: [synthetic-included.yaml]
+services:
+  web:
+    image: synthetic:web
+    depends_on: [db]

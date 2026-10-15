@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 const sample = (name: string) =>
   resolve('research/competitor-validation-2026-10-14/samples/lighthouse', name);
-test('all fifteen tools are reachable from the menu and nested URLs survive reload on mobile', async ({
+test('all sixteen tools are reachable from the menu and nested URLs survive reload on mobile', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
@@ -23,6 +23,7 @@ test('all fifteen tools are reachable from the menu and nested URLs survive relo
     ['OpenAPI 差異', 'openapi'],
     ['回應 Fixture', 'openapi-fixture'],
     ['SQL 關聯圖', 'sql-ddl'],
+    ['Compose 預檢', 'compose'],
   ] as const) {
     await page
       .getByRole('navigation', { name: '工具選單' })
@@ -167,6 +168,7 @@ test('new tool demos run on mobile without horizontal page overflow or network s
     'openapi',
     'openapi-fixture',
     'sql-ddl',
+    'compose',
   ]) {
     await page.goto(`tools/${path}/`);
     const requests: string[] = [];
@@ -201,6 +203,7 @@ test('new tool demos run on mobile without horizontal page overflow or network s
     if (path === 'selectors') await expect(page.locator('#html-source')).toHaveValue('');
     else if (path === 'openapi-fixture') await expect(page.locator('#source')).toHaveValue('');
     else if (path === 'sql-ddl') await expect(page.locator('#source')).toHaveValue('');
+    else if (path === 'compose') await expect(page.locator('#source')).toHaveValue('');
     else if (path === 'palette') await expect(page.locator('#backing')).toHaveValue('');
     else if (path === 'explain') await expect(page.locator('#plan')).toHaveValue('');
     else if (path === 'sitemap') await expect(page.locator('#xml')).toHaveValue('');
@@ -231,11 +234,12 @@ test('SSG serves full route content without JavaScript', async ({ browser }) => 
     ['tools/openapi/', '合約變動'],
     ['tools/openapi-fixture/', '先知道來源'],
     ['tools/sql-ddl/', '從建表宣告'],
+    ['tools/compose/', '把服務關係'],
   ] as const) {
     const response = await page.goto(`http://127.0.0.1:4173/${path}`);
     expect(response?.status()).toBe(200);
     await expect(page.locator('h1')).toContainText(title);
-    await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(15);
+    await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(16);
   }
   await context.close();
 });
@@ -284,7 +288,7 @@ test('initial route loads only its code; calculation dependencies wait for Run',
   await expect(page.locator('#route-loading')).toBeHidden();
   expect(
     scripts.some((url) =>
-      /\/(sql-ddl|sql-ddl\.worker|openapi-fixture|openapi-fixture\.worker|openapi|openapi\.worker|sdl|selectors|selectors-html|palette|palette-image|explain|sitemap|sitemap-xml|git-diff|env-check|semver|cron|json-diff|lighthouse|tools\.worker|image\.worker)-/.test(
+      /\/(compose|compose\.worker|sql-ddl|sql-ddl\.worker|openapi-fixture|openapi-fixture\.worker|openapi|openapi\.worker|sdl|selectors|selectors-html|palette|palette-image|explain|sitemap|sitemap-xml|git-diff|env-check|semver|cron|json-diff|lighthouse|tools\.worker|image\.worker)-/.test(
         url,
       ),
     ),
@@ -350,6 +354,7 @@ test('Cloudflare root routing canonicalizes tools, exposes the sitemap, and retu
     'tools/openapi/',
     'tools/openapi-fixture/',
     'tools/sql-ddl/',
+    'tools/compose/',
   ]) {
     const response = await request.get('/' + path);
     expect(response.status()).toBe(200);
@@ -364,7 +369,7 @@ test('Cloudflare root routing canonicalizes tools, exposes the sitemap, and retu
   const sitemap = await request.get('/sitemap.xml');
   expect(sitemap.status()).toBe(200);
   const xml = await sitemap.text();
-  expect(xml.match(/<loc>/g)).toHaveLength(15);
+  expect(xml.match(/<loc>/g)).toHaveLength(16);
   expect(xml).not.toContain('github.io');
   expect(await (await request.get('/robots.txt')).text()).toContain(
     'Sitemap: https://tools.sid.tw/sitemap.xml',

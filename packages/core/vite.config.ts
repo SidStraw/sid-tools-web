@@ -20,6 +20,7 @@ export default defineConfig({
       'src/openapi.ts',
       'src/openapi-fixture.ts',
       'src/sql-ddl.ts',
+      'src/compose.ts',
     ],
     format: ['esm'],
     dts: true,

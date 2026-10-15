@@ -1,0 +1,10 @@
+services:
+  web:
+    image: synthetic:web
+    depends_on:
+      db:
+        condition: service_healthy
+        required: true
+        restart: true
+  db:
+    image: synthetic:db

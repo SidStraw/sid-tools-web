@@ -1,0 +1,7 @@
+services:
+  web:
+    image: synthetic:web
+    depends_on:
+      missing:
+        condition: service_started
+        required: true

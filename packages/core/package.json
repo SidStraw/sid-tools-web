@@ -28,6 +28,10 @@
       "types": "./dist/semver.d.mts",
       "import": "./dist/semver.mjs"
     },
+    "./compose": {
+      "types": "./dist/compose.d.mts",
+      "import": "./dist/compose.mjs"
+    },
     "./sql-ddl": {
       "types": "./dist/sql-ddl.d.mts",
       "import": "./dist/sql-ddl.mjs"

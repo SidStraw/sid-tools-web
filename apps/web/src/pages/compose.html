@@ -1,0 +1,237 @@
+<main class="utility-main cmp-main">
+  <section class="tool-intro">
+    <p class="eyebrow">先看宣告如何相連，再談啟動。<span>COMPOSE FIELD NOTES / 16</span></p>
+    <h1>把服務關係，與未知分開看。</h1>
+    <p class="intro-copy">
+      單份 Compose YAML 的有限結構與引用預檢。分清服務相依、network 連接與 volume
+      掛載，回到真正的來源位置；遇到 profiles、插值或外部資源，就把尚未確認的部分留下。
+    </p>
+    <div class="intro-tags">
+      <span>不連 Docker daemon</span><span>不讀環境／檔案</span
+      ><span>單檔靜態子集，不是部署許可</span>
+    </div>
+  </section>
+  <section class="utility-panel">
+    <div class="panel-heading">
+      <h2>01 ／ 放入一份 YAML，不執行它</h2>
+      <span class="cmp-caption">ONE DOCUMENT / NO ENVIRONMENT</span>
+    </div>
+    <div class="cmp-demos">
+      <button id="demo" class="text-button">相依 / network / volume</button
+      ><button id="demo-conditional" class="text-button">Profile / external</button
+      ><button id="demo-missing" class="text-button">缺少引用對象</button
+      ><button id="demo-cycles" class="text-button">無條件 / 條件循環</button
+      ><button id="demo-unresolved" class="text-button">插值 / include / extends</button
+      ><button id="demo-unsupported" class="text-button">不支援的設定</button
+      ><button id="demo-invalid" class="text-button">Null network</button
+      ><button id="demo-alias" class="text-button">YAML alias</button
+      ><button id="demo-limit" class="text-button">深度限制</button>
+    </div>
+    <p id="demo-note" class="help">
+      固定案例皆人工合成；載入與編輯不觸發解析，按 Run 才建立獨立 worker。
+    </p>
+    <label for="source">Compose YAML · 原始文字</label
+    ><textarea
+      id="source"
+      spellcheck="false"
+      wrap="off"
+      autocomplete="off"
+      autocapitalize="off"
+      aria-describedby="compose-input-scope"
+      placeholder="services:&#10;  app:&#10;    image: synthetic-app"
+    ></textarea>
+    <p id="compose-input-scope" class="help">
+      每份 500K UTF-16、CST／nodes 100K、depth 64、每 collection 10K、token／scalar
+      65,536、name／key 256、services／networks／volumes 各 128、總 references 4,000、diagnostics
+      500、graph work 100K；path 2,048／合計 1M units。超限清除模型，不截斷成功。YAML
+      anchors／aliases／tags／directives／merge／多文件不支援。
+    </p>
+    <div class="tool-actions">
+      <button id="run" class="button primary">
+        預檢並整理關係 <span aria-hidden="true">→</span></button
+      ><button id="cancel" class="button secondary" disabled>取消工作</button
+      ><button id="clear" class="button secondary">清除內容</button
+      ><span id="status" role="status" aria-live="polite">尚未預檢；來源只在目前頁面記憶體。</span>
+    </div>
+    <p id="error" class="notice" hidden role="alert"></p>
+  </section>
+  <section id="output" hidden aria-label="Compose 靜態預檢結果">
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>02 ／ 先核對覆蓋，不只看數量</h2>
+        <span id="report-state" class="cmp-state"></span>
+      </div>
+      <p id="summary" class="result-notice" role="status"></p>
+      <div id="counts" class="cmp-counts"></div>
+      <div class="cmp-assumptions">
+        <p>
+          <strong>沒有選擇任何 profiles</strong><br />有定義的 profiled service 不等於
+          undeclared。相依不會自動啟用 profile；保留條件，而不是猜一個 active graph。
+        </p>
+        <p>
+          <strong>外部與執行狀態皆未檢查</strong><br />Image 只有宣告狀態，external resources 是
+          not-checked。service_healthy／completed 是條件宣告，不是觀測結果。
+        </p>
+      </div>
+      <p id="spec" class="help"></p>
+      <p class="help">
+        規格參考：<a
+          href="https://github.com/compose-spec/compose-spec/blob/914ec15d1fa498969c0df5c1d672306db3256089/schema/compose-spec.json"
+          target="_blank"
+          rel="noopener noreferrer"
+          >compose-spec snapshot 914ec15…（2026-09-17 schema 更新）</a
+        >。僅參考版本，不在 runtime 下載 schema，不宣稱官方 CLI 內嵌規格完全相同。
+      </p>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>03 ／ 選一個服務，沿著引用看</h2>
+        <span class="cmp-caption">FOCUS MAP / OUTGOING REFERENCES</span>
+      </div>
+      <p class="help">
+        焦點圖只顯示所選服務的所有 outgoing
+        records，不是整份部署拓撲。三條軌道分開呈現依賴、network、mount；每批 50
+        筆。目標存在才有宣告卡片，missing／unresolved
+        只有問題記錄，不造節點或確定連線。下方完整文字清單提供等同來源導覽。
+      </p>
+      <label for="service">服務焦點</label
+      ><select id="service"></select>
+      <div id="graph" class="cmp-graph" aria-label="所選服務的相依與掛載關係"></div>
+      <p id="source-status" class="help" role="status" aria-live="polite"></p>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>04 ／ 宣告清單，不混同實際資源</h2>
+        <span class="cmp-caption">SERVICES / NETWORKS / VOLUMES</span>
+      </div>
+      <div class="cmp-inventory">
+        <section>
+          <h3>Services</h3>
+          <div id="services"></div>
+        </section>
+        <section>
+          <h3>Networks</h3>
+          <div id="networks"></div>
+        </section>
+        <section>
+          <h3>Volumes</h3>
+          <div id="volumes"></div>
+        </section>
+      </div>
+      <p class="help">
+        Implicit default network 由 absent／空 collection 的 service networks
+        推導，沒有虛構的宣告來源。Explicit default 可重用；networks:null 是錯誤。network_mode
+        或繼承來源未知時不猜 attachment。宣告但未使用的 volume 不造掛載。
+      </p>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>05 ／ 逐筆引用與循環，回到來源</h2>
+        <span class="cmp-caption">DECLARATIONS, NOT OBSERVED CONNECTIONS</span>
+      </div>
+      <div class="cmp-filters">
+        <div>
+          <label for="reference-filter">引用種類</label
+          ><select id="reference-filter">
+            <option value="all">全部引用</option>
+            <option value="dependency">depends_on</option>
+            <option value="network">Network attachment</option>
+            <option value="volume">Named volume</option>
+            <option value="bind">Bind mount</option>
+            <option value="anonymous">Anonymous mount</option>
+          </select>
+        </div>
+        <div>
+          <label for="reference-status">引用狀態</label
+          ><select id="reference-status">
+            <option value="all">全部狀態</option>
+            <option value="declared">Declared</option>
+            <option value="missing">Missing</option>
+            <option value="unresolved">Unresolved</option>
+          </select>
+        </div>
+      </div>
+      <div id="references"></div>
+      <h3>相依循環 · SCC 成員，不是執行順序</h3>
+      <div id="cycles"></div>
+      <p class="help">
+        無條件循環是 covered error；只有 profile 條件的 SCC 不代表所有 activation 都失敗。較大條件
+        SCC 中若另含 unconditional subcycle，仍顯示具體錯誤。Condition／required／restart
+        未解析時不猜預設確定性。Undeclared optional target 仍是 reference error，依實測官方 CLI
+        v5.5.0；已定義、未啟用的 optional profiled target 則不同。
+      </p>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>06 ／ 結構、未解析與支援邊界</h2>
+        <span class="cmp-caption">PATH / ORIGINAL SOURCE RANGE</span>
+      </div>
+      <label for="diagnostic-filter">診斷嚴重度</label
+      ><select id="diagnostic-filter">
+        <option value="all">所有診斷</option>
+        <option value="error">Error</option>
+        <option value="warning">Warning</option>
+        <option value="info">Info</option>
+      </select>
+      <div id="diagnostics"></div>
+      <details>
+        <summary>覆蓋範圍與官方 CLI 固定案例</summary>
+        <ul id="coverage"></ul>
+        <p class="help">
+          本機官方 Compose v5.5.0 已在隔離環境執行 23 組人工案例、46 次 config。Primary：config
+          --format json --no-env-resolution --no-path-resolution；secondary 額外
+          --no-interpolate。在此版本，secondary 會接受 primary 拒絕的 missing refs／cycles，所以其
+          exit 0 不能作為一致性證明。固定結果與逐項差異見專案
+          docs/validation/stw-8/cli/README.md、results.json 與 comparison.md；產品不執行 CLI。
+        </p>
+        <p class="help">
+          Primary 可用隔離檔案解析 include／extends，也會對缺少環境變數代空值／解析
+          default；本工具不讀環境／檔案，所有 $VAR／${…}（含
+          defaults）仍未解析，絕不以空字串冒充有效值。$$ 只代表 escape；動態 graph
+          名稱仍保守未知。Include／extends／多 -f 合併／env_file 不處理，x-*
+          明示忽略，其他不支援設定保守 partial。
+        </p>
+        <p class="help">
+          Complete 僅代表有限靜態子集，不是完整 schema／resolved application／啟動／健康驗證。CLI
+          config 接受 service_healthy 而沒有 healthcheck、接受 external resource
+          名稱，也不能證明服務成功或資源存在。無 daemon／pull／up／create／filesystem
+          probes；不把官方參考當 runtime 依賴。
+        </p>
+      </details>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>07 ／ 只帶走精簡 metadata</h2>
+        <span class="cmp-caption">REVIEW BEFORE SHARING</span>
+      </div>
+      <label class="cmp-confirm"
+        ><input id="export-confirm" type="checkbox" />我已檢查服務／資源／profile
+        名稱與路徑，了解摘要仍可能敏感。</label
+      >
+      <p class="help">
+        只用公開 exportComposeSummary 投影：狀態、規格參考、服務／資源
+        metadata、條件／引用／cycles、static codes／來源位置、限額與範圍。不含原始
+        YAML、image／environment／command／mount path 或任意值。不是匿名化，不匯出完整 report 或
+        SVG。Limit 無模型不可下載；其他狀態仍保留不完整標記。
+      </p>
+      <div class="tool-actions">
+        <button id="export-summary" class="button secondary" disabled>下載精簡摘要</button
+        ><span id="export-status" class="help" role="status"></span>
+      </div>
+    </section>
+  </section>
+  <section class="tool-guide">
+    <h2>設定的關係圖，不是服務的實況。</h2>
+    <p>
+      免登入，來源只在目前頁面與專用 module worker 記憶體。不連
+      Docker、不上傳／記錄輸入、不保存、不放進 query／hash／分享 URL。按 Run 才建立每次獨立
+      worker；20 秒逾時、取消、編輯、重跑、清除、離開或錯誤會終止，沒有主執行緒解析
+      fallback。全部資源隨網站提供。
+    </p>
+    <p>
+      來源位置為原始 UTF-16 end-exclusive，行／欄從 1 起算；YAML path 使用 JSON Pointer
+      跳脫，dynamic key 用 @dynamic:index 不複製插值內容。圖與清單皆安全純文字，不渲染使用者
+      HTML。下載是主動行為，Blob URL 短期回收；分享前仍須檢查名稱與 metadata。
+    </p>
+  </section>
+</main>

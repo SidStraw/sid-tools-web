@@ -1,0 +1,4 @@
+services:
+  null-value:
+    image: synthetic:test
+    networks:

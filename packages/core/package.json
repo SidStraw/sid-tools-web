@@ -28,6 +28,10 @@
       "types": "./dist/semver.d.mts",
       "import": "./dist/semver.mjs"
     },
+    "./sdl": {
+      "types": "./dist/sdl.d.mts",
+      "import": "./dist/sdl.mjs"
+    },
     "./selectors": {
       "types": "./dist/selectors.d.mts",
       "import": "./dist/selectors.mjs"
@@ -64,6 +68,7 @@
   "dependencies": {
     "cron-parser": "5.10.2",
     "css-tree": "catalog:",
+    "graphql": "catalog:",
     "lossless-json": "4.3.1",
     "semver": "catalog:"
   },

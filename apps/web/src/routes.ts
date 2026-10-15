@@ -84,5 +84,13 @@ export const routes = [
     description:
       '比較 CSS selector 三元組與來源貢獻，在離線解析的純文字 HTML 結構上查看靜態命中。不渲染 HTML，不模擬完整 cascade。',
   },
+  {
+    id: 'sdl',
+    path: 'tools/sdl/',
+    label: 'GraphQL 差異',
+    title: 'GraphQL SDL 差異與型別導覽',
+    description:
+      '在瀏覽器比較兩份 SDL，區分 breaking、dangerous、non-breaking 與 unknown，查看型別、欄位和直接引用；不連線 API、不推論 resolver 相容性。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

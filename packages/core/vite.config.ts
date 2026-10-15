@@ -16,6 +16,7 @@ export default defineConfig({
       'src/explain.ts',
       'src/palette.ts',
       'src/selectors.ts',
+      'src/sdl.ts',
     ],
     format: ['esm'],
     dts: true,

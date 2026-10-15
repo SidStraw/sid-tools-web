@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 const sample = (name: string) =>
   resolve('research/competitor-validation-2026-10-14/samples/lighthouse', name);
-test('all eleven tools are reachable from the menu and nested URLs survive reload on mobile', async ({
+test('all twelve tools are reachable from the menu and nested URLs survive reload on mobile', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
@@ -19,6 +19,7 @@ test('all eleven tools are reachable from the menu and nested URLs survive reloa
     ['EXPLAIN 檢視', 'explain'],
     ['圖片配色', 'palette'],
     ['Selector 比較', 'selectors'],
+    ['GraphQL 差異', 'sdl'],
   ] as const) {
     await page
       .getByRole('navigation', { name: '工具選單' })
@@ -159,6 +160,7 @@ test('new tool demos run on mobile without horizontal page overflow or network s
     'explain',
     'palette',
     'selectors',
+    'sdl',
   ]) {
     await page.goto(`tools/${path}/`);
     const requests: string[] = [];
@@ -205,11 +207,12 @@ test('SSG serves full route content without JavaScript', async ({ browser }) => 
     ['tools/explain/', '沿著計畫樹'],
     ['tools/palette/', '取一點顏色'],
     ['tools/selectors/', '把 selector 拆開'],
+    ['tools/sdl/', '讓 schema 的改動'],
   ] as const) {
     const response = await page.goto(`http://127.0.0.1:4173/${path}`);
     expect(response?.status()).toBe(200);
     await expect(page.locator('h1')).toContainText(title);
-    await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(11);
+    await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(12);
   }
   await context.close();
 });
@@ -258,7 +261,7 @@ test('initial route loads only its code; calculation dependencies wait for Run',
   await expect(page.locator('#route-loading')).toBeHidden();
   expect(
     scripts.some((url) =>
-      /\/(selectors|selectors-html|palette|palette-image|explain|sitemap|sitemap-xml|git-diff|env-check|semver|cron|json-diff|lighthouse|tools\.worker|image\.worker)-/.test(
+      /\/(sdl|selectors|selectors-html|palette|palette-image|explain|sitemap|sitemap-xml|git-diff|env-check|semver|cron|json-diff|lighthouse|tools\.worker|image\.worker)-/.test(
         url,
       ),
     ),
@@ -320,6 +323,7 @@ test('Cloudflare root routing canonicalizes tools, exposes the sitemap, and retu
     'tools/explain/',
     'tools/palette/',
     'tools/selectors/',
+    'tools/sdl/',
   ]) {
     const response = await request.get('/' + path);
     expect(response.status()).toBe(200);
@@ -334,7 +338,7 @@ test('Cloudflare root routing canonicalizes tools, exposes the sitemap, and retu
   const sitemap = await request.get('/sitemap.xml');
   expect(sitemap.status()).toBe(200);
   const xml = await sitemap.text();
-  expect(xml.match(/<loc>/g)).toHaveLength(11);
+  expect(xml.match(/<loc>/g)).toHaveLength(12);
   expect(xml).not.toContain('github.io');
   expect(await (await request.get('/robots.txt')).text()).toContain(
     'Sitemap: https://tools.sid.tw/sitemap.xml',

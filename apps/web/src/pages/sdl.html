@@ -1,0 +1,195 @@
+<main class="utility-main sdl-main">
+  <section class="tool-intro">
+    <p class="eyebrow">合約改了哪裡？先看分類，再回來源。<span>SCHEMA STUDY / 12</span></p>
+    <h1>讓 schema 的改動，有脈絡可查。</h1>
+    <p class="intro-copy">
+      比較兩份 GraphQL SDL，並排看相容性分類與型別引用。只做靜態結構分析，不連線 API、不執行
+      resolver，也不替既有查詢宣告安全。
+    </p>
+    <div class="intro-tags">
+      <span>本機兩份 SDL</span><span>來源座標導覽</span><span>不執行 GraphQL</span>
+    </div>
+  </section>
+  <section class="utility-panel" aria-label="兩份 SDL 輸入">
+    <div class="panel-heading">
+      <h2>01 ／ 放進這一次改動</h2>
+      <span class="sdl-side-note">BEFORE → AFTER</span>
+    </div>
+    <div class="sdl-demos" aria-label="人工合成固定範例">
+      <button id="demo" class="text-button">型別與欄位</button
+      ><button id="demo-variance" class="text-button">Input / Output</button
+      ><button id="demo-defaults" class="text-button">Argument / Default</button
+      ><button id="demo-unknown" class="text-button">Directive 未知</button
+      ><button id="demo-ambiguous" class="text-button">來源歸屬不明</button
+      ><button id="demo-invalid" class="text-button">無效 Extension</button>
+    </div>
+    <p id="demo-note" class="help">人工合成範例供核對，不是外部服務或真實客戶 schema。</p>
+    <div class="sdl-inputs">
+      <div>
+        <label for="before">Before · 目前 SDL</label
+        ><textarea
+          id="before"
+          spellcheck="false"
+          wrap="off"
+          autocomplete="off"
+          autocapitalize="off"
+          placeholder="type Query { book: String }"
+          aria-describedby="sdl-limits"
+        ></textarea>
+      </div>
+      <div>
+        <label for="after">After · 擬議 SDL</label
+        ><textarea
+          id="after"
+          spellcheck="false"
+          wrap="off"
+          autocomplete="off"
+          autocapitalize="off"
+          placeholder="type Query { book: String! }"
+          aria-describedby="sdl-limits"
+        ></textarea>
+      </div>
+    </div>
+    <p id="sdl-limits" class="help">
+      每側最多 100,000 UTF-16 字碼單元、10,000 tokens、64 types（含 extensions）、500 members、1,000
+      直接引用；nesting 24、AST depth 64／nodes 6,000、interface depth 16。合計最多 1,000
+      changes，超限整份拒絕，不當成完整的截斷報告。
+    </p>
+    <div class="tool-actions">
+      <button id="run" class="button primary">比較 SDL <span aria-hidden="true">→</span></button
+      ><button id="clear" class="button secondary">清除內容</button
+      ><span id="status" role="status" aria-live="polite">貼入兩份 SDL，或先試一個固定範例。</span>
+    </div>
+    <p id="error" class="notice" role="alert" hidden></p>
+  </section>
+  <section id="output" hidden aria-label="SDL 靜態比較結果">
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>02 ／ 分類，不省略不確定性</h2>
+        <span id="report-state" class="sdl-report-state"></span>
+      </div>
+      <p id="summary" class="result-notice" role="status"></p>
+      <div id="counts" class="sdl-counts"></div>
+      <div class="sdl-rules">
+        <p>
+          <strong>Output 回傳保證</strong><br />String → String!：non-breaking；String! →
+          String：breaking。
+        </p>
+        <p>
+          <strong>Input 可接受範圍</strong><br />String → String!：breaking；反向 non-breaking。新增
+          required input／argument 需考慮 default。
+        </p>
+      </div>
+      <p class="help">
+        既有 nullable input 改 NonNull，即使同時加 default，固定分類器仍列 breaking。既有 default
+        新增為 non-breaking，改動／移除為 dangerous。optional input／argument 新增保守列
+        dangerous。List／NonNull wrappers 依位置遞迴比較，非單看驚嘆號。
+      </p>
+      <div id="issues" class="sdl-issues"></div>
+      <details class="sdl-scope">
+        <summary>這份報告涵蓋什麼，沒有證明什麼</summary>
+        <ul id="scope"></ul>
+        <p class="help">
+          Complete 只代表此靜態子集的分類／來源覆蓋，不等於 operational compatibility。自訂
+          directive applications 即使未變也 unknown；custom scalar、resolver、client
+          usage、授權、資料與執行效果不在此分析內。GraphQL 座標不是 JSON
+          Pointer；引用是直接關係，不是傳遞影響樹。
+        </p>
+      </details>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>03 ／ 從變更，走回實際定義</h2>
+        <span class="sdl-side-note">分類 ≠ 確定目標 ≠ 執行影響</span>
+      </div>
+      <div class="sdl-review">
+        <section aria-label="變更清單">
+          <label for="category">分類篩選</label
+          ><select id="category">
+            <option value="all">全部分類</option>
+            <option value="breaking">Breaking · 結構不相容</option>
+            <option value="dangerous">Dangerous · 需審查</option>
+            <option value="non-breaking">Non-breaking · 靜態可相容</option>
+            <option value="unknown">Unknown · 未知影響</option>
+          </select>
+          <div id="changes"></div>
+        </section>
+        <section class="sdl-detail" aria-label="變更原因與來源">
+          <div id="change-detail"></div>
+        </section>
+      </div>
+    </section>
+    <section class="utility-panel">
+      <div class="panel-heading">
+        <h2>04 ／ 逐側型別與欄位導覽</h2>
+        <span class="sdl-side-note">歸屬不明，仍可獨立查看座標</span>
+      </div>
+      <div class="sdl-navigation">
+        <section aria-label="來源座標清單">
+          <div class="sdl-nav-controls">
+            <div>
+              <label for="side">檢視側</label
+              ><select id="side">
+                <option value="before">Before</option>
+                <option value="after">After</option>
+              </select>
+            </div>
+            <div>
+              <label for="type-filter">型別</label
+              ><select id="type-filter">
+                <option value="all">所有型別／座標</option>
+              </select>
+            </div>
+          </div>
+          <label for="coordinate-search">篩選座標（型別／欄位／argument）</label
+          ><input
+            id="coordinate-search"
+            type="search"
+            autocomplete="off"
+            placeholder="例如 Book.title 或 Query.book(id:)"
+          />
+          <div id="coordinates"></div>
+        </section>
+        <section class="sdl-detail" aria-label="定義與直接型別引用">
+          <p id="selection-status" role="status" aria-live="polite" class="help">
+            選一個座標，查看 signature、實際來源與直接引用。
+          </p>
+          <div id="coordinate-detail"></div>
+        </section>
+      </div>
+    </section>
+    <section class="utility-panel sdl-export">
+      <div>
+        <h2>05 ／ 帶走刻意縮減的報告</h2>
+        <p class="help">
+          僅匯出核心 exportSdlComparison()
+          的明確投影：狀態、分類／codes／IDs、mapping、座標位置／名稱、直接引用、scope／limits。不含原始
+          SDL、signature、reason、description、default／directive arguments
+          或錯誤原文。名稱與座標仍可能敏感，這不是匿名化。
+        </p>
+        <label class="sdl-confirm"
+          ><input id="export-confirm" type="checkbox" />
+          我已檢查名稱／座標，了解匯出仍可能含敏感資訊。</label
+        >
+      </div>
+      <div>
+        <button id="export" class="button secondary" disabled>下載縮減 JSON</button>
+        <p id="export-status" role="status" class="help"></p>
+      </div>
+    </section>
+  </section>
+  <section class="tool-guide sdl-guide">
+    <h2>用靜態證據，開始下一步審查。</h2>
+    <p>
+      免登入。SDL 只在目前頁面的記憶體中處理，不上傳、不連線 endpoint、不永久保存、不放入
+      query／hash／分享
+      URL。編輯、清除、重整或離開會丟棄舊結果。只有你主動下載才產生本機檔案；分享前請檢查。
+    </p>
+    <p>
+      分類使用固定 graphql@17.0.2。Breaking 表示這份靜態規則下的結構不相容；dangerous
+      需要人工審查；non-breaking 也不是服務或查詢安全保證；unknown 可能來自 directive
+      或無法確認變更歸屬，報告狀態與 unknown 計數需分開看。候選／無對應不得當成確定來源，reason
+      僅為文字說明，不用它猜連結。
+    </p>
+  </section>
+</main>

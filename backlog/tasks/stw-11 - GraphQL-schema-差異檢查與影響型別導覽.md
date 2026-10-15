@@ -1,10 +1,11 @@
 ---
 id: STW-11
 title: GraphQL schema 差異檢查與影響型別導覽
-status: Needs Refinement
-assignee: []
+status: Done
+assignee:
+  - '@opencode'
 created_date: '2026-10-04 14:23'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-15 18:51'
 labels:
   - keyword-research
   - proposal
@@ -79,12 +80,22 @@ GraphQL schema 的欄位刪除、nullability 與 enum 改動可能影響既有�
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 有效 SDL 可比較 type、field、argument、enum 與 nullability 的增刪改。
-- [ ] #2 分開 input 與 output 的相容性規則，標示 breaking／dangerous／non-breaking 及原因。
-- [ ] #3 無效 SDL、未解析 extension 或自訂 directive 的影響不能宣告安全。
-- [ ] #4 可依型別與欄位導覽並匯出結果，提供固定相容性範例核對。
-- [ ] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
+- [x] #1 有效 SDL 可比較 type、field、argument、enum 與 nullability 的增刪改。
+- [x] #2 分開 input 與 output 的相容性規則，標示 breaking／dangerous／non-breaking 及原因。
+- [x] #3 無效 SDL、未解析 extension 或自訂 directive 的影響不能宣告安全。
+- [x] #4 可依型別與欄位導覽並匯出結果，提供固定相容性範例核對。
+- [x] #5 首版免登入，使用者輸入只在瀏覽器處理；不自動上傳、永久保存或放入分享 URL，提供清除內容功能。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. 使用固定 graphql@17.0.2 建立純核心：有限長度／token／結構預檢、SDL parse/build/validate，無效或未解析 extension 不產生安全結論。
+2. 依固定版本分類 type、field、argument、enum、nullability 與 default 變更，區分 input/output；自訂 directive 影響及未知分類明確標為待人工判讀，附來源與型別引用導覽資料。
+3. 整合既有本機 lazy Web 工具介面，提供兩份 SDL、固定範例、型別／欄位導覽、結果匯出及清除；不連線、不保存、不放分享 URL。
+4. 核心矩陣與公開套件測試、production E2E／隱私／生命週期／手機版及證據；程式碼凍結後完整 pnpm verify、獨立 Oracle 與結構審查。
+5. 通過驗收才逐項勾 AC、Done，僅精確暫存本卡檔案並獨立 commit；遇實際阻塞則在卡片註記後跳過。
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -100,4 +111,14 @@ Inspector 已含 breaking/dangerous/safe 分類、使用量規則與 CI；現卡
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+2026-10-16：依使用者實作全部未完成卡片的授權啟動，舊市場 defer 不再作為跳過理由。先查證 GraphQL SDL parser、input/output 相容性規則及現有整合位置；研究完成後記錄實作計畫。不連線正式 API、不執行 resolver，保留 directive 與不完整輸入的人工判讀限制。
+
+2026-10-16：完成純本機 GraphQL SDL 比較與型別／欄位來源導覽、保守未知狀態、明確同意的精簡匯出及清除。固定 graphql17.0.2，input/output nullability 分開判斷；無效 extension、自訂 directive、歸屬不明不宣告安全。完整 mise exec -- pnpm verify 無快取通過：449 單元／套件、88 production E2E、格式與 strict、build、audit；既有 TypeScript7 experimental API 提示保留。獨立 Oracle1 與結構審查 PASS、七張目前合成截圖已檢視。證據 docs/validation/stw-11/README.md。接受靜態／單層引用／歸屬保守及非匿名匯出限制；沒有 push 或部署。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+已交付 GraphQL SDL 靜態差異、input/output 相容性分類、型別／欄位來源導覽、固定範例及本機精簡匯出。449 單元／套件與88 E2E、完整 verify、獨立安全及結構審查通過；五項 AC 皆有證據，詳見 docs/validation/stw-11/README.md。
+<!-- SECTION:FINAL_SUMMARY:END -->

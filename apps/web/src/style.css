@@ -2893,6 +2893,347 @@ dialog > p {
     padding: 12px;
   }
 }
+.sdl-main textarea {
+  font:
+    12px/1.85 ui-monospace,
+    monospace;
+  min-height: 260px;
+}
+.sdl-inputs,
+.sdl-rules,
+.sdl-review,
+.sdl-navigation {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px;
+}
+.sdl-demos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+}
+.sdl-main .text-button {
+  min-height: 36px;
+}
+.sdl-side-note {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: #63785d;
+  line-height: 1.9;
+}
+.sdl-main :is(button, select, input, textarea):focus-visible {
+  outline: 3px solid #8cae64;
+  outline-offset: 3px;
+}
+.sdl-main button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.sdl-main :is(select, input[type='search']) {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  background: #f7faf2;
+  color: #315442;
+  border: 1px solid #ccd8c6;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 12px;
+  margin: 8px 0 18px;
+}
+.sdl-counts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+.sdl-count {
+  border: 1px solid #dbe3d2;
+  padding: 18px;
+  border-radius: 10px;
+  background: #f5f8ef;
+  display: grid;
+  gap: 10px;
+}
+.sdl-count strong {
+  font:
+    400 30px/1.2 ui-monospace,
+    monospace;
+}
+.sdl-count span {
+  font-size: 11px;
+  line-height: 1.8;
+}
+.sdl-count[data-category='breaking'] {
+  background: #faf0e9;
+  color: #89513b;
+  border-color: #e9d4c8;
+}
+.sdl-count[data-category='dangerous'] {
+  background: #f8f4e6;
+  color: #80602c;
+}
+.sdl-count[data-category='unknown'] {
+  border-style: dashed;
+  background: #f2f1ed;
+  color: #696956;
+}
+.sdl-report-state {
+  font:
+    11px/1.8 ui-monospace,
+    monospace;
+  color: #315e45;
+}
+.sdl-report-state[data-state='unknown'],
+.sdl-report-state[data-state='invalid'],
+.sdl-report-state[data-state='limit'] {
+  color: #8c5f2d;
+}
+.sdl-rules {
+  gap: 18px;
+  padding: 18px 22px;
+  border-radius: 8px;
+  background: #eef4e7;
+}
+.sdl-rules p {
+  font-size: 12px;
+  line-height: 1.9;
+  margin: 0;
+}
+.sdl-rules strong {
+  font-weight: 600;
+}
+.sdl-issues {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  margin: 24px 0;
+}
+.sdl-issues h3 {
+  font:
+    12px/1.8 ui-monospace,
+    monospace;
+}
+.sdl-issue {
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  background: #faf4e6;
+}
+.sdl-issue code,
+.sdl-issue p {
+  font-size: 11px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+.sdl-issue p {
+  margin: 8px 0;
+}
+.sdl-scope {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+.sdl-scope summary {
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.sdl-scope li {
+  font-size: 11px;
+  line-height: 1.9;
+  margin: 10px 0;
+  overflow-wrap: anywhere;
+}
+.sdl-review,
+.sdl-navigation {
+  margin-top: 24px;
+  align-items: start;
+}
+.sdl-change,
+.sdl-coordinate {
+  width: 100%;
+  border: 1px solid #dbe3d2;
+  background: #f8faf4;
+  border-radius: 9px;
+  padding: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #315442;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+  min-width: 0;
+}
+.sdl-change[aria-pressed='true'] {
+  box-shadow: inset 3px 0 #315e45;
+  background: #edf4e5;
+}
+.sdl-change:hover,
+.sdl-coordinate:hover {
+  border-color: #7d956c;
+}
+.sdl-change > code,
+.sdl-coordinate > code {
+  font:
+    12px/1.8 ui-monospace,
+    monospace;
+  overflow-wrap: anywhere;
+}
+.sdl-change > small,
+.sdl-coordinate > small {
+  font:
+    10px/1.8 ui-monospace,
+    monospace;
+  overflow-wrap: anywhere;
+}
+.sdl-badge {
+  font-size: 10px;
+  line-height: 1.8;
+  color: #6a7658;
+}
+.sdl-change[data-category='breaking'] .sdl-badge {
+  color: #8c4f35;
+}
+.sdl-change[data-category='unknown'] {
+  border-style: dashed;
+}
+.sdl-detail {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fcfdf9;
+}
+.sdl-detail h3 {
+  font:
+    500 14px/1.8 ui-monospace,
+    monospace;
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+.sdl-detail h4 {
+  font-size: 12px;
+  line-height: 1.9;
+  margin: 24px 0 12px;
+}
+.sdl-reason,
+.sdl-mapping {
+  font-size: 12px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+.sdl-mapping {
+  padding: 12px;
+  background: #f4f0e3;
+  border-radius: 6px;
+}
+.sdl-source {
+  font:
+    10px/1.9 ui-monospace,
+    monospace;
+  display: block;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+.sdl-candidate,
+.sdl-reference {
+  border-top: 1px solid var(--line);
+  padding: 12px 0;
+}
+.sdl-candidate > code,
+.sdl-reference > code {
+  font:
+    11px/1.8 ui-monospace,
+    monospace;
+  overflow-wrap: anywhere;
+}
+.sdl-nav-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
+  gap: 14px;
+}
+.sdl-signature {
+  font:
+    11px/1.9 ui-monospace,
+    monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: #eef4e6;
+  padding: 14px;
+  border-radius: 8px;
+}
+.sdl-pages {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 11px;
+  line-height: 1.8;
+  margin: 14px 0;
+}
+.sdl-export {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 28px;
+}
+.sdl-export h2 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 18px;
+}
+.sdl-main label.sdl-confirm {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.sdl-main .sdl-confirm input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  margin: 3px 0 0;
+  flex: 0 0 16px;
+  accent-color: #315e45;
+  padding: 0;
+}
+.sdl-guide {
+  max-width: none;
+}
+@media (max-width: 900px) {
+  .sdl-review,
+  .sdl-navigation {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sdl-counts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .sdl-inputs,
+  .sdl-rules,
+  .sdl-issues,
+  .sdl-export {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sdl-main .text-button {
+    min-height: 44px;
+  }
+  .sdl-demos {
+    gap: 4px 18px;
+  }
+  .sdl-detail {
+    padding: 16px;
+  }
+}
 /* Static tool pages share the same responsive navigation. */
 .site-header {
   height: auto;

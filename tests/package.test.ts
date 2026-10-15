@@ -5,6 +5,22 @@ import { compareSemver, type SemverComparison } from '@sid-tools/core/semver';
 import { compareEnv, type EnvComparison } from '@sid-tools/core/env-check';
 import { parseExplain, EXPLAIN_EXAMPLES, type ExplainReport } from '@sid-tools/core/explain';
 import { analyzeSelectors, type SelectorListAnalysis } from '@sid-tools/core/selectors';
+import { compareSdl, exportSdlComparison, type SdlComparison } from '@sid-tools/core/sdl';
+
+test('public SDL subpath exposes typed static variance and projected export without source strings', () => {
+  expectTypeOf(compareSdl).returns.toEqualTypeOf<SdlComparison>();
+  const report = compareSdl(
+    'type Query { f(arg: String = "synthetic-private"): String }',
+    'type Query { f(arg: String = "synthetic-private"): String! }',
+  );
+  expect(report.status).toBe('complete');
+  expect(report.counts['non-breaking']).toBe(1);
+  const text = exportSdlComparison(report);
+  expect(text).not.toContain('synthetic-private');
+  expect(text).not.toContain('"signature"');
+  expect(text).not.toContain('"reason"');
+  expect(JSON.parse(text)).toHaveProperty('status', 'complete');
+});
 
 test('public selectors subpath exposes typed per-complex tuples, source spans and honest unknowns', () => {
   expectTypeOf(analyzeSelectors).returns.toEqualTypeOf<SelectorListAnalysis>();

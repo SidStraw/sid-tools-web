@@ -21,6 +21,7 @@ export default defineConfig({
       'src/openapi-fixture.ts',
       'src/sql-ddl.ts',
       'src/compose.ts',
+      'src/markdown-links.ts',
     ],
     format: ['esm'],
     dts: true,

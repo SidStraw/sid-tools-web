@@ -55,10 +55,23 @@ mise exec -- pnpm dev
 ## 結構與工具範圍
 
 - `apps/web`：共用 SPA shell、SSG 路由 HTML、工具 UI 與背景 Workers。
+- `apps/markdown-links`：獨立離線 Node CLI，檢查本機 Markdown 相對連結、圖片與 heading anchors；不是 Web 路由。
 - `packages/core`：工具純計算模組，以獨立公開子路徑提供給各工具（含 `@sid-tools/core/semver`、`@sid-tools/core/env-check`、`@sid-tools/core/git-diff`、`@sid-tools/core/sitemap`、`@sid-tools/core/explain`、`@sid-tools/core/palette`、`@sid-tools/core/selectors`、`@sid-tools/core/sdl`、`@sid-tools/core/openapi`、`@sid-tools/core/openapi-fixture`、`@sid-tools/core/sql-ddl`）。
 - `tests`：公開真實圖片樣本、套件介面與瀏覽器驗收。
 - `docs/validation/stw-34`、`docs/validation/phase-one`：驗收紀錄與畫面。
 - `backlog`、`research`：原始題目與需求研究。
+
+### Markdown 連結 CLI（離線、唯讀）
+
+```sh
+mise exec -- pnpm exec vp run --filter @sid-tools/markdown-links build
+mise exec -- node apps/markdown-links/dist/cli.mjs --root ./docs --offline
+mise exec -- node apps/markdown-links/dist/cli.mjs --help
+```
+
+使用公開 core AST／GFM-heading 子集與固定 github-slugger 2.0.0，不宣稱完整 GitHub renderer 相容；code 範例不當連結，raw HTML／custom anchors 保守標示未知。支援 `--json`、重複 `--ignore`、明示 root-local `--ignore-file` 與 `--baseline`。Baseline 每次完整重查所有來源與 targets，只比較結果差異，不能以舊 source-only cache 忽略目標 heading 修改。根目錄／政策不符拒絕比較。
+
+外部連結一律 skipped、零請求；沒有 online／fix／write／cache 功能，不自動重寫文件。預設略過 `.git`、`node_modules`、`dist`、`.slim`，不跟隨 symlink 或讀全域 gitignore／環境設定。Exit 0＝無 broken／unknown（ignore／external skipped 不失敗），1＝broken／unknown，2＝參數／資源／檔案覆蓋失敗。報告仍含可能敏感的 paths／destinations；請勿將 stdout 導向原始文件或目前的 baseline。請在可信、靜止的 checkout 執行；Node 路徑檢查不是對抗惡意並行改名的 sandbox。完整限制、無改寫與零請求證據見 [STW-36 驗證](docs/validation/stw-36/README.md)。
 
 支援靜態 JPEG／PNG／WebP，依 EXIF 方向縮圖；拒絕 GIF、APNG、動態 WebP。透明圖轉 JPEG 必須明確選擇填白底。最多 30 張、單檔 20 MB、整批原圖與輸出各 100 MB；每張最多 3200 萬像素、最長邊 8192 px。KB 是 1000 bytes，KiB 是 1024 bytes。
 

@@ -7,6 +7,32 @@ import { parseExplain, EXPLAIN_EXAMPLES, type ExplainReport } from '@sid-tools/c
 import { analyzeSelectors, type SelectorListAnalysis } from '@sid-tools/core/selectors';
 import { compareSdl, exportSdlComparison, type SdlComparison } from '@sid-tools/core/sdl';
 import { analyzeCompose, exportComposeSummary, type ComposeReport } from '@sid-tools/core/compose';
+import {
+  parseMarkdownDocument,
+  resolveMarkdownDestination,
+  type MarkdownDocumentReport,
+} from '@sid-tools/core/markdown-links';
+
+test('public Markdown subpath exposes clone-safe AST projection and pure local URL classification', () => {
+  expectTypeOf(parseMarkdownDocument).returns.toEqualTypeOf<MarkdownDocumentReport>();
+  const report = parseMarkdownDocument(
+    'docs/a.md',
+    '# Hello\n\n[ref](b.md#world)\n\n```md\n[example](missing.md)\n```',
+  );
+  expect(report.status).toBe('complete');
+  expect(report.anchors).toEqual(['hello']);
+  expect(report.links).toHaveLength(1);
+  expect(structuredClone(report)).toEqual(report);
+  expect(resolveMarkdownDestination('docs/a.md', 'b.md?view=1#world')).toEqual({
+    kind: 'local',
+    path: 'docs/b.md',
+    fragment: 'world',
+  });
+  expect(resolveMarkdownDestination('docs/a.md', '../../outside.md').kind).toBe('unknown');
+  expect(resolveMarkdownDestination('docs/a.md', 'https://example.test/').kind).toBe(
+    'external-skipped',
+  );
+});
 
 test('public Compose subpath exposes typed clone-safe bounded static graph and explicit metadata-only projection', () => {
   expectTypeOf(analyzeCompose).returns.toEqualTypeOf<ComposeReport>();

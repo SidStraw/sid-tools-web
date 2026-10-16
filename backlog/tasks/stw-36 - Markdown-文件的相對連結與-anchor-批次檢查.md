@@ -1,10 +1,11 @@
 ---
 id: STW-36
 title: Markdown 文件的相對連結與 anchor 批次檢查
-status: Needs Refinement
-assignee: []
+status: Done
+assignee:
+  - '@opencode'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-16 02:15'
 labels:
   - keyword-research
   - proposal
@@ -70,11 +71,23 @@ monorepo 文件改名或搬移後，相對路徑與 heading anchor 容易失效�
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 每個錯誤可定位來源檔案及目標，區分不存在檔案、缺少 anchor 與無法判斷。
-- [ ] #2 明示 heading anchor 產生規則，code block 內的範例不當成真實連結。
-- [ ] #3 支援忽略規則與增量結果，外部請求需可停用並限制頻率。
-- [ ] #4 不自動重寫文件；修正若提供，先顯示差異與回復方式。
+- [x] #1 每個錯誤可定位來源檔案及目標，區分不存在檔案、缺少 anchor 與無法判斷。
+- [x] #2 明示 heading anchor 產生規則，code block 內的範例不當成真實連結。
+- [x] #3 支援忽略規則與增量結果，外部請求需可停用並限制頻率。
+- [x] #4 不自動重寫文件；修正若提供，先顯示差異與回復方式。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. 使用已查證固定版本 unified/remark-parse/remark-gfm 與 github-slugger，新增純 Markdown AST／heading anchor／URL 分類核心 public entry；明示 GFM-heading 子集，不手刻 Markdown，不將 code block 範例當連結。
+2. 新增 apps/markdown-links Node CLI 與 vp build/verify 整合；root-contained 有界檔案掃描，不跟隨 symlink、不讀 root 外檔案，區分 missing-file、missing-anchor、unknown，顯示來源範圍與目標。
+3. 支援明示 ignore 規則及 baseline 增量結果；每次完整重查目前文件與 target，不以 source-only cache 留存過期 anchor 結果。外部連結一律 external-skipped／離線，零請求；首版不提供文件重寫或 fix。
+4. 平行核心與 CLI adapter，使用固定 API 合約；核心先完成 dependency install，CLI 整合 build/測試等待核心凍結，避免 package manager 寫入衝突。
+5. 固定 AST／slug／URL encoding／unknown／資源限制測試與實際 CLI tempfixture 測試，驗證 ignore、symlink 邊界、target anchor 修改反映 inbound link、baseline policy mismatch、零網路／零改寫。凍結後完整 pnpm verify、獨立 Oracle 安全審查與結構掃描，四 AC 通過才 Done 與獨立 commit。
+
+6. 已完成審查補強：整體掃描隔離於獨立 child process（非 worker_threads），明示 128-MiB V8 old-generation／4-MiB stack／30 秒期限、空環境、原生輸出抑制、身分與形狀檢查 IPC、close/reap 後回報；fatal no-model 解析失敗全域 failed-coverage/null delta，保留 ignored directory metadata 與 directoryRequired 路徑語義。
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -90,4 +103,14 @@ Lychee 已支援 Markdown 相對檔案與 fragment 檢查；目前文件亦明�
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+2026-10-16：依使用者實作所有未完成卡片授權啟動，舊市場 defer 不再作為跳過理由。首版只做本機檢查，外部請求完全停用（因此無請求速率）；增量指 baseline 結果差異，仍完整重查所有連結以避免 target 變更漏判。不宣稱全部 GitHub renderer 語法相容，不自動重寫文件。
+
+2026-10-16 最終驗收：四項 AC 均有實際 built-bin/public/core 證據；123 focused tests（86 core、14 public、18 CLI、5 scanner/protocol）通過。父工作階段更新後的 mise exec -- pnpm verify（sh_14279ec32001VKRZrY51I3Xpro）PASS：937 unit/public、138 production E2E、218 formatted、113 strict clean、core/CLI/web build＋audit、cache 0/7；既有 TS7 experimental API notice 保留。使用者要求的新獨立 Oracle attempt2（ses_ebd93c0e0ffeZ2oLtfqNhaSIFX）PASS，四項 material findings 全數解決、無新增 material issue；既有 broad structure PASS＋父階段 bounded child structure PASS（非新的 explorer verdict）。精確 24015-unit blockquote 實際 CLI 已 sanitized child-failed/exit2、stderr=0、parent survives；fatal parser baseline null delta、pruned ignored directory、regular-file directory syntax 含 encoded dots 均有 regression。HTTP canary=0，read-only tree SHA-256 前後相同；無 fix／網路模式。無 DOD items。已記錄可信靜態 checkout、hardlink／非原子觀察、GFM 子集、V8 非 OS sandbox、paths/URLs metadata 隱私限制於 docs/validation/stw-36。僅本卡本機 commit；push/deploy 仍由父階段另外負責，未操作其他卡。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+完成離線唯讀 Markdown links Node CLI 與 public AST/GFM-heading core，提供來源／目標／位置、missing-file／missing-anchor／unknown、明示 ignore 與完整重查 baseline delta。獨立 child process 隔離解析資源失敗；四項安全／語義審查問題已修正。Focused 123 tests、更新後完整 verify 937 unit/public＋138 production E2E、strict/build/audit 與 Oracle attempt2／structure gates 全部 PASS；零外部請求、無自動改寫。保留已揭露 race/V8/privacy/renderer 限制。
+<!-- SECTION:FINAL_SUMMARY:END -->

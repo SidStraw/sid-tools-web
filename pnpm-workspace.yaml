@@ -2,6 +2,13 @@ packages:
   - apps/*
   - packages/*
 catalog:
+  unified: 11.0.5
+  remark-parse: 11.0.0
+  remark-gfm: 4.0.1
+  github-slugger: 2.0.0
+  mdast-util-to-string: 4.0.0
+  ignore: 7.0.12
+  '@types/mdast': 4.0.4
   yaml: 2.9.1
   graphql: 17.0.2
   parse5: 8.0.1

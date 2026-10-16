@@ -28,10 +28,13 @@ export default defineConfig({
         dependsOn: ['@sid-tools/core#build'],
         cache: false,
       },
-      'check-all': { command: 'vp check', dependsOn: ['@sid-tools/core#build'] },
+      'check-all': {
+        command: 'vp check',
+        dependsOn: ['@sid-tools/core#build', '@sid-tools/markdown-links#build'],
+      },
       'test-all': {
         command: ['vp test run', 'playwright test'],
-        dependsOn: ['@sid-tools/web#build'],
+        dependsOn: ['@sid-tools/web#build', '@sid-tools/markdown-links#build'],
         cache: false,
       },
       'verify-all': {

@@ -1,0 +1,16 @@
+{
+  "name": "@sid-tools/dockerfile-review",
+  "version": "0.0.0",
+  "private": true,
+  "bin": {
+    "dockerfile-review": "dist/cli.mjs"
+  },
+  "type": "module",
+  "dependencies": {
+    "@sid-tools/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "vite-plus": "catalog:"
+  }
+}

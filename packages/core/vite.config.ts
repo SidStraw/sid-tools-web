@@ -9,6 +9,7 @@ export default defineConfig({
       'src/unused-review.ts',
       'src/component-docs.ts',
       'src/mock-runtime.ts',
+      'src/dockerfile-review.ts',
       'src/dependency-graph.ts',
       'src/images.ts',
       'src/lighthouse.ts',

@@ -99,6 +99,10 @@
     "./mock-runtime": {
       "types": "./dist/mock-runtime.d.mts",
       "import": "./dist/mock-runtime.mjs"
+    },
+    "./dockerfile-review": {
+      "types": "./dist/dockerfile-review.d.mts",
+      "import": "./dist/dockerfile-review.mjs"
     }
   },
   "scripts": {

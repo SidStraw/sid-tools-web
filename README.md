@@ -2,26 +2,32 @@
 
 **[開啟工具：tools.sid.tw](https://tools.sid.tw/)**
 
-十六個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。所有資料在瀏覽器處理，免登入。
+二十二個工具共用同一個 **SSG + SPA**，選單切換不重載整頁。網頁資料在瀏覽器處理，部分工具使用專案內 CLI 產生報告或啟動本機服務，免登入。
 
-| 工具                                                        | 功能                                                   |
-| ----------------------------------------------------------- | ------------------------------------------------------ |
-| [圖片壓縮](https://tools.sid.tw/)                           | 批次指定大小、尺寸與格式，逐檔檢查與 ZIP 下載          |
-| [Lighthouse 比較](https://tools.sid.tw/tools/lighthouse/)   | 量測條件警告、分類分數、原始指標與稽核差異             |
-| [JSON 差異](https://tools.sid.tw/tools/json-diff/)          | 大整數、忽略路徑、陣列 ID 配對、衝突與匯出             |
-| [Cron 預覽](https://tools.sid.tw/tools/cron/)               | 五欄 Unix Cron、雙時區、未來 10 次與 DST 規則          |
-| [SemVer 範圍](https://tools.sid.tw/tools/semver/)           | 自訂版本集合、雙範圍逐筆理由、prerelease 與 JSON 匯出  |
-| [.env 預檢](https://tools.sid.tw/tools/env-check/)          | 雙檔鍵名比對、語法與行號、預設遮蔽及鍵名報告           |
-| [Git diff 檢視](https://tools.sid.tw/tools/git-diff/)       | 檔案／hunk 來源導覽、明確選取、預覽後下載審查摘錄      |
-| [Sitemap 預檢](https://tools.sid.tw/tools/sitemap/)         | XML／URL／lastmod 靜態檢查、路徑樹與原始條目定位       |
-| [EXPLAIN 檢視](https://tools.sid.tw/tools/explain/)         | PostgreSQL 計畫樹、per-loop rows 差距與原始 JSON 定位  |
-| [圖片配色](https://tools.sid.tw/tools/palette/)             | 本機取樣色票、透明混色／WCAG 對比與明確選取 CSS tokens |
-| [Selector 比較](https://tools.sid.tw/tools/selectors/)      | CSS 特異性貢獻、隔離純文字 HTML 結構與靜態命中         |
-| [GraphQL 差異](https://tools.sid.tw/tools/sdl/)             | 兩份 SDL 靜態分類、型別／欄位來源與直接引用導覽        |
-| [OpenAPI 差異](https://tools.sid.tw/tools/openapi/)         | JSON／YAML 合約雙方向分類、引用使用點與定義導覽        |
-| [回應 Fixture](https://tools.sid.tw/tools/openapi-fixture/) | 明確選取 JSON 回應、固定 seed、獨立驗證與資料來源      |
-| [SQL 關聯圖](https://tools.sid.tw/tools/sql-ddl/)           | PostgreSQL 建表宣告、來源連結、原生 SVG 與資料表文件   |
-| [Compose 預檢](https://tools.sid.tw/tools/compose/)         | 單份 Compose YAML 靜態子集、服務相依與資源引用         |
+| 工具                                                             | 功能                                                   |
+| ---------------------------------------------------------------- | ------------------------------------------------------ |
+| [圖片壓縮](https://tools.sid.tw/)                                | 批次指定大小、尺寸與格式，逐檔檢查與 ZIP 下載          |
+| [Lighthouse 比較](https://tools.sid.tw/tools/lighthouse/)        | 量測條件警告、分類分數、原始指標與稽核差異             |
+| [JSON 差異](https://tools.sid.tw/tools/json-diff/)               | 大整數、忽略路徑、陣列 ID 配對、衝突與匯出             |
+| [Cron 預覽](https://tools.sid.tw/tools/cron/)                    | 五欄 Unix Cron、雙時區、未來 10 次與 DST 規則          |
+| [SemVer 範圍](https://tools.sid.tw/tools/semver/)                | 自訂版本集合、雙範圍逐筆理由、prerelease 與 JSON 匯出  |
+| [.env 預檢](https://tools.sid.tw/tools/env-check/)               | 雙檔鍵名比對、語法與行號、預設遮蔽及鍵名報告           |
+| [Git diff 檢視](https://tools.sid.tw/tools/git-diff/)            | 檔案／hunk 來源導覽、明確選取、預覽後下載審查摘錄      |
+| [Sitemap 預檢](https://tools.sid.tw/tools/sitemap/)              | XML／URL／lastmod 靜態檢查、路徑樹與原始條目定位       |
+| [EXPLAIN 檢視](https://tools.sid.tw/tools/explain/)              | PostgreSQL 計畫樹、per-loop rows 差距與原始 JSON 定位  |
+| [圖片配色](https://tools.sid.tw/tools/palette/)                  | 本機取樣色票、透明混色／WCAG 對比與明確選取 CSS tokens |
+| [Selector 比較](https://tools.sid.tw/tools/selectors/)           | CSS 特異性貢獻、隔離純文字 HTML 結構與靜態命中         |
+| [GraphQL 差異](https://tools.sid.tw/tools/sdl/)                  | 兩份 SDL 靜態分類、型別／欄位來源與直接引用導覽        |
+| [OpenAPI 差異](https://tools.sid.tw/tools/openapi/)              | JSON／YAML 合約雙方向分類、引用使用點與定義導覽        |
+| [回應 Fixture](https://tools.sid.tw/tools/openapi-fixture/)      | 明確選取 JSON 回應、固定 seed、獨立驗證與資料來源      |
+| [SQL 關聯圖](https://tools.sid.tw/tools/sql-ddl/)                | PostgreSQL 建表宣告、來源連結、原生 SVG 與資料表文件   |
+| [Compose 預檢](https://tools.sid.tw/tools/compose/)              | 單份 Compose YAML 靜態子集、服務相依與資源引用         |
+| [套件相依圖](https://tools.sid.tw/tools/dependency-graph/)       | pnpm workspace 與重複版本來源                          |
+| [Bundle 比較](https://tools.sid.tw/tools/bundle-diff/)           | 真實建置體積差異與來源                                 |
+| [Unused 審查](https://tools.sid.tw/tools/unused-review/)         | Knip 候選、理由與 baseline                             |
+| [Props 文件](https://tools.sid.tw/tools/component-docs/)         | Props 宣告與文件同步                                   |
+| [Mock API](https://tools.sid.tw/tools/mock-api/)                 | 本機固定回應、錯誤與延遲情境                           |
+| [Dockerfile 審查](https://tools.sid.tw/tools/dockerfile-review/) | Hadolint 原始規則、來源、比較與註記                    |
 
 採用 [SidStraw/mono-starter](https://github.com/SidStraw/mono-starter) commit `c6d6f32854f6a8fd9f5d6cd4076475e4e9170af0` 初始化，沿用 TypeScript、Vite+、pnpm workspace、嚴格檢查、跨平台 CI、Renovate 與選用 Pi 診斷。保留本專案既有 Backlog 與研究，沒有複製範本任務。
 
@@ -79,7 +85,7 @@ mise exec -- node apps/markdown-links/dist/cli.mjs --help
 
 ## SSG、SPA 與按需載入
 
-`src/routes.ts` 定義十六個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
+`src/routes.ts` 定義二十二個網址，`src/pages/*.html` 是共用的工具畫面來源。Vite 的 `tool-ssg` 插件在建置時由 `scripts/ssg.ts` 產生各網址的完整 HTML、標題、描述、選單與共用 SPA 入口。直接開啟或重整深層網址不需要 Pages 的 SPA fallback；停用 JavaScript 仍能閱讀說明與切換連結。
 
 `src/router.ts` 使用 History API，選單與上一頁／下一頁在同一份 document 切換。畫面與控制程式按工具動態載入並快取；Worker 在按下執行後建立，Lighthouse、JSON 與 Cron 計算模組再按需載入。首頁不載入 Cron parser 等其他工具套件。切換時停止 Worker／ZIP、釋放 Blob URL 並丟棄使用者輸入；已載入的程式碼可重用，輸入不快取。
 
@@ -202,7 +208,7 @@ mise exec -- pnpm deploy
 
 Cloudflare Pages 原生 Git 整合沿用既有 GitHub OAuth 授權，連接 `SidStraw/sid-tools-web` 的 `main`；建置命令 `pnpm build`、輸出目錄 `apps/web/dist`，root directory 為 repo 根目錄。自動部署不需要另建使用者 API Token。手動部署使用既有 Wrangler OAuth 與 `wrangler pages deploy`。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
 
-目前本機建置在網域根路徑產生二十一個 SSG HTML（新增工具仍需另行部署），Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。各頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
+目前本機建置在網域根路徑產生二十二個 SSG HTML（新增工具仍需另行部署），Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。各頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
 
 `sid.tw` 帳號既有 Cloudflare Web Analytics 自動安裝涵蓋子網域；沿用「排除歐盟訪客」偏好，不新增重複 beacon。CSP 僅允許官方 beacon script 與指定 RUM 端點；本機無 beacon，測試仍檢查輸入不上傳。正式站頁面瀏覽與效能會送出基本統計，工具輸入、檔案、處理結果留在瀏覽器。
 
@@ -318,3 +324,20 @@ mise exec -- node apps/mock-runtime/dist/cli.mjs tests/fixtures/mock-runtime/con
 比較與驗收證據見 [STW-24 驗證紀錄](docs/validation/stw-24/README.md)。
 
 Cloudflare Pages 的原生 Git 建置由 repo 根目錄 `.node-version` 指定 Node 24.21.0；它須與 `mise.toml`、`package.json` 及 GitHub CI 一致。Pages 不依 `engines.node` 自動切換版本。
+
+## Dockerfile 靜態審查（STW-32）
+
+```sh
+mise exec -- pnpm build
+mise exec -- node apps/dockerfile-review/dist/cli.mjs install
+mise exec -- node apps/dockerfile-review/dist/cli.mjs scan tests/fixtures/dockerfile-review/Dockerfile --out /tmp/dockerfile-report.json
+mise exec -- node apps/dockerfile-review/dist/cli.mjs review /tmp/dockerfile-report.json --baseline /tmp/previous-report.json
+```
+
+`install` 明確下載 Hadolint 2.15.1 官方 release 至本專案 `.cache/hadolint/2.15.1`，固定 macOS／Linux arm64／x64 SHA256；不全域安裝。每次 scan 重新驗 hash 和版本。`pnpm verify` 的測試準備工作會執行同一個 install（已有正確 binary 則不下載）；單純 `pnpm build` 不下載。需要約 103 MB cache，首次測試需要連 GitHub。
+
+CLI 以固定空設定、停用 ignore pragma、乾淨環境、stdin 和獨立暫存 cwd 執行 Hadolint，不讀使用者 Hadolint 設定，不執行 Dockerfile、Docker build 或映像掃描。原生程序限時 15 秒、輸出 2 MB；來源限制 128 KB／5000 行，最多 1000 findings。輸入只接受 UTF-8 regular file；`--out` 只建立新檔，不覆寫。exit 0 表示成功產生報告，可能仍含 lint error；exit 2 表示未產生成功報告，不能當作沒有問題。
+
+Web 的 Dockerfile 審查頁只在載入時啟動獨立 worker，核對版本、來源 SHA256、規則位置與理由。清除、換檔、離開及 20 秒逾時會終止工作。可依 severity 篩選、查看來源行、下載含理由的可重新載入報告。來源改變會使前次理由失效；位置不同列為新增／未再回報，不推論語義配對。來源 SHA256 只驗一致性，不保證外部報告真實性。
+
+首版映像建置與漏洞掃描均為 `NOT RUN`；不接收其他掃描器格式、不聲稱無漏洞或體積改善。報告包含完整 Dockerfile，分享前須自行檢查。可追溯樣本及驗收見 [STW-32](docs/validation/stw-32/README.md)。

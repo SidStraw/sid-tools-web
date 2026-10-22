@@ -46,7 +46,8 @@
         "src/bundle-diff.ts",
         "src/unused-review.ts",
         "src/component-docs.ts",
-        "src/mock-runtime.ts"
+        "src/mock-runtime.ts",
+        "src/dockerfile-review.ts"
       ],
       "project": ["src/**/*.ts", "vite.config.ts"]
     },

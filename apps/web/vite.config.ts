@@ -31,6 +31,7 @@ export default defineConfig({
           'tools/unused-review/index.html',
           'tools/component-docs/index.html',
           'tools/mock-api/index.html',
+          'tools/dockerfile-review/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

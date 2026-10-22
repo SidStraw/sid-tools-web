@@ -1,10 +1,11 @@
 ---
 id: STW-32
 title: Dockerfile 變更預檢與掃描結果整合
-status: Needs Refinement
-assignee: []
+status: Done
+assignee:
+  - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-22 21:11'
 labels:
   - keyword-research
   - proposal
@@ -13,6 +14,7 @@ labels:
   - later-delivery
   - demand-reviewed-2026-10-14
   - deferred-evidence
+  - agent-can-proceed
 dependencies: []
 references:
   - >-
@@ -27,11 +29,7 @@ references:
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_08/16_033245.md
   - 'https://github.com/hadolint/hadolint'
 documentation:
-  - docs/product-direction.md
-  - research/keyword-review-2026-10-04/README.md
-  - research/keyword-review-2026-10-04/keyword-decisions.json
-  - research/tool-portfolio-review-2026-10-14/demand-review.md
-  - research/tool-portfolio-review-2026-10-14/demand-other-cards.md
+  - docs/validation/stw-32/README.md
 priority: low
 type: feature
 ordinal: 132
@@ -71,11 +69,21 @@ Dockerfile 靜態問題、image 掃描與實際體積結果常散落在不同工
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 每項結果列出規則／掃描器版本、位置與判定依據。
-- [ ] #2 沒有 image 或 scan 證據時，不宣告無漏洞或體積已改善。
-- [ ] #3 靜態輸入不自動執行 Docker build；需要建置時先明示執行範圍。
-- [ ] #4 輸出可審查報告與建議，保留誤判註記及可重現樣本。
+- [x] #1 每項結果列出規則／掃描器版本、位置與判定依據。
+- [x] #2 沒有 image 或 scan 證據時，不宣告無漏洞或體積已改善。
+- [x] #3 靜態輸入不自動執行 Docker build；需要建置時先明示執行範圍。
+- [x] #4 輸出可審查報告與建議，保留誤判註記及可重現樣本。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. 使用 Hadolint 2.15.1 官方原生 binary；先下載至 repo .cache，核對官方 release SHA256 並實際執行公開固定來源 Dockerfile，保留版本、來源及原始 JSON 報告。不得全域安裝或執行 Docker build。
+2. 提供 repo-local CLI 的明示安裝／scan／review 流程。安裝只下載白名單版本／平台並驗 hash；scan 固定原生設定，隔離使用者全域設定與環境覆寫，不執行 Dockerfile 指令，限時、限量且失敗不輸出成功報告。
+3. 共用核心接收有版本、Dockerfile 摘要、原始行號與 rule/message 的報告；加入人工誤判理由與可審查匯出，來源變更時不可沿用舊註記。可比較前後 lint 結果，不把靜態建議當已實作改善。
+4. 同一 SSG SPA 增加 Dockerfile 審查頁：載入報告、篩選嚴重度、定位來源、記錄誤判理由及匯出。沒有 image scan 時明示未執行；首版不執行 image build／掃描，不宣稱無漏洞或體積改善。
+5. 驗證官方 binary 真實輸出、固定公開 Dockerfile、受控修正比較、損壞輸入、錯誤版本、誤判理由保存與失效、瀏覽器隱私／SPA 生命週期；執行完整 pnpm verify 後結案、commit，依最新授權 push／Cloudflare 原生部署並核對正式結果。
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -91,4 +99,18 @@ Hadolint 已有 CLI 與官方線上版本；整合掃描和可追溯修正不是
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+## 2026-10-23 介入需求盤點
+
+可直接推進：代理自行選定一種既有 linter，準備真實可追溯 Dockerfile 與報告樣本，驗證規則版本、位置和誤判註記。image scan 可選，沒有掃描證據明示未執行；不把 Docker build 當作靜態檢查的隱含操作。
+
+本次只分類責任與下一步，不代表驗收完成、流量需求已證實或已授權遠端發佈；保留既有 AC 與狀態。
+
+2026-10-23 實作與驗收：官方 Hadolint 2.15.1 固定平台 digest、專案 .cache 明示安裝、scan 每次重驗 hash／版本；固定設定與乾淨環境、stdin、15 秒／2 MB 原生限制，不執行 Dockerfile 指令。固定 nodejs/docker-node 84410ee 公開樣本真實回報 6 項規則，原始 JSON／MIT license／來源 SHA256 已保存。Web 為同一 SSG SPA 第 22 頁，獨立 worker 載入有界報告、篩選／來源／理由匯出與重新載入；來源改變使舊理由失效。4 個真實 native/core 測試、瀏覽器報告／隱私／SPA／320px 驗證通過；完整 pnpm verify exit 0：963 單元整合、148 E2E、格式／lint／型別／build／production audit PASS，0/15 task cache。Image build／scan NOT RUN，沒有體積／漏洞改善主張。使用者已授權結案後推送部署，將依此進行遠端驗收。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+完成 Hadolint 官方引擎整合、可重現 Dockerfile 報告、本機 CLI 與 SPA 審查頁。完整本機驗收通過；依最新授權推送並透過 Cloudflare 原生整合部署。限制及真實樣本證據見 docs/validation/stw-32。
+<!-- SECTION:FINAL_SUMMARY:END -->

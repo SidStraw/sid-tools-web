@@ -5113,3 +5113,23 @@ dialog > p {
   overflow-wrap: anywhere;
   max-width: 100%;
 }
+
+.dockerfile-review-main {
+  overflow-wrap: anywhere;
+}
+.dockerfile-review-main details {
+  margin-block: 0.75rem;
+}
+.dockerfile-review-main pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.dockerfile-review-main input,
+.dockerfile-review-main select,
+.dockerfile-review-main textarea {
+  max-width: 100%;
+}
+.dockerfile-review-main textarea {
+  display: block;
+  width: 100%;
+}

@@ -163,5 +163,13 @@ export const routes = [
     title: 'OpenAPI Mock API 情境服務',
     description: '本機 OpenAPI 回應情境服務，切換固定範例、錯誤與延遲，保存設定並在重啟後還原。',
   },
+  {
+    id: 'dockerfile-review',
+    path: 'tools/dockerfile-review/',
+    label: 'Dockerfile 審查',
+    title: 'Dockerfile 靜態檢查與變更審查',
+    description:
+      '離線查看 Hadolint 規則、Dockerfile 來源與前後差異，保留誤判理由，不執行映像建置或漏洞掃描。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

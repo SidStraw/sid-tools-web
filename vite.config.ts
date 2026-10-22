@@ -38,12 +38,19 @@ export default defineConfig({
           '@sid-tools/unused-review#build',
           '@sid-tools/component-docs#build',
           '@sid-tools/mock-runtime#build',
+          '@sid-tools/dockerfile-review#build',
           '@sid-tools/bundle-report#build',
         ],
+      },
+      'prepare-hadolint': {
+        command: 'node apps/dockerfile-review/dist/cli.mjs install',
+        dependsOn: ['@sid-tools/dockerfile-review#build'],
+        cache: false,
       },
       'test-all': {
         command: ['vp test run', 'playwright test'],
         dependsOn: [
+          'prepare-hadolint',
           '@sid-tools/web#build',
           '@sid-tools/markdown-links#build',
           '@sid-tools/dependency-graph#build',
@@ -51,6 +58,7 @@ export default defineConfig({
           '@sid-tools/unused-review#build',
           '@sid-tools/component-docs#build',
           '@sid-tools/mock-runtime#build',
+          '@sid-tools/dockerfile-review#build',
           '@sid-tools/bundle-report#build',
         ],
         cache: false,

@@ -1,0 +1,66 @@
+{
+  "format": "sid-tools-dockerfile-v1",
+  "engine": {
+    "name": "hadolint",
+    "version": "2.15.1",
+    "policy": "all-rules/ignore-pragmas-disabled/v1"
+  },
+  "source": {
+    "name": "Dockerfile",
+    "text": "FROM debian:bookworm-slim\n\nRUN groupadd --gid 1000 node \\\n  && useradd --uid 1000 --gid node --shell /bin/bash --create-home node\n\nENV NODE_VERSION=24.22.1\n\nRUN ARCH= OPENSSL_ARCH= && dpkgArch=\"$(dpkg --print-architecture)\" \\\n    && case \"${dpkgArch##*-}\" in \\\n      amd64) ARCH='x64' OPENSSL_ARCH='linux-x86_64';; \\\n      ppc64el) ARCH='ppc64le' OPENSSL_ARCH='linux-ppc64le';; \\\n      arm64) ARCH='arm64' OPENSSL_ARCH='linux-aarch64';; \\\n      *) echo \"unsupported architecture\"; exit 1 ;; \\\n    esac \\\n    && set -ex \\\n    && apt-get update && apt-get install -y ca-certificates curl wget gnupg dirmngr xz-utils libatomic1 --no-install-recommends \\\n    && rm -rf /var/lib/apt/lists/* \\\n    # use pre-existing gpg directory, see https://github.com/nodejs/docker-node/pull/1895#issuecomment-1550389150\n    && export GNUPGHOME=\"$(mktemp -d)\" \\\n    # gpg keys listed at https://github.com/nodejs/node#release-keys\n    && for key in \\\n      5BE8A3F6C8A5C01D106C0AD820B1A390B168D356 \\\n      DD792F5973C6DE52C432CBDAC77ABFA00DDBF2B7 \\\n      CC68F5A3106FF448322E48ED27F5E38D5B0A215F \\\n      890C08DB8579162FEE0DF9DB8BEAB4DFCF555EF4 \\\n      C82FA3AE1CBEDC6BE46B9360C43CEC45C17AB93C \\\n      108F52B48DB57BB0CC439B2997B01419BD92F80A \\\n      655F3B5C1FB3FA8D1A0CA6BDE4A7D232B936D2FD \\\n      A363A499291CBBC940DD62E41F10027AF002F8B0 \\\n    ; do \\\n      { gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$key\" && gpg --batch --fingerprint \"$key\"; } || \\\n      { gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" && gpg --batch --fingerprint \"$key\"; } ; \\\n    done \\\n    && curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$ARCH.tar.xz\" \\\n    && curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc\" \\\n    && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \\\n    && gpgconf --kill all \\\n    && rm -rf \"$GNUPGHOME\" \\\n    && grep \" node-v$NODE_VERSION-linux-$ARCH.tar.xz\\$\" SHASUMS256.txt | sha256sum -c - \\\n    && tar -xJf \"node-v$NODE_VERSION-linux-$ARCH.tar.xz\" -C /usr/local --strip-components=1 --no-same-owner \\\n    && rm \"node-v$NODE_VERSION-linux-$ARCH.tar.xz\" SHASUMS256.txt.asc SHASUMS256.txt \\\n    # Remove unused OpenSSL headers to save ~34MB. See this NodeJS issue: https://github.com/nodejs/node/issues/46451\n    && find /usr/local/include/node/openssl/archs -mindepth 1 -maxdepth 1 ! -name \"$OPENSSL_ARCH\" -exec rm -rf {} \\; \\\n    && apt-mark auto '.*' > /dev/null \\\n    && find /usr/local -type f -executable -exec ldd '{}' ';' \\\n      | awk '/=>/ { so = $(NF-1); if (index(so, \"/usr/local/\") == 1) { next }; gsub(\"^/(usr/)?\", \"\", so); print so }' \\\n      | sort -u \\\n      | xargs -r dpkg-query --search \\\n      | cut -d: -f1 \\\n      | sort -u \\\n      | xargs -r apt-mark manual \\\n    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \\\n    && ln -s /usr/local/bin/node /usr/local/bin/nodejs \\\n    # smoke tests\n    && node --version \\\n    && npm --version \\\n    && rm -rf /tmp/*\n\nENV YARN_VERSION=1.22.22\n\nRUN set -ex \\\n  && savedAptMark=\"$(apt-mark showmanual)\" \\\n  && apt-get update && apt-get install -y ca-certificates curl wget gnupg dirmngr --no-install-recommends \\\n  && rm -rf /var/lib/apt/lists/* \\\n  # use pre-existing gpg directory, see https://github.com/nodejs/docker-node/pull/1895#issuecomment-1550389150\n  && export GNUPGHOME=\"$(mktemp -d)\" \\\n  && for key in \\\n    6A010C5166006599AA17F08146C2130DFD2497F5 \\\n  ; do \\\n    { gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$key\" && gpg --batch --fingerprint \"$key\"; } || \\\n    { gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" && gpg --batch --fingerprint \"$key\"; } ; \\\n  done \\\n  && curl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz\" \\\n  && curl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz.asc\" \\\n  && gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \\\n  && gpgconf --kill all \\\n  && rm -rf \"$GNUPGHOME\" \\\n  && mkdir -p /opt \\\n  && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/ \\\n  && ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn \\\n  && ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg \\\n  && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \\\n  && apt-mark auto '.*' > /dev/null \\\n  && { [ -z \"$savedAptMark\" ] || apt-mark manual $savedAptMark > /dev/null; } \\\n  && find /usr/local -type f -executable -exec ldd '{}' ';' \\\n    | awk '/=>/ { so = $(NF-1); if (index(so, \"/usr/local/\") == 1) { next }; gsub(\"^/(usr/)?\", \"\", so); print so }' \\\n    | sort -u \\\n    | xargs -r dpkg-query --search \\\n    | cut -d: -f1 \\\n    | sort -u \\\n    | xargs -r apt-mark manual \\\n  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \\\n  # smoke test\n  && yarn --version \\\n  && rm -rf /tmp/*\n\nCOPY docker-entrypoint.sh /usr/local/bin/\nENTRYPOINT [\"docker-entrypoint.sh\"]\n\nCMD [ \"node\" ]\n",
+    "sha256": "6bfd5dfbca7b0ec447144cefc6a912a36d7c9d1289dacc9d2316e2aea842ce45"
+  },
+  "findings": [
+    {
+      "id": "[\"DL3008\",\"warning\",8,1,\"Pin versions in apt get install. Instead of `apt-get install <package>` use `apt-get install <package>=<version>`\"]",
+      "code": "DL3008",
+      "message": "Pin versions in apt get install. Instead of `apt-get install <package>` use `apt-get install <package>=<version>`",
+      "level": "warning",
+      "line": 8,
+      "column": 1
+    },
+    {
+      "id": "[\"DL4006\",\"warning\",8,1,\"Set the SHELL option -o pipefail before RUN with a pipe in it. If you are using /bin/sh in an alpine image or if your shell is symlinked to busybox then consider explicitly setting your SHELL to /bin/ash, or disable this check\"]",
+      "code": "DL4006",
+      "message": "Set the SHELL option -o pipefail before RUN with a pipe in it. If you are using /bin/sh in an alpine image or if your shell is symlinked to busybox then consider explicitly setting your SHELL to /bin/ash, or disable this check",
+      "level": "warning",
+      "line": 8,
+      "column": 1
+    },
+    {
+      "id": "[\"SC2155\",\"warning\",8,1,\"Declare and assign separately to avoid masking return values.\"]",
+      "code": "SC2155",
+      "message": "Declare and assign separately to avoid masking return values.",
+      "level": "warning",
+      "line": 8,
+      "column": 1
+    },
+    {
+      "id": "[\"DL3008\",\"warning\",61,1,\"Pin versions in apt get install. Instead of `apt-get install <package>` use `apt-get install <package>=<version>`\"]",
+      "code": "DL3008",
+      "message": "Pin versions in apt get install. Instead of `apt-get install <package>` use `apt-get install <package>=<version>`",
+      "level": "warning",
+      "line": 61,
+      "column": 1
+    },
+    {
+      "id": "[\"SC2086\",\"info\",61,1,\"Double quote to prevent globbing and word splitting.\"]",
+      "code": "SC2086",
+      "message": "Double quote to prevent globbing and word splitting.",
+      "level": "info",
+      "line": 61,
+      "column": 1
+    },
+    {
+      "id": "[\"DL4006\",\"warning\",61,1,\"Set the SHELL option -o pipefail before RUN with a pipe in it. If you are using /bin/sh in an alpine image or if your shell is symlinked to busybox then consider explicitly setting your SHELL to /bin/ash, or disable this check\"]",
+      "code": "DL4006",
+      "message": "Set the SHELL option -o pipefail before RUN with a pipe in it. If you are using /bin/sh in an alpine image or if your shell is symlinked to busybox then consider explicitly setting your SHELL to /bin/ash, or disable this check",
+      "level": "warning",
+      "line": 61,
+      "column": 1
+    }
+  ],
+  "annotations": [],
+  "imageScan": "NOT RUN",
+  "imageBuild": "NOT RUN"
+}

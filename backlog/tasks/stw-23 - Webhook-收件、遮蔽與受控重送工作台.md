@@ -4,7 +4,7 @@ title: Webhook 收件、遮蔽與受控重送工作台
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-15 14:03'
+updated_date: '2026-10-22 19:26'
 labels:
   - keyword-research
   - proposal
@@ -13,6 +13,7 @@ labels:
   - later-delivery
   - demand-reviewed-2026-10-14
   - deferred-evidence
+  - user-input-needed
 dependencies: []
 references:
   - >-
@@ -96,4 +97,10 @@ Webhook.site 已有擷取、篩選與 replay；服務營運與敏感資料責任
 - 解除方式：提出接收與重送的安全邊界、遮蔽及清除規則，依執行指南取得涉及安全／架構決策的計畫核准，再實作及驗證；不預設開放公網或代用隧道服務。
 
 維持原狀態、描述與既有紀錄，所有 AC 維持未勾選；本輪不宣告完成。
+
+## 2026-10-23 介入需求盤點
+
+需要使用者決策的最小項目：是否只做本機／自架，以及是否需要讓外部服務連入、可重送的目標範圍。代理可先提出具體接收／重送方案與保留期限預設、準備本機測試。依 task-execution guide，涉及曝露與服務架構的實質選擇需確認後再實作；不要求使用者自行設計所有安全細節。
+
+本次只分類責任與下一步，不代表驗收完成、流量需求已證實或已授權遠端發佈；保留既有 AC 與狀態。
 <!-- SECTION:NOTES:END -->

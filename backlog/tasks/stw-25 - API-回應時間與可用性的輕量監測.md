@@ -4,7 +4,7 @@ title: API 回應時間與可用性的輕量監測
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-15 14:03'
+updated_date: '2026-10-22 19:26'
 labels:
   - keyword-research
   - proposal
@@ -13,6 +13,7 @@ labels:
   - later-delivery
   - demand-reviewed-2026-10-14
   - deferred-evidence
+  - user-input-needed
 dependencies: []
 references:
   - >-
@@ -95,4 +96,10 @@ Uptime Kuma 已支援 HTTP/JSON query 等監控及通知；需要持續執行服
 - 解除方式：提出本機或自架 runner、允許目標與儲存／保留規則，取得安全與架構計畫核准後，以受控測試 endpoint 驗證排程及缺漏。告警為另行選擇與授權，不要求先提供通知憑證。
 
 維持原狀態、描述與既有紀錄，所有 AC 維持未勾選；本輪不宣告完成。
+
+## 2026-10-23 介入需求盤點
+
+需要使用者介入的最小項目：明確指定允許監測的 endpoint、執行位置與可接受的週期／持續運作成本。代理可先準備 runner、資料與圖表方案及本機測試；實際週期請求和告警不能由候選卡推定授權，告警通道另行授權。
+
+本次只分類責任與下一步，不代表驗收完成、流量需求已證實或已授權遠端發佈；保留既有 AC 與狀態。
 <!-- SECTION:NOTES:END -->

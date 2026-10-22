@@ -4,7 +4,7 @@ title: Markdown 到 Notion 的批次結構與連結保留檢查
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-22 19:26'
 labels:
   - keyword-research
   - proposal
@@ -13,6 +13,7 @@ labels:
   - web-first
   - demand-reviewed-2026-10-14
   - validate-next
+  - user-input-needed
 dependencies: []
 references:
   - >-
@@ -85,4 +86,20 @@ Medium 條件式保留來源對照與損失檢查；排除普通 Markdown upload
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+## 2026-10-15 實作阻礙與本輪略過
+
+最新要求已取代先前因市場需求而暫緩的決定；本輪略過僅因下列輸入／證據尚未建立或確認，不代表完成。
+
+- 待補項目：尚未建立至少 3 個含相對連結、圖片與巢狀文件的樣本，以及在 Notion 原生匯入的對照證據；可用的授權測試環境也尚未確認。
+- 驗收影響：AC1 明定樣本與原生匯入比較，沒有比較紀錄，無法如實支持 AC2 的損失分類或 AC4 的增量價值／縮小範圍結論。
+- 解除方式：確認授權測試方式，準備至少 3 個樣本並記錄來源路徑、原生結果與損失；依證據交付功能或縮小／停止結論。API 匯入為選配，不要求先提供 API 憑證。
+
+維持原狀態、描述與既有紀錄，所有 AC 維持未勾選；本輪不宣告完成。
+
+## 2026-10-23 介入需求盤點
+
+需要使用者介入的最小項目：提供或授權一個可做原生匯入測試的 Notion 測試頁／工作區，或依代理步驟回傳結果。至少 3 組樣本、文件樹及損失比較由代理準備，不需要使用者整理；API token 不是原生匯入驗收的前提。
+
+本次只分類責任與下一步，不代表驗收完成、流量需求已證實或已授權遠端發佈；保留既有 AC 與狀態。
 <!-- SECTION:NOTES:END -->

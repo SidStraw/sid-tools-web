@@ -4,7 +4,7 @@ title: Markdown 到 Confluence 的格式損失預檢與匯入輔助
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-22 19:26'
 labels:
   - keyword-research
   - proposal
@@ -13,6 +13,7 @@ labels:
   - web-first
   - demand-reviewed-2026-10-14
   - validate-next
+  - user-input-needed
 dependencies: []
 references:
   - >-
@@ -92,4 +93,20 @@ Medium 條件式保留預檢驗證，先選定 Cloud 或 Data Center；不是重
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+## 2026-10-15 實作阻礙與本輪略過
+
+最新要求已取代先前因市場需求而暫緩的決定；本輪略過僅因下列輸入／證據尚未建立或確認，不代表完成。
+
+- 待補項目：尚未確認採用 Confluence Cloud 或 Data Center、目標版本／內容表示法，以及實際平台對照的可用環境與紀錄。
+- 驗收影響：缺少目標規格與實測，無法如實滿足 AC1 的轉換定位及 AC2 的平台結果對照。
+- 解除方式：確認目標與授權測試方式，對照表格、code block、相對連結及圖片並保存來源與損失；直接匯入為選配，不把 API 憑證當成離線預檢的必要條件。
+
+維持原狀態、描述與既有紀錄，所有 AC 維持未勾選；本輪不宣告完成。
+
+## 2026-10-23 介入需求盤點
+
+需要使用者介入的最小項目：確認要支援的 Confluence Cloud／Data Center 目標，以及可用的測試空間與操作授權。代理先準備格式樣本、轉換及逐項損失檢查；AC2 要實際平台結果，不能只用自行產生的 fixture 替代。直接匯入不是必要首版範圍。
+
+本次只分類責任與下一步，不代表驗收完成、流量需求已證實或已授權遠端發佈；保留既有 AC 與狀態。
 <!-- SECTION:NOTES:END -->

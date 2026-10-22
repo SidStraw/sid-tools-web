@@ -4,7 +4,7 @@ title: 加密環境設定的本機交接與部署預檢
 status: Needs Refinement
 assignee: []
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-15 14:03'
+updated_date: '2026-10-22 19:26'
 labels:
   - keyword-research
   - proposal
@@ -13,6 +13,7 @@ labels:
   - later-delivery
   - demand-reviewed-2026-10-14
   - deferred-evidence
+  - user-input-needed
 dependencies: []
 references:
   - >-
@@ -102,4 +103,10 @@ SOPS 已支援 dotenv 與 exec-env；交接／部署前檢查仍可能成立，�
 - 解除方式：提出沿用成熟方案（例如 SOPS＋age）的有界計畫，依執行指南取得安全／架構決策核准，再以自行產生的測試金鑰及已知資料驗證。正式環境金鑰不是此驗收的必要輸入，不自創加密格式。
 
 維持原狀態、描述與既有紀錄，所有 AC 維持未勾選；本輪不宣告完成。
+
+## 2026-10-23 介入需求盤點
+
+需要使用者確認的最小項目：代理提出成熟格式與金鑰流程的具體方案後，確認交接／恢復／輪替邊界。依 task-execution guide，此為實質安全架構選擇；代理可先完成選型調查與可審查計畫。測試可自行產生金鑰與假資料，不需要正式秘密或正式環境金鑰。
+
+本次只分類責任與下一步，不代表驗收完成、流量需求已證實或已授權遠端發佈；保留既有 AC 與狀態。
 <!-- SECTION:NOTES:END -->

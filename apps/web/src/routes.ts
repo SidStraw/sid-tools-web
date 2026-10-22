@@ -124,5 +124,13 @@ export const routes = [
     description:
       '在瀏覽器檢查單份 Compose YAML 的有限結構、服務相依與 network／volume 引用，查看來源、profiles 與未解析狀態；不連 Docker、不執行服務、不解析環境或多檔。',
   },
+  {
+    id: 'dependency-graph',
+    path: 'tools/dependency-graph/',
+    label: '套件相依圖',
+    title: 'Monorepo 套件相依圖與重複版本',
+    description:
+      '離線檢視 pnpm workspace 依賴、引入路徑、多版本與 peer context，保留 lockfile 來源。不讀取或上傳專案。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

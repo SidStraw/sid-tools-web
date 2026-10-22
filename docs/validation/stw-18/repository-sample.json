@@ -1,0 +1,9 @@
+{
+  "lockfileSha256": "0cc1bc439ef193d04840e4adca7beb993fb5d2b1fbf3578e0242553dc15fc330",
+  "format": "sid-tools-dependencies-v1",
+  "workspaces": 5,
+  "packages": 476,
+  "edges": 850,
+  "unresolvedEdges": 0,
+  "diagnostics": []
+}

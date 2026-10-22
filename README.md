@@ -218,3 +218,15 @@ Cloudflare Pages 原生 Git 整合沿用既有 GitHub OAuth 授權，連接 `Sid
 - [原始關鍵字與題目池](research/keyword-review-2026-10-04/README.md)
 
 卡片只透過 Backlog CLI 維護，請遵循 [AGENTS.md](AGENTS.md)。
+
+### Monorepo 相依圖（STW-18）
+
+先執行 `mise exec -- pnpm build`，再以專案內 CLI 收集：
+
+```sh
+mise exec -- node apps/dependency-graph/dist/cli.mjs /path/to/repo > /tmp/dependencies.json
+```
+
+在工具選單「套件相依圖」選取 JSON 報告即可查詢。首版支援 pnpm lockfile 9.0（一份 project 文件，或 boot/env + project 兩份文件）及 `pnpm-workspace.yaml` packages glob。CLI 僅讀 manifests 與 lockfile，不執行 scripts、不上網、不讀 source/env 檔。預設隱藏 workspace 路徑；加上 `--include-workspace-paths` 才會輸出相對路徑。套件名、版本與依賴關係仍會出現在報告，分享前須檢查。
+
+每條邊有 lockfile 文件編號與行號，workspace 宣告另有 manifest JSON Pointer。單一版本的 peer variants 和多版本分開列出；optional 邊不等於目前已安裝，重複也不等於可刪。未解析、缺少 manifest、宣告過期都會顯示診斷，不猜測來源。圖上限為 12,000 節點、60,000 邊、300 workspace；輸入與瀏覽器報告上限 8 MB。

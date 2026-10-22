@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 const sample = (name: string) =>
   resolve('research/competitor-validation-2026-10-14/samples/lighthouse', name);
-test('all sixteen tools are reachable from the menu and nested URLs survive reload on mobile', async ({
+test('all seventeen tools are reachable from the menu and nested URLs survive reload on mobile', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
@@ -24,6 +24,7 @@ test('all sixteen tools are reachable from the menu and nested URLs survive relo
     ['回應 Fixture', 'openapi-fixture'],
     ['SQL 關聯圖', 'sql-ddl'],
     ['Compose 預檢', 'compose'],
+    ['套件相依圖', 'dependency-graph'],
   ] as const) {
     await page
       .getByRole('navigation', { name: '工具選單' })
@@ -235,11 +236,12 @@ test('SSG serves full route content without JavaScript', async ({ browser }) => 
     ['tools/openapi-fixture/', '先知道來源'],
     ['tools/sql-ddl/', '從建表宣告'],
     ['tools/compose/', '把服務關係'],
+    ['tools/dependency-graph/', 'Monorepo 相依圖'],
   ] as const) {
     const response = await page.goto(`http://127.0.0.1:4173/${path}`);
     expect(response?.status()).toBe(200);
     await expect(page.locator('h1')).toContainText(title);
-    await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(16);
+    await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(17);
   }
   await context.close();
 });
@@ -355,6 +357,7 @@ test('Cloudflare root routing canonicalizes tools, exposes the sitemap, and retu
     'tools/openapi-fixture/',
     'tools/sql-ddl/',
     'tools/compose/',
+    'tools/dependency-graph/',
   ]) {
     const response = await request.get('/' + path);
     expect(response.status()).toBe(200);
@@ -369,7 +372,7 @@ test('Cloudflare root routing canonicalizes tools, exposes the sitemap, and retu
   const sitemap = await request.get('/sitemap.xml');
   expect(sitemap.status()).toBe(200);
   const xml = await sitemap.text();
-  expect(xml.match(/<loc>/g)).toHaveLength(16);
+  expect(xml.match(/<loc>/g)).toHaveLength(17);
   expect(xml).not.toContain('github.io');
   expect(await (await request.get('/robots.txt')).text()).toContain(
     'Sitemap: https://tools.sid.tw/sitemap.xml',

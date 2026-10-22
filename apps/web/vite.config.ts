@@ -26,6 +26,7 @@ export default defineConfig({
           'tools/openapi-fixture/index.html',
           'tools/sql-ddl/index.html',
           'tools/compose/index.html',
+          'tools/dependency-graph/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

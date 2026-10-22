@@ -30,11 +30,19 @@ export default defineConfig({
       },
       'check-all': {
         command: 'vp check',
-        dependsOn: ['@sid-tools/core#build', '@sid-tools/markdown-links#build'],
+        dependsOn: [
+          '@sid-tools/core#build',
+          '@sid-tools/markdown-links#build',
+          '@sid-tools/dependency-graph#build',
+        ],
       },
       'test-all': {
         command: ['vp test run', 'playwright test'],
-        dependsOn: ['@sid-tools/web#build', '@sid-tools/markdown-links#build'],
+        dependsOn: [
+          '@sid-tools/web#build',
+          '@sid-tools/markdown-links#build',
+          '@sid-tools/dependency-graph#build',
+        ],
         cache: false,
       },
       'verify-all': {

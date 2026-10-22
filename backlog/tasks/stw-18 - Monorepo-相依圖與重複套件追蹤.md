@@ -1,18 +1,20 @@
 ---
 id: STW-18
 title: Monorepo 相依圖與重複套件追蹤
-status: Needs Refinement
-assignee: []
+status: Done
+assignee:
+  - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-22 19:17'
 labels:
   - keyword-research
-  - proposal
   - monorepo-expansion
   - delivery-local-cli-web
   - later-delivery
   - demand-reviewed-2026-10-14
-  - deferred-evidence
+  - implemented
+  - local-verified
+  - market-validation-pending
 dependencies: []
 references:
   - >-
@@ -26,6 +28,7 @@ references:
   - >-
     https://github.com/SidStraw/keyword-pipeline-auto/blob/2fe7b09f59f721a02c558cbd6f73cc8f218ce007/logs/2026_09/08_032927.md
   - 'https://nx.dev/docs/features/explore-graph'
+  - docs/validation/stw-18/README.md
 documentation:
   - docs/product-direction.md
   - research/keyword-review-2026-10-04/README.md
@@ -71,11 +74,20 @@ ordinal: 118
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 每條邊可追到 manifest／lockfile，能查出某套件由哪些 workspace 引入。
-- [ ] #2 同名多版本與 peer context 有清楚區分，不直接把每個重複版本判定為可刪。
-- [ ] #3 遇到不支援 lockfile 或不完整資料顯示限制；不執行 repo 內任意 script。
-- [ ] #4 本機輸出可由 Web 開啟並移除機密路徑；不預設上傳整個 repo。
+- [x] #1 每條邊可追到 manifest／lockfile，能查出某套件由哪些 workspace 引入。
+- [x] #2 同名多版本與 peer context 有清楚區分，不直接把每個重複版本判定為可刪。
+- [x] #3 遇到不支援 lockfile 或不完整資料顯示限制；不執行 repo 內任意 script。
+- [x] #4 本機輸出可由 Web 開啟並移除機密路徑；不預設上傳整個 repo。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. 支援 pnpm lockfile 9.0（含 env 與 project 多文件格式），保留每條邊來源、區分版本與 peer context，對不完整與不支援資料提出診斷。
+2. 新增唯讀本機 CLI，讀取 workspace 設定與 manifests、拒絕越界及 symlink 逃逸、不執行專案 scripts；預設匯出移除 workspace 路徑的 JSON，實際路徑由明確選項啟用。
+3. 在既有 SSG SPA 新增延遲載入報告檢視器，可查 workspace 到套件的路徑、直接與間接依賴、多版本與 peer variants，支援清除與離線檢視。
+4. 以真實本專案和固定異常樣本驗證 CLI、圖資料、瀏覽器互動、邊界與隱私，執行 pnpm verify 後更新驗收證據。
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -91,4 +103,12 @@ Nx 已提供圖、依賴路徑與靜態輸出；跨 package-manager 重複套件
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+2026-10-23：完成 pnpm 9.0（含雙 YAML 文件）本機唯讀 CLI 與 SSG SPA 報告檢視。真實專案樣本：5 workspaces、476 package contexts、850 edges、0 未解析邊。驗收詳見 docs/validation/stw-18/README.md 與 repository-sample.json。mise exec -- pnpm verify 無快取通過：944 單元／整合、139 瀏覽器，格式／lint／型別與 production audit 通過。未部署；未把功能交付當成市場需求證據。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+已交付 @sid-tools/dependency-graph CLI 與 /tools/dependency-graph/，可查引入 workspace 的最短來源鏈、直接依賴、多版本與 peer variants。每條邊保留 lockfile 行號及適用的 manifest Pointer，未知／過期資料明示診斷；預設隱藏 workspace 路徑，不執行 scripts 或上傳內容。四項 AC 均有 core、真實 CLI 與瀏覽器證據，完整 pnpm verify 通過 944 + 139 tests。僅本機交付，流量與遠端部署未驗證。
+<!-- SECTION:FINAL_SUMMARY:END -->

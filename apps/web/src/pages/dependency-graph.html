@@ -1,0 +1,60 @@
+<main id="workspace" class="utility-main dependency-graph-main">
+  <section class="tool-intro">
+    <p class="eyebrow">LOCAL REPO · PNPM</p>
+    <h1>Monorepo 相依圖</h1>
+    <p>
+      從本機匯出的報告追查：哪些 workspace 引入這個套件？是多個版本，還是相同版本的 peer context？
+    </p>
+  </section>
+  <section class="utility-panel">
+    <h2>載入本機報告</h2>
+    <p>
+      先在本專案完成建置，再執行
+      <code
+        >mise exec -- node apps/dependency-graph/dist/cli.mjs /path/to/repo &gt;
+        dependencies.json</code
+      >。支援 pnpm lockfile 9.0，含雙 YAML 文件。CLI 與使用說明見專案 README。
+    </p>
+    <label for="report-file">選擇 JSON 報告（上限 8 MB）</label
+    ><input id="report-file" type="file" accept=".json,application/json" />
+    <div class="tool-actions">
+      <button id="demo" class="button secondary">載入示範</button
+      ><button id="clear" class="button secondary">清除</button>
+    </div>
+    <p id="status" role="status" aria-live="polite">報告只在裝置處理，不上傳或保存。</p>
+    <p id="error" role="alert" hidden></p>
+  </section>
+  <section id="output" class="utility-panel" hidden>
+    <h2>依賴與來源</h2>
+    <p id="summary"></p>
+    <div id="diagnostics"></div>
+    <details>
+      <summary>多版本與 peer context</summary>
+      <p>
+        版本不同與 peer context 不同分開列出。重複不代表可以刪除；lockfile 的 optional
+        依賴也不代表已在目前裝置安裝。
+      </p>
+      <div id="variants"></div>
+    </details>
+    <label for="query">搜尋套件／workspace</label
+    ><input id="query" type="search" placeholder="例如 yaml" />
+    <label for="node">選擇節點（最多顯示前 200 個匹配，請縮小搜尋）</label
+    ><select id="node"></select>
+    <div id="detail"></div>
+  </section>
+  <section class="utility-panel">
+    <h2>如何解讀</h2>
+    <p>
+      每個引入來源顯示一條最短路徑；直接相依為一步，間接相依會顯示中間套件。節點的所有直接邊另列於下方，循環不會無限展開。
+    </p>
+    <p>
+      預設 CLI 隱藏 workspace 實際路徑，但套件名稱及依賴關係仍在報告內。若明確加上
+      <code>--include-workspace-paths</code>，將包含相對路徑；分享前請檢查。來源行號對應匯出當時的
+      lockfile。
+    </p>
+    <p>
+      本工具不讀取或執行 repo 的 scripts，不推測缺少的依賴，也不自動去重或修改專案。未解析與過期
+      manifest 會顯示診斷。
+    </p>
+  </section>
+</main>

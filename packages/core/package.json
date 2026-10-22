@@ -79,6 +79,10 @@
     "./cron": {
       "types": "./dist/cron.d.mts",
       "import": "./dist/cron.mjs"
+    },
+    "./dependency-graph": {
+      "types": "./dist/dependency-graph.d.mts",
+      "import": "./dist/dependency-graph.mjs"
     }
   },
   "scripts": {

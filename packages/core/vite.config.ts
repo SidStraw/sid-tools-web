@@ -5,6 +5,7 @@ export default defineConfig({
   pack: {
     entry: [
       'src/index.ts',
+      'src/dependency-graph.ts',
       'src/images.ts',
       'src/lighthouse.ts',
       'src/json-diff.ts',

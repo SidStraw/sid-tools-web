@@ -5018,3 +5018,24 @@ dialog > p {
   line-height: 1.8;
   color: #607269;
 }
+
+.dependency-graph-main .utility-panel {
+  margin-bottom: 1.5rem;
+}
+.dependency-graph-main select,
+.dependency-graph-main input {
+  max-width: 100%;
+  width: 100%;
+}
+.dependency-graph-main #detail,
+.dependency-graph-main #variants,
+.dependency-graph-main code {
+  overflow-wrap: anywhere;
+}
+.dependency-graph-main #detail article {
+  border-top: 1px solid var(--line, #d9e2dc);
+  padding: 1rem 0;
+}
+.dependency-graph-main li {
+  margin-bottom: 0.75rem;
+}

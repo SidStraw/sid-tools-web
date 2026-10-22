@@ -1,0 +1,30 @@
+{
+  "repository": "https://github.com/storybookjs/storybook",
+  "commit": "40d47bf739fc8d97fdddaa2d22d8dc79fb2f0bd6",
+  "files": [
+    {
+      "local": "Button.tsx.txt",
+      "path": "code/renderers/react/template/cli/ts/Button.tsx",
+      "url": "https://github.com/storybookjs/storybook/blob/40d47bf739fc8d97fdddaa2d22d8dc79fb2f0bd6/code/renderers/react/template/cli/ts/Button.tsx",
+      "sha256": "703ca36d85385b08cfe3066b836cd40da5d460300f62e032316001ae966768f6"
+    },
+    {
+      "local": "Header.tsx.txt",
+      "path": "code/renderers/react/template/cli/ts/Header.tsx",
+      "url": "https://github.com/storybookjs/storybook/blob/40d47bf739fc8d97fdddaa2d22d8dc79fb2f0bd6/code/renderers/react/template/cli/ts/Header.tsx",
+      "sha256": "e91323839b8ad42c615e0db4b9ab3cae1b76e39bccc35cc1feec841ed719eb7c"
+    },
+    {
+      "local": "WrappedButton.tsx.txt",
+      "path": "code/core/src/components/components/Button/Button.tsx",
+      "url": "https://github.com/storybookjs/storybook/blob/40d47bf739fc8d97fdddaa2d22d8dc79fb2f0bd6/code/core/src/components/components/Button/Button.tsx",
+      "sha256": "b209346057aa98f83243d1f7af21eb972c19ca072c24f18b6013fbc31a492312"
+    },
+    {
+      "local": "LICENSE",
+      "path": "LICENSE",
+      "url": "https://github.com/storybookjs/storybook/blob/40d47bf739fc8d97fdddaa2d22d8dc79fb2f0bd6/LICENSE",
+      "sha256": "bc90586179d44dcb313a9a289d687a2f26226303b2066bd21dbefd2378e894e5"
+    }
+  ]
+}

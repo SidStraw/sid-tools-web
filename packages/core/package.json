@@ -91,6 +91,10 @@
     "./unused-review": {
       "types": "./dist/unused-review.d.mts",
       "import": "./dist/unused-review.mjs"
+    },
+    "./component-docs": {
+      "types": "./dist/component-docs.d.mts",
+      "import": "./dist/component-docs.mjs"
     }
   },
   "scripts": {

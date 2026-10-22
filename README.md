@@ -202,7 +202,7 @@ mise exec -- pnpm deploy
 
 Cloudflare Pages 原生 Git 整合沿用既有 GitHub OAuth 授權，連接 `SidStraw/sid-tools-web` 的 `main`；建置命令 `pnpm build`、輸出目錄 `apps/web/dist`，root directory 為 repo 根目錄。自動部署不需要另建使用者 API Token。手動部署使用既有 Wrangler OAuth 與 `wrangler pages deploy`。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
 
-目前本機建置在網域根路徑產生十九個 SSG HTML（新增工具仍需另行部署），Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。各頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
+目前本機建置在網域根路徑產生二十個 SSG HTML（新增工具仍需另行部署），Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。各頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
 
 `sid.tw` 帳號既有 Cloudflare Web Analytics 自動安裝涵蓋子網域；沿用「排除歐盟訪客」偏好，不新增重複 beacon。CSP 僅允許官方 beacon script 與指定 RUM 端點；本機無 beacon，測試仍檢查輸入不上傳。正式站頁面瀏覽與效能會送出基本統計，工具輸入、檔案、處理結果留在瀏覽器。
 
@@ -275,3 +275,23 @@ mise exec -- node apps/unused-review/dist/cli.mjs review /tmp/unused-current.jso
 CLI exit code：0 報告產生成功／無待處理候選，2 審查仍有未接受候選，3 基準不相容，1 輸入或分析失敗。無法讀取的來源保留未知、不能接受；引擎部分設定載入失敗時不輸出成功報告。檔案／報告上限 8 MB、設定 1 MB、候選 10,000 個、分析 timeout 90 秒；不寫出半份報告。網頁不掃描 repo、不上傳輸入、不寫 storage，清除或切換工具會釋放本次資料。
 
 原生引擎與驗收證據見 [STW-20 驗證紀錄](docs/validation/stw-20/README.md)。
+
+### Props 文件同步檢查（STW-22）
+
+本機 CLI 使用固定 `@babel/parser 8.0.7` 只解析 React TSX；不載入 Babel 設定、不執行來源、匯入或元件。先建置，再指定單一具名匯出與穩定 scope：
+
+```sh
+mise exec -- pnpm build
+mise exec -- node apps/component-docs/dist/cli.mjs scan /path/to/Button.tsx --component Button --scope design-system > /tmp/props-report.json
+mise exec -- node apps/component-docs/dist/cli.mjs document /tmp/props-report.json > /tmp/props-document.json
+mise exec -- node apps/component-docs/dist/cli.mjs review /tmp/props-report.json --document /tmp/props-document.json
+mise exec -- node apps/component-docs/dist/cli.mjs document /tmp/props-report.json --document /tmp/props-document.json > /tmp/props-proposed.json
+```
+
+文件格式為 `sid-tools-props-document-v1`：`scope`／`component` 識別對象，`props` 保存名稱、宣告型別文字、必填、參數預設與人工描述；`examples` 為具名 `{ name, values }` JSON 範例。可修改文件中的描述與範例後，和新報告比較。`document` 只輸出建議，不修改既有檔案；人工描述與範例會保留，問題範例不自動修正。Web 的「Props 文件」頁可載入兩份 JSON、分頁查看差異、定位原始宣告／預設值片段，再下載建議文件。
+
+支援直接具名匯出的 function／const arrow，同檔單一 interface／type literal Props，及函式參數的解構字面預設。宣告型別文字不是 compiler 展開結果；外部型別、繼承、泛型、wrapper、宣告合併、computed／重複解構等保留未知或不完整。預設僅指函式參數，不推論後續 defaultProps 或執行期修改；非有限數與負零不能無損表示於 JSON，保留未知。未解析到的舊 Props 不會誤判刪除，分析不完整時禁止產生建議文件。
+
+範例只檢查必填、欄位名稱、string／number／boolean／null 與字面值 union；函式、物件及引用型別等顯示未知，不聲稱完整型別或執行期行為驗證。來源上限 256 KB，報告／文件各 2 MB、500 個 Props、100 個範例、合計 10000 次範例欄位檢查；Web 在 Worker 中處理，15 秒未完成會失敗，資料只留在本頁記憶體。報告含相對檔名、來源 SHA256、程式片段與預設值，分享前請檢查。
+
+CLI exit 0 表示支援範圍內完成／沒有文件差異；不表示未知型別已解析。exit 2 表示差異、範例待審查或分析不完整；exit 1 表示無效輸入／參數／語法。真實來源、受控文件漂移與驗證見 [STW-22 驗證紀錄](docs/validation/stw-22/README.md)。

@@ -1,0 +1,231 @@
+{
+  "hasDocument": true,
+  "complete": true,
+  "rows": [
+    {
+      "name": "primary",
+      "status": "added",
+      "fields": [],
+      "before": null,
+      "after": {
+        "name": "primary",
+        "type": "boolean",
+        "required": false,
+        "default": {
+          "state": "known",
+          "value": false
+        },
+        "defaultSource": {
+          "start": 496,
+          "end": 501,
+          "line": 20,
+          "column": 13,
+          "text": "false"
+        },
+        "definition": {
+          "start": 144,
+          "end": 162,
+          "line": 7,
+          "column": 3,
+          "text": "primary?: boolean;"
+        },
+        "check": {
+          "kind": "boolean"
+        },
+        "description": "Is this the principal call to action on the page?"
+      }
+    },
+    {
+      "name": "backgroundColor",
+      "status": "same",
+      "fields": [],
+      "before": {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "default": {
+          "state": "none"
+        },
+        "description": "What background color to use"
+      },
+      "after": {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "default": {
+          "state": "none"
+        },
+        "defaultSource": null,
+        "definition": {
+          "start": 203,
+          "end": 228,
+          "line": 9,
+          "column": 3,
+          "text": "backgroundColor?: string;"
+        },
+        "check": {
+          "kind": "string"
+        },
+        "description": "What background color to use"
+      }
+    },
+    {
+      "name": "size",
+      "status": "changed",
+      "fields": ["default"],
+      "before": {
+        "name": "size",
+        "type": "'small' | 'medium' | 'large'",
+        "required": false,
+        "default": {
+          "state": "known",
+          "value": "large"
+        },
+        "description": "How large should the button be?"
+      },
+      "after": {
+        "name": "size",
+        "type": "'small' | 'medium' | 'large'",
+        "required": false,
+        "default": {
+          "state": "known",
+          "value": "medium"
+        },
+        "defaultSource": {
+          "start": 512,
+          "end": 520,
+          "line": 21,
+          "column": 10,
+          "text": "'medium'"
+        },
+        "definition": {
+          "start": 272,
+          "end": 308,
+          "line": 11,
+          "column": 3,
+          "text": "size?: 'small' | 'medium' | 'large';"
+        },
+        "check": {
+          "kind": "literal",
+          "values": ["small", "medium", "large"]
+        },
+        "description": "How large should the button be?"
+      }
+    },
+    {
+      "name": "label",
+      "status": "same",
+      "fields": [],
+      "before": {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "default": {
+          "state": "none"
+        },
+        "description": "人工保留的按鈕文案說明"
+      },
+      "after": {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "default": {
+          "state": "none"
+        },
+        "defaultSource": null,
+        "definition": {
+          "start": 336,
+          "end": 350,
+          "line": 13,
+          "column": 3,
+          "text": "label: string;"
+        },
+        "check": {
+          "kind": "string"
+        },
+        "description": "Button contents"
+      }
+    },
+    {
+      "name": "onClick",
+      "status": "same",
+      "fields": [],
+      "before": {
+        "name": "onClick",
+        "type": "() => void",
+        "required": false,
+        "default": {
+          "state": "none"
+        },
+        "description": "Optional click handler"
+      },
+      "after": {
+        "name": "onClick",
+        "type": "() => void",
+        "required": false,
+        "default": {
+          "state": "none"
+        },
+        "defaultSource": null,
+        "definition": {
+          "start": 385,
+          "end": 406,
+          "line": 15,
+          "column": 3,
+          "text": "onClick?: () => void;"
+        },
+        "check": {
+          "kind": "unknown"
+        },
+        "description": "Optional click handler"
+      }
+    },
+    {
+      "name": "retired",
+      "status": "removed",
+      "fields": [],
+      "before": {
+        "name": "retired",
+        "type": "number",
+        "required": false,
+        "default": {
+          "state": "none"
+        },
+        "description": "Controlled historical field for drift test"
+      },
+      "after": null
+    }
+  ],
+  "examples": [
+    {
+      "example": "invalid",
+      "prop": "label",
+      "state": "invalid",
+      "message": "缺少宣告為必填的 Prop。"
+    },
+    {
+      "example": "invalid",
+      "prop": "size",
+      "state": "invalid",
+      "message": "範例值不符合已支援的宣告型別／字面值。"
+    },
+    {
+      "example": "invalid",
+      "prop": "retired",
+      "state": "invalid",
+      "message": "未宣告此 Prop。"
+    },
+    {
+      "example": "callback",
+      "prop": "onClick",
+      "state": "unknown",
+      "message": "此型別超過範例值檢查範圍；未判定相容。"
+    }
+  ],
+  "exampleCount": 3,
+  "notices": [
+    "這是 React TSX 的受限靜態檢查。型別文字是來源宣告，並非 TypeScript compiler 已解析的完整型別。",
+    "預設僅指函式參數的預設，後續 defaultProps／執行期修改不在範圍。只確認字面值預設；函式呼叫、外部型別、繼承與未支援語法保留未知／不完整，不執行元件或匯入。",
+    "文件與報告可能包含路徑、預設值及原始程式片段；分享前請檢查。網頁不傳送輸入，不自動套用文件。"
+  ]
+}

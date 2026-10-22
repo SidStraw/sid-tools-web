@@ -19,6 +19,7 @@ const loaders: Record<Route['id'], () => Promise<ToolModule>> = {
   'sql-ddl': () => import('./pages/sql-ddl'),
   compose: () => import('./pages/compose'),
   'unused-review': () => import('./pages/unused-review'),
+  'component-docs': () => import('./pages/component-docs'),
   'bundle-diff': () => import('./pages/bundle-diff'),
   'dependency-graph': () => import('./pages/dependency-graph'),
 };

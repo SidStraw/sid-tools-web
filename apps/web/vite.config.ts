@@ -29,6 +29,7 @@ export default defineConfig({
           'tools/dependency-graph/index.html',
           'tools/bundle-diff/index.html',
           'tools/unused-review/index.html',
+          'tools/component-docs/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

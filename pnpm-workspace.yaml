@@ -2,6 +2,8 @@ packages:
   - apps/*
   - packages/*
 catalog:
+  '@babel/parser': 8.0.7
+  '@babel/types': 8.0.6
   knip: 6.42.1
   unified: 11.0.5
   remark-parse: 11.0.0

@@ -1,0 +1,77 @@
+{
+  "format": "sid-tools-props-document-v1",
+  "scope": "storybook",
+  "component": "Button",
+  "props": [
+    {
+      "name": "primary",
+      "type": "boolean",
+      "required": false,
+      "default": {
+        "state": "known",
+        "value": false
+      },
+      "description": "Is this the principal call to action on the page?"
+    },
+    {
+      "name": "backgroundColor",
+      "type": "string",
+      "required": false,
+      "default": {
+        "state": "none"
+      },
+      "description": "What background color to use"
+    },
+    {
+      "name": "size",
+      "type": "'small' | 'medium' | 'large'",
+      "required": false,
+      "default": {
+        "state": "known",
+        "value": "medium"
+      },
+      "description": "How large should the button be?"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": {
+        "state": "none"
+      },
+      "description": "人工保留的按鈕文案說明"
+    },
+    {
+      "name": "onClick",
+      "type": "() => void",
+      "required": false,
+      "default": {
+        "state": "none"
+      },
+      "description": "Optional click handler"
+    }
+  ],
+  "examples": [
+    {
+      "name": "valid",
+      "values": {
+        "label": "Save",
+        "size": "medium"
+      }
+    },
+    {
+      "name": "invalid",
+      "values": {
+        "size": "huge",
+        "retired": 1
+      }
+    },
+    {
+      "name": "callback",
+      "values": {
+        "label": "Save",
+        "onClick": "handler"
+      }
+    }
+  ]
+}

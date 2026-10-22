@@ -1,0 +1,78 @@
+<main id="workspace" class="utility-main component-docs-main">
+  <section class="tool-intro">
+    <p class="eyebrow">COMPONENT DOCUMENTATION · SOURCE FIRST</p>
+    <h1>Props 文件同步檢查</h1>
+    <p>
+      比對 React 元件的 Props 宣告、參數預設值與既有文件，查看變更及範例問題，再決定是否更新文件。
+    </p>
+  </section>
+  <section class="utility-panel">
+    <h2>載入分析與文件</h2>
+    <p>
+      先以專案內的 <code>component-docs scan</code> 分析 TSX，完整命令見 README。本頁只讀
+      JSON，檔案各限 2 MB、500 個 Props、100 個範例、合計 10000
+      次範例欄位檢查；不執行元件、不上傳或自動儲存。報告可能包含預設值與程式片段。
+    </p>
+    <label for="report-file">Props 分析報告 JSON</label
+    ><input id="report-file" type="file" accept=".json,application/json" />
+    <label for="document-file">既有 Props 文件 JSON（選填）</label
+    ><input id="document-file" type="file" accept=".json,application/json" />
+    <div class="tool-actions">
+      <button id="inspect" class="button primary">載入並比較</button
+      ><button id="clear" class="button secondary">清除／取消</button>
+    </div>
+    <p id="status" role="status" aria-live="polite">
+      請選擇報告；沒有既有文件時可檢視 Props 並下載初始文件。
+    </p>
+    <p id="error" role="alert" hidden></p>
+  </section>
+  <section id="output" class="utility-panel" hidden>
+    <h2>Props 與文件差異</h2>
+    <p id="context"></p>
+    <p id="coverage"></p>
+    <div id="warnings"></div>
+    <label for="search">搜尋 Prop 名稱</label><input id="search" type="search" />
+    <label for="filter">差異狀態</label
+    ><select id="filter">
+      <option value="all">全部</option>
+      <option value="added">新增</option>
+      <option value="removed">刪除</option>
+      <option value="changed">變更</option>
+      <option value="same">相同</option>
+      <option value="unverified">未確認</option>
+    </select>
+    <p id="counts"></p>
+    <div id="items"></div>
+    <button id="more" class="button secondary" hidden>顯示更多</button>
+    <section id="source-panel" hidden tabindex="-1">
+      <h3 id="source-heading">原始定義</h3>
+      <p id="source-position"></p>
+      <pre id="source-text"></pre>
+    </section>
+    <h3>使用範例檢查</h3>
+    <p id="example-summary"></p>
+    <div id="examples"></div>
+    <button id="examples-more" class="button secondary" hidden>顯示更多範例問題</button>
+    <div class="tool-actions">
+      <button id="document-download" class="button primary">下載建議文件</button
+      ><button id="review-download" class="button secondary">下載比較結果</button>
+    </div>
+    <p>
+      建議文件保留既有人工描述與範例；範例問題不會自動修正。下載後請自行審查再套用。分析不完整時禁止產生建議文件，未解析到的舊
+      Props 只列為未確認。
+    </p>
+  </section>
+  <section class="utility-panel">
+    <h2>支援範圍</h2>
+    <p>
+      首版支援直接具名匯出的 React function／arrow、同檔 interface／type literal
+      與解構參數。型別顯示宣告語法，未代替 TypeScript compiler。預設值只確認字串、數字、布林、null
+      等參數字面值；運算、匯入、wrapper 或繼承可能顯示未知／不完整。
+    </p>
+    <p>
+      範例只檢查必填、已宣告欄位、基本型別及字面值
+      union。函式、物件與引用型別等超出範圍者顯示未知；沒有問題不表示元件行為或完整型別檢查已通過。後續
+      defaultProps 賦值與執行期修改不在參數預設的分析範圍。
+    </p>
+  </section>
+</main>

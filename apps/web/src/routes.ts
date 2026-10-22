@@ -148,5 +148,13 @@ export const routes = [
     description:
       '離線審查 Knip 候選、來源與入口設定，記錄接受理由並比較 baseline；保留動態 import、外部 exports 與框架入口限制，不自動刪檔。',
   },
+  {
+    id: 'component-docs',
+    path: 'tools/component-docs/',
+    label: 'Props 文件',
+    title: 'Props 文件同步檢查',
+    description:
+      '比對 React Props 宣告、參數預設值與既有文件，檢查範例問題並預覽建議文件。報告不上傳。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

@@ -7,6 +7,7 @@ export default defineConfig({
       'src/index.ts',
       'src/bundle-diff.ts',
       'src/unused-review.ts',
+      'src/component-docs.ts',
       'src/dependency-graph.ts',
       'src/images.ts',
       'src/lighthouse.ts',

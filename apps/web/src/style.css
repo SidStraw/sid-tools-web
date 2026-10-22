@@ -5067,3 +5067,21 @@ dialog > p {
 .unused-review-main select {
   max-width: 100%;
 }
+
+.component-docs-main details {
+  margin-block: 1rem;
+  overflow-wrap: anywhere;
+}
+.component-docs-main pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.component-docs-main input,
+.component-docs-main select {
+  max-width: 100%;
+}
+.component-docs-main #source-panel {
+  overflow-wrap: anywhere;
+  border: 1px solid var(--line);
+  padding: 1rem;
+}

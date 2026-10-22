@@ -1,0 +1,133 @@
+{
+  "format": "sid-tools-props-report-v1",
+  "scope": "storybook",
+  "component": "Button",
+  "engine": {
+    "name": "@babel/parser",
+    "version": "8.0.7"
+  },
+  "source": {
+    "file": "Button.tsx.txt",
+    "sha256": "703ca36d85385b08cfe3066b836cd40da5d460300f62e032316001ae966768f6",
+    "length": 888
+  },
+  "complete": true,
+  "issues": [],
+  "props": [
+    {
+      "name": "primary",
+      "type": "boolean",
+      "required": false,
+      "default": {
+        "state": "known",
+        "value": false
+      },
+      "defaultSource": {
+        "start": 496,
+        "end": 501,
+        "line": 20,
+        "column": 13,
+        "text": "false"
+      },
+      "definition": {
+        "start": 144,
+        "end": 162,
+        "line": 7,
+        "column": 3,
+        "text": "primary?: boolean;"
+      },
+      "check": {
+        "kind": "boolean"
+      },
+      "description": "Is this the principal call to action on the page?"
+    },
+    {
+      "name": "backgroundColor",
+      "type": "string",
+      "required": false,
+      "default": {
+        "state": "none"
+      },
+      "defaultSource": null,
+      "definition": {
+        "start": 203,
+        "end": 228,
+        "line": 9,
+        "column": 3,
+        "text": "backgroundColor?: string;"
+      },
+      "check": {
+        "kind": "string"
+      },
+      "description": "What background color to use"
+    },
+    {
+      "name": "size",
+      "type": "'small' | 'medium' | 'large'",
+      "required": false,
+      "default": {
+        "state": "known",
+        "value": "medium"
+      },
+      "defaultSource": {
+        "start": 512,
+        "end": 520,
+        "line": 21,
+        "column": 10,
+        "text": "'medium'"
+      },
+      "definition": {
+        "start": 272,
+        "end": 308,
+        "line": 11,
+        "column": 3,
+        "text": "size?: 'small' | 'medium' | 'large';"
+      },
+      "check": {
+        "kind": "literal",
+        "values": ["small", "medium", "large"]
+      },
+      "description": "How large should the button be?"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": {
+        "state": "none"
+      },
+      "defaultSource": null,
+      "definition": {
+        "start": 336,
+        "end": 350,
+        "line": 13,
+        "column": 3,
+        "text": "label: string;"
+      },
+      "check": {
+        "kind": "string"
+      },
+      "description": "Button contents"
+    },
+    {
+      "name": "onClick",
+      "type": "() => void",
+      "required": false,
+      "default": {
+        "state": "none"
+      },
+      "defaultSource": null,
+      "definition": {
+        "start": 385,
+        "end": 406,
+        "line": 15,
+        "column": 3,
+        "text": "onClick?: () => void;"
+      },
+      "check": {
+        "kind": "unknown"
+      },
+      "description": "Optional click handler"
+    }
+  ]
+}

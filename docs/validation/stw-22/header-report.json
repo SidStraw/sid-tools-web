@@ -1,0 +1,98 @@
+{
+  "format": "sid-tools-props-report-v1",
+  "scope": "storybook",
+  "component": "Header",
+  "engine": {
+    "name": "@babel/parser",
+    "version": "8.0.7"
+  },
+  "source": {
+    "file": "Header.tsx.txt",
+    "sha256": "e91323839b8ad42c615e0db4b9ab3cae1b76e39bccc35cc1feec841ed719eb7c",
+    "length": 1525
+  },
+  "complete": true,
+  "issues": [],
+  "props": [
+    {
+      "name": "user",
+      "type": "User",
+      "required": false,
+      "default": {
+        "state": "none"
+      },
+      "defaultSource": null,
+      "definition": {
+        "start": 154,
+        "end": 166,
+        "line": 11,
+        "column": 3,
+        "text": "user?: User;"
+      },
+      "check": {
+        "kind": "unknown"
+      },
+      "description": ""
+    },
+    {
+      "name": "onLogin",
+      "type": "() => void",
+      "required": false,
+      "default": {
+        "state": "none"
+      },
+      "defaultSource": null,
+      "definition": {
+        "start": 169,
+        "end": 190,
+        "line": 12,
+        "column": 3,
+        "text": "onLogin?: () => void;"
+      },
+      "check": {
+        "kind": "unknown"
+      },
+      "description": ""
+    },
+    {
+      "name": "onLogout",
+      "type": "() => void",
+      "required": false,
+      "default": {
+        "state": "none"
+      },
+      "defaultSource": null,
+      "definition": {
+        "start": 193,
+        "end": 215,
+        "line": 13,
+        "column": 3,
+        "text": "onLogout?: () => void;"
+      },
+      "check": {
+        "kind": "unknown"
+      },
+      "description": ""
+    },
+    {
+      "name": "onCreateAccount",
+      "type": "() => void",
+      "required": false,
+      "default": {
+        "state": "none"
+      },
+      "defaultSource": null,
+      "definition": {
+        "start": 218,
+        "end": 247,
+        "line": 14,
+        "column": 3,
+        "text": "onCreateAccount?: () => void;"
+      },
+      "check": {
+        "kind": "unknown"
+      },
+      "description": ""
+    }
+  ]
+}

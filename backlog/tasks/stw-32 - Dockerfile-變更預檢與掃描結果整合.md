@@ -5,7 +5,7 @@ status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-22 21:11'
+updated_date: '2026-10-22 21:17'
 labels:
   - keyword-research
   - proposal
@@ -107,6 +107,8 @@ Hadolint 已有 CLI 與官方線上版本；整合掃描和可追溯修正不是
 本次只分類責任與下一步，不代表驗收完成、流量需求已證實或已授權遠端發佈；保留既有 AC 與狀態。
 
 2026-10-23 實作與驗收：官方 Hadolint 2.15.1 固定平台 digest、專案 .cache 明示安裝、scan 每次重驗 hash／版本；固定設定與乾淨環境、stdin、15 秒／2 MB 原生限制，不執行 Dockerfile 指令。固定 nodejs/docker-node 84410ee 公開樣本真實回報 6 項規則，原始 JSON／MIT license／來源 SHA256 已保存。Web 為同一 SSG SPA 第 22 頁，獨立 worker 載入有界報告、篩選／來源／理由匯出與重新載入；來源改變使舊理由失效。4 個真實 native/core 測試、瀏覽器報告／隱私／SPA／320px 驗證通過；完整 pnpm verify exit 0：963 單元整合、148 E2E、格式／lint／型別／build／production audit PASS，0/15 task cache。Image build／scan NOT RUN，沒有體積／漏洞改善主張。使用者已授權結案後推送部署，將依此進行遠端驗收。
+
+2026-10-23 本批遠端發佈完成：使用者授權結案後推送部署，main 84ec9af 已推送；GitHub Verify 39855305476 的 Linux／macOS 均 PASS。Cloudflare 原生 Git deployment 592ee99d 成功，tools.sid.tw 的 22 路由、canonical／sitemap、SPA、320px、真實 Dockerfile 報告與未知路徑 404 通過；GitHub Pages 仍關閉。STW-21 僅研究成果，未新增頁面。集中證據：docs/validation/release-2026-10-23。
 <!-- SECTION:NOTES:END -->
 
 ## Final Summary

@@ -5,7 +5,7 @@ status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-22 20:37'
+updated_date: '2026-10-22 21:17'
 labels:
   - keyword-research
   - monorepo-expansion
@@ -118,6 +118,8 @@ Storybook Autodocs 已從 metadata 產生 props/controls/stories；同步需求�
 2026-10-23 實作進度：repo-local @babel/parser 8.0.7／types 8.0.6、React TSX 唯讀 CLI、公開核心格式／文件比較、同一 SPA 第 20 個工具頁已完成。固定 Storybook Button／Header／wrapped Button 與 MIT license、SHA256 保存在 tests/fixtures/component-docs/storybook；真實報告及明示受控的文件漂移／建議文件在 docs/validation/stw-22。5 個整合測試驗證來源位置、未知／不完整、未執行注入程式、文件與範例差異及工作量限制；專用瀏覽器已驗證來源導覽、分頁、下載、320px、清除與 SPA history。上一輪完整 verify 為 955 單元／整合、144 E2E PASS；另補下載失敗 Blob 清理及第 4 個 E2E，最終完整驗證正在執行。所有 AC 尚待最終結案核對，未 push／部署。
 
 2026-10-23 最終驗收完成：pnpm verify exit 0，955 單元／整合、145 E2E、格式／lint／型別／build／production audit 通過（task cache 停用）。專用測試為 5 CLI／核心整合及 4 瀏覽器測試；含已下載 URL 清除與瀏覽器拒絕下載時的資源回收。已檢視 320px 截圖。四項 AC 的真實來源、實際輸出、程式未執行、文件差異與人工套用界線均有對應證據，見 docs/validation/stw-22/README.md。僅支援明示 React 靜態語法子集；未知值、函式／物件／引用型別範例不升格為驗證成功。未 push／部署，搜尋需求仍待驗證。
+
+2026-10-23 本批遠端發佈完成：使用者授權結案後推送部署，main 84ec9af 已推送；GitHub Verify 39855305476 的 Linux／macOS 均 PASS。Cloudflare 原生 Git deployment 592ee99d 成功，tools.sid.tw 的 22 路由、canonical／sitemap、SPA、320px、真實 Dockerfile 報告與未知路徑 404 通過；GitHub Pages 仍關閉。STW-21 僅研究成果，未新增頁面。集中證據：docs/validation/release-2026-10-23。
 <!-- SECTION:NOTES:END -->
 
 ## Final Summary

@@ -5,7 +5,7 @@ status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-22 19:17'
+updated_date: '2026-10-22 21:17'
 labels:
   - keyword-research
   - monorepo-expansion
@@ -105,6 +105,8 @@ Nx 已提供圖、依賴路徑與靜態輸出；跨 package-manager 重複套件
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
 
 2026-10-23：完成 pnpm 9.0（含雙 YAML 文件）本機唯讀 CLI 與 SSG SPA 報告檢視。真實專案樣本：5 workspaces、476 package contexts、850 edges、0 未解析邊。驗收詳見 docs/validation/stw-18/README.md 與 repository-sample.json。mise exec -- pnpm verify 無快取通過：944 單元／整合、139 瀏覽器，格式／lint／型別與 production audit 通過。未部署；未把功能交付當成市場需求證據。
+
+2026-10-23 本批遠端發佈完成：使用者授權結案後推送部署，main 84ec9af 已推送；GitHub Verify 39855305476 的 Linux／macOS 均 PASS。Cloudflare 原生 Git deployment 592ee99d 成功，tools.sid.tw 的 22 路由、canonical／sitemap、SPA、320px、真實 Dockerfile 報告與未知路徑 404 通過；GitHub Pages 仍關閉。STW-21 僅研究成果，未新增頁面。集中證據：docs/validation/release-2026-10-23。
 <!-- SECTION:NOTES:END -->
 
 ## Final Summary

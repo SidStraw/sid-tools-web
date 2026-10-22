@@ -5,7 +5,7 @@ status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-22 20:13'
+updated_date: '2026-10-22 21:17'
 labels:
   - keyword-research
   - monorepo-expansion
@@ -121,6 +121,8 @@ Low 延後研究 spike，不把研究驗收當功能完成，也不因生成式 
 2026-10-23 研究已產出：7 個來自本專案與 Knip 6.42.1 的真實型別案例，固定 TypeScript 7.0.2／5.9.3、strict 與 null-relaxed 設定；4 組真實分析皆無診斷，額外 negative control 兩版本均回報 TS2304 並保留 unresolved。原生 TS7 LSP hover verbosity 0／2、TS5.9 quick info 與 compiler 逐欄位／來源結果、各 6 次查詢時間與來源／設定 SHA256 保存於 research/ts-type-explorer-2026-10-23。verify.mjs PASS。觀察：長回傳型別可以補齊 hover 省略欄位；Report／Counters／遞迴 union 的原生呈現已足夠；195 個 mapped plugin 欄位沒有直接 declaration，不能編造來源。可理解性採明示查找任務與資訊可見性比較，未宣稱真人理解時間。建議縮小到具設定與來源的長型別檢視，第一場景為 SemverComparison 的 8 欄位與 rows 宣告定位；不新增 IDE 外掛或產品頁。完整 pnpm verify 正在執行，完成後逐項結案。
 
 2026-10-23 最終驗收：研究 verify.mjs、所有腳本 syntax check 與固定舊版 tarball integrity 下載流程均 PASS。完整 pnpm verify exit 0，950 單元／整合、141 E2E、格式／lint／型別／build／production audit 通過，task cache 停用。研究目錄不在主程式 lint/type 範圍，另以真實 compiler／LSP runner 和來源／設定 hash、語意不變量驗證。AC1–4 證據與限制詳見 research/ts-type-explorer-2026-10-23/README.md。研究完成，沒有宣稱真人理解速度、搜尋量、IDE UI 或新產品功能已驗證；未 push／部署。
+
+2026-10-23 本批遠端發佈完成：使用者授權結案後推送部署，main 84ec9af 已推送；GitHub Verify 39855305476 的 Linux／macOS 均 PASS。Cloudflare 原生 Git deployment 592ee99d 成功，tools.sid.tw 的 22 路由、canonical／sitemap、SPA、320px、真實 Dockerfile 報告與未知路徑 404 通過；GitHub Pages 仍關閉。STW-21 僅研究成果，未新增頁面。集中證據：docs/validation/release-2026-10-23。
 <!-- SECTION:NOTES:END -->
 
 ## Final Summary

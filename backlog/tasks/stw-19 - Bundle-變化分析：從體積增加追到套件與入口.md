@@ -5,7 +5,7 @@ status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-22 19:38'
+updated_date: '2026-10-22 21:17'
 labels:
   - keyword-research
   - monorepo-expansion
@@ -106,6 +106,8 @@ RelativeCI 已有跨 build 資產與模組、重複套件分析；需要 build m
 本次只分類責任與下一步，不代表驗收完成、流量需求已證實或已授權遠端發佈；保留既有 AC 與狀態。
 
 2026-10-23：完成 repo-local Vite+/Rolldown 收集器、唯讀 CLI 與 lazy SPA Bundle 比較。實際專案報告含 70 個產物、18 個 HTML 入口、430 筆 module 記錄；HTML 入口取自原生 build input，避免只靠 JS isEntry 漏列。最終 pnpm verify 無快取通過：947 unit/integration、140 browser；格式、lint、型別通過，production audit 無已知漏洞。3 個專屬真實 build/CLI 測試與 Chromium 實測涵蓋量測、來源、不同設定、預算、下載、清除和 SPA 往返。證據：docs/validation/stw-19/README.md、repository-build.json；測試來源 tests/bundle-report.test.ts、tests/helpers/bundle-build.ts、tests/e2e/bundle-diff.spec.ts。未推送、未部署、未驗證市場流量。
+
+2026-10-23 本批遠端發佈完成：使用者授權結案後推送部署，main 84ec9af 已推送；GitHub Verify 39855305476 的 Linux／macOS 均 PASS。Cloudflare 原生 Git deployment 592ee99d 成功，tools.sid.tw 的 22 路由、canonical／sitemap、SPA、320px、真實 Dockerfile 報告與未知路徑 404 通過；GitHub Pages 仍關閉。STW-21 僅研究成果，未新增頁面。集中證據：docs/validation/release-2026-10-23。
 <!-- SECTION:NOTES:END -->
 
 ## Final Summary

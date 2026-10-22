@@ -1,13 +1,15 @@
 ---
 id: STW-41
 title: 修正 Markdown 壓力測試的機器速度依賴
-status: In Progress
+status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-22 21:02'
-updated_date: '2026-10-22 21:11'
+updated_date: '2026-10-22 21:17'
 labels: []
 dependencies: []
+documentation:
+  - docs/validation/release-2026-10-23/README.md
 priority: high
 type: bug
 ordinal: 4137
@@ -22,7 +24,7 @@ macOS CI 39853084093 在 12.5 秒的 Markdown 樣本觀測因固定 10 秒斷言
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
 - [x] #1 保留惡意樣本、解析語義檢查及獨立子程序隔離測試，移除不屬於產品契約的每樣本速度斷言。
-- [ ] #2 完整本機驗證及 Linux／macOS CI 通過。
+- [x] #2 完整本機驗證及 Linux／macOS CI 通過。
 <!-- AC:END -->
 
 ## Implementation Plan
@@ -37,4 +39,12 @@ macOS CI 39853084093 在 12.5 秒的 Markdown 樣本觀測因固定 10 秒斷言
 已移除兩個僅供效能觀測的 10 秒同步解析斷言；保留 hostile fixtures、60 秒測試總期限及 30 秒獨立 child 逾時隔離。增加 fanout link count／limit anchorCoverage 語義驗證。目標 86 tests 通過，完整本機與雙平台 CI 待最後確認。
 
 完整本機 pnpm verify exit 0：963 單元整合、148 E2E；格式／lint／型別／build／audit PASS。原始 CI Linux 已成功；修正後 Linux／macOS 新 CI 須在 push 後驗證，AC2 暫不勾選。
+
+遠端驗收完成：commit 84ec9af 的 GitHub Verify 39855305476，Linux x64 3m21s、macOS arm64 3m46s，兩者完整 pnpm verify 成功。沒有停用測試、重試或調高產品 timeout；保持 native parser 隔離測試。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+移除與產品契約無關的機器速度門檻，保留效能觀測並增強解析語義斷言。本機 963 單元整合／148 E2E 與 GitHub Linux／macOS CI 全數通過。
+<!-- SECTION:FINAL_SUMMARY:END -->

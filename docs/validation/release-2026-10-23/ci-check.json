@@ -1,0 +1,28 @@
+{
+  "status": "completed",
+  "conclusion": "success",
+  "headSha": "84ec9af8ab99900db9a2ac84b30311173a41bb08",
+  "url": "https://github.com/SidStraw/sid-tools-web/actions/runs/39855305476",
+  "jobs": [
+    {
+      "name": "verify/macos-arm64",
+      "conclusion": "success",
+      "evidence": [
+        "2026-10-22T21:12:42.3868540Z Installed Hadolint 2.15.1 in project cache.",
+        "2026-10-22T21:13:22.1629090Z       Tests  963 passed (963)",
+        "2026-10-22T21:15:54.7996010Z   148 passed (2.5m)",
+        "2026-10-22T21:15:55.0260120Z No known vulnerabilities found"
+      ]
+    },
+    {
+      "name": "verify/linux-x64",
+      "conclusion": "success",
+      "evidence": [
+        "2026-10-22T21:12:48.8109483Z Installed Hadolint 2.15.1 in project cache.",
+        "2026-10-22T21:13:29.7296457Z       Tests  963 passed (963)",
+        "2026-10-22T21:15:32.0990311Z   148 passed (2.0m)",
+        "2026-10-22T21:15:32.3244392Z No known vulnerabilities found"
+      ]
+    }
+  ]
+}

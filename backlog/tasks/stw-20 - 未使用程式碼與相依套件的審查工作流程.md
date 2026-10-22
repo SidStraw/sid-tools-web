@@ -5,7 +5,7 @@ status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-22 20:01'
+updated_date: '2026-10-22 21:17'
 labels:
   - keyword-research
   - monorepo-expansion
@@ -113,6 +113,8 @@ ordinal: 120
 2026-10-23 進度：Knip 6.42.1 已透過 repo-local catalog 安裝；原生 JSON 實測先得 20 檔案群組／86 候選，明示 public source、Worker 與測試入口後得 4 群組／4 候選。數量下降不等同刪除正確性；沒有使用 --fix 或移除來源。兩份真實輸出與可重現設定保存於 docs/validation/stw-20，根目錄 knip.json。已核對 pinned JSONReport、ReporterOptions 及 CLI exit 1（有候選）／2（執行或設定失敗）語意。原生 plugin 可能載入 JS/TS 設定，整合須說明僅對受信任 repo 使用。尚未完成 CLI 封裝、baseline/接受原因、SPA 與測試，所有 AC 仍未勾選。
 
 2026-10-23 完成：固定 Knip 6.42.1 原生分析、context metadata、來源 SHA256、baseline 與逐項接受理由、CLI 增量審查及第 19 個 lazy SPA 工具頁。實際 fixture 驗證動態匯入／公開入口、來源變更撤銷接受、設定不相容、引擎失敗與唯讀行為；瀏覽器驗證下載重載、320px、清除與 history。完整 pnpm verify exit 0：950 單元／整合、141 E2E，格式／lint／type／build／production audit 通過。本專案連續兩次實掃均為 8 workspace、27 context file、5 候選，未刪除來源或代填接受理由。逐項證據：docs/validation/stw-20/README.md。未 push／部署，需求與流量效益仍未驗證。
+
+2026-10-23 本批遠端發佈完成：使用者授權結案後推送部署，main 84ec9af 已推送；GitHub Verify 39855305476 的 Linux／macOS 均 PASS。Cloudflare 原生 Git deployment 592ee99d 成功，tools.sid.tw 的 22 路由、canonical／sitemap、SPA、320px、真實 Dockerfile 報告與未知路徑 404 通過；GitHub Pages 仍關閉。STW-21 僅研究成果，未新增頁面。集中證據：docs/validation/release-2026-10-23。
 <!-- SECTION:NOTES:END -->
 
 ## Final Summary

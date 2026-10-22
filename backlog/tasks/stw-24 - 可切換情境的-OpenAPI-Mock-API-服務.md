@@ -5,7 +5,7 @@ status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-22 20:53'
+updated_date: '2026-10-22 21:17'
 labels:
   - keyword-research
   - proposal
@@ -117,6 +117,8 @@ Prism 已有可呼叫 mock server 與驗證；#2723 為 Node 版本相容問題�
 2026-10-23 實測進展：Prism 原生固定回應及路由通過。prototype 的真實 HTTP 與跨程序 state 測試 4 項通過；瀏覽器發現手機寬度溢出，修正中。pnpm audit --prod 發現 Prism → http-spec → postman-collection 的 lodash／Faker high，最新 Postman 仍保留 Faker 5.5.3，故移除 Prism runtime 相依，改整合 find-my-way 路由並沿用既有確定性 fixture，範圍不變。尚未完成驗收。
 
 2026-10-23 最終驗收 PASS：mise exec -- pnpm verify exit 0，959 unit/integration、147 browser、格式／lint／型別／建置與 production audit 全通過，0/13 cache hit。AC1：固定範例與 seed、operation/status/fixture 實際 HTTP 回應。AC2：真實延遲／503、Web 選擇保存及跨程序重啟一致。AC3：外部／未解析／遞迴引用、無效 example/schema、不支援 status/bodyless 與未知路由拒絕。AC4：127.0.0.1 啟停、Host/Origin/control header、無 CORS、upstream canary 0 次收件、請求秘密不記錄。另驗 rename 保存失敗維持舊設定、revision 衝突、0600、單一 writer、手機320px與SPA生命週期。詳見 docs/validation/stw-24/README.md。使用者最新授權：結案後推送、部署；取代本卡計畫原先不 push／部署的限制，正式結果將另驗。
+
+2026-10-23 本批遠端發佈完成：使用者授權結案後推送部署，main 84ec9af 已推送；GitHub Verify 39855305476 的 Linux／macOS 均 PASS。Cloudflare 原生 Git deployment 592ee99d 成功，tools.sid.tw 的 22 路由、canonical／sitemap、SPA、320px、真實 Dockerfile 報告與未知路徑 404 通過；GitHub Pages 仍關閉。STW-21 僅研究成果，未新增頁面。集中證據：docs/validation/release-2026-10-23。
 <!-- SECTION:NOTES:END -->
 
 ## Final Summary

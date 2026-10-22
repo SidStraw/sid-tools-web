@@ -316,3 +316,5 @@ mise exec -- node apps/mock-runtime/dist/cli.mjs tests/fixtures/mock-runtime/con
 來源限 512 KiB UTF-8 JSON、最多 64 個情境；每份 fixture 2 MB、合計 8 MB、state 256 KiB、mock request body 64 KiB、同時最多 32 個請求。沒有例子的 schema 使用固定 seed 產生並驗證，已有 examples 則保留可選的固定範例，不用隨機值取代。`--confirm-test-data` 是你對測試資料的確認，來源範例及 enum 不會自動匿名化；請勿使用正式秘密。未知路由回 404，無效設定 400，來源限制 403，revision 衝突 409；啟動失敗 exit 1。
 
 比較與驗收證據見 [STW-24 驗證紀錄](docs/validation/stw-24/README.md)。
+
+Cloudflare Pages 的原生 Git 建置由 repo 根目錄 `.node-version` 指定 Node 24.21.0；它須與 `mise.toml`、`package.json` 及 GitHub CI 一致。Pages 不依 `engines.node` 自動切換版本。

@@ -140,5 +140,13 @@ export const routes = [
     description:
       '離線比較 Vite 建置報告的 raw、gzip 與 Brotli 大小，追查入口、chunk、module 與套件，檢查量測條件及體積預算。',
   },
+  {
+    id: 'unused-review',
+    path: 'tools/unused-review/',
+    label: 'Unused 審查',
+    title: '未使用程式碼與相依套件審查',
+    description:
+      '離線審查 Knip 候選、來源與入口設定，記錄接受理由並比較 baseline；保留動態 import、外部 exports 與框架入口限制，不自動刪檔。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

@@ -1,0 +1,72 @@
+<main id="workspace" class="utility-main unused-review-main">
+  <section class="tool-intro">
+    <p class="eyebrow">LOCAL ANALYSIS · REVIEW BEFORE REMOVAL</p>
+    <h1>未使用程式碼審查</h1>
+    <p>查看 Knip 的未使用候選、來源與入口設定，為保留項目記錄理由，追蹤新問題與已接受的舊問題。</p>
+  </section>
+  <section class="utility-panel">
+    <h2>載入本機分析</h2>
+    <p>
+      先用 repo 內的 <code>unused-review scan</code> 產生報告；完整命令見 README。分析 CLI
+      只適用於受信任 repo，Knip 的 JS/TS plugin 設定可能執行。網頁只讀報告，每份上限 8 MB。
+    </p>
+    <label for="report-file">本次分析報告 JSON</label
+    ><input id="report-file" type="file" accept=".json,application/json" />
+    <label for="baseline-file">舊基準 JSON（選填）</label
+    ><input id="baseline-file" type="file" accept=".json,application/json" />
+    <div class="tool-actions">
+      <button id="inspect" class="button primary">載入並比較</button
+      ><button id="clear" class="button secondary">清除／取消</button>
+    </div>
+    <p id="status" role="status" aria-live="polite">
+      報告與理由只保留在本頁記憶體，不上傳或自動儲存。
+    </p>
+    <p id="error" role="alert" hidden></p>
+  </section>
+  <section id="output" class="utility-panel" hidden>
+    <h2>候選與審查</h2>
+    <p id="context"></p>
+    <p id="compatibility"></p>
+    <div id="warnings"></div>
+    <details>
+      <summary>入口、範圍與設定摘要</summary>
+      <pre id="settings"></pre>
+    </details>
+    <label for="search">搜尋來源、符號或理由</label><input id="search" type="search" />
+    <label for="filter">審查狀態</label
+    ><select id="filter">
+      <option value="all">全部</option>
+      <option value="new">新增</option>
+      <option value="existing">既有待處理</option>
+      <option value="changed">來源已改變</option>
+      <option value="accepted">已接受</option>
+      <option value="resolved">已消失</option>
+      <option value="review-needed">條件不同，待重新審查</option>
+    </select>
+    <p id="counts"></p>
+    <div id="items"></div>
+    <button id="more" class="button secondary" hidden>顯示更多</button>
+    <div class="tool-actions">
+      <button id="baseline-download" class="button primary">以本次報告下載新基準</button
+      ><button id="review-download" class="button secondary">下載審查結果</button>
+    </div>
+    <p>
+      新基準只保存本次報告與明確接受的理由；不相容的舊接受紀錄不會沿用。下載基準不代表套用修正或刪除任何檔案。
+    </p>
+  </section>
+  <section class="utility-panel">
+    <h2>如何判斷候選</h2>
+    <p>
+      未使用是分析候選，不是刪除許可。動態 import、框架隱式入口與外部消費的 exports
+      可能不在分析可見範圍；先確認 entry、project 及 plugin，再決定是否保留。
+    </p>
+    <p>
+      已接受的項目需要理由與來源摘要。來源檔案改變會回到待審查；引擎、scope
+      或設定指紋不同時，不能把舊基準直接當作通過依據。「已消失」只表示本次同條件分析不再回報，不代表已證明功能正確。
+    </p>
+    <p>
+      不執行 runtime CSS coverage，不提供自動刪檔或修正。若要實際清理，應另外審查
+      diff、保留回復方式並驗證建置。報告包含相對路徑、符號與審查理由，分享前請檢查。
+    </p>
+  </section>
+</main>

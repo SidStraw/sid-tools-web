@@ -2,6 +2,7 @@ packages:
   - apps/*
   - packages/*
 catalog:
+  knip: 6.42.1
   unified: 11.0.5
   remark-parse: 11.0.0
   remark-gfm: 4.0.1

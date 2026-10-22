@@ -28,6 +28,7 @@ export default defineConfig({
           'tools/compose/index.html',
           'tools/dependency-graph/index.html',
           'tools/bundle-diff/index.html',
+          'tools/unused-review/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

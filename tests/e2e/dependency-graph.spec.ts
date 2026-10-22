@@ -29,7 +29,10 @@ test('real CLI report loads privately, finds workspace paths, handles invalid in
   await expect(page.locator('#detail')).toContainText('間接');
   await page.locator('#detail summary').first().click();
   await expect(page.locator('#detail')).toContainText('pnpm-lock.yaml:document-2:line-');
-  await expect(page.locator('#detail')).toContainText('package.json#/dependencies/');
+  // A new root devDependency can legitimately become the first shortest path.
+  await expect(page.locator('#detail')).toContainText(
+    /package\.json#\/(?:devDependencies|dependencies)\//,
+  );
   await expect(page.locator('#summary')).toContainText('路徑已隱藏');
   expect(await page.evaluate(() => [localStorage.length, sessionStorage.length])).toEqual([0, 0]);
   expect(requests).toEqual([]);

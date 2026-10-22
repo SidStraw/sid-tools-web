@@ -202,7 +202,7 @@ mise exec -- pnpm deploy
 
 Cloudflare Pages 原生 Git 整合沿用既有 GitHub OAuth 授權，連接 `SidStraw/sid-tools-web` 的 `main`；建置命令 `pnpm build`、輸出目錄 `apps/web/dist`，root directory 為 repo 根目錄。自動部署不需要另建使用者 API Token。手動部署使用既有 Wrangler OAuth 與 `wrangler pages deploy`。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
 
-目前本機建置在網域根路徑產生十八個 SSG HTML（新增工具仍需另行部署），Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。各頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
+目前本機建置在網域根路徑產生十九個 SSG HTML（新增工具仍需另行部署），Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。各頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
 
 `sid.tw` 帳號既有 Cloudflare Web Analytics 自動安裝涵蓋子網域；沿用「排除歐盟訪客」偏好，不新增重複 beacon。CSP 僅允許官方 beacon script 與指定 RUM 端點；本機無 beacon，測試仍檢查輸入不上傳。正式站頁面瀏覽與效能會送出基本統計，工具輸入、檔案、處理結果留在瀏覽器。
 
@@ -253,3 +253,25 @@ mise exec -- node apps/bundle-diff/dist/cli.mjs /tmp/bundle-base.json /tmp/bundl
 設定檔內容、記錄的 resolved build/resolve/CSS/env 條件只寫入摘要，不輸出原始內容；環境 metadata 記錄 Node、作業系統、CPU、引擎及壓縮條件。相同摘要不保證未記錄的 plugin closure、外部資料或非確定性行為相同。報告仍包含相對 module 路徑、套件名與入口，分享前須檢查；不包含 source code。單檔產物 50 MB、總產物 200 MB、報告 8 MB、2,000 產物及 50,000 module 為上限。
 
 驗證與實際專案快照見 [STW-19 驗證紀錄](docs/validation/stw-19/README.md)。
+
+### 未使用程式碼審查（STW-20）
+
+在可信任的本機 JS/TS repo 執行固定 Knip 6.42.1，透過原生 JSON reporter 與 metadata reporter 收集候選，不重造分析引擎。先執行本專案 `mise exec -- pnpm build`：
+
+```sh
+mise exec -- node apps/unused-review/dist/cli.mjs scan /path/to/repo --config knip.json --scope my-project > /tmp/unused-current.json
+mise exec -- node apps/unused-review/dist/cli.mjs baseline /tmp/unused-current.json > /tmp/unused-baseline.json
+mise exec -- node apps/unused-review/dist/cli.mjs review /tmp/unused-current.json --baseline /tmp/unused-baseline.json
+```
+
+`--config` 必須是 repo 內的 JSON，entry/project/workspaces 使用原生 Knip 設定；本專案的 [knip.json](knip.json) 明列 public source、Worker 與測試入口。`--scope` 是你指定的穩定專案識別，避免不同專案混用基準。Knip 可能執行 JS/TS plugin 設定，並非程式碼沙箱；不要對未受信任 repo 執行。CLI 不提供 fix/remove 選項，也不自動執行 build；套用真正的清理應另行審查、保留回復方式及跑建置驗證。
+
+在工具選單「Unused 審查」載入報告與選填的舊基準，可以檢查每個候選的檔案、行／欄、引擎判定與來源摘要。填寫理由後按「接受並保留理由」，再下載新基準；不填理由就不能接受。首次 CLI `baseline` 不會自動接受任何候選。若要由 CLI 記錄接受原因，提供 `--accept decisions.json`，格式為 `[{"id":"報告中的候選 id","reason":"保留的具體理由"}]`。
+
+基準區分新增、既有、已接受、來源改變及已消失。來源檔案摘要改變會撤回自動接受；Knip 版本、scope 或設定指紋不同時回到重新審查，不宣稱舊問題已解決。已消失只表示這次同條件的分析沒有回報，並不證明功能正確。接受全部舊候選也不能掩蓋新的候選。
+
+指紋涵蓋 Knip JSON、Node、引擎與分析模式、實際 workspace／plugin、既有 package/tsconfig/Vite 設定及 root lockfile 摘要；其他影響分析的設定可以重複加上 `--context path/to/config`。僅涵蓋記錄的條件，不保證未記錄的 plugin 外部資料或環境相同。報告不包含原始 source／設定值，但包含相對路徑、符號、入口 patterns、摘要與使用者理由，分享前請檢查。sourceHash 是分析後的檔案摘要，請在穩定工作目錄執行；不是原子快照。
+
+CLI exit code：0 報告產生成功／無待處理候選，2 審查仍有未接受候選，3 基準不相容，1 輸入或分析失敗。無法讀取的來源保留未知、不能接受；引擎部分設定載入失敗時不輸出成功報告。檔案／報告上限 8 MB、設定 1 MB、候選 10,000 個、分析 timeout 90 秒；不寫出半份報告。網頁不掃描 repo、不上傳輸入、不寫 storage，清除或切換工具會釋放本次資料。
+
+原生引擎與驗收證據見 [STW-20 驗證紀錄](docs/validation/stw-20/README.md)。

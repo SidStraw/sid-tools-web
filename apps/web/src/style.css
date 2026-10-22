@@ -5048,3 +5048,22 @@ dialog > p {
 .bundle-diff-main select {
   max-width: 100%;
 }
+
+.unused-review-main details {
+  margin-block: 1rem;
+  overflow-wrap: anywhere;
+}
+.unused-review-main pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.unused-review-main textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.unused-review-main input,
+.unused-review-main select {
+  max-width: 100%;
+}

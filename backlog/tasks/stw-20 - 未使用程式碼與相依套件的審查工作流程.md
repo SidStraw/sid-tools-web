@@ -1,18 +1,20 @@
 ---
 id: STW-20
 title: 未使用程式碼與相依套件的審查工作流程
-status: Needs Refinement
-assignee: []
+status: Done
+assignee:
+  - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-22 20:01'
 labels:
   - keyword-research
-  - proposal
   - monorepo-expansion
   - delivery-cli-ci
   - later-delivery
   - demand-reviewed-2026-10-14
-  - deferred-evidence
+  - implemented
+  - local-verified
+  - market-validation-pending
 dependencies: []
 references:
   - >-
@@ -69,11 +71,21 @@ ordinal: 120
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 每個候選包含來源、分析引擎版本、入口設定及判定依據。
-- [ ] #2 dynamic import、框架隱式入口及外部消費的 exports 顯示限制。
-- [ ] #3 支援基準與忽略原因，能區分新增問題和已接受的舊問題。
-- [ ] #4 預設不刪檔；任何修正另有預覽、可回復操作與建置驗證。
+- [x] #1 每個候選包含來源、分析引擎版本、入口設定及判定依據。
+- [x] #2 dynamic import、框架隱式入口及外部消費的 exports 顯示限制。
+- [x] #3 支援基準與忽略原因，能區分新增問題和已接受的舊問題。
+- [x] #4 預設不刪檔；任何修正另有預覽、可回復操作與建置驗證。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. 整合固定版本 Knip（先查核 6.42.1 與專案 Node／三天 release-age 規則），使用原生 JSON reporter；不自製 unused 引擎、不使用 fix/remove 選項。
+2. 明確記錄 JS/TS 專案入口、project 範圍、workspace 與引擎版本／設定摘要。先在本專案及可重現 fixture 跑實際分析，保留 dynamic import、框架隱式入口與外部 exports 的限制；任何結果都是審查候選。
+3. 建立 readonly CLI 報告整合與既有 lazy SPA 檢視，支援 baseline、逐項接受原因、新增／既有／已接受／已消失分類；設定或引擎不同時要求重新檢視基準。報告不含 source 或 secret 值，Web 不讀 repo、不上傳輸入。
+4. 使用 Knip 真實輸出測試引擎資訊、來源、基準與忽略理由；加入錯誤／不相容條件、CLI、瀏覽器、SPA 清除與完整 pnpm verify。只提供審查，不自動刪檔或套用修正。
+5. 保存可重現案例與已知限制，逐項驗收後完成本機 commit；不自動 push 或部署。
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -89,4 +101,22 @@ ordinal: 120
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-other-cards.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+## 2026-10-23 介入需求盤點
+
+可直接推進：自行比較並整合既有 JS/TS 分析器，以本專案及可追溯公開樣本驗證唯讀結果、baseline、忽略原因與誤判限制。使用者不需先提供樣本；不自動刪檔。
+
+本次只分類責任與下一步，不代表驗收完成、流量需求已證實或已授權遠端發佈；保留既有 AC 與狀態。
+
+2026-10-23 選型查核：Knip 官方 JSON reporter 提供按檔案分組的 issues，workspace 設定支援各自 entry/project。來源 https://knip.dev/features/reporters、https://knip.dev/reference/configuration、https://knip.dev/features/monorepos-and-workspaces。npm registry 查得 6.42.1，發布 2026-10-19T18:24:59.186Z，engines ^20.19.0 || >=22.12.0；目前專案 Node 24.21.0 相容且已超過 4320 分鐘。尚未安裝、分析或驗收；API／輸出實際形狀須依 pinned 套件再確認。
+
+2026-10-23 進度：Knip 6.42.1 已透過 repo-local catalog 安裝；原生 JSON 實測先得 20 檔案群組／86 候選，明示 public source、Worker 與測試入口後得 4 群組／4 候選。數量下降不等同刪除正確性；沒有使用 --fix 或移除來源。兩份真實輸出與可重現設定保存於 docs/validation/stw-20，根目錄 knip.json。已核對 pinned JSONReport、ReporterOptions 及 CLI exit 1（有候選）／2（執行或設定失敗）語意。原生 plugin 可能載入 JS/TS 設定，整合須說明僅對受信任 repo 使用。尚未完成 CLI 封裝、baseline/接受原因、SPA 與測試，所有 AC 仍未勾選。
+
+2026-10-23 完成：固定 Knip 6.42.1 原生分析、context metadata、來源 SHA256、baseline 與逐項接受理由、CLI 增量審查及第 19 個 lazy SPA 工具頁。實際 fixture 驗證動態匯入／公開入口、來源變更撤銷接受、設定不相容、引擎失敗與唯讀行為；瀏覽器驗證下載重載、320px、清除與 history。完整 pnpm verify exit 0：950 單元／整合、141 E2E，格式／lint／type／build／production audit 通過。本專案連續兩次實掃均為 8 workspace、27 context file、5 候選，未刪除來源或代填接受理由。逐項證據：docs/validation/stw-20/README.md。未 push／部署，需求與流量效益仍未驗證。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+整合 repo-local Knip 6.42.1、唯讀 CLI 與 SPA 審查頁，提供來源／入口／引擎證據、baseline 和接受理由；設定或來源改變時不沿用舊接受。950 單元／整合與 141 E2E 及完整 pnpm verify 通過；實測與限制記錄於 docs/validation/stw-20。所有 4 項 AC 已有客觀證據，本機交付完成，未發佈。
+<!-- SECTION:FINAL_SUMMARY:END -->

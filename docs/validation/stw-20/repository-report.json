@@ -1,0 +1,355 @@
+{
+  "format": "sid-tools-unused-v1",
+  "engine": {
+    "name": "knip",
+    "version": "6.42.1"
+  },
+  "scope": "sid-tools-web",
+  "settings": {
+    "configPath": "knip.json",
+    "configHash": "53c6546d3d3abffde992bd421da154b8d54a09fa428aab9fe2ea71fdf668696f",
+    "node": "v24.21.0",
+    "fingerprint": "2cee66f9726562c6f5206204583b3027e18f24ba3e9744ee5a02900209c422f9",
+    "workspaces": [
+      ".",
+      "apps/bundle-diff",
+      "apps/dependency-graph",
+      "apps/markdown-links",
+      "apps/unused-review",
+      "apps/web",
+      "packages/bundle-report",
+      "packages/core"
+    ],
+    "plugins": {
+      ".": [
+        "github-actions",
+        "mise",
+        "node",
+        "oxlint",
+        "playwright",
+        "pnpm",
+        "typescript",
+        "vite",
+        "vite-plus",
+        "vitest",
+        "wrangler"
+      ],
+      "apps/web": [
+        "mise",
+        "node",
+        "oxlint",
+        "playwright",
+        "typescript",
+        "vite",
+        "vite-plus",
+        "vitest",
+        "wrangler"
+      ],
+      "packages/bundle-report": [
+        "mise",
+        "node",
+        "oxlint",
+        "playwright",
+        "typescript",
+        "vite",
+        "vite-plus",
+        "vitest",
+        "wrangler"
+      ],
+      "apps/dependency-graph": [
+        "mise",
+        "node",
+        "oxlint",
+        "playwright",
+        "typescript",
+        "vite",
+        "vite-plus",
+        "vitest",
+        "wrangler"
+      ],
+      "apps/markdown-links": [
+        "mise",
+        "node",
+        "oxlint",
+        "playwright",
+        "typescript",
+        "vite",
+        "vite-plus",
+        "vitest",
+        "wrangler"
+      ],
+      "apps/unused-review": [
+        "mise",
+        "node",
+        "oxlint",
+        "playwright",
+        "typescript",
+        "vite",
+        "vite-plus",
+        "vitest",
+        "wrangler"
+      ],
+      "apps/bundle-diff": [
+        "mise",
+        "node",
+        "oxlint",
+        "playwright",
+        "typescript",
+        "vite",
+        "vite-plus",
+        "vitest",
+        "wrangler"
+      ],
+      "packages/core": [
+        "mise",
+        "node",
+        "oxlint",
+        "playwright",
+        "typescript",
+        "vite",
+        "vite-plus",
+        "vitest",
+        "wrangler"
+      ]
+    },
+    "declared": [
+      {
+        "workspace": ".",
+        "entry": [
+          "vite.config.ts",
+          "playwright.config.ts",
+          "tests/**/*.test.ts",
+          "tests/e2e/**/*.spec.ts"
+        ],
+        "project": ["vite.config.ts", "playwright.config.ts", "tests/**/*.ts"]
+      },
+      {
+        "workspace": "apps/*",
+        "entry": ["src/cli.ts"],
+        "project": ["src/**/*.ts", "vite.config.ts"]
+      },
+      {
+        "workspace": "apps/web",
+        "entry": ["src/router.ts", "src/pages/*.worker.ts"],
+        "project": ["src/**/*.ts", "scripts/**/*.ts", "vite.config.ts"]
+      },
+      {
+        "workspace": "apps/markdown-links",
+        "entry": ["src/cli.ts", "src/scan-worker.ts"],
+        "project": ["src/**/*.ts", "vite.config.ts"]
+      },
+      {
+        "workspace": "packages/core",
+        "entry": [
+          "src/markdown-links.ts",
+          "src/index.ts",
+          "src/images.ts",
+          "src/lighthouse.ts",
+          "src/json-diff.ts",
+          "src/semver.ts",
+          "src/compose.ts",
+          "src/sql-ddl.ts",
+          "src/openapi-fixture.ts",
+          "src/openapi.ts",
+          "src/sdl.ts",
+          "src/selectors.ts",
+          "src/palette.ts",
+          "src/explain.ts",
+          "src/sitemap.ts",
+          "src/git-diff.ts",
+          "src/env-check.ts",
+          "src/cron.ts",
+          "src/dependency-graph.ts",
+          "src/bundle-diff.ts",
+          "src/unused-review.ts"
+        ],
+        "project": ["src/**/*.ts", "vite.config.ts"]
+      },
+      {
+        "workspace": "packages/bundle-report",
+        "entry": ["src/index.ts"],
+        "project": ["src/**/*.ts", "vite.config.ts"]
+      },
+      {
+        "workspace": "apps/unused-review",
+        "entry": ["src/cli.ts", "src/context-reporter.ts"],
+        "project": ["src/**/*.ts", "vite.config.ts"]
+      }
+    ],
+    "contextFiles": [
+      {
+        "path": "apps/bundle-diff/package.json",
+        "sha256": "33e062bb3b8981ebefbd7d54f6c5762c97d0c6f64c8c5e91f1a0776b75f157c7"
+      },
+      {
+        "path": "apps/bundle-diff/tsconfig.json",
+        "sha256": "25e03db0b91d8c8cb68bee324524b9c34b821677675b091192c7c90b1351962f"
+      },
+      {
+        "path": "apps/bundle-diff/vite.config.ts",
+        "sha256": "3fd242daca6cb30d3f4ad9767d2aa35fa7fc030433c38b0ac61d72742349870e"
+      },
+      {
+        "path": "apps/dependency-graph/package.json",
+        "sha256": "27b49c171dc387c07c56e8db874d44ea3b819de5628006210d8799349eb40221"
+      },
+      {
+        "path": "apps/dependency-graph/tsconfig.json",
+        "sha256": "25e03db0b91d8c8cb68bee324524b9c34b821677675b091192c7c90b1351962f"
+      },
+      {
+        "path": "apps/dependency-graph/vite.config.ts",
+        "sha256": "6306322f49d2fe1f8143a57383cb0810f00e7d6cc44fa3f5a5a5eee7c4bca5ae"
+      },
+      {
+        "path": "apps/markdown-links/package.json",
+        "sha256": "b1940d3bf5d11c9c04e5e5d7c054dea36bcab87772f1695577ef6d19b2a4f22a"
+      },
+      {
+        "path": "apps/markdown-links/tsconfig.json",
+        "sha256": "25e03db0b91d8c8cb68bee324524b9c34b821677675b091192c7c90b1351962f"
+      },
+      {
+        "path": "apps/markdown-links/vite.config.ts",
+        "sha256": "231c3e6919ec161e1025d2d6d86ba9f546f9f2971ffa567144eb92165e828742"
+      },
+      {
+        "path": "apps/unused-review/package.json",
+        "sha256": "b78b60f9c65ff97a0612d5383ca100917e965093bcf08b977f0c03daf12570a9"
+      },
+      {
+        "path": "apps/unused-review/tsconfig.json",
+        "sha256": "25e03db0b91d8c8cb68bee324524b9c34b821677675b091192c7c90b1351962f"
+      },
+      {
+        "path": "apps/unused-review/vite.config.ts",
+        "sha256": "be07745143ee26e8999a4277dbd31bf2c6c728552ff58cbd1656bc5fa3517cc4"
+      },
+      {
+        "path": "apps/web/package.json",
+        "sha256": "fc730db13655f13c09873c0b5a35db5d0c0088070df2a8aaf5a8ad6a5be032c4"
+      },
+      {
+        "path": "apps/web/tsconfig.json",
+        "sha256": "eda71115c9266af0f3792c30e9e7fd2fc8572551fb149e329ed2d7eede6c0537"
+      },
+      {
+        "path": "apps/web/vite.config.ts",
+        "sha256": "c7c7368fb859d7162d8bd603be285c4bd1e738f8440a66a18243a288e9da6a20"
+      },
+      {
+        "path": "knip.json",
+        "sha256": "53c6546d3d3abffde992bd421da154b8d54a09fa428aab9fe2ea71fdf668696f"
+      },
+      {
+        "path": "package.json",
+        "sha256": "d9def74739fa4394239025b8a5b4f3238c05231f91b6736761f6ea43ea8fcbc4"
+      },
+      {
+        "path": "packages/bundle-report/package.json",
+        "sha256": "0e3d245df6e265539a144d99b31f642593151516f2701472b95ed108a8ba82a8"
+      },
+      {
+        "path": "packages/bundle-report/tsconfig.json",
+        "sha256": "25e03db0b91d8c8cb68bee324524b9c34b821677675b091192c7c90b1351962f"
+      },
+      {
+        "path": "packages/bundle-report/vite.config.ts",
+        "sha256": "f256deced4793c464b0ee05b4c34df476d27323ce0d111e25d58419f8048512f"
+      },
+      {
+        "path": "packages/core/package.json",
+        "sha256": "90bae19bf770847c9675d30187abe5ac4776421ad2043a660e0906fdd7445858"
+      },
+      {
+        "path": "packages/core/tsconfig.json",
+        "sha256": "25e03db0b91d8c8cb68bee324524b9c34b821677675b091192c7c90b1351962f"
+      },
+      {
+        "path": "packages/core/vite.config.ts",
+        "sha256": "bd28090a0bdc20bac21323cbde28a0307e2d2a093bed8d4c6290260b71d579e2"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "sha256": "2e0cea84b613357a98397539053db9e504040fd224d9248488b2682c0593f433"
+      },
+      {
+        "path": "pnpm-workspace.yaml",
+        "sha256": "9a612be06f96b045a7eea60585696ed996437b9b5b7acc9473d2fd61d287e090"
+      },
+      {
+        "path": "tsconfig.json",
+        "sha256": "326e938b56e706dbe4ad308bbfbf3e3c7a2fbe572f68859755677c81fbe23da6"
+      },
+      {
+        "path": "vite.config.ts",
+        "sha256": "7125bd245909ebd3ea6e621b5f2f1427d6f402fbe214d493fb9264ae97bae3a0"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "[\"devDependencies\",\"package.json\",\"@earendil-works/pi-coding-agent\",\"\"]",
+      "type": "devDependencies",
+      "file": "package.json",
+      "name": "@earendil-works/pi-coding-agent",
+      "namespace": "",
+      "line": 19,
+      "col": 6,
+      "sourceHash": "d9def74739fa4394239025b8a5b4f3238c05231f91b6736761f6ea43ea8fcbc4",
+      "reason": "Knip 6.42.1 在已記錄的 entry/project 與 plugin 條件下回報 devDependencies 候選；未證明可安全刪除。"
+    },
+    {
+      "id": "[\"exports\",\"tests/helpers/unused-fixture.ts\",\"unusedCli\",\"\"]",
+      "type": "exports",
+      "file": "tests/helpers/unused-fixture.ts",
+      "name": "unusedCli",
+      "namespace": "",
+      "line": 6,
+      "col": 14,
+      "sourceHash": "262589ac545c86754e5ce5b10ca5d10bb4cf45c460ca53471c64bc4e9536ef20",
+      "reason": "Knip 6.42.1 在已記錄的 entry/project 與 plugin 條件下回報 exports 候選；未證明可安全刪除。"
+    },
+    {
+      "id": "[\"exports\",\"packages/core/src/openapi-parser.ts\",\"escapeOasPointer\",\"\"]",
+      "type": "exports",
+      "file": "packages/core/src/openapi-parser.ts",
+      "name": "escapeOasPointer",
+      "namespace": "",
+      "line": 35,
+      "col": 14,
+      "sourceHash": "00821297e41ed0260c22a7560287dadfbad8d779e27cc147444b2aa073e811b9",
+      "reason": "Knip 6.42.1 在已記錄的 entry/project 與 plugin 條件下回報 exports 候選；未證明可安全刪除。"
+    },
+    {
+      "id": "[\"exports\",\"packages/core/src/fixture-schema.ts\",\"exactNumber\",\"\"]",
+      "type": "exports",
+      "file": "packages/core/src/fixture-schema.ts",
+      "name": "exactNumber",
+      "namespace": "",
+      "line": 106,
+      "col": 17,
+      "sourceHash": "4c82e056217b81837fa6be739131728fdf630a40364ba9cb021b52c175fadac9",
+      "reason": "Knip 6.42.1 在已記錄的 entry/project 與 plugin 條件下回報 exports 候選；未證明可安全刪除。"
+    },
+    {
+      "id": "[\"exports\",\"apps/web/src/pages/palette-image.ts\",\"PALETTE_IMAGE_LIMITS\",\"\"]",
+      "type": "exports",
+      "file": "apps/web/src/pages/palette-image.ts",
+      "name": "PALETTE_IMAGE_LIMITS",
+      "namespace": "",
+      "line": 3,
+      "col": 14,
+      "sourceHash": "a443a136dbb14668743f34bee97d9123d99d04b4dca5bf30a524bcedcf68e231",
+      "reason": "Knip 6.42.1 在已記錄的 entry/project 與 plugin 條件下回報 exports 候選；未證明可安全刪除。"
+    }
+  ],
+  "warnings": [
+    "結果是 Knip 在記錄的入口／project 範圍內產生的審查候選，不是安全刪除證明。",
+    "動態組合的 import、反射與 runtime 使用可能無法靜態解析；framework 隱式入口需正確 plugin／entry 設定。",
+    "公開 exports 可能由 repo 外使用，不能以本機未找到引用就移除。CSS 未執行 runtime coverage，不提供可刪除判定。",
+    "設定指紋只涵蓋記錄的檔案與條件，不保證未記錄的 plugin 設定、外部資料與環境相同。",
+    "sourceHash 是分析後讀取的檔案摘要；請在穩定工作目錄執行，不是原子快照。",
+    "Knip 有 12 則設定提示；請用原生 Knip 檢查入口／忽略條件，候選不可直接當作刪除清單。"
+  ]
+}

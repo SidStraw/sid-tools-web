@@ -1,0 +1,60 @@
+{
+  "$schema": "https://unpkg.com/knip@6.42.1/schema.json",
+  "workspaces": {
+    ".": {
+      "entry": [
+        "vite.config.ts",
+        "playwright.config.ts",
+        "tests/**/*.test.ts",
+        "tests/e2e/**/*.spec.ts"
+      ],
+      "project": ["vite.config.ts", "playwright.config.ts", "tests/**/*.ts"]
+    },
+    "apps/*": {
+      "entry": ["src/cli.ts"],
+      "project": ["src/**/*.ts", "vite.config.ts"]
+    },
+    "apps/web": {
+      "entry": ["src/router.ts", "src/pages/*.worker.ts"],
+      "project": ["src/**/*.ts", "scripts/**/*.ts", "vite.config.ts"]
+    },
+    "apps/markdown-links": {
+      "entry": ["src/cli.ts", "src/scan-worker.ts"],
+      "project": ["src/**/*.ts", "vite.config.ts"]
+    },
+    "packages/core": {
+      "entry": [
+        "src/markdown-links.ts",
+        "src/index.ts",
+        "src/images.ts",
+        "src/lighthouse.ts",
+        "src/json-diff.ts",
+        "src/semver.ts",
+        "src/compose.ts",
+        "src/sql-ddl.ts",
+        "src/openapi-fixture.ts",
+        "src/openapi.ts",
+        "src/sdl.ts",
+        "src/selectors.ts",
+        "src/palette.ts",
+        "src/explain.ts",
+        "src/sitemap.ts",
+        "src/git-diff.ts",
+        "src/env-check.ts",
+        "src/cron.ts",
+        "src/dependency-graph.ts",
+        "src/bundle-diff.ts",
+        "src/unused-review.ts"
+      ],
+      "project": ["src/**/*.ts", "vite.config.ts"]
+    },
+    "packages/bundle-report": {
+      "entry": ["src/index.ts"],
+      "project": ["src/**/*.ts", "vite.config.ts"]
+    },
+    "apps/unused-review": {
+      "entry": ["src/cli.ts", "src/context-reporter.ts"],
+      "project": ["src/**/*.ts", "vite.config.ts"]
+    }
+  }
+}

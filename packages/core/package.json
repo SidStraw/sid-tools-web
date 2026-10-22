@@ -95,6 +95,10 @@
     "./component-docs": {
       "types": "./dist/component-docs.d.mts",
       "import": "./dist/component-docs.mjs"
+    },
+    "./mock-runtime": {
+      "types": "./dist/mock-runtime.d.mts",
+      "import": "./dist/mock-runtime.mjs"
     }
   },
   "scripts": {

@@ -45,7 +45,8 @@
         "src/dependency-graph.ts",
         "src/bundle-diff.ts",
         "src/unused-review.ts",
-        "src/component-docs.ts"
+        "src/component-docs.ts",
+        "src/mock-runtime.ts"
       ],
       "project": ["src/**/*.ts", "vite.config.ts"]
     },

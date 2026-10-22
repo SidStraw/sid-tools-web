@@ -30,6 +30,7 @@ export default defineConfig({
           'tools/bundle-diff/index.html',
           'tools/unused-review/index.html',
           'tools/component-docs/index.html',
+          'tools/mock-api/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },

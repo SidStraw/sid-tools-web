@@ -202,7 +202,7 @@ mise exec -- pnpm deploy
 
 Cloudflare Pages 原生 Git 整合沿用既有 GitHub OAuth 授權，連接 `SidStraw/sid-tools-web` 的 `main`；建置命令 `pnpm build`、輸出目錄 `apps/web/dist`，root directory 為 repo 根目錄。自動部署不需要另建使用者 API Token。手動部署使用既有 Wrangler OAuth 與 `wrangler pages deploy`。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
 
-目前本機建置在網域根路徑產生二十個 SSG HTML（新增工具仍需另行部署），Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。各頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
+目前本機建置在網域根路徑產生二十一個 SSG HTML（新增工具仍需另行部署），Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。各頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
 
 `sid.tw` 帳號既有 Cloudflare Web Analytics 自動安裝涵蓋子網域；沿用「排除歐盟訪客」偏好，不新增重複 beacon。CSP 僅允許官方 beacon script 與指定 RUM 端點；本機無 beacon，測試仍檢查輸入不上傳。正式站頁面瀏覽與效能會送出基本統計，工具輸入、檔案、處理結果留在瀏覽器。
 
@@ -295,3 +295,24 @@ mise exec -- node apps/component-docs/dist/cli.mjs document /tmp/props-report.js
 範例只檢查必填、欄位名稱、string／number／boolean／null 與字面值 union；函式、物件及引用型別等顯示未知，不聲稱完整型別或執行期行為驗證。來源上限 256 KB，報告／文件各 2 MB、500 個 Props、100 個範例、合計 10000 次範例欄位檢查；Web 在 Worker 中處理，15 秒未完成會失敗，資料只留在本頁記憶體。報告含相對檔名、來源 SHA256、程式片段與預設值，分享前請檢查。
 
 CLI exit 0 表示支援範圍內完成／沒有文件差異；不表示未知型別已解析。exit 2 表示差異、範例待審查或分析不完整；exit 1 表示無效輸入／參數／語法。真實來源、受控文件漂移與驗證見 [STW-22 驗證紀錄](docs/validation/stw-22/README.md)。
+
+### OpenAPI Mock API 情境服務（STW-24）
+
+先建置，再以安全測試合約啟動本機服務；以下使用專案內自行撰寫的測試資料：
+
+```sh
+mise exec -- pnpm build
+mise exec -- node apps/mock-runtime/dist/cli.mjs tests/fixtures/mock-runtime/contract.json --state /tmp/sid-tools-mock-state.json --seed demo-1 --confirm-test-data
+```
+
+終端機輸出 `http://127.0.0.1:4010/tools/mock-api/`。在該本機頁按「連線本機服務」，選 operation、status／範例與 0–5000 ms 延遲，再按「套用並保存情境」。實際 endpoint 位於 `/mock` 加合約路徑，例如 `GET http://127.0.0.1:4010/mock/pets/42`；路徑參數以成熟的 find-my-way 9.10.0 路由器匹配。正式工具站上的同一工具頁提供啟動說明；不會自動探測或呼叫 localhost。
+
+`--port` 可指定 0–65535（0 由系統分配）；`--web-root` 可指定同一 SPA 的建置資產目錄，預設使用本專案 apps/web/dist。僅監聽 IPv4 127.0.0.1，Ctrl-C／SIGTERM 停止並關閉連線。沒有公開託管、CORS、隧道、轉發 API、callback 或請求內容紀錄。
+
+`--state` 必填，父目錄須已存在。只保存 seed、來源 SHA256、revision 與各 operation 的選擇／延遲，檔案權限 0600；不保存請求或 fixture 內容。更新採暫存檔與原子 rename，保存失敗保留舊設定。重啟須使用同一份合約原文和 seed；改變合約時請選另一個 state 路徑，不能默默套用舊選擇。同一路徑只允許一個程序；正常停止刪除 `.lock`，若遭強制終止留下 lock，先確認沒有存活服務再手動刪除。頁面清除／切換工具只釋放瀏覽器資料，不刪除 state 或停止服務。
+
+首版沿用 STW-14 有限 OpenAPI 3.0.x JSON 回應 schema／本機引用與獨立 fixture 驗證，不是完整 OpenAPI 驗證器。每個明示 status 必須有可支援的 JSON response；不支援的規格、引用、schema、無 body 回應、HEAD／TRACE、萬用／default status 或路由模板會拒絕啟動。response 的非 JSON media 不供選擇；不套用自訂 response headers、cookies、請求認證、body 驗證或內容協商。回應完全由管理頁明示情境決定，caller 的 Prefer／Accept／__server 不會改變它。已開始處理的請求使用當次設定快照，後續請求才採新設定。
+
+來源限 512 KiB UTF-8 JSON、最多 64 個情境；每份 fixture 2 MB、合計 8 MB、state 256 KiB、mock request body 64 KiB、同時最多 32 個請求。沒有例子的 schema 使用固定 seed 產生並驗證，已有 examples 則保留可選的固定範例，不用隨機值取代。`--confirm-test-data` 是你對測試資料的確認，來源範例及 enum 不會自動匿名化；請勿使用正式秘密。未知路由回 404，無效設定 400，來源限制 403，revision 衝突 409；啟動失敗 exit 1。
+
+比較與驗收證據見 [STW-24 驗證紀錄](docs/validation/stw-24/README.md)。

@@ -156,5 +156,12 @@ export const routes = [
     description:
       '比對 React Props 宣告、參數預設值與既有文件，檢查範例問題並預覽建議文件。報告不上傳。',
   },
+  {
+    id: 'mock-api',
+    path: 'tools/mock-api/',
+    label: 'Mock API',
+    title: 'OpenAPI Mock API 情境服務',
+    description: '本機 OpenAPI 回應情境服務，切換固定範例、錯誤與延遲，保存設定並在重啟後還原。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

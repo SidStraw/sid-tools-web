@@ -1,0 +1,53 @@
+<main id="workspace" tabindex="-1" class="utility-main mock-api-main">
+  <section class="tool-intro">
+    <p class="eyebrow">LOCAL API LAB</p>
+    <h1>OpenAPI Mock API 情境服務</h1>
+    <p>用同一份測試合約切換成功、錯誤與延遲回應。服務在你的電腦執行，設定可在重啟後還原。</p>
+  </section>
+  <section class="utility-panel" aria-labelledby="mock-start-heading">
+    <h2 id="mock-start-heading">啟動本機服務</h2>
+    <p>
+      在此專案完成建置後，使用已確認可公開測試的 JSON
+      合約。請在終端機印出的本機網址開啟此頁，再連線管理情境。
+    </p>
+    <pre class="code-block">
+mise exec -- pnpm build
+mise exec -- node apps/mock-runtime/dist/cli.mjs contract.json --state mock-state.json --seed demo-1 --confirm-test-data</pre>
+    <p>
+      僅監聽 127.0.0.1，預設埠 4010。按 Ctrl-C 停止；再次使用相同合約、state 路徑與 seed
+      啟動即可還原。重啟不會重新抽取隨機回應。
+    </p>
+    <p>
+      支援有限 OpenAPI 3.0.x JSON 回應；不驗證請求或認證、不呼叫正式
+      API。來源範例不會自動匿名化。正式工具站提供說明，請使用 CLI 印出的本機網址操作。
+    </p>
+    <div class="tool-actions">
+      <button id="mock-connect" class="button primary">連線本機服務</button
+      ><button id="mock-clear" class="button secondary">清除頁面資料</button>
+    </div>
+    <p id="mock-status" role="status" aria-live="polite">尚未連線。</p>
+    <p id="mock-error" role="alert" hidden></p>
+  </section>
+  <section id="mock-controls" class="utility-panel" hidden aria-labelledby="mock-settings-heading">
+    <h2 id="mock-settings-heading">選擇回應情境</h2>
+    <p id="mock-context"></p>
+    <ul id="mock-notices"></ul>
+    <label for="mock-operation">Operation</label
+    ><select id="mock-operation"></select>
+    <label for="mock-choice">回應 status／範例</label
+    ><select id="mock-choice"></select>
+    <label for="mock-delay">延遲（0–5000 毫秒）</label
+    ><input id="mock-delay" type="number" min="0" max="5000" step="1" value="0" />
+    <p id="mock-current"></p>
+    <pre id="mock-endpoint"></pre>
+    <div class="tool-actions">
+      <button id="mock-apply" class="button primary">套用並保存情境</button
+      ><button id="mock-preview" class="button secondary">預覽測試回應</button>
+    </div>
+    <p>
+      套用後，後續請求使用新設定；已開始的請求維持原情境。清除頁面或切換工具不會停止服務，也不會刪除
+      state 檔。
+    </p>
+    <pre id="mock-fixture" hidden></pre>
+  </section>
+</main>

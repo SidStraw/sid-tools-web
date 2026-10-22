@@ -1,0 +1,60 @@
+[
+  {
+    "code": "200",
+    "path": "/pets/42",
+    "result": {
+      "output": {
+        "statusCode": 200,
+        "headers": {
+          "x-sidtools-scenario": "get-pet",
+          "Content-type": "application/json"
+        },
+        "body": {
+          "id": 1,
+          "name": "public-test"
+        }
+      },
+      "validations": {
+        "input": [],
+        "output": []
+      }
+    }
+  },
+  {
+    "code": "200",
+    "path": "/missing",
+    "result": {
+      "error": "Route not resolved, no path matched",
+      "status": 404
+    }
+  },
+  {
+    "code": "500",
+    "path": "/pets/42",
+    "result": {
+      "output": {
+        "statusCode": 500,
+        "headers": {
+          "x-sidtools-scenario": "get-pet",
+          "Content-type": "application/json"
+        },
+        "body": {
+          "id": 1,
+          "name": "public-test"
+        }
+      },
+      "validations": {
+        "input": [],
+        "output": []
+      }
+    }
+  },
+  {
+    "code": "500",
+    "path": "/missing",
+    "result": {
+      "error": "Route not resolved, no path matched",
+      "status": 404
+    }
+  }
+]

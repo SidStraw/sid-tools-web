@@ -2,6 +2,7 @@ packages:
   - apps/*
   - packages/*
 catalog:
+  find-my-way: 9.10.0
   '@babel/parser': 8.0.7
   '@babel/types': 8.0.6
   knip: 6.42.1

@@ -28,6 +28,7 @@ test('all twenty tools are reachable from the menu and nested URLs survive reloa
     ['Bundle 比較', 'bundle-diff'],
     ['Unused 審查', 'unused-review'],
     ['Props 文件', 'component-docs'],
+    ['Mock API', 'mock-api'],
   ] as const) {
     await page
       .getByRole('navigation', { name: '工具選單' })
@@ -243,11 +244,12 @@ test('SSG serves full route content without JavaScript', async ({ browser }) => 
     ['tools/bundle-diff/', 'Bundle 體積比較'],
     ['tools/unused-review/', '未使用程式碼審查'],
     ['tools/component-docs/', 'Props 文件同步檢查'],
+    ['tools/mock-api/', 'OpenAPI Mock API 情境服務'],
   ] as const) {
     const response = await page.goto(`http://127.0.0.1:4173/${path}`);
     expect(response?.status()).toBe(200);
     await expect(page.locator('h1')).toContainText(title);
-    await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(20);
+    await expect(page.getByRole('navigation').getByRole('link')).toHaveCount(21);
   }
   await context.close();
 });
@@ -367,6 +369,7 @@ test('Cloudflare root routing canonicalizes tools, exposes the sitemap, and retu
     'tools/bundle-diff/',
     'tools/unused-review/',
     'tools/component-docs/',
+    'tools/mock-api/',
   ]) {
     const response = await request.get('/' + path);
     expect(response.status()).toBe(200);
@@ -381,7 +384,7 @@ test('Cloudflare root routing canonicalizes tools, exposes the sitemap, and retu
   const sitemap = await request.get('/sitemap.xml');
   expect(sitemap.status()).toBe(200);
   const xml = await sitemap.text();
-  expect(xml.match(/<loc>/g)).toHaveLength(20);
+  expect(xml.match(/<loc>/g)).toHaveLength(21);
   expect(xml).not.toContain('github.io');
   expect(await (await request.get('/robots.txt')).text()).toContain(
     'Sitemap: https://tools.sid.tw/sitemap.xml',

@@ -5085,3 +5085,31 @@ dialog > p {
   border: 1px solid var(--line);
   padding: 1rem;
 }
+
+#mock-context,
+#mock-endpoint,
+#mock-fixture {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  max-width: 100%;
+}
+#mock-operation,
+#mock-choice {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0 1rem;
+}
+#mock-controls label {
+  display: block;
+  margin-top: 1rem;
+}
+#mock-fixture {
+  max-height: 28rem;
+  overflow: auto;
+}
+
+.mock-api-main pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}

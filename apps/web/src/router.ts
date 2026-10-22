@@ -2,6 +2,7 @@ import './style.css';
 import { routes, SITE_ORIGIN, type Route } from './routes';
 type ToolModule = { html: string; mount: (root: HTMLElement) => () => void };
 const loaders: Record<Route['id'], () => Promise<ToolModule>> = {
+  'mock-api': () => import('./pages/mock-api'),
   images: () => import('./pages/images'),
   lighthouse: () => import('./pages/lighthouse'),
   'json-diff': () => import('./pages/json-diff'),

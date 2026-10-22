@@ -352,7 +352,6 @@ test('hostile parser depth is measured separately from postparse AST bounds; no 
     links: [],
     diagnostics: [{ code: 'depth-limit', location: null }],
   });
-  expect(elapsed).toBeLessThan(10_000);
   expect(MARKDOWN_POLICY.bounds).toContain('after parsing');
   console.info(
     `Markdown hostile256 blockquote depth: ${elapsed.toFixed(1)}ms (AST limit after parse)`,
@@ -372,7 +371,9 @@ test(
         report = parse(source),
         elapsed = performance.now() - start;
       expect(['complete', 'partial', 'limit']).toContain(report.status);
-      expect(elapsed).toBeLessThan(10_000);
+      // Wall time is observational; the CLI child deadline has its own integration test.
+      expect(report.links).toHaveLength(report.status === 'limit' || name !== 'fanout' ? 0 : 4000);
+      expect(report.anchorCoverage).toBe(report.status === 'limit' ? 'unknown' : 'complete');
       console.info(
         `Markdown ${name} ${source.length}UTF16: ${elapsed.toFixed(1)}ms, ${report.status}`,
       );

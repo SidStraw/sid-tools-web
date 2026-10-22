@@ -27,11 +27,21 @@ export default defineConfig({
           'tools/sql-ddl/index.html',
           'tools/compose/index.html',
           'tools/dependency-graph/index.html',
+          'tools/bundle-diff/index.html',
         ].map((path) => [path, fileURLToPath(new URL(path, import.meta.url))]),
       ),
     },
   },
   plugins: [
+    process.env.STW_BUNDLE_REPORT
+      ? import('@sid-tools/bundle-report').then(({ bundleReport }) =>
+          bundleReport({
+            file: process.env.STW_BUNDLE_REPORT!,
+            sourceRoot: fileURLToPath(new URL('../../', import.meta.url)),
+            profile: 'sid-tools-web',
+          }),
+        )
+      : null,
     {
       name: 'tool-ssg',
       generateBundle() {

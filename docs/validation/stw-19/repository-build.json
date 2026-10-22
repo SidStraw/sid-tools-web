@@ -1,0 +1,3351 @@
+{
+  "format": "sid-tools-bundle-v1",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "bundler": "rolldown@1.2.11",
+    "vite": "8.3.1",
+    "mode": "production",
+    "target": "[\"chrome111\",\"edge111\",\"firefox114\",\"safari16.4\",\"ios16.4\"]",
+    "minify": "\"oxc\"",
+    "sourcemap": "false",
+    "configHash": "1caa907958e722c0fade72029d6f34606f8c60b15130c256f1ad4e7f44e51727",
+    "compression": "gzip-level-9;brotli-quality-11",
+    "profile": "sid-tools-web"
+  },
+  "coverage": "vite-emitted-bundle-only-v1",
+  "assets": [
+    {
+      "file": "assets/browser-Dutuf49U.js",
+      "identity": "shared:browser",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 29130,
+        "gzip": 10556,
+        "brotli": 9591
+      },
+      "sha256": "dc0ae416896a386d1e3b231ffcb798a936f88b64ddcbf2d9e46fdd533897cd00",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "npm:yaml/browser/dist/nodes/identity.js",
+          "package": "yaml",
+          "renderedLength": 1314
+        },
+        {
+          "id": "npm:yaml/browser/dist/visit.js",
+          "package": "yaml",
+          "renderedLength": 4197
+        },
+        {
+          "id": "npm:yaml/browser/dist/doc/directives.js",
+          "package": "yaml",
+          "renderedLength": 4012
+        },
+        {
+          "id": "npm:yaml/browser/dist/doc/anchors.js",
+          "package": "yaml",
+          "renderedLength": 325
+        },
+        {
+          "id": "npm:yaml/browser/dist/doc/applyReviver.js",
+          "package": "yaml",
+          "renderedLength": 1103
+        },
+        {
+          "id": "npm:yaml/browser/dist/nodes/toJS.js",
+          "package": "yaml",
+          "renderedLength": 688
+        },
+        {
+          "id": "npm:yaml/browser/dist/nodes/Node.js",
+          "package": "yaml",
+          "renderedLength": 992
+        },
+        {
+          "id": "npm:yaml/browser/dist/nodes/Alias.js",
+          "package": "yaml",
+          "renderedLength": 2709
+        },
+        {
+          "id": "npm:yaml/browser/dist/nodes/Scalar.js",
+          "package": "yaml",
+          "renderedLength": 619
+        },
+        {
+          "id": "npm:yaml/browser/dist/doc/createNode.js",
+          "package": "yaml",
+          "renderedLength": 2153
+        },
+        {
+          "id": "npm:yaml/browser/dist/nodes/Collection.js",
+          "package": "yaml",
+          "renderedLength": 3050
+        },
+        {
+          "id": "npm:yaml/browser/dist/stringify/stringifyComment.js",
+          "package": "yaml",
+          "renderedLength": 561
+        },
+        {
+          "id": "npm:yaml/browser/dist/stringify/foldFlowLines.js",
+          "package": "yaml",
+          "renderedLength": 2953
+        },
+        {
+          "id": "npm:yaml/browser/dist/stringify/stringifyString.js",
+          "package": "yaml",
+          "renderedLength": 8531
+        },
+        {
+          "id": "npm:yaml/browser/dist/stringify/stringify.js",
+          "package": "yaml",
+          "renderedLength": 3476
+        },
+        {
+          "id": "npm:yaml/browser/dist/stringify/stringifyPair.js",
+          "package": "yaml",
+          "renderedLength": 3978
+        },
+        {
+          "id": "npm:yaml/browser/dist/log.js",
+          "package": "yaml",
+          "renderedLength": 207
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/yaml-1.1/merge.js",
+          "package": "yaml",
+          "renderedLength": 1618
+        },
+        {
+          "id": "npm:yaml/browser/dist/nodes/addPairToJSMap.js",
+          "package": "yaml",
+          "renderedLength": 1604
+        },
+        {
+          "id": "npm:yaml/browser/dist/nodes/Pair.js",
+          "package": "yaml",
+          "renderedLength": 853
+        },
+        {
+          "id": "npm:yaml/browser/dist/stringify/stringifyCollection.js",
+          "package": "yaml",
+          "renderedLength": 4212
+        },
+        {
+          "id": "npm:yaml/browser/dist/nodes/YAMLMap.js",
+          "package": "yaml",
+          "renderedLength": 3082
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/common/map.js",
+          "package": "yaml",
+          "renderedLength": 386
+        },
+        {
+          "id": "npm:yaml/browser/dist/nodes/YAMLSeq.js",
+          "package": "yaml",
+          "renderedLength": 2102
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/common/seq.js",
+          "package": "yaml",
+          "renderedLength": 387
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/common/string.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/common/null.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/core/bool.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/core/float.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/core/schema.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/json/schema.js",
+          "package": "yaml",
+          "renderedLength": 1569
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/yaml-1.1/binary.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/yaml-1.1/pairs.js",
+          "package": "yaml",
+          "renderedLength": 937
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/yaml-1.1/omap.js",
+          "package": "yaml",
+          "renderedLength": 1123
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/yaml-1.1/bool.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/yaml-1.1/float.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/yaml-1.1/set.js",
+          "package": "yaml",
+          "renderedLength": 1715
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/yaml-1.1/schema.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/tags.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/schema/Schema.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/stringify/stringifyDocument.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/doc/Document.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/compose/resolve-block-map.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/compose/resolve-block-seq.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/compose/resolve-flow-collection.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/compose/compose-collection.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/compose/resolve-block-scalar.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/compose/resolve-flow-scalar.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/compose/compose-scalar.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/compose/compose-node.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/compose/compose-doc.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/compose/composer.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/parse/cst-scalar.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/parse/cst-visit.js",
+          "package": "yaml",
+          "renderedLength": 1616
+        },
+        {
+          "id": "npm:yaml/browser/dist/parse/cst.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/parse/lexer.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/parse/parser.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/public-api.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/dist/index.js",
+          "package": "yaml",
+          "renderedLength": 0
+        },
+        {
+          "id": "npm:yaml/browser/index.js",
+          "package": "yaml",
+          "renderedLength": 0
+        }
+      ]
+    },
+    {
+      "file": "assets/bundle-diff-l9G6cYGc.js",
+      "identity": "module:project:apps/web/src/pages/bundle-diff.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 8627,
+        "gzip": 3924,
+        "brotli": 3207
+      },
+      "sha256": "d61dbe10c4f0dfddb50758511bcfdf50d67d32c82ece51ef4e57dba8f8689f4a",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/bundle-diff.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 2949
+        },
+        {
+          "id": "project:apps/web/src/pages/bundle-diff.ts",
+          "package": null,
+          "renderedLength": 7193
+        }
+      ]
+    },
+    {
+      "file": "assets/bundle-diff.worker-BU594o6d.js",
+      "identity": "asset:assets/bundle-diff.worker-BU594o6d.js",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 4439,
+        "gzip": 2186,
+        "brotli": 1856
+      },
+      "sha256": "74151396ad2a1ffe6d1e634cf9f56ddc9f1a307ca6dd972296dd907f4ccb1e64",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "assets/compose-CvkpIOvp.js",
+      "identity": "module:project:apps/web/src/pages/compose.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 31708,
+        "gzip": 11670,
+        "brotli": 9788
+      },
+      "sha256": "6fc126b31d59295acd01b2cf504a209e0cc1938d5c6c3ba91fcf4ada3e1be4ad",
+      "imports": ["assets/router-CmLqUj6u.js"],
+      "dynamicImports": ["assets/compose-DcS7UNb9.js"],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/compose.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 10108
+        },
+        {
+          "id": "project:apps/web/src/pages/compose-demos.ts",
+          "package": null,
+          "renderedLength": 3623
+        },
+        {
+          "id": "project:apps/web/src/pages/compose.ts",
+          "package": null,
+          "renderedLength": 20768
+        }
+      ]
+    },
+    {
+      "file": "assets/compose-DcS7UNb9.js",
+      "identity": "module:project:packages/core/dist/compose.mjs",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 4009,
+        "gzip": 1749,
+        "brotli": 1452
+      },
+      "sha256": "4aada92ecb8157cec5cb8941326d119a424533ceeb2adbcd5e55bdb644cd71be",
+      "imports": ["assets/browser-Dutuf49U.js"],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:packages/core/dist/compose.mjs",
+          "package": null,
+          "renderedLength": 4753
+        }
+      ]
+    },
+    {
+      "file": "assets/compose.worker-BGzXV1h7.js",
+      "identity": "asset:assets/compose.worker-BGzXV1h7.js",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 116153,
+        "gzip": 35737,
+        "brotli": 31993
+      },
+      "sha256": "47701484ac31178afd0f410f8ce0bc62230b3b7820979ee1b5a92bc3ff5e307a",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "assets/cron-BWKkJZUD.js",
+      "identity": "asset:assets/cron-BWKkJZUD.js",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 100540,
+        "gzip": 31242,
+        "brotli": 27303
+      },
+      "sha256": "4a8254b8cf56db75bffadd7b071a5bcc48def7bbd73f6ff4c8ecf878c99c2bcc",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "assets/cron-DTh7mWv8.js",
+      "identity": "module:project:apps/web/src/pages/cron.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 3098,
+        "gzip": 1525,
+        "brotli": 1168
+      },
+      "sha256": "4cea129a161051eacd0d7bf18dd721965ed8986f7482439565dc071eac1db5a0",
+      "imports": ["assets/tools-BARMSkMv.js"],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/cron.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 2669
+        },
+        {
+          "id": "project:apps/web/src/pages/cron.ts",
+          "package": null,
+          "renderedLength": 65
+        }
+      ]
+    },
+    {
+      "file": "assets/dependency-graph-mGcsKG_O.js",
+      "identity": "module:project:apps/web/src/pages/dependency-graph.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 8208,
+        "gzip": 3713,
+        "brotli": 3082
+      },
+      "sha256": "ef0ea137ef236de220a0912db6fd24ee81d2a04d3ee419e5229372facfc99b5c",
+      "imports": ["assets/browser-Dutuf49U.js"],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/dependency-graph.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 2175
+        },
+        {
+          "id": "project:packages/core/dist/dependency-graph.mjs",
+          "package": null,
+          "renderedLength": 1316
+        },
+        {
+          "id": "project:apps/web/src/pages/dependency-graph.ts",
+          "package": null,
+          "renderedLength": 6999
+        }
+      ]
+    },
+    {
+      "file": "assets/dependency-graph.worker-BzznhLy_.js",
+      "identity": "asset:assets/dependency-graph.worker-BzznhLy_.js",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 30687,
+        "gzip": 11242,
+        "brotli": 10190
+      },
+      "sha256": "036e756cacae04ec49c12eec5f3e000f30635cc48571963625e35bd2ab2fe129",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "assets/env-check-C_hEGI9c.js",
+      "identity": "module:project:apps/web/src/pages/env-check.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 15088,
+        "gzip": 6368,
+        "brotli": 5292
+      },
+      "sha256": "ce536ff696bbba55c703e6442b65453b32f6fb40125ab7a6da216f4632a6f4b9",
+      "imports": ["assets/router-CmLqUj6u.js"],
+      "dynamicImports": ["assets/env-check-CKZmSQRq.js"],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/env-check.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 5276
+        },
+        {
+          "id": "project:apps/web/src/pages/env-check.ts",
+          "package": null,
+          "renderedLength": 9440
+        }
+      ]
+    },
+    {
+      "file": "assets/env-check-CKZmSQRq.js",
+      "identity": "module:project:packages/core/dist/env-check.mjs",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 5528,
+        "gzip": 2504,
+        "brotli": 2192
+      },
+      "sha256": "ad29d48a0f479f6cf0038d79922eb06bf03db59188b27b9291c1e5d891c7f08d",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:packages/core/dist/env-check.mjs",
+          "package": null,
+          "renderedLength": 8529
+        }
+      ]
+    },
+    {
+      "file": "assets/explain-BLkF-aqU.js",
+      "identity": "module:project:apps/web/src/pages/explain.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 23839,
+        "gzip": 9690,
+        "brotli": 8147
+      },
+      "sha256": "97d7a077f220ea50c192737af8b52c078bb77e7e2d6138167029eefefa5f31da",
+      "imports": ["assets/router-CmLqUj6u.js"],
+      "dynamicImports": ["assets/explain-DLEXSze3.js"],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/explain.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 6886
+        },
+        {
+          "id": "project:apps/web/src/pages/explain-demos.ts",
+          "package": null,
+          "renderedLength": 1381
+        },
+        {
+          "id": "project:apps/web/src/pages/explain-source.ts",
+          "package": null,
+          "renderedLength": 2201
+        },
+        {
+          "id": "project:apps/web/src/pages/explain.ts",
+          "package": null,
+          "renderedLength": 15500
+        }
+      ]
+    },
+    {
+      "file": "assets/explain-DLEXSze3.js",
+      "identity": "module:project:packages/core/dist/explain.mjs",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 7857,
+        "gzip": 3317,
+        "brotli": 2877
+      },
+      "sha256": "94e578eb6b92bd48ee916929f98a0b78db3b4077a29e1459c39625e2f78c97cf",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:packages/core/dist/explain.mjs",
+          "package": null,
+          "renderedLength": 12388
+        }
+      ]
+    },
+    {
+      "file": "assets/git-diff-D0SYgtXy.js",
+      "identity": "module:project:apps/web/src/pages/git-diff.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 17741,
+        "gzip": 7394,
+        "brotli": 6262
+      },
+      "sha256": "08f0524348bca1d533eb11d5ea8b42329298e087e9402ad39900f0887f094648",
+      "imports": ["assets/router-CmLqUj6u.js"],
+      "dynamicImports": ["assets/git-diff-DYj8QzOb.js"],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/git-diff.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 5386
+        },
+        {
+          "id": "project:apps/web/src/pages/git-diff-demos.ts",
+          "package": null,
+          "renderedLength": 1052
+        },
+        {
+          "id": "project:apps/web/src/pages/git-diff.ts",
+          "package": null,
+          "renderedLength": 12831
+        }
+      ]
+    },
+    {
+      "file": "assets/git-diff-DYj8QzOb.js",
+      "identity": "module:project:packages/core/dist/git-diff.mjs",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 9843,
+        "gzip": 3966,
+        "brotli": 3582
+      },
+      "sha256": "8bb0642705eedf6fe0f785c5d5511cf2367d985f4dc7b6b9726144add3d33a13",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:packages/core/dist/git-diff.mjs",
+          "package": null,
+          "renderedLength": 15416
+        }
+      ]
+    },
+    {
+      "file": "assets/image.worker-DMxDepy_.js",
+      "identity": "asset:assets/image.worker-DMxDepy_.js",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 5097,
+        "gzip": 2750,
+        "brotli": 2302
+      },
+      "sha256": "82029c412dc629111d6986171666a3a99ed59651d9b94955356eacc58c544a43",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "assets/images-BdqOH66b.js",
+      "identity": "module:project:apps/web/src/pages/images.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 27131,
+        "gzip": 11873,
+        "brotli": 10155
+      },
+      "sha256": "1ee49efd2cbad8f0fdad4197b0aa4d96ed25b70627cc108f10a997ca435ee28b",
+      "imports": ["assets/images-G9XOdNvH.js"],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/images.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 7706
+        },
+        {
+          "id": "npm:fflate/esm/browser.js",
+          "package": "fflate",
+          "renderedLength": 19286
+        },
+        {
+          "id": "project:apps/web/src/main.ts",
+          "package": null,
+          "renderedLength": 11836
+        },
+        {
+          "id": "project:apps/web/src/pages/images.ts",
+          "package": null,
+          "renderedLength": 68
+        }
+      ]
+    },
+    {
+      "file": "assets/images-G9XOdNvH.js",
+      "identity": "shared:images",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 2893,
+        "gzip": 1607,
+        "brotli": 1393
+      },
+      "sha256": "ef6932df29eacab08416f4bc780733c0adbafdab856bbba0f9f09e2b0d526c63",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:packages/core/dist/images.mjs",
+          "package": null,
+          "renderedLength": 4501
+        }
+      ]
+    },
+    {
+      "file": "assets/json-diff-COoMCUYn.js",
+      "identity": "asset:assets/json-diff-COoMCUYn.js",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 11286,
+        "gzip": 4619,
+        "brotli": 4086
+      },
+      "sha256": "335e1e9b7ff69f1f08d7dc1221e9e7418b7021dc39ce5e0e6e0554016dcdd477",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "assets/json-diff-QOvXWamV.js",
+      "identity": "module:project:apps/web/src/pages/json-diff.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 3711,
+        "gzip": 1626,
+        "brotli": 1260
+      },
+      "sha256": "6c90fc40c74bb75c4b8c025efd16a0783f20b87d73448e9bc9825637c661b424",
+      "imports": ["assets/tools-BARMSkMv.js"],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/json-diff.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 3222
+        },
+        {
+          "id": "project:apps/web/src/pages/json-diff.ts",
+          "package": null,
+          "renderedLength": 70
+        }
+      ]
+    },
+    {
+      "file": "assets/lighthouse-BwkqKTwL.js",
+      "identity": "module:project:apps/web/src/pages/lighthouse.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 3179,
+        "gzip": 1437,
+        "brotli": 1091
+      },
+      "sha256": "917c094f96230476da79a9563aa14500a5ef756b9b8dbecc72973a4ed012ae1b",
+      "imports": ["assets/tools-BARMSkMv.js"],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/lighthouse.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 2737
+        },
+        {
+          "id": "project:apps/web/src/pages/lighthouse.ts",
+          "package": null,
+          "renderedLength": 71
+        }
+      ]
+    },
+    {
+      "file": "assets/lighthouse-DBHGv_b0.js",
+      "identity": "asset:assets/lighthouse-DBHGv_b0.js",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 3058,
+        "gzip": 1581,
+        "brotli": 1294
+      },
+      "sha256": "5d9e4446d69f247011761ac42745f62bed88e7ead5bd88ade2639812628fb6b1",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "assets/openapi-BLdRJNK1.js",
+      "identity": "module:project:packages/core/dist/openapi.mjs",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 2597,
+        "gzip": 1306,
+        "brotli": 1058
+      },
+      "sha256": "5613778ca729e8a13cbcc21729c9f1b1d0830c9d0a60c16459c358272f1663c7",
+      "imports": ["assets/openapi-parser-cO5z5qDQ-ccDzUI9B.js"],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:packages/core/dist/openapi.mjs",
+          "package": null,
+          "renderedLength": 3050
+        }
+      ]
+    },
+    {
+      "file": "assets/openapi-fixture-DibqSigD.js",
+      "identity": "module:project:packages/core/dist/openapi-fixture.mjs",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 3819,
+        "gzip": 1815,
+        "brotli": 1495
+      },
+      "sha256": "3fae1ca3e4a73b100a0b4d19f74ccfe2fbfe7c6b5f4aaf7b11d52d9739336cf5",
+      "imports": ["assets/openapi-parser-cO5z5qDQ-ccDzUI9B.js"],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:packages/core/dist/openapi-fixture.mjs",
+          "package": null,
+          "renderedLength": 4653
+        }
+      ]
+    },
+    {
+      "file": "assets/openapi-fixture-IPijF0Oa.js",
+      "identity": "module:project:apps/web/src/pages/openapi-fixture.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 29526,
+        "gzip": 10839,
+        "brotli": 9189
+      },
+      "sha256": "1984e7e167689813e8bbbe82eddfffebfa6704aaf03c3bf0a9ab9a242230aab9",
+      "imports": ["assets/router-CmLqUj6u.js"],
+      "dynamicImports": ["assets/openapi-fixture-DibqSigD.js"],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/openapi-fixture.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 9766
+        },
+        {
+          "id": "project:apps/web/src/pages/openapi-fixture-demos.ts",
+          "package": null,
+          "renderedLength": 3649
+        },
+        {
+          "id": "project:apps/web/src/pages/openapi-fixture.ts",
+          "package": null,
+          "renderedLength": 20281
+        }
+      ]
+    },
+    {
+      "file": "assets/openapi-fixture.worker-BJxaYCR6.js",
+      "identity": "asset:assets/openapi-fixture.worker-BJxaYCR6.js",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 123007,
+        "gzip": 37850,
+        "brotli": 33820
+      },
+      "sha256": "0ede9788908c4f9073128c1d20faaa455f737b5f7ee431ee69437175a6d602b3",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "assets/openapi-parser-cO5z5qDQ-ccDzUI9B.js",
+      "identity": "shared:openapi-parser-cO5z5qDQ",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 134,
+        "gzip": 140,
+        "brotli": 111
+      },
+      "sha256": "f6353fc36737a6902d937c04afeaea018e0336b5f51a5acd5efefd823deb2298",
+      "imports": ["assets/browser-Dutuf49U.js"],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:packages/core/dist/openapi-parser-cO5z5qDQ.mjs",
+          "package": null,
+          "renderedLength": 202
+        }
+      ]
+    },
+    {
+      "file": "assets/openapi-xoiHaH6s.js",
+      "identity": "module:project:apps/web/src/pages/openapi.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 29608,
+        "gzip": 10832,
+        "brotli": 9120
+      },
+      "sha256": "72e00e9b1b971d1eca31ff55115540d62614321a8d0d9e8313f83ea26e690d9b",
+      "imports": ["assets/router-CmLqUj6u.js"],
+      "dynamicImports": ["assets/openapi-BLdRJNK1.js"],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/openapi.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 8521
+        },
+        {
+          "id": "project:apps/web/src/pages/openapi-demos.ts",
+          "package": null,
+          "renderedLength": 3558
+        },
+        {
+          "id": "project:apps/web/src/pages/openapi.ts",
+          "package": null,
+          "renderedLength": 19214
+        }
+      ]
+    },
+    {
+      "file": "assets/openapi.worker-vJ8ANBkT.js",
+      "identity": "asset:assets/openapi.worker-vJ8ANBkT.js",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 123620,
+        "gzip": 38158,
+        "brotli": 34164
+      },
+      "sha256": "da5167aeb5922ba0950cc7e6417c7ac586e9eb4477794cb9d26fc11c397951c4",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "assets/palette-Budo71VD.js",
+      "identity": "module:project:packages/core/dist/palette.mjs",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 5625,
+        "gzip": 2699,
+        "brotli": 2305
+      },
+      "sha256": "29463be87fffa89e763f870ca76c96c2c77c7e5cfd15142dca7b9c8ae563bc03",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:packages/core/dist/palette.mjs",
+          "package": null,
+          "renderedLength": 8056
+        }
+      ]
+    },
+    {
+      "file": "assets/palette-Cfa0PZda.js",
+      "identity": "module:project:apps/web/src/pages/palette.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 24923,
+        "gzip": 9517,
+        "brotli": 7996
+      },
+      "sha256": "9eeff8ea76f03e6006a18d591055aacc566108ea62af6d748118121336b62b37",
+      "imports": ["assets/router-CmLqUj6u.js"],
+      "dynamicImports": ["assets/palette-Budo71VD.js", "assets/palette-image-CIFkLPgD.js"],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/palette.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 11560
+        },
+        {
+          "id": "project:apps/web/src/pages/palette-demos.ts",
+          "package": null,
+          "renderedLength": 1390
+        },
+        {
+          "id": "project:apps/web/src/pages/palette.ts",
+          "package": null,
+          "renderedLength": 13710
+        }
+      ]
+    },
+    {
+      "file": "assets/palette-image-CIFkLPgD.js",
+      "identity": "module:project:apps/web/src/pages/palette-image.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 3760,
+        "gzip": 1976,
+        "brotli": 1650
+      },
+      "sha256": "e18e40185d7655b47e4be9dd20c16aa2ff09bb39bc65989eb61408d56d2250d0",
+      "imports": ["assets/images-G9XOdNvH.js"],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/palette-image.ts",
+          "package": null,
+          "renderedLength": 5769
+        }
+      ]
+    },
+    {
+      "file": "assets/rolldown-runtime-BpQH8Ho1.js",
+      "identity": "shared:rolldown-runtime",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 227,
+        "gzip": 194,
+        "brotli": 152
+      },
+      "sha256": "f42a7e25f42fd00b0935f3a7b06f4429238b50b6798b53c273e30d7095f9e94e",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "virtual:0adef0f9088854a42e7f",
+          "package": null,
+          "renderedLength": 464
+        }
+      ]
+    },
+    {
+      "file": "assets/router-CmLqUj6u.js",
+      "identity": "shared:router",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 11011,
+        "gzip": 4976,
+        "brotli": 4120
+      },
+      "sha256": "9712b9c97866ce7a5bb963ecd48b262ceb45aea74d8790bd0e84ab4849be5a54",
+      "imports": [],
+      "dynamicImports": [
+        "assets/images-BdqOH66b.js",
+        "assets/lighthouse-BwkqKTwL.js",
+        "assets/json-diff-QOvXWamV.js",
+        "assets/cron-DTh7mWv8.js",
+        "assets/semver-Bqb3_RIh.js",
+        "assets/env-check-C_hEGI9c.js",
+        "assets/git-diff-D0SYgtXy.js",
+        "assets/sitemap-r9bJ7hGs.js",
+        "assets/explain-BLkF-aqU.js",
+        "assets/palette-Cfa0PZda.js",
+        "assets/selectors-BxaLK6L9.js",
+        "assets/sdl-DXx3zHy_.js",
+        "assets/openapi-xoiHaH6s.js",
+        "assets/openapi-fixture-IPijF0Oa.js",
+        "assets/sql-ddl-DW4ODGGT.js",
+        "assets/compose-CvkpIOvp.js",
+        "assets/bundle-diff-l9G6cYGc.js",
+        "assets/dependency-graph-mGcsKG_O.js"
+      ],
+      "modules": [
+        {
+          "id": "virtual:c96416086adf8ec46701",
+          "package": null,
+          "renderedLength": 1205
+        },
+        {
+          "id": "project:apps/web/src/style.css",
+          "package": null,
+          "renderedLength": 0
+        },
+        {
+          "id": "project:apps/web/src/routes.ts",
+          "package": null,
+          "renderedLength": 3528
+        },
+        {
+          "id": "virtual:5df9ac431bb46bbab151",
+          "package": null,
+          "renderedLength": 2204
+        },
+        {
+          "id": "project:apps/web/src/router.ts",
+          "package": null,
+          "renderedLength": 6082
+        }
+      ]
+    },
+    {
+      "file": "assets/router-Dt5PQGLV.css",
+      "identity": "asset:router.css",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 71988,
+        "gzip": 13455,
+        "brotli": 11699
+      },
+      "sha256": "07f66817f5fe932701a0cadf9d10069b190552110cf77e9fbe5b590f68c0a21c",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "assets/sdl-DXx3zHy_.js",
+      "identity": "module:project:apps/web/src/pages/sdl.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 22749,
+        "gzip": 8421,
+        "brotli": 7038
+      },
+      "sha256": "18d67e47ecfaa2ea4f463ffb33efcbad59ccbd817965a580f0e25d0923602854",
+      "imports": ["assets/router-CmLqUj6u.js"],
+      "dynamicImports": ["assets/sdl-DZSms35E.js"],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/sdl.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 7737
+        },
+        {
+          "id": "project:apps/web/src/pages/sdl-demos.ts",
+          "package": null,
+          "renderedLength": 1981
+        },
+        {
+          "id": "project:apps/web/src/pages/sdl.ts",
+          "package": null,
+          "renderedLength": 15366
+        }
+      ]
+    },
+    {
+      "file": "assets/sdl-DZSms35E.js",
+      "identity": "module:project:packages/core/dist/sdl.mjs",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 165952,
+        "gzip": 41802,
+        "brotli": 36226
+      },
+      "sha256": "bcb61b78a775e8f4cf852192250335eb5547d4fdbce178c022243e5a063c42f8",
+      "imports": ["assets/rolldown-runtime-BpQH8Ho1.js"],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "npm:graphql/jsutils/inspect.mjs",
+          "package": "graphql",
+          "renderedLength": 2230
+        },
+        {
+          "id": "npm:graphql/jsutils/instanceOf.mjs",
+          "package": "graphql",
+          "renderedLength": 217
+        },
+        {
+          "id": "npm:graphql/jsutils/toError.mjs",
+          "package": "graphql",
+          "renderedLength": 427
+        },
+        {
+          "id": "npm:graphql/jsutils/isObjectLike.mjs",
+          "package": "graphql",
+          "renderedLength": 194
+        },
+        {
+          "id": "npm:graphql/jsutils/invariant.mjs",
+          "package": "graphql",
+          "renderedLength": 229
+        },
+        {
+          "id": "npm:graphql/language/location.mjs",
+          "package": "graphql",
+          "renderedLength": 502
+        },
+        {
+          "id": "npm:graphql/language/printLocation.mjs",
+          "package": "graphql",
+          "renderedLength": 1848
+        },
+        {
+          "id": "npm:graphql/error/GraphQLError.mjs",
+          "package": "graphql",
+          "renderedLength": 2754
+        },
+        {
+          "id": "npm:graphql/error/ensureGraphQLError.mjs",
+          "package": "graphql",
+          "renderedLength": 321
+        },
+        {
+          "id": "npm:graphql/jsutils/AccumulatorMap.mjs",
+          "package": "graphql",
+          "renderedLength": 339
+        },
+        {
+          "id": "npm:graphql/jsutils/capitalize.mjs",
+          "package": "graphql",
+          "renderedLength": 202
+        },
+        {
+          "id": "npm:graphql/jsutils/formatList.mjs",
+          "package": "graphql",
+          "renderedLength": 579
+        },
+        {
+          "id": "npm:graphql/jsutils/isIterableObject.mjs",
+          "package": "graphql",
+          "renderedLength": 259
+        },
+        {
+          "id": "npm:graphql/jsutils/keyMap.mjs",
+          "package": "graphql",
+          "renderedLength": 243
+        },
+        {
+          "id": "npm:graphql/jsutils/mapValue.mjs",
+          "package": "graphql",
+          "renderedLength": 259
+        },
+        {
+          "id": "npm:graphql/jsutils/printPathArray.mjs",
+          "package": "graphql",
+          "renderedLength": 275
+        },
+        {
+          "id": "npm:graphql/language/ast.mjs",
+          "package": "graphql",
+          "renderedLength": 3913
+        },
+        {
+          "id": "npm:graphql/language/kinds_.mjs",
+          "package": "graphql",
+          "renderedLength": 4319
+        },
+        {
+          "id": "npm:graphql/jsutils/devAssert.mjs",
+          "package": "graphql",
+          "renderedLength": 192
+        },
+        {
+          "id": "npm:graphql/jsutils/didYouMean.mjs",
+          "package": "graphql",
+          "renderedLength": 529
+        },
+        {
+          "id": "npm:graphql/jsutils/identityFunc.mjs",
+          "package": "graphql",
+          "renderedLength": 149
+        },
+        {
+          "id": "npm:graphql/jsutils/keyValMap.mjs",
+          "package": "graphql",
+          "renderedLength": 263
+        },
+        {
+          "id": "npm:graphql/jsutils/naturalCompare.mjs",
+          "package": "graphql",
+          "renderedLength": 1013
+        },
+        {
+          "id": "npm:graphql/jsutils/suggestionList.mjs",
+          "package": "graphql",
+          "renderedLength": 2462
+        },
+        {
+          "id": "npm:graphql/jsutils/toObjMap.mjs",
+          "package": "graphql",
+          "renderedLength": 432
+        },
+        {
+          "id": "npm:graphql/language/characterClasses.mjs",
+          "package": "graphql",
+          "renderedLength": 493
+        },
+        {
+          "id": "npm:graphql/language/blockString.mjs",
+          "package": "graphql",
+          "renderedLength": 1849
+        },
+        {
+          "id": "npm:graphql/language/printString.mjs",
+          "package": "graphql",
+          "renderedLength": 1599
+        },
+        {
+          "id": "npm:graphql/language/visitor.mjs",
+          "package": "graphql",
+          "renderedLength": 4246
+        },
+        {
+          "id": "npm:graphql/language/printer.mjs",
+          "package": "graphql",
+          "renderedLength": 8257
+        },
+        {
+          "id": "npm:graphql/utilities/valueFromASTUntyped.mjs",
+          "package": "graphql",
+          "renderedLength": 682
+        },
+        {
+          "id": "npm:graphql/type/assertName.mjs",
+          "package": "graphql",
+          "renderedLength": 719
+        },
+        {
+          "id": "npm:graphql/type/definition.mjs",
+          "package": "graphql",
+          "renderedLength": 18301
+        },
+        {
+          "id": "npm:graphql/utilities/typeComparators.mjs",
+          "package": "graphql",
+          "renderedLength": 1456
+        },
+        {
+          "id": "npm:graphql/jsutils/Path.mjs",
+          "package": "graphql",
+          "renderedLength": 351
+        },
+        {
+          "id": "npm:graphql/utilities/valueToLiteral.mjs",
+          "package": "graphql",
+          "renderedLength": 2662
+        },
+        {
+          "id": "npm:graphql/utilities/replaceVariables.mjs",
+          "package": "graphql",
+          "renderedLength": 2102
+        },
+        {
+          "id": "npm:graphql/utilities/validateInputValue.mjs",
+          "package": "graphql",
+          "renderedLength": 9178
+        },
+        {
+          "id": "npm:graphql/language/directiveLocation.mjs",
+          "package": "graphql",
+          "renderedLength": 812
+        },
+        {
+          "id": "npm:graphql/type/scalars.mjs",
+          "package": "graphql",
+          "renderedLength": 10339
+        },
+        {
+          "id": "npm:graphql/type/directives.mjs",
+          "package": "graphql",
+          "renderedLength": 5379
+        },
+        {
+          "id": "npm:graphql/utilities/astFromValue.mjs",
+          "package": "graphql",
+          "renderedLength": 2187
+        },
+        {
+          "id": "npm:graphql/utilities/getDefaultValueAST.mjs",
+          "package": "graphql",
+          "renderedLength": 673
+        },
+        {
+          "id": "npm:graphql/type/introspection.mjs",
+          "package": "graphql",
+          "renderedLength": 15036
+        },
+        {
+          "id": "npm:graphql/type/schema.mjs",
+          "package": "graphql",
+          "renderedLength": 5913
+        },
+        {
+          "id": "npm:graphql/type/validate.mjs",
+          "package": "graphql",
+          "renderedLength": 19518
+        },
+        {
+          "id": "npm:graphql/error/syntaxError.mjs",
+          "package": "graphql",
+          "renderedLength": 260
+        },
+        {
+          "id": "npm:graphql/diagnostics.mjs",
+          "package": "graphql",
+          "renderedLength": 1207
+        },
+        {
+          "id": "npm:graphql/language/tokenKind.mjs",
+          "package": "graphql",
+          "renderedLength": 479
+        },
+        {
+          "id": "npm:graphql/language/lexer.mjs",
+          "package": "graphql",
+          "renderedLength": 12620
+        },
+        {
+          "id": "npm:graphql/language/source.mjs",
+          "package": "graphql",
+          "renderedLength": 743
+        },
+        {
+          "id": "npm:graphql/language/parser.mjs",
+          "package": "graphql",
+          "renderedLength": 25889
+        },
+        {
+          "id": "npm:graphql/utilities/typeFromAST.mjs",
+          "package": "graphql",
+          "renderedLength": 516
+        },
+        {
+          "id": "npm:graphql/validation/rules/DeferStreamDirectiveLabelRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1045
+        },
+        {
+          "id": "npm:graphql/validation/rules/DeferStreamDirectiveOnRootFieldRule.mjs",
+          "package": "graphql",
+          "renderedLength": 2422
+        },
+        {
+          "id": "npm:graphql/validation/rules/DeferStreamDirectiveOnValidOperationsRule.mjs",
+          "package": "graphql",
+          "renderedLength": 3412
+        },
+        {
+          "id": "npm:graphql/language/predicates.mjs",
+          "package": "graphql",
+          "renderedLength": 1122
+        },
+        {
+          "id": "npm:graphql/validation/rules/ExecutableDefinitionsRule.mjs",
+          "package": "graphql",
+          "renderedLength": 586
+        },
+        {
+          "id": "npm:graphql/validation/rules/FieldsOnCorrectTypeRule.mjs",
+          "package": "graphql",
+          "renderedLength": 2068
+        },
+        {
+          "id": "npm:graphql/validation/rules/FragmentsOnCompositeTypesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 953
+        },
+        {
+          "id": "npm:graphql/validation/rules/KnownArgumentNamesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 2523
+        },
+        {
+          "id": "npm:graphql/validation/rules/KnownDirectivesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 3617
+        },
+        {
+          "id": "npm:graphql/validation/rules/KnownFragmentNamesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 394
+        },
+        {
+          "id": "npm:graphql/validation/rules/KnownOperationTypesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 448
+        },
+        {
+          "id": "npm:graphql/validation/rules/KnownTypeNamesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1249
+        },
+        {
+          "id": "npm:graphql/validation/rules/LoneAnonymousOperationRule.mjs",
+          "package": "graphql",
+          "renderedLength": 549
+        },
+        {
+          "id": "npm:graphql/validation/rules/LoneSchemaDefinitionRule.mjs",
+          "package": "graphql",
+          "renderedLength": 749
+        },
+        {
+          "id": "npm:graphql/validation/rules/MaxIntrospectionDepthRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1380
+        },
+        {
+          "id": "npm:graphql/validation/rules/NoFragmentCyclesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1507
+        },
+        {
+          "id": "npm:graphql/validation/rules/NoUndefinedVariablesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 801
+        },
+        {
+          "id": "npm:graphql/validation/rules/NoUnusedFragmentsRule.mjs",
+          "package": "graphql",
+          "renderedLength": 793
+        },
+        {
+          "id": "npm:graphql/validation/rules/NoUnusedVariablesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1501
+        },
+        {
+          "id": "npm:graphql/utilities/sortValueNode.mjs",
+          "package": "graphql",
+          "renderedLength": 685
+        },
+        {
+          "id": "npm:graphql/validation/rules/OverlappingFieldsCanBeMergedRule.mjs",
+          "package": "graphql",
+          "renderedLength": 16722
+        },
+        {
+          "id": "npm:graphql/validation/rules/PossibleFragmentSpreadsRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1464
+        },
+        {
+          "id": "npm:graphql/validation/rules/PossibleTypeExtensionsRule.mjs",
+          "package": "graphql",
+          "renderedLength": 2719
+        },
+        {
+          "id": "npm:graphql/validation/rules/ProvidedRequiredArgumentsRule.mjs",
+          "package": "graphql",
+          "renderedLength": 2867
+        },
+        {
+          "id": "npm:graphql/validation/rules/ScalarLeafsRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1151
+        },
+        {
+          "id": "npm:graphql/utilities/coerceInputValue.mjs",
+          "package": "graphql",
+          "renderedLength": 6174
+        },
+        {
+          "id": "npm:graphql/execution/values.mjs",
+          "package": "graphql",
+          "renderedLength": 4382
+        },
+        {
+          "id": "npm:graphql/execution/collectFields.mjs",
+          "package": "graphql",
+          "renderedLength": 5027
+        },
+        {
+          "id": "npm:graphql/validation/rules/SingleFieldSubscriptionsRule.mjs",
+          "package": "graphql",
+          "renderedLength": 2224
+        },
+        {
+          "id": "npm:graphql/validation/rules/StreamDirectiveOnListFieldRule.mjs",
+          "package": "graphql",
+          "renderedLength": 639
+        },
+        {
+          "id": "npm:graphql/jsutils/groupBy.mjs",
+          "package": "graphql",
+          "renderedLength": 249
+        },
+        {
+          "id": "npm:graphql/validation/rules/UniqueArgumentDefinitionNamesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1319
+        },
+        {
+          "id": "npm:graphql/validation/rules/UniqueArgumentNamesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 626
+        },
+        {
+          "id": "npm:graphql/validation/rules/UniqueDirectiveNamesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 853
+        },
+        {
+          "id": "npm:graphql/validation/rules/UniqueDirectivesPerLocationRule.mjs",
+          "package": "graphql",
+          "renderedLength": 2214
+        },
+        {
+          "id": "npm:graphql/validation/rules/UniqueEnumValueNamesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1448
+        },
+        {
+          "id": "npm:graphql/validation/rules/UniqueFieldDefinitionNamesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1762
+        },
+        {
+          "id": "npm:graphql/validation/rules/UniqueFragmentNamesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 670
+        },
+        {
+          "id": "npm:graphql/validation/rules/UniqueInputFieldNamesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 858
+        },
+        {
+          "id": "npm:graphql/validation/rules/UniqueOperationNamesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 743
+        },
+        {
+          "id": "npm:graphql/validation/rules/UniqueOperationTypesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1266
+        },
+        {
+          "id": "npm:graphql/validation/rules/UniqueTypeNamesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1071
+        },
+        {
+          "id": "npm:graphql/validation/rules/UniqueVariableNamesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 659
+        },
+        {
+          "id": "npm:graphql/validation/rules/ValuesOfCorrectTypeRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1055
+        },
+        {
+          "id": "npm:graphql/validation/rules/VariablesAreInputTypesRule.mjs",
+          "package": "graphql",
+          "renderedLength": 558
+        },
+        {
+          "id": "npm:graphql/validation/rules/VariablesInAllowedPositionRule.mjs",
+          "package": "graphql",
+          "renderedLength": 1855
+        },
+        {
+          "id": "npm:graphql/validation/specifiedRules.mjs",
+          "package": "graphql",
+          "renderedLength": 1606
+        },
+        {
+          "id": "npm:graphql/validation/ValidationContext.mjs",
+          "package": "graphql",
+          "renderedLength": 2372
+        },
+        {
+          "id": "npm:graphql/validation/validate.mjs",
+          "package": "graphql",
+          "renderedLength": 858
+        },
+        {
+          "id": "npm:graphql/utilities/mapSchemaConfig.mjs",
+          "package": "graphql",
+          "renderedLength": 7179
+        },
+        {
+          "id": "npm:graphql/utilities/extendSchema.mjs",
+          "package": "graphql",
+          "renderedLength": 11936
+        },
+        {
+          "id": "npm:graphql/utilities/buildASTSchema.mjs",
+          "package": "graphql",
+          "renderedLength": 934
+        },
+        {
+          "id": "npm:graphql/utilities/findSchemaChanges.mjs",
+          "package": "graphql",
+          "renderedLength": 18316
+        },
+        {
+          "id": "project:packages/core/dist/sdl.mjs",
+          "package": null,
+          "renderedLength": 20687
+        }
+      ]
+    },
+    {
+      "file": "assets/selectors-Bkzhvwov.js",
+      "identity": "module:project:packages/core/dist/selectors.mjs",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 205672,
+        "gzip": 57788,
+        "brotli": 50853
+      },
+      "sha256": "9ee952df6882570e556626b986e673f7f8aa0808816b387d70afff195a10d427",
+      "imports": ["assets/rolldown-runtime-BpQH8Ho1.js"],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "npm:css-tree/lib/tokenizer/char-code-definitions.js",
+          "package": "css-tree",
+          "renderedLength": 2237
+        },
+        {
+          "id": "npm:css-tree/lib/tokenizer/utils.js",
+          "package": "css-tree",
+          "renderedLength": 3385
+        },
+        {
+          "id": "npm:css-tree/lib/tokenizer/names.js",
+          "package": "css-tree",
+          "renderedLength": 552
+        },
+        {
+          "id": "npm:css-tree/lib/tokenizer/adopt-buffer.js",
+          "package": "css-tree",
+          "renderedLength": 302
+        },
+        {
+          "id": "npm:css-tree/lib/tokenizer/OffsetToLocation.js",
+          "package": "css-tree",
+          "renderedLength": 2021
+        },
+        {
+          "id": "npm:css-tree/lib/tokenizer/TokenStream.js",
+          "package": "css-tree",
+          "renderedLength": 7577
+        },
+        {
+          "id": "npm:css-tree/lib/tokenizer/index.js",
+          "package": "css-tree",
+          "renderedLength": 5681
+        },
+        {
+          "id": "npm:css-tree/lib/utils/List.js",
+          "package": "css-tree",
+          "renderedLength": 7271
+        },
+        {
+          "id": "npm:css-tree/lib/utils/create-custom-error.js",
+          "package": "css-tree",
+          "renderedLength": 426
+        },
+        {
+          "id": "npm:css-tree/lib/parser/SyntaxError.js",
+          "package": "css-tree",
+          "renderedLength": 2016
+        },
+        {
+          "id": "npm:css-tree/lib/parser/sequence.js",
+          "package": "css-tree",
+          "renderedLength": 754
+        },
+        {
+          "id": "npm:css-tree/lib/parser/create.js",
+          "package": "css-tree",
+          "renderedLength": 9037
+        },
+        {
+          "id": "npm:source-map-js/lib/base64.js",
+          "package": "source-map-js",
+          "renderedLength": 1026
+        },
+        {
+          "id": "npm:source-map-js/lib/base64-vlq.js",
+          "package": "source-map-js",
+          "renderedLength": 1558
+        },
+        {
+          "id": "npm:source-map-js/lib/util.js",
+          "package": "source-map-js",
+          "renderedLength": 9057
+        },
+        {
+          "id": "npm:source-map-js/lib/array-set.js",
+          "package": "source-map-js",
+          "renderedLength": 2031
+        },
+        {
+          "id": "npm:source-map-js/lib/mapping-list.js",
+          "package": "source-map-js",
+          "renderedLength": 1345
+        },
+        {
+          "id": "npm:source-map-js/lib/source-map-generator.js",
+          "package": "source-map-js",
+          "renderedLength": 9820
+        },
+        {
+          "id": "npm:css-tree/lib/generator/sourceMap.js",
+          "package": "css-tree",
+          "renderedLength": 2053
+        },
+        {
+          "id": "npm:css-tree/lib/generator/token-before.js",
+          "package": "css-tree",
+          "renderedLength": 2057
+        },
+        {
+          "id": "npm:css-tree/lib/generator/create.js",
+          "package": "css-tree",
+          "renderedLength": 1930
+        },
+        {
+          "id": "npm:css-tree/lib/convertor/create.js",
+          "package": "css-tree",
+          "renderedLength": 537
+        },
+        {
+          "id": "npm:css-tree/lib/walker/create.js",
+          "package": "css-tree",
+          "renderedLength": 5579
+        },
+        {
+          "id": "npm:css-tree/lib/definition-syntax/generate.js",
+          "package": "css-tree",
+          "renderedLength": 2706
+        },
+        {
+          "id": "npm:css-tree/lib/lexer/error.js",
+          "package": "css-tree",
+          "renderedLength": 2760
+        },
+        {
+          "id": "npm:css-tree/lib/utils/names.js",
+          "package": "css-tree",
+          "renderedLength": 2240
+        },
+        {
+          "id": "npm:css-tree/lib/lexer/generic-const.js",
+          "package": "css-tree",
+          "renderedLength": 200
+        },
+        {
+          "id": "npm:css-tree/lib/lexer/generic-an-plus-b.js",
+          "package": "css-tree",
+          "renderedLength": 3836
+        },
+        {
+          "id": "npm:css-tree/lib/lexer/generic-urange.js",
+          "package": "css-tree",
+          "renderedLength": 2083
+        },
+        {
+          "id": "npm:css-tree/lib/lexer/generic.js",
+          "package": "css-tree",
+          "renderedLength": 9985
+        },
+        {
+          "id": "npm:css-tree/lib/lexer/units.js",
+          "package": "css-tree",
+          "renderedLength": 987
+        },
+        {
+          "id": "npm:css-tree/lib/definition-syntax/SyntaxError.js",
+          "package": "css-tree",
+          "renderedLength": 390
+        },
+        {
+          "id": "npm:css-tree/lib/definition-syntax/scanner.js",
+          "package": "css-tree",
+          "renderedLength": 2204
+        },
+        {
+          "id": "npm:css-tree/lib/definition-syntax/parse.js",
+          "package": "css-tree",
+          "renderedLength": 9636
+        },
+        {
+          "id": "npm:css-tree/lib/definition-syntax/walk.js",
+          "package": "css-tree",
+          "renderedLength": 1082
+        },
+        {
+          "id": "npm:css-tree/lib/lexer/prepare-tokens.js",
+          "package": "css-tree",
+          "renderedLength": 830
+        },
+        {
+          "id": "npm:css-tree/lib/lexer/match-graph.js",
+          "package": "css-tree",
+          "renderedLength": 7572
+        },
+        {
+          "id": "npm:css-tree/lib/lexer/match.js",
+          "package": "css-tree",
+          "renderedLength": 10057
+        },
+        {
+          "id": "npm:css-tree/lib/lexer/trace.js",
+          "package": "css-tree",
+          "renderedLength": 1456
+        },
+        {
+          "id": "npm:css-tree/lib/lexer/search.js",
+          "package": "css-tree",
+          "renderedLength": 1203
+        },
+        {
+          "id": "npm:css-tree/lib/lexer/structure.js",
+          "package": "css-tree",
+          "renderedLength": 3679
+        },
+        {
+          "id": "npm:css-tree/lib/lexer/Lexer.js",
+          "package": "css-tree",
+          "renderedLength": 12214
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/config/mix.js",
+          "package": "css-tree",
+          "renderedLength": 2539
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/create.js",
+          "package": "css-tree",
+          "renderedLength": 1070
+        },
+        {
+          "id": "npm:css-tree/dist/data.js",
+          "package": "css-tree",
+          "renderedLength": 88919
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/AnPlusB.js",
+          "package": "css-tree",
+          "renderedLength": 5021
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Atrule.js",
+          "package": "css-tree",
+          "renderedLength": 1938
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/AtrulePrelude.js",
+          "package": "css-tree",
+          "renderedLength": 1031
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/AttributeSelector.js",
+          "package": "css-tree",
+          "renderedLength": 2649
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Block.js",
+          "package": "css-tree",
+          "renderedLength": 1802
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Brackets.js",
+          "package": "css-tree",
+          "renderedLength": 727
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/CDC.js",
+          "package": "css-tree",
+          "renderedLength": 508
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/CDO.js",
+          "package": "css-tree",
+          "renderedLength": 509
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/ClassSelector.js",
+          "package": "css-tree",
+          "renderedLength": 631
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Combinator.js",
+          "package": "css-tree",
+          "renderedLength": 1074
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Comment.js",
+          "package": "css-tree",
+          "renderedLength": 794
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Condition.js",
+          "package": "css-tree",
+          "renderedLength": 1982
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Declaration.js",
+          "package": "css-tree",
+          "renderedLength": 3193
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/DeclarationList.js",
+          "package": "css-tree",
+          "renderedLength": 1193
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Dimension.js",
+          "package": "css-tree",
+          "renderedLength": 682
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Feature.js",
+          "package": "css-tree",
+          "renderedLength": 1624
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/FeatureFunction.js",
+          "package": "css-tree",
+          "renderedLength": 1366
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/FeatureRange.js",
+          "package": "css-tree",
+          "renderedLength": 2589
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Function.js",
+          "package": "css-tree",
+          "renderedLength": 988
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/GeneralEnclosed.js",
+          "package": "css-tree",
+          "renderedLength": 1222
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Hash.js",
+          "package": "css-tree",
+          "renderedLength": 619
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Identifier.js",
+          "package": "css-tree",
+          "renderedLength": 545
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/IdSelector.js",
+          "package": "css-tree",
+          "renderedLength": 604
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Layer.js",
+          "package": "css-tree",
+          "renderedLength": 677
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/LayerList.js",
+          "package": "css-tree",
+          "renderedLength": 747
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/MediaQuery.js",
+          "package": "css-tree",
+          "renderedLength": 1760
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/MediaQueryList.js",
+          "package": "css-tree",
+          "renderedLength": 734
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/NestingSelector.js",
+          "package": "css-tree",
+          "renderedLength": 591
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Nth.js",
+          "package": "css-tree",
+          "renderedLength": 989
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Number.js",
+          "package": "css-tree",
+          "renderedLength": 534
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Operator.js",
+          "package": "css-tree",
+          "renderedLength": 589
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Parentheses.js",
+          "package": "css-tree",
+          "renderedLength": 741
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Percentage.js",
+          "package": "css-tree",
+          "renderedLength": 562
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/PseudoClassSelector.js",
+          "package": "css-tree",
+          "renderedLength": 1364
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/PseudoElementSelector.js",
+          "package": "css-tree",
+          "renderedLength": 1409
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Ratio.js",
+          "package": "css-tree",
+          "renderedLength": 1108
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Raw.js",
+          "package": "css-tree",
+          "renderedLength": 1077
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Rule.js",
+          "package": "css-tree",
+          "renderedLength": 1175
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Scope.js",
+          "package": "css-tree",
+          "renderedLength": 1292
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Selector.js",
+          "package": "css-tree",
+          "renderedLength": 781
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/SelectorList.js",
+          "package": "css-tree",
+          "renderedLength": 794
+        },
+        {
+          "id": "npm:css-tree/lib/utils/string.js",
+          "package": "css-tree",
+          "renderedLength": 1821
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/String.js",
+          "package": "css-tree",
+          "renderedLength": 544
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/StyleSheet.js",
+          "package": "css-tree",
+          "renderedLength": 1329
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/SupportsDeclaration.js",
+          "package": "css-tree",
+          "renderedLength": 750
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/TypeSelector.js",
+          "package": "css-tree",
+          "renderedLength": 1033
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/UnicodeRange.js",
+          "package": "css-tree",
+          "renderedLength": 2564
+        },
+        {
+          "id": "npm:css-tree/lib/utils/url.js",
+          "package": "css-tree",
+          "renderedLength": 1852
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Url.js",
+          "package": "css-tree",
+          "renderedLength": 926
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/Value.js",
+          "package": "css-tree",
+          "renderedLength": 580
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/WhiteSpace.js",
+          "package": "css-tree",
+          "renderedLength": 522
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/index.js",
+          "package": "css-tree",
+          "renderedLength": 2017
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/config/lexer.js",
+          "package": "css-tree",
+          "renderedLength": 209
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/scope/default.js",
+          "package": "css-tree",
+          "renderedLength": 1271
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/scope/atrulePrelude.js",
+          "package": "css-tree",
+          "renderedLength": 179
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/scope/selector.js",
+          "package": "css-tree",
+          "renderedLength": 1418
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/function/expression.js",
+          "package": "css-tree",
+          "renderedLength": 211
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/function/var.js",
+          "package": "css-tree",
+          "renderedLength": 801
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/scope/value.js",
+          "package": "css-tree",
+          "renderedLength": 572
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/scope/index.js",
+          "package": "css-tree",
+          "renderedLength": 273
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/atrule/container.js",
+          "package": "css-tree",
+          "renderedLength": 615
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/atrule/font-face.js",
+          "package": "css-tree",
+          "renderedLength": 213
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/atrule/import.js",
+          "package": "css-tree",
+          "renderedLength": 1780
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/atrule/layer.js",
+          "package": "css-tree",
+          "renderedLength": 261
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/atrule/media.js",
+          "package": "css-tree",
+          "renderedLength": 281
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/atrule/nest.js",
+          "package": "css-tree",
+          "renderedLength": 261
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/atrule/page.js",
+          "package": "css-tree",
+          "renderedLength": 261
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/atrule/scope.js",
+          "package": "css-tree",
+          "renderedLength": 272
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/atrule/starting-style.js",
+          "package": "css-tree",
+          "renderedLength": 239
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/atrule/supports.js",
+          "package": "css-tree",
+          "renderedLength": 292
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/atrule/index.js",
+          "package": "css-tree",
+          "renderedLength": 409
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/pseudo/lang.js",
+          "package": "css-tree",
+          "renderedLength": 565
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/pseudo/index.js",
+          "package": "css-tree",
+          "renderedLength": 892
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/node/index-parse.js",
+          "package": "css-tree",
+          "renderedLength": 1559
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/config/parser.js",
+          "package": "css-tree",
+          "renderedLength": 916
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/config/walker.js",
+          "package": "css-tree",
+          "renderedLength": 158
+        },
+        {
+          "id": "npm:css-tree/lib/syntax/index.js",
+          "package": "css-tree",
+          "renderedLength": 205
+        },
+        {
+          "id": "npm:css-tree/lib/utils/ident.js",
+          "package": "css-tree",
+          "renderedLength": 707
+        },
+        {
+          "id": "npm:css-tree/lib/index.js",
+          "package": "css-tree",
+          "renderedLength": 239
+        },
+        {
+          "id": "project:packages/core/dist/selectors.mjs",
+          "package": null,
+          "renderedLength": 11670
+        }
+      ]
+    },
+    {
+      "file": "assets/selectors-BxaLK6L9.js",
+      "identity": "module:project:apps/web/src/pages/selectors.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 23071,
+        "gzip": 9589,
+        "brotli": 8004
+      },
+      "sha256": "d8dffe0de37e43bf7e75ed649d8e41752e86ee971d8a69aaa5869acab6b2bf58",
+      "imports": ["assets/router-CmLqUj6u.js"],
+      "dynamicImports": ["assets/selectors-Bkzhvwov.js", "assets/selectors-html-CT-V4hFe.js"],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/selectors.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 8292
+        },
+        {
+          "id": "project:apps/web/src/pages/selectors-demos.ts",
+          "package": null,
+          "renderedLength": 1127
+        },
+        {
+          "id": "project:apps/web/src/pages/selectors.ts",
+          "package": null,
+          "renderedLength": 15621
+        }
+      ]
+    },
+    {
+      "file": "assets/selectors-html-CT-V4hFe.js",
+      "identity": "module:project:apps/web/src/pages/selectors-html.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 157835,
+        "gzip": 45161,
+        "brotli": 39002
+      },
+      "sha256": "e8294a34da73ca2c9ea236853f42b85415c685fbcaf32e7f1e546fa7ee42c03e",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "npm:parse5/dist/common/unicode.js",
+          "package": "parse5",
+          "renderedLength": 2855
+        },
+        {
+          "id": "npm:parse5/dist/common/error-codes.js",
+          "package": "parse5",
+          "renderedLength": 4666
+        },
+        {
+          "id": "npm:parse5/dist/tokenizer/preprocessor.js",
+          "package": "parse5",
+          "renderedLength": 4304
+        },
+        {
+          "id": "npm:parse5/dist/common/token.js",
+          "package": "parse5",
+          "renderedLength": 848
+        },
+        {
+          "id": "npm:entities/dist/decode-codepoint.js",
+          "package": "entities",
+          "renderedLength": 754
+        },
+        {
+          "id": "npm:entities/dist/internal/decode-shared.js",
+          "package": "entities",
+          "renderedLength": 3477
+        },
+        {
+          "id": "npm:entities/dist/generated/decode-data-html.js",
+          "package": "entities",
+          "renderedLength": 18730
+        },
+        {
+          "id": "npm:entities/dist/generated/decode-data-xml.js",
+          "package": "entities",
+          "renderedLength": 321
+        },
+        {
+          "id": "npm:entities/dist/internal/bin-trie-flags.js",
+          "package": "entities",
+          "renderedLength": 529
+        },
+        {
+          "id": "npm:entities/dist/decode.js",
+          "package": "entities",
+          "renderedLength": 10946
+        },
+        {
+          "id": "npm:parse5/dist/common/html.js",
+          "package": "parse5",
+          "renderedLength": 15633
+        },
+        {
+          "id": "npm:parse5/dist/tokenizer/index.js",
+          "package": "parse5",
+          "renderedLength": 63564
+        },
+        {
+          "id": "npm:parse5/dist/parser/open-element-stack.js",
+          "package": "parse5",
+          "renderedLength": 8531
+        },
+        {
+          "id": "npm:parse5/dist/parser/formatting-element-list.js",
+          "package": "parse5",
+          "renderedLength": 3049
+        },
+        {
+          "id": "npm:parse5/dist/tree-adapters/default.js",
+          "package": "parse5",
+          "renderedLength": 4190
+        },
+        {
+          "id": "npm:parse5/dist/common/doctype.js",
+          "package": "parse5",
+          "renderedLength": 4293
+        },
+        {
+          "id": "npm:parse5/dist/common/foreign-content.js",
+          "package": "parse5",
+          "renderedLength": 5716
+        },
+        {
+          "id": "npm:parse5/dist/parser/index.js",
+          "package": "parse5",
+          "renderedLength": 76981
+        },
+        {
+          "id": "npm:parse5/dist/serializer/index.js",
+          "package": "parse5",
+          "renderedLength": 470
+        },
+        {
+          "id": "npm:parse5/dist/index.js",
+          "package": "parse5",
+          "renderedLength": 477
+        },
+        {
+          "id": "project:apps/web/src/pages/selectors-html.ts",
+          "package": null,
+          "renderedLength": 10359
+        }
+      ]
+    },
+    {
+      "file": "assets/semver-BMTdM4ab.js",
+      "identity": "module:project:packages/core/dist/semver.mjs",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 27278,
+        "gzip": 9017,
+        "brotli": 7954
+      },
+      "sha256": "72c41804749f4988ef3d147d683dde9a7f1ad0b581fed68c59e6bd73c4779d21",
+      "imports": ["assets/rolldown-runtime-BpQH8Ho1.js"],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "npm:semver/internal/constants.js",
+          "package": "semver",
+          "renderedLength": 729
+        },
+        {
+          "id": "npm:semver/internal/debug.js",
+          "package": "semver",
+          "renderedLength": 358
+        },
+        {
+          "id": "npm:semver/internal/re.js",
+          "package": "semver",
+          "renderedLength": 4944
+        },
+        {
+          "id": "npm:semver/internal/parse-options.js",
+          "package": "semver",
+          "renderedLength": 459
+        },
+        {
+          "id": "npm:semver/internal/identifiers.js",
+          "package": "semver",
+          "renderedLength": 673
+        },
+        {
+          "id": "npm:semver/classes/semver.js",
+          "package": "semver",
+          "renderedLength": 6828
+        },
+        {
+          "id": "npm:semver/functions/parse.js",
+          "package": "semver",
+          "renderedLength": 465
+        },
+        {
+          "id": "npm:semver/functions/valid.js",
+          "package": "semver",
+          "renderedLength": 345
+        },
+        {
+          "id": "npm:semver/functions/clean.js",
+          "package": "semver",
+          "renderedLength": 372
+        },
+        {
+          "id": "npm:semver/functions/inc.js",
+          "package": "semver",
+          "renderedLength": 607
+        },
+        {
+          "id": "npm:semver/functions/diff.js",
+          "package": "semver",
+          "renderedLength": 1092
+        },
+        {
+          "id": "npm:semver/functions/major.js",
+          "package": "semver",
+          "renderedLength": 293
+        },
+        {
+          "id": "npm:semver/functions/minor.js",
+          "package": "semver",
+          "renderedLength": 293
+        },
+        {
+          "id": "npm:semver/functions/patch.js",
+          "package": "semver",
+          "renderedLength": 293
+        },
+        {
+          "id": "npm:semver/functions/prerelease.js",
+          "package": "semver",
+          "renderedLength": 409
+        },
+        {
+          "id": "npm:semver/functions/compare.js",
+          "package": "semver",
+          "renderedLength": 328
+        },
+        {
+          "id": "npm:semver/functions/rcompare.js",
+          "package": "semver",
+          "renderedLength": 302
+        },
+        {
+          "id": "npm:semver/functions/compare-loose.js",
+          "package": "semver",
+          "renderedLength": 312
+        },
+        {
+          "id": "npm:semver/functions/compare-build.js",
+          "package": "semver",
+          "renderedLength": 458
+        },
+        {
+          "id": "npm:semver/functions/sort.js",
+          "package": "semver",
+          "renderedLength": 323
+        },
+        {
+          "id": "npm:semver/functions/rsort.js",
+          "package": "semver",
+          "renderedLength": 327
+        },
+        {
+          "id": "npm:semver/functions/gt.js",
+          "package": "semver",
+          "renderedLength": 282
+        },
+        {
+          "id": "npm:semver/functions/lt.js",
+          "package": "semver",
+          "renderedLength": 282
+        },
+        {
+          "id": "npm:semver/functions/eq.js",
+          "package": "semver",
+          "renderedLength": 284
+        },
+        {
+          "id": "npm:semver/functions/neq.js",
+          "package": "semver",
+          "renderedLength": 288
+        },
+        {
+          "id": "npm:semver/functions/gte.js",
+          "package": "semver",
+          "renderedLength": 287
+        },
+        {
+          "id": "npm:semver/functions/lte.js",
+          "package": "semver",
+          "renderedLength": 287
+        },
+        {
+          "id": "npm:semver/functions/cmp.js",
+          "package": "semver",
+          "renderedLength": 974
+        },
+        {
+          "id": "npm:semver/functions/coerce.js",
+          "package": "semver",
+          "renderedLength": 1469
+        },
+        {
+          "id": "npm:semver/internal/lrucache.js",
+          "package": "semver",
+          "renderedLength": 795
+        },
+        {
+          "id": "npm:semver/classes/range.js",
+          "package": "semver",
+          "renderedLength": 10121
+        },
+        {
+          "id": "npm:semver/classes/comparator.js",
+          "package": "semver",
+          "renderedLength": 3014
+        },
+        {
+          "id": "npm:semver/functions/satisfies.js",
+          "package": "semver",
+          "renderedLength": 412
+        },
+        {
+          "id": "npm:semver/ranges/to-comparators.js",
+          "package": "semver",
+          "renderedLength": 397
+        },
+        {
+          "id": "npm:semver/ranges/max-satisfying.js",
+          "package": "semver",
+          "renderedLength": 677
+        },
+        {
+          "id": "npm:semver/ranges/min-satisfying.js",
+          "package": "semver",
+          "renderedLength": 676
+        },
+        {
+          "id": "npm:semver/ranges/min-version.js",
+          "package": "semver",
+          "renderedLength": 1347
+        },
+        {
+          "id": "npm:semver/ranges/valid.js",
+          "package": "semver",
+          "renderedLength": 375
+        },
+        {
+          "id": "npm:semver/ranges/outside.js",
+          "package": "semver",
+          "renderedLength": 1735
+        },
+        {
+          "id": "npm:semver/ranges/gtr.js",
+          "package": "semver",
+          "renderedLength": 308
+        },
+        {
+          "id": "npm:semver/ranges/ltr.js",
+          "package": "semver",
+          "renderedLength": 308
+        },
+        {
+          "id": "npm:semver/ranges/intersects.js",
+          "package": "semver",
+          "renderedLength": 390
+        },
+        {
+          "id": "npm:semver/ranges/simplify.js",
+          "package": "semver",
+          "renderedLength": 1127
+        },
+        {
+          "id": "npm:semver/ranges/subset.js",
+          "package": "semver",
+          "renderedLength": 4368
+        },
+        {
+          "id": "npm:semver/index.js",
+          "package": "semver",
+          "renderedLength": 2241
+        },
+        {
+          "id": "project:packages/core/dist/semver.mjs",
+          "package": null,
+          "renderedLength": 3935
+        }
+      ]
+    },
+    {
+      "file": "assets/semver-Bqb3_RIh.js",
+      "identity": "module:project:apps/web/src/pages/semver.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 8373,
+        "gzip": 3865,
+        "brotli": 3149
+      },
+      "sha256": "ac793232c278b52688548fb0e91413d5604fb1114cd2c2ca57b19094d807569d",
+      "imports": ["assets/router-CmLqUj6u.js"],
+      "dynamicImports": ["assets/semver-BMTdM4ab.js"],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/semver.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 4271
+        },
+        {
+          "id": "project:apps/web/src/pages/semver.ts",
+          "package": null,
+          "renderedLength": 4479
+        }
+      ]
+    },
+    {
+      "file": "assets/sitemap-r9bJ7hGs.js",
+      "identity": "module:project:apps/web/src/pages/sitemap.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 21866,
+        "gzip": 8849,
+        "brotli": 7414
+      },
+      "sha256": "57a60c1191d01f610d73af426cf3f3a99f9af6645f7c5f65737a30b13f729e51",
+      "imports": ["assets/router-CmLqUj6u.js"],
+      "dynamicImports": ["assets/sitemap-xml-DUE5DQSy.js"],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/sitemap.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 6767
+        },
+        {
+          "id": "project:apps/web/src/pages/sitemap-demos.ts",
+          "package": null,
+          "renderedLength": 1463
+        },
+        {
+          "id": "project:apps/web/src/pages/sitemap.ts",
+          "package": null,
+          "renderedLength": 15395
+        }
+      ]
+    },
+    {
+      "file": "assets/sitemap-xml-DUE5DQSy.js",
+      "identity": "module:project:apps/web/src/pages/sitemap-xml.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 12547,
+        "gzip": 5117,
+        "brotli": 4513
+      },
+      "sha256": "a09b7eed001d5cc44811fb3afde565604e1548eea50ee82bf2446dfd794eda81",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:packages/core/dist/sitemap.mjs",
+          "package": null,
+          "renderedLength": 10763
+        },
+        {
+          "id": "project:apps/web/src/pages/sitemap-xml.ts",
+          "package": null,
+          "renderedLength": 8703
+        }
+      ]
+    },
+    {
+      "file": "assets/sql-ddl-Dqwgtaga.js",
+      "identity": "module:project:packages/core/dist/sql-ddl.mjs",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 4076,
+        "gzip": 1793,
+        "brotli": 1455
+      },
+      "sha256": "3970fb3156f4a9e36ede4d75ebac1c748099474a05e7cf20203709f06da8ebf2",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:packages/core/dist/sql-ddl.mjs",
+          "package": null,
+          "renderedLength": 5191
+        }
+      ]
+    },
+    {
+      "file": "assets/sql-ddl-DW4ODGGT.js",
+      "identity": "module:project:apps/web/src/pages/sql-ddl.ts",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": {
+        "raw": 36498,
+        "gzip": 13815,
+        "brotli": 11658
+      },
+      "sha256": "d8c19e8a3ecb8d2e931e1eebbab7960ce36c84fcbc1db7565aa3160e14dbbdb8",
+      "imports": ["assets/router-CmLqUj6u.js"],
+      "dynamicImports": ["assets/sql-ddl-Dqwgtaga.js"],
+      "modules": [
+        {
+          "id": "project:apps/web/src/pages/sql-ddl.html?variant=0b9d42f73d63",
+          "package": null,
+          "renderedLength": 8547
+        },
+        {
+          "id": "project:apps/web/src/pages/sql-ddl-demos.ts",
+          "package": null,
+          "renderedLength": 3087
+        },
+        {
+          "id": "project:apps/web/src/pages/sql-ddl-svg.ts",
+          "package": null,
+          "renderedLength": 11024
+        },
+        {
+          "id": "project:apps/web/src/pages/sql-ddl.ts",
+          "package": null,
+          "renderedLength": 21663
+        }
+      ]
+    },
+    {
+      "file": "assets/sql-ddl.worker-D5JOrAL8.js",
+      "identity": "asset:assets/sql-ddl.worker-D5JOrAL8.js",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 17640,
+        "gzip": 6240,
+        "brotli": 5523
+      },
+      "sha256": "1fae755d032e25b3f44b1c784d7bd571055d6cf50c571f93b65e4cbadc8df1ff",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "assets/tools-BARMSkMv.js",
+      "identity": "shared:tools",
+      "kind": "chunk",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 7008,
+        "gzip": 3302,
+        "brotli": 2730
+      },
+      "sha256": "a2a89b194ad0257ce90bd52f67a2205b9b36257e3bf7b6dfbfdc292c57c330f2",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "project:apps/web/src/tools.ts",
+          "package": null,
+          "renderedLength": 9571
+        }
+      ]
+    },
+    {
+      "file": "assets/tools.worker-BEywqUg-.js",
+      "identity": "asset:assets/tools.worker-BEywqUg-.js",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 722,
+        "gzip": 438,
+        "brotli": 374
+      },
+      "sha256": "0188f55641390b071a9be95b8c89f378c639753dc5df0a57fb4a663910b4854f",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "index.html",
+      "identity": "asset:index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 11853,
+        "gzip": 4658,
+        "brotli": 3671
+      },
+      "sha256": "715c1d56bef01ed869755358534c777d7d5b7143fa9e92c5c937f01c8e8591cb",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "robots.txt",
+      "identity": "asset:robots.txt",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 65,
+        "gzip": 81,
+        "brotli": 69
+      },
+      "sha256": "398bc3713d54e90f8028bda19ad6a3bcb63d29d4f798627c3a4be5a64c61dce7",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "sitemap.xml",
+      "identity": "asset:sitemap.xml",
+      "kind": "asset",
+      "entry": false,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 1142,
+        "gzip": 261,
+        "brotli": 215
+      },
+      "sha256": "30c52df564c7423e1852a7b7723141e04e525c42d8f9061e4c2301a71e42ac79",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/bundle-diff/index.html",
+      "identity": "asset:tools/bundle-diff/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 6876,
+        "gzip": 3085,
+        "brotli": 2348
+      },
+      "sha256": "d66cbb99de760bbf8b5d60fe167b66d4b0db95dd56da59e3bc6259ababa889fc",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/compose/index.html",
+      "identity": "asset:tools/compose/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 15598,
+        "gzip": 6452,
+        "brotli": 5061
+      },
+      "sha256": "1b21c27c0fa26dd409a526b3f865075dff381a8069ec173ed5d0009ab1fb7697",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/cron/index.html",
+      "identity": "asset:tools/cron/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 6458,
+        "gzip": 2860,
+        "brotli": 2173
+      },
+      "sha256": "ef68a2cc6b276b4c9e3de8c8575fd54c7ec43c544a4e42d436d2508a32c66ed0",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/dependency-graph/index.html",
+      "identity": "asset:tools/dependency-graph/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 6167,
+        "gzip": 2898,
+        "brotli": 2195
+      },
+      "sha256": "9e9d571675a5d6a3b6ee659825fc744acefab7f24f8c13cad31f48aed50aaa82",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/env-check/index.html",
+      "identity": "asset:tools/env-check/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 10448,
+        "gzip": 4460,
+        "brotli": 3514
+      },
+      "sha256": "08cbcefb278d07e0e5ba5f0e958d6502c8c2ae0b9ea3dd7f640a910fb0f79eb1",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/explain/index.html",
+      "identity": "asset:tools/explain/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 12767,
+        "gzip": 5677,
+        "brotli": 4533
+      },
+      "sha256": "84da21f84e60ad96e36b4ef60ef0d122ab1de72365f15db3dbee8c1d185fb2b3",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/git-diff/index.html",
+      "identity": "asset:tools/git-diff/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 10701,
+        "gzip": 4661,
+        "brotli": 3700
+      },
+      "sha256": "45caed1e3892b051ceffa210050e01b93867379addd3b53fe4debcafa00b0c03",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/json-diff/index.html",
+      "identity": "asset:tools/json-diff/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 7096,
+        "gzip": 2951,
+        "brotli": 2247
+      },
+      "sha256": "a0cd8ffe341f273c92bb7df9587be1d7a62c0f4a8d29c1f3e976f0f98c5709e8",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/lighthouse/index.html",
+      "identity": "asset:tools/lighthouse/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 6573,
+        "gzip": 2756,
+        "brotli": 2076
+      },
+      "sha256": "e4d6123ec41a0c5ae6a8c1fba9ecf58f8094873c53164c9743bd4b6086d21d53",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/openapi-fixture/index.html",
+      "identity": "asset:tools/openapi-fixture/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 14794,
+        "gzip": 5933,
+        "brotli": 4668
+      },
+      "sha256": "56efe4f121d05170d1c8a95c2ede01845743bc0441f52225aa854c4ff11412b9",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/openapi/index.html",
+      "identity": "asset:tools/openapi/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 13350,
+        "gzip": 5362,
+        "brotli": 4166
+      },
+      "sha256": "1d4a0dd86bdfa2899efae5386980b80f6ef5dc519739820683a260bc0354cb06",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/palette/index.html",
+      "identity": "asset:tools/palette/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 17529,
+        "gzip": 6676,
+        "brotli": 5364
+      },
+      "sha256": "c31568964cf98dcefe6c8f8a3bb0dcc572a01ec21ec8470a9bba2bb92385906f",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/sdl/index.html",
+      "identity": "asset:tools/sdl/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 12449,
+        "gzip": 4922,
+        "brotli": 3814
+      },
+      "sha256": "225434b36e18885c701f77a2a54847c7c007c9620c11d7caffb42cb70f01062d",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/selectors/index.html",
+      "identity": "asset:tools/selectors/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 13936,
+        "gzip": 6102,
+        "brotli": 4856
+      },
+      "sha256": "b77bc053a55e53d05ffe1dcb91831fe2f49e5b7e0b3d481f586c906ec8e689df",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/semver/index.html",
+      "identity": "asset:tools/semver/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 8646,
+        "gzip": 3783,
+        "brotli": 2932
+      },
+      "sha256": "45f67dd851dcf1a3660cccc0eb46b0a0b2c12c182a000abc8957b1f7d6ed185d",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/sitemap/index.html",
+      "identity": "asset:tools/sitemap/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 12233,
+        "gzip": 5308,
+        "brotli": 4176
+      },
+      "sha256": "870e6d4b32baa6ef9cd3a09f7ca79ef437e3ea74b3b017b38ad1acfcd3b32081",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    },
+    {
+      "file": "tools/sql-ddl/index.html",
+      "identity": "asset:tools/sql-ddl/index.html",
+      "kind": "asset",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": {
+        "raw": 13718,
+        "gzip": 5910,
+        "brotli": 4602
+      },
+      "sha256": "715d9577276ad0efa8df77978992caaa1d7fd21b5bdfdba526a7cc39cc89bbcb",
+      "imports": [],
+      "dynamicImports": [],
+      "modules": []
+    }
+  ],
+  "warnings": [
+    "僅量測 Vite emitted bundle；public 複製檔案不在範圍內。Worker 或其他僅以 asset 呈現的產物保留總大小，沒有 module 歸因。",
+    "只輸出相對 module 路徑、套件名與摘要，不含 source code 或環境變數值。分享前仍須檢查。"
+  ]
+}

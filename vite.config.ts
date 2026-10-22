@@ -34,6 +34,8 @@ export default defineConfig({
           '@sid-tools/core#build',
           '@sid-tools/markdown-links#build',
           '@sid-tools/dependency-graph#build',
+          '@sid-tools/bundle-diff#build',
+          '@sid-tools/bundle-report#build',
         ],
       },
       'test-all': {
@@ -42,6 +44,8 @@ export default defineConfig({
           '@sid-tools/web#build',
           '@sid-tools/markdown-links#build',
           '@sid-tools/dependency-graph#build',
+          '@sid-tools/bundle-diff#build',
+          '@sid-tools/bundle-report#build',
         ],
         cache: false,
       },

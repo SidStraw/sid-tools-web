@@ -5039,3 +5039,12 @@ dialog > p {
 .dependency-graph-main li {
   margin-bottom: 0.75rem;
 }
+
+.bundle-diff-main details {
+  margin-block: 1rem;
+  overflow-wrap: anywhere;
+}
+.bundle-diff-main input,
+.bundle-diff-main select {
+  max-width: 100%;
+}

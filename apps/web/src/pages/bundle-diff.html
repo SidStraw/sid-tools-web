@@ -1,0 +1,71 @@
+<main id="workspace" class="utility-main bundle-diff-main">
+  <section class="tool-intro">
+    <p class="eyebrow">LOCAL BUILD · SIZE &amp; SOURCES</p>
+    <h1>Bundle 體積比較</h1>
+    <p>從兩次實際建置報告，追查體積變化、入口與引入的 module。設定不同時先檢查量測條件。</p>
+  </section>
+  <section class="utility-panel">
+    <h2>選擇建置報告</h2>
+    <p>
+      使用專案內 <code>@sid-tools/bundle-report</code> Vite plugin 產生 sid-tools-bundle-v1
+      報告。操作與收集範圍見 repository README。每份上限 8 MB，只在裝置處理。
+    </p>
+    <label for="base-file">Base JSON 報告</label
+    ><input id="base-file" type="file" accept=".json,application/json" />
+    <label for="candidate-file">Candidate JSON 報告</label
+    ><input id="candidate-file" type="file" accept=".json,application/json" />
+    <label for="metric">總產物預算的壓縮方式</label
+    ><select id="metric">
+      <option value="gzip">gzip</option>
+      <option value="raw">raw</option>
+      <option value="brotli">Brotli</option>
+    </select>
+    <label for="budget">Candidate 預算（bytes，留空不判定）</label
+    ><input id="budget" type="number" min="0" max="1000000000" step="1" placeholder="例如 250000" />
+    <div class="tool-actions">
+      <button id="compare" class="button primary">比較報告</button
+      ><button id="clear" class="button secondary">清除／取消</button
+      ><button id="download" class="button secondary" disabled>下載比較 JSON</button>
+    </div>
+    <p id="status" role="status" aria-live="polite">請選擇兩份報告。</p>
+    <p id="error" role="alert" hidden></p>
+  </section>
+  <section id="output" class="utility-panel" hidden>
+    <h2>比較結果</h2>
+    <p id="comparability"></p>
+    <div id="totals"></div>
+    <p id="budget-result"></p>
+    <div id="warnings"></div>
+    <details>
+      <summary>量測環境與不相容原因</summary>
+      <div id="environment"></div>
+    </details>
+    <label for="search">搜尋檔案、module、套件或入口</label><input id="search" type="search" />
+    <label for="group">查看項目</label
+    ><select id="group">
+      <option value="assets">Chunk／asset</option>
+      <option value="modules">Module</option>
+      <option value="packages">Package</option>
+    </select>
+    <p id="count"></p>
+    <div id="items"></div>
+    <button id="more" class="button secondary" hidden>顯示更多</button>
+  </section>
+  <section class="utility-panel">
+    <h2>大小與歸因的限制</h2>
+    <p>
+      raw、gzip、Brotli 是各產物獨立量測後加總，不代表單一頁面的下載量。入口、動態入口與 imports
+      可在產物細節中查看。
+    </p>
+    <p>
+      Module／package 的 renderedLength 是 bundler
+      提供的長度，不等於最終壓縮位元組。Wrapper、minifier 與壓縮差額保留未歸因；asset 沒有 module
+      資料時不推測來源。相同 identity 有多個產物時標記 ambiguous，不強行配對。
+    </p>
+    <p>
+      僅收集 Vite emitted bundle，public 複製檔案不在範圍內。缺少環境 metadata
+      或設定不同時不判定預算。此工具提供唯讀報告，不修改 imports
+      或移除套件；不儲存輸入到網址或瀏覽器儲存空間。
+    </p>
+  </section>
+</main>

@@ -132,5 +132,13 @@ export const routes = [
     description:
       '離線檢視 pnpm workspace 依賴、引入路徑、多版本與 peer context，保留 lockfile 來源。不讀取或上傳專案。',
   },
+  {
+    id: 'bundle-diff',
+    path: 'tools/bundle-diff/',
+    label: 'Bundle 比較',
+    title: 'Bundle 體積變化與來源追查',
+    description:
+      '離線比較 Vite 建置報告的 raw、gzip 與 Brotli 大小，追查入口、chunk、module 與套件，檢查量測條件及體積預算。',
+  },
 ] as const;
 export type Route = (typeof routes)[number];

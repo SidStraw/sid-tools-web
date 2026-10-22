@@ -83,6 +83,10 @@
     "./dependency-graph": {
       "types": "./dist/dependency-graph.d.mts",
       "import": "./dist/dependency-graph.mjs"
+    },
+    "./bundle-diff": {
+      "types": "./dist/bundle-diff.d.mts",
+      "import": "./dist/bundle-diff.mjs"
     }
   },
   "scripts": {

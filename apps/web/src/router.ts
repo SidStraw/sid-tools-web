@@ -18,6 +18,7 @@ const loaders: Record<Route['id'], () => Promise<ToolModule>> = {
   'openapi-fixture': () => import('./pages/openapi-fixture'),
   'sql-ddl': () => import('./pages/sql-ddl'),
   compose: () => import('./pages/compose'),
+  'bundle-diff': () => import('./pages/bundle-diff'),
   'dependency-graph': () => import('./pages/dependency-graph'),
 };
 const base = new URL(

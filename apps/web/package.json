@@ -9,6 +9,7 @@
     "parse5": "catalog:"
   },
   "devDependencies": {
+    "@sid-tools/bundle-report": "workspace:*",
     "@types/node": "catalog:",
     "typescript": "catalog:",
     "vite-plus": "catalog:"

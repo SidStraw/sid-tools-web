@@ -18,6 +18,7 @@
   "devDependencies": {
     "@earendil-works/pi-coding-agent": "1.0.0",
     "@playwright/test": "1.63.0",
+    "@sid-tools/bundle-report": "workspace:*",
     "@sid-tools/core": "workspace:*",
     "@types/node": "catalog:",
     "backlog.md": "1.53.0",

@@ -202,7 +202,7 @@ mise exec -- pnpm deploy
 
 Cloudflare Pages 原生 Git 整合沿用既有 GitHub OAuth 授權，連接 `SidStraw/sid-tools-web` 的 `main`；建置命令 `pnpm build`、輸出目錄 `apps/web/dist`，root directory 為 repo 根目錄。自動部署不需要另建使用者 API Token。手動部署使用既有 Wrangler OAuth 與 `wrangler pages deploy`。GitHub Actions 的 [Verify](.github/workflows/ci.yml) 保留 Linux／macOS 完整驗收；GitHub Pages 的 artifact、部署 job 與遠端 Pages 設定停用。原生 Git 整合遠端狀態及本次驗收證據見 [Cloudflare 遷移紀錄](docs/validation/cloudflare/README.md)。
 
-網站在網域根路徑提供十六個 SSG HTML，Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。十六頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
+目前本機建置在網域根路徑產生十八個 SSG HTML（新增工具仍需另行部署），Cloudflare 使用 trailing-slash 正規化；未知網址與不存在的 JS chunk 回真正的 404，不以首頁 200 回應。各頁 canonical、sitemap 與 robots 指向 `tools.sid.tw`。正式 `pages.dev` 網址透過 Cloudflare Bulk Redirect 以 301 導向正式網域，保留路徑與查詢參數；預覽網址使用 Pages 預設 `X-Robots-Tag: noindex`，避免多個可收錄的公開入口。
 
 `sid.tw` 帳號既有 Cloudflare Web Analytics 自動安裝涵蓋子網域；沿用「排除歐盟訪客」偏好，不新增重複 beacon。CSP 僅允許官方 beacon script 與指定 RUM 端點；本機無 beacon，測試仍檢查輸入不上傳。正式站頁面瀏覽與效能會送出基本統計，工具輸入、檔案、處理結果留在瀏覽器。
 
@@ -230,3 +230,26 @@ mise exec -- node apps/dependency-graph/dist/cli.mjs /path/to/repo > /tmp/depend
 在工具選單「套件相依圖」選取 JSON 報告即可查詢。首版支援 pnpm lockfile 9.0（一份 project 文件，或 boot/env + project 兩份文件）及 `pnpm-workspace.yaml` packages glob。CLI 僅讀 manifests 與 lockfile，不執行 scripts、不上網、不讀 source/env 檔。預設隱藏 workspace 路徑；加上 `--include-workspace-paths` 才會輸出相對路徑。套件名、版本與依賴關係仍會出現在報告，分享前須檢查。
 
 每條邊有 lockfile 文件編號與行號，workspace 宣告另有 manifest JSON Pointer。單一版本的 peer variants 和多版本分開列出；optional 邊不等於目前已安裝，重複也不等於可刪。未解析、缺少 manifest、宣告過期都會顯示診斷，不猜測來源。圖上限為 12,000 節點、60,000 邊、300 workspace；輸入與瀏覽器報告上限 8 MB。
+
+### Bundle 體積比較（STW-19）
+
+先 `mise exec -- pnpm build` 建置本機 workspace。已整合 repo-local Vite plugin，只有明確設定輸出路徑時收集報告：
+
+```sh
+STW_BUNDLE_REPORT=/tmp/bundle-base.json mise exec -- pnpm exec vp run --no-cache @sid-tools/web#build
+# 修改待比較的應用程式後，維持量測設定與執行環境，再產生另一份報告。
+STW_BUNDLE_REPORT=/tmp/bundle-candidate.json mise exec -- pnpm exec vp run --no-cache @sid-tools/web#build
+mise exec -- node apps/bundle-diff/dist/cli.mjs /tmp/bundle-base.json /tmp/bundle-candidate.json --metric gzip --budget 500000
+```
+
+路徑須位於公開輸出目錄外，既有檔案不覆寫。不要在未信任的 repo 執行 build；收集器是既有建置流程的一部分，會執行該專案的 Vite 設定及 plugins。CLI 比較器本身只讀 JSON，不建置或修改來源。
+
+在「Bundle 比較」載入兩份報告，查看 raw／gzip／Brotli、入口及動態 imports、chunk/module/package 來源與總產物預算；可搜尋、分批查看及下載 JSON。CLI exit code：0 可比較／預算通過，2 超標，3 條件不相容，1 輸入無效。`--budget` 單位為整數 bytes，限 0–1,000,000,000；缺少 metadata 或環境／設定不同時，不將預算判為通過。
+
+首版只支援本專案固定的 Vite+/Rolldown 報告格式 `sid-tools-bundle-v1`，不接收任意 bundler stats。其他 workspace 可在其 Vite config 使用 `bundleReport({ file, sourceRoot, profile })`；profile 用來區別建置流程。來源相同但輸出 hash 改變可配對；重複 identity 保留 ambiguous，不推測一對一對應。
+
+收集器讀取實際 emitted 檔案並分別以 gzip level 9、Brotli quality 11 量測；包含 emitted HTML/CSS/JS/assets，排除 public 複製檔案。各檔案壓縮後加總不是頁面網路流量。module/package 的 `renderedLength` 只是 bundler 提供的長度，無法等同或分攤為壓縮 bytes；wrapper、壓縮差額和缺少 module 資料的 asset 保留未歸因。
+
+設定檔內容、記錄的 resolved build/resolve/CSS/env 條件只寫入摘要，不輸出原始內容；環境 metadata 記錄 Node、作業系統、CPU、引擎及壓縮條件。相同摘要不保證未記錄的 plugin closure、外部資料或非確定性行為相同。報告仍包含相對 module 路徑、套件名與入口，分享前須檢查；不包含 source code。單檔產物 50 MB、總產物 200 MB、報告 8 MB、2,000 產物及 50,000 module 為上限。
+
+驗證與實際專案快照見 [STW-19 驗證紀錄](docs/validation/stw-19/README.md)。

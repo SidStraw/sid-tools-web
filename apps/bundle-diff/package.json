@@ -1,0 +1,16 @@
+{
+  "name": "@sid-tools/bundle-diff",
+  "version": "0.0.0",
+  "private": true,
+  "bin": {
+    "bundle-diff": "dist/cli.mjs"
+  },
+  "type": "module",
+  "dependencies": {
+    "@sid-tools/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "vite-plus": "catalog:"
+  }
+}

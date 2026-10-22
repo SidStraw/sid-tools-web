@@ -1,0 +1,51 @@
+[
+  {
+    "id": "semver-return",
+    "file": "packages/core/src/semver.ts",
+    "name": "SemverComparison",
+    "question": "ReturnType 推導的回傳物件包含哪些欄位，rows 的來源在哪？"
+  },
+  {
+    "id": "knip-report",
+    "file": "node_modules/knip/dist/types/issues.d.ts",
+    "name": "Report",
+    "question": "mapped type 實際包含哪些 issue 開關，值是否為 boolean？"
+  },
+  {
+    "id": "knip-counters",
+    "file": "node_modules/knip/dist/types/issues.d.ts",
+    "name": "Counters",
+    "question": "Record 的鍵除了 IssueType 還有哪些，值是什麼？"
+  },
+  {
+    "id": "knip-plugins",
+    "file": "node_modules/knip/dist/types/package-json.d.ts",
+    "name": "Plugins",
+    "question": "conditional infer 加 key remapping 後，package.json 可以有什麼 plugin 欄位？"
+  },
+  {
+    "id": "knip-exports",
+    "file": "node_modules/knip/dist/types/package-json.d.ts",
+    "name": "Exports",
+    "question": "遞迴 package exports 有哪些 union 分支，索引值是否還能遞迴？"
+  },
+  {
+    "id": "knip-package",
+    "file": "node_modules/knip/dist/types/package-json.d.ts",
+    "name": "PackageJson",
+    "question": "intersection 合併後的 package 欄位與 plugin 欄位來源能否定位？"
+  },
+  {
+    "id": "nullable-finding",
+    "file": "packages/core/src/unused-review.ts",
+    "name": "UnusedFinding",
+    "question": "line、col、sourceHash 是否允許 null，tsconfig 改變後結果是否不同？"
+  },
+  {
+    "id": "unresolved-control",
+    "file": "research/ts-type-explorer-2026-10-23/negative.ts",
+    "name": "MissingAlias",
+    "kind": "negative-control",
+    "question": "缺失的型別必須保留原生診斷，不補造展開結果。"
+  }
+]

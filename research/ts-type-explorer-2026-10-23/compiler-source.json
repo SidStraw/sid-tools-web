@@ -1,0 +1,19 @@
+{
+  "name": "typescript",
+  "version": "5.9.3",
+  "dist": {
+    "shasum": "5b4f59e15310ab17a216f5d6cf53ee476ede670f",
+    "tarball": "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz",
+    "fileCount": 132,
+    "integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==",
+    "signatures": [
+      {
+        "sig": "MEYCIQC5ifNi1il+zAZC19ov+Q5oSrhOwlpOpghAaAAXYA0RpAIhAKdcZ6pMNZGuprpke8Zi3OPB1zol9c88KVW+apJNVjTy",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "unpackedSize": 23625066
+  },
+  "gitHead": "c63de15a992d37f0d6cec03ac7631872838602cb",
+  "license": "Apache-2.0"
+}

@@ -1,0 +1,6 @@
+{
+ "extends":"../../tsconfig.base.json",
+ "compilerOptions":{"lib":["ES2022","DOM"],"types":["node"],"allowImportingTsExtensions":true},
+ "files":["../../packages/core/src/semver.ts","../../packages/core/src/unused-review.ts","../../node_modules/.pnpm/knip@6.42.1/node_modules/knip/dist/types/issues.d.ts","../../node_modules/.pnpm/knip@6.42.1/node_modules/knip/dist/types/package-json.d.ts"],
+ "include":[]
+}

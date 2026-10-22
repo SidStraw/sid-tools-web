@@ -1,0 +1,552 @@
+{
+  "version": "7.0.2",
+  "protocol": "textDocument/hover; experimental.hoverVerbosityLevel=true; verbosityLevel=0/2",
+  "context": "Language server chooses configured/inferred project at original source path. Unlike compiler-results.json, this run does not force the research tsconfig; do not attribute all differences to version or rendering.",
+  "initialization": {
+    "capabilities": {
+      "positionEncoding": "utf-16",
+      "textDocumentSync": {
+        "openClose": true,
+        "change": 2,
+        "save": true
+      },
+      "completionProvider": {
+        "triggerCharacters": [
+          ".",
+          "\"",
+          "'",
+          "`",
+          "/",
+          "@",
+          "<",
+          "#",
+          " ",
+          "*"
+        ],
+        "resolveProvider": true,
+        "completionItem": {
+          "labelDetailsSupport": true
+        }
+      },
+      "hoverProvider": true,
+      "signatureHelpProvider": {
+        "triggerCharacters": [
+          "(",
+          ",",
+          "<"
+        ],
+        "retriggerCharacters": [
+          ")"
+        ]
+      },
+      "definitionProvider": true,
+      "typeDefinitionProvider": true,
+      "implementationProvider": true,
+      "referencesProvider": true,
+      "documentHighlightProvider": true,
+      "documentSymbolProvider": true,
+      "codeActionProvider": {
+        "codeActionKinds": [
+          "quickfix",
+          "source.organizeImports",
+          "source.removeUnusedImports",
+          "source.sortImports",
+          "source.fixAll"
+        ]
+      },
+      "codeLensProvider": {
+        "resolveProvider": true
+      },
+      "workspaceSymbolProvider": true,
+      "documentFormattingProvider": true,
+      "documentRangeFormattingProvider": true,
+      "documentOnTypeFormattingProvider": {
+        "firstTriggerCharacter": "{",
+        "moreTriggerCharacter": [
+          "}",
+          ";",
+          "\n"
+        ]
+      },
+      "renameProvider": {
+        "prepareProvider": true
+      },
+      "foldingRangeProvider": true,
+      "selectionRangeProvider": true,
+      "callHierarchyProvider": true,
+      "linkedEditingRangeProvider": true,
+      "semanticTokensProvider": {
+        "legend": {
+          "tokenTypes": [],
+          "tokenModifiers": []
+        },
+        "range": true,
+        "full": true
+      },
+      "inlayHintProvider": true,
+      "diagnosticProvider": {
+        "identifier": "typescript",
+        "interFileDependencies": true,
+        "workspaceDiagnostics": false
+      },
+      "workspace": {
+        "fileOperations": {
+          "willRename": {
+            "filters": [
+              {
+                "scheme": "file",
+                "pattern": {
+                  "glob": "**/*.{ts,tsx,js,jsx,cts,cjs,mts,mjs,json}"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "experimental": {
+        "customSourceDefinitionProvider": true,
+        "customMultiDocumentHighlightProvider": true
+      },
+      "_vs_onAutoInsertProvider": {
+        "_vs_triggerCharacters": [
+          ">"
+        ]
+      },
+      "_vs_referencesProvider": true
+    },
+    "serverInfo": {
+      "name": "typescript-go",
+      "version": "7.0.2"
+    }
+  },
+  "results": [
+    {
+      "id": "semver-return",
+      "hovers": [
+        {
+          "verbosityLevel": 0,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype SemverComparison = {\n    engine: string;\n    options: {\n        loose: boolean;\n        includePrerelease: boolean;\n    };\n    rules: {\n        readonly prerelease: '預設排除 prerelease；只有同一個 OR 分支明寫相同 major.minor.patch 的 prerelease 比較條件才可納入。* 也不包含 prerelease。';\n        readonly zero: '0.x 不代表穩定 API。^0.2.3 為 >=0.2.3 <0.3.0-0；^0.0.3 為 >=0.0.3 <0.0.4-0；~0.2.3 為 >=0.2.3 <0.3.0-0。';\n        readonly compatibility: 'SemVer 範圍只檢查版本宣告，不保證實際 API 相容性。請另查變更紀錄並執行測試。';\n        readonly scope: '只比較你提供的版本集合；不是所有可能版本的交集或子集證明。不查詢套件 registry。建置資訊不影響匹配。';\n    };\n    ... 4 more ...;\n    removed: string[];\n}\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 145,
+                "character": 12
+              },
+              "end": {
+                "line": 145,
+                "character": 28
+              }
+            }
+          },
+          "firstMs": 38.41250000000001,
+          "warmMs": [
+            0.27174999999999727,
+            0.19787499999999625,
+            0.1443750000000108,
+            0.15212499999999807,
+            0.1517910000000029
+          ],
+          "warmMedianMs": 0.15212499999999807
+        },
+        {
+          "verbosityLevel": 2,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype SemverComparison = {\n    engine: string;\n    options: {\n        loose: boolean;\n        includePrerelease: boolean;\n    };\n    rules: {\n        readonly prerelease: \"預設排除 prerelease；只有同一個 OR 分支明寫相同 major.minor.patch 的 prerelease 比較條件才可納入。* 也不包含 prerelease。\";\n        readonly zero: \"0.x 不代表穩定 API。^0.2.3 為 >=0.2.3 <0.3.0-0；^0.0.3 為 >=0.0.3 <0.0.4-0；~0.2.3 為 >=0.2.3 <0.3.0-0。\";\n        readonly compatibility: \"SemVer 範圍只檢查版本宣告，不保證實際 API 相容性。請另查變更紀錄並執行測試。\";\n        readonly scope: \"只比較你提供的版本集合；不是所有可能版本的交集或子集證明。不查詢套件 registry。建置資訊不影響匹配。\";\n    };\n    ... 4 more ...;\n    removed: string[];\n}\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 145,
+                "character": 12
+              },
+              "end": {
+                "line": 145,
+                "character": 28
+              }
+            }
+          },
+          "firstMs": 0.1572919999999982,
+          "warmMs": [
+            0.18720799999999826,
+            1.1710829999999959,
+            0.2037910000000096,
+            0.16825000000000045,
+            0.14366699999999355
+          ],
+          "warmMedianMs": 0.18720799999999826
+        }
+      ]
+    },
+    {
+      "id": "knip-report",
+      "hovers": [
+        {
+          "verbosityLevel": 0,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype Report = {\n    files: boolean;\n    dependencies: boolean;\n    devDependencies: boolean;\n    optionalPeerDependencies: boolean;\n    unlisted: boolean;\n    binaries: boolean;\n    unresolved: boolean;\n    exports: boolean;\n    types: boolean;\n    nsExports: boolean;\n    nsTypes: boolean;\n    duplicates: boolean;\n    enumMembers: boolean;\n    namespaceMembers: boolean;\n    catalog: boolean;\n    catalogReferences: boolean;\n    cycles: boolean;\n}\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 48,
+                "character": 12
+              },
+              "end": {
+                "line": 48,
+                "character": 18
+              }
+            }
+          },
+          "firstMs": 18.18775000000001,
+          "warmMs": [
+            0.16208299999999554,
+            0.18020899999999074,
+            15.570125000000004,
+            0.20987500000001091,
+            0.15408399999999745
+          ],
+          "warmMedianMs": 0.18020899999999074
+        },
+        {
+          "verbosityLevel": 2,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype Report = {\n    files: boolean;\n    dependencies: boolean;\n    devDependencies: boolean;\n    optionalPeerDependencies: boolean;\n    unlisted: boolean;\n    binaries: boolean;\n    unresolved: boolean;\n    exports: boolean;\n    types: boolean;\n    nsExports: boolean;\n    nsTypes: boolean;\n    duplicates: boolean;\n    enumMembers: boolean;\n    namespaceMembers: boolean;\n    catalog: boolean;\n    catalogReferences: boolean;\n    cycles: boolean;\n}\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 48,
+                "character": 12
+              },
+              "end": {
+                "line": 48,
+                "character": 18
+              }
+            }
+          },
+          "firstMs": 0.13870899999999153,
+          "warmMs": [
+            0.1232079999999911,
+            0.12537500000000534,
+            0.10729100000000358,
+            0.08091600000000199,
+            0.09995899999999835
+          ],
+          "warmMedianMs": 0.10729100000000358
+        }
+      ]
+    },
+    {
+      "id": "knip-counters",
+      "hovers": [
+        {
+          "verbosityLevel": 0,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype Counters = {\n    binaries: number;\n    catalog: number;\n    catalogReferences: number;\n    cycles: number;\n    dependencies: number;\n    devDependencies: number;\n    duplicates: number;\n    enumMembers: number;\n    exports: number;\n    files: number;\n    namespaceMembers: number;\n    nsExports: number;\n    nsTypes: number;\n    optionalPeerDependencies: number;\n    processed: number;\n    total: number;\n    types: number;\n    unlisted: number;\n    unresolved: number;\n}\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 51,
+                "character": 12
+              },
+              "end": {
+                "line": 51,
+                "character": 20
+              }
+            }
+          },
+          "firstMs": 0.22245800000000315,
+          "warmMs": [
+            0.11145799999999895,
+            0.1039169999999956,
+            0.09574999999999534,
+            0.08591699999999491,
+            0.2792910000000006
+          ],
+          "warmMedianMs": 0.1039169999999956
+        },
+        {
+          "verbosityLevel": 2,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype Counters = {\n    binaries: number;\n    catalog: number;\n    catalogReferences: number;\n    cycles: number;\n    dependencies: number;\n    devDependencies: number;\n    duplicates: number;\n    enumMembers: number;\n    exports: number;\n    files: number;\n    namespaceMembers: number;\n    nsExports: number;\n    nsTypes: number;\n    optionalPeerDependencies: number;\n    processed: number;\n    total: number;\n    types: number;\n    unlisted: number;\n    unresolved: number;\n}\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 51,
+                "character": 12
+              },
+              "end": {
+                "line": 51,
+                "character": 20
+              }
+            }
+          },
+          "firstMs": 0.07512499999999989,
+          "warmMs": [
+            0.11608400000000074,
+            0.07941700000000651,
+            0.08870899999999438,
+            0.08312499999999545,
+            0.0969999999999942
+          ],
+          "warmMedianMs": 0.08870899999999438
+        }
+      ]
+    },
+    {
+      "id": "knip-plugins",
+      "hovers": [
+        {
+          "verbosityLevel": 0,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype Plugins = {\n    angular?: unknown;\n    astro?: unknown;\n    \"astro-db\"?: unknown;\n    \"astro-markdoc\"?: unknown;\n    \"astro-og-canvas\"?: unknown;\n    ava?: unknown;\n    babel?: unknown;\n    biome?: unknown;\n    borp?: unknown;\n    bumpp?: unknown;\n    bun?: unknown;\n    c8?: unknown;\n    capacitor?: unknown;\n    catalyst?: unknown;\n    changelogen?: unknown;\n    changelogithub?: unknown;\n    changesets?: unknown;\n    commitizen?: unknown;\n    commitlint?: unknown;\n    convex?: unknown;\n    \"create-typescript-app\"?: unknown;\n    cspell?: unknown;\n    cucumber?: unknown;\n    cypress?: unknown;\n    danger?: unknown;\n    \"dependency-cruiser\"?: unknown;\n    docusaurus?: unknown;\n    dotenv?: unknown;\n    drizzle?: unknown;\n    \"electron-vite\"?: unknown;\n    eleventy?: unknown;\n    esbuild?: unknown;\n    eslint?: unknown;\n    eve?: unknown;\n    execa?: unknown;\n    expo?: unknown;\n    \"expo-router\"?: unknown;\n    \"expressive-code\"?: unknown;\n    fast?: unknown;\n    \"filesystem-routing\"?: unknown;\n    flue?: unknown;\n    fumadocs?: unknown;\n    gatsby?: unknown;\n    \"github-action\"?: unknown;\n    \"github-actions\"?: unknown;\n    glob?: unknown;\n    \"graphql-codegen\"?: unknown;\n    hardhat?: unknown;\n    husky?: unknown;\n    \"i18next-parser\"?: unknown;\n    jasmine?: unknown;\n    jest?: unknown;\n    karma?: unknown;\n    knex?: unknown;\n    ladle?: unknown;\n    ... 139 more ...;\n    zx?: unknown;\n}\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 22,
+                "character": 5
+              },
+              "end": {
+                "line": 22,
+                "character": 12
+              }
+            }
+          },
+          "firstMs": 9.338750000000005,
+          "warmMs": [
+            17.993957999999992,
+            0.2481249999999875,
+            0.24879200000000878,
+            1.0357499999999789,
+            0.17654200000001197
+          ],
+          "warmMedianMs": 0.24879200000000878
+        },
+        {
+          "verbosityLevel": 2,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype Plugins = {\n    angular?: unknown;\n    astro?: unknown;\n    \"astro-db\"?: unknown;\n    \"astro-markdoc\"?: unknown;\n    \"astro-og-canvas\"?: unknown;\n    ava?: unknown;\n    babel?: unknown;\n    biome?: unknown;\n    borp?: unknown;\n    bumpp?: unknown;\n    bun?: unknown;\n    c8?: unknown;\n    capacitor?: unknown;\n    catalyst?: unknown;\n    changelogen?: unknown;\n    changelogithub?: unknown;\n    changesets?: unknown;\n    commitizen?: unknown;\n    commitlint?: unknown;\n    convex?: unknown;\n    \"create-typescript-app\"?: unknown;\n    cspell?: unknown;\n    cucumber?: unknown;\n    cypress?: unknown;\n    danger?: unknown;\n    \"dependency-cruiser\"?: unknown;\n    docusaurus?: unknown;\n    dotenv?: unknown;\n    drizzle?: unknown;\n    \"electron-vite\"?: unknown;\n    eleventy?: unknown;\n    esbuild?: unknown;\n    eslint?: unknown;\n    eve?: unknown;\n    execa?: unknown;\n    expo?: unknown;\n    \"expo-router\"?: unknown;\n    \"expressive-code\"?: unknown;\n    fast?: unknown;\n    \"filesystem-routing\"?: unknown;\n    flue?: unknown;\n    fumadocs?: unknown;\n    gatsby?: unknown;\n    \"github-action\"?: unknown;\n    \"github-actions\"?: unknown;\n    glob?: unknown;\n    \"graphql-codegen\"?: unknown;\n    hardhat?: unknown;\n    husky?: unknown;\n    \"i18next-parser\"?: unknown;\n    jasmine?: unknown;\n    jest?: unknown;\n    karma?: unknown;\n    knex?: unknown;\n    ladle?: unknown;\n    ... 139 more ...;\n    zx?: unknown;\n}\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 22,
+                "character": 5
+              },
+              "end": {
+                "line": 22,
+                "character": 12
+              }
+            }
+          },
+          "firstMs": 0.19779199999999264,
+          "warmMs": [
+            0.15566599999999653,
+            0.15629200000000765,
+            0.12312500000001592,
+            0.1160419999999931,
+            0.12045900000001097
+          ],
+          "warmMedianMs": 0.12312500000001592
+        }
+      ]
+    },
+    {
+      "id": "knip-exports",
+      "hovers": [
+        {
+          "verbosityLevel": 0,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype Exports = string | string[] | {\n    [x: string & Record<never, never>]: Exports;\n    browser: Exports;\n    default: Exports;\n    deno: Exports;\n    electron: Exports;\n    import: Exports;\n    node: Exports;\n    \"node-addons\": Exports;\n    \"react-native\": Exports;\n    require: Exports;\n} | {\n    [key: string]: Exports;\n} | null\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 5,
+                "character": 5
+              },
+              "end": {
+                "line": 5,
+                "character": 12
+              }
+            }
+          },
+          "firstMs": 0.33679100000000517,
+          "warmMs": [
+            0.09787500000001614,
+            0.125,
+            0.09916599999999676,
+            0.130833999999993,
+            0.08679200000000264
+          ],
+          "warmMedianMs": 0.09916599999999676
+        },
+        {
+          "verbosityLevel": 2,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype Exports = string | string[] | {\n    [x: string & Record<never, never>]: Exports;\n    browser: Exports;\n    default: Exports;\n    deno: Exports;\n    electron: Exports;\n    import: Exports;\n    node: Exports;\n    \"node-addons\": Exports;\n    \"react-native\": Exports;\n    require: Exports;\n} | {\n    [key: string]: Exports;\n} | null\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 5,
+                "character": 5
+              },
+              "end": {
+                "line": 5,
+                "character": 12
+              }
+            }
+          },
+          "firstMs": 0.09416699999999878,
+          "warmMs": [
+            0.08391699999998536,
+            0.08945800000000759,
+            0.08708400000000438,
+            0.0659170000000131,
+            0.07329200000000924
+          ],
+          "warmMedianMs": 0.08391699999998536
+        }
+      ]
+    },
+    {
+      "id": "knip-package",
+      "hovers": [
+        {
+          "verbosityLevel": 0,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype PackageJson = {\n    name?: string;\n    main?: string;\n    bin?: string | Record<string, string>;\n    repository?: string | {\n        type?: string;\n        url?: string;\n        directory?: string;\n    };\n    version?: string;\n    private?: boolean;\n    workspaces?: string[] | {\n        packages?: string[];\n        catalog?: Catalog;\n        catalogs?: Catalogs;\n    };\n    exports?: Exports;\n    imports?: Imports;\n    scripts?: Scripts;\n    dependencies?: Dependencies;\n    devDependencies?: Dependencies;\n    peerDependencies?: Dependencies;\n    optionalDependencies?: Dependencies;\n    peerDependenciesMeta?: Record<string, {\n        optional: true;\n    }>;\n    ... 12 more ...;\n    knip?: WorkspaceConfiguration;\n} & PluginConfig<...>\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 34,
+                "character": 12
+              },
+              "end": {
+                "line": 34,
+                "character": 23
+              }
+            },
+            "canIncreaseVerbosity": true
+          },
+          "firstMs": 0.5637090000000171,
+          "warmMs": [
+            0.16800000000000637,
+            0.14204200000000355,
+            0.14050000000000296,
+            0.14708300000000918,
+            0.13137499999999136
+          ],
+          "warmMedianMs": 0.14204200000000355
+        },
+        {
+          "verbosityLevel": 2,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype PackageJson = {\n    name?: string | undefined;\n    main?: string | undefined;\n    bin?: string | Record<string, string> | undefined;\n    repository?: string | {\n        type?: string | undefined;\n        url?: string | undefined;\n        directory?: string | undefined;\n    } | undefined;\n    version?: string | undefined;\n    private?: boolean | undefined;\n    workspaces?: string[] | {\n        packages?: string[] | undefined;\n        catalog?: {\n            [x: string]: string;\n        } | undefined;\n        catalogs?: {\n            [x: string]: {\n                [x: string]: string;\n            };\n        } | undefined;\n    } | undefined;\n    exports?: (string | string[] | {\n        [x: string & Record<never, never>]: Exports;\n        ... 8 more ...;\n        require: Exports;\n    } | {\n        ...;\n    } | null) | undefined;\n    ... 19 more ...;\n    knip?: {\n        ...;\n    } | undefined;\n} & {\n    ...;\n}\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 34,
+                "character": 12
+              },
+              "end": {
+                "line": 34,
+                "character": 23
+              }
+            }
+          },
+          "firstMs": 0.13229100000000926,
+          "warmMs": [
+            0.12137500000000045,
+            0.1323329999999885,
+            0.11099999999999,
+            0.11999999999997613,
+            0.1160419999999931
+          ],
+          "warmMedianMs": 0.11999999999997613
+        }
+      ]
+    },
+    {
+      "id": "nullable-finding",
+      "hovers": [
+        {
+          "verbosityLevel": 0,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype UnusedFinding = {\n    id: string;\n    type: UnusedType;\n    file: string;\n    name: string;\n    namespace: string;\n    line: number | null;\n    col: number | null;\n    sourceHash: string | null;\n    reason: string;\n}\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 13,
+                "character": 12
+              },
+              "end": {
+                "line": 13,
+                "character": 25
+              }
+            }
+          },
+          "firstMs": 29.657958000000008,
+          "warmMs": [
+            0.14816600000000335,
+            0.10291700000001924,
+            0.09825000000000728,
+            0.08266599999998903,
+            0.08583299999997962
+          ],
+          "warmMedianMs": 0.09825000000000728
+        },
+        {
+          "verbosityLevel": 2,
+          "response": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```typescript\ntype UnusedFinding = {\n    id: string;\n    type: \"dependencies\" | \"devDependencies\" | \"enumMembers\" | \"exports\" | \"files\" | \"namespaceMembers\" | \"nsExports\" | \"nsTypes\" | \"optionalPeerDependencies\" | \"types\";\n    file: string;\n    name: string;\n    namespace: string;\n    line: number | null;\n    col: number | null;\n    sourceHash: string | null;\n    reason: string;\n}\n```\n"
+            },
+            "range": {
+              "start": {
+                "line": 13,
+                "character": 12
+              },
+              "end": {
+                "line": 13,
+                "character": 25
+              }
+            }
+          },
+          "firstMs": 0.11929200000000151,
+          "warmMs": [
+            0.10287499999998317,
+            0.10620900000000688,
+            0.11349999999998772,
+            0.07458299999998985,
+            0.07795799999999531
+          ],
+          "warmMedianMs": 0.10287499999998317
+        }
+      ]
+    }
+  ]
+}

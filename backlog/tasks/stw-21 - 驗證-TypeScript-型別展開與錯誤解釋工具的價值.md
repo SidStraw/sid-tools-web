@@ -1,18 +1,20 @@
 ---
 id: STW-21
 title: 驗證 TypeScript 型別展開與錯誤解釋工具的價值
-status: Needs Refinement
-assignee: []
+status: Done
+assignee:
+  - '@codex'
 created_date: '2026-10-04 15:33'
-updated_date: '2026-10-14 12:06'
+updated_date: '2026-10-22 20:13'
 labels:
   - keyword-research
-  - proposal
   - monorepo-expansion
   - delivery-ide
   - later-delivery
   - demand-reviewed-2026-10-14
-  - deferred-evidence
+  - research-complete
+  - local-verified
+  - market-validation-pending
 dependencies: []
 references:
   - >-
@@ -70,11 +72,20 @@ conditional／mapped／generic 型別難以從 hover 看懂；IDE 可利用真�
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 整理至少 5 個真實複雜型別案例與既有工具基準。
-- [ ] #2 展開結果以 TypeScript compiler 的實際結果為準，無法解析不得補造。
-- [ ] #3 比較可理解性、回應時間與 tsconfig／版本差異並保存重現資料。
-- [ ] #4 產出繼續／縮小／停止建議及第一個可驗收場景，研究完成不等於 IDE 外掛已完成。
+- [x] #1 整理至少 5 個真實複雜型別案例與既有工具基準。
+- [x] #2 展開結果以 TypeScript compiler 的實際結果為準，無法解析不得補造。
+- [x] #3 比較可理解性、回應時間與 tsconfig／版本差異並保存重現資料。
+- [x] #4 產出繼續／縮小／停止建議及第一個可驗收場景，研究完成不等於 IDE 外掛已完成。
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. 以目前專案及已安裝依賴中的至少 5 個真實 conditional／mapped／generic 型別使用位置建立案例清單，保存來源版本、SHA256 與問題。
+2. 固定現有 TypeScript 7.0.2，以原生 language server hover 和 compiler API 取得實際結果；比較候選的屬性／union／來源導覽，未解析輸出保留錯誤、不生成答案。
+3. 保存可重現 runner、原始結果、tsconfig 條件與計時；比較同一案例的嚴格設定變體及可取得的另一固定編譯器版本。可理解性以明示任務與可見資訊比較，不冒稱真人理解時間。
+4. 根據實驗產出繼續／縮小／停止建議和第一個可驗收場景。此為研究卡，不增加產品路由或製作 IDE 外掛；逐項查核證據後更新卡片與本機 commit。
+<!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
 
@@ -90,4 +101,30 @@ Low 延後研究 spike，不把研究驗收當功能完成，也不因生成式 
 查詢與證據：research/tool-portfolio-review-2026-10-14/demand-pruning.md；總排序見 research/tool-portfolio-review-2026-10-14/demand-review.md。
 
 限制：未取得可信月搜尋量、固定地區 SERP 或競品／AI 操作實測。產品自述不等同 AC 驗收；未找到需求不等同無需求。保留原始功能邊界與 AC，不實作、不勾選完成；archive 僅表示排除目前獨立投資。
+
+## 2026-10-15 實作阻礙與本輪略過
+
+最新要求已取代先前因市場需求而暫緩的決定；本輪略過僅因下列輸入／證據尚未建立或確認，不代表完成。
+
+- 待補項目：尚未建立至少 5 個真實複雜型別案例及既有工具基準，也尚未保存固定 TypeScript／IDE／tsconfig 條件下的比較證據。
+- 驗收影響：AC1 與 AC3 要求真實案例及可理解性、回應時間與版本差異比較；不能以合成範例或未實測敘述代替研究成果。
+- 解除方式：先從本儲存庫或其他可合法使用的專案整理至少 5 個具來源的案例，再固定版本、擷取既有 hover 與 compiler 結果並執行比較，產出 AC4 的建議。本儲存庫可能提供案例，並非判定研究不可行。
+
+維持原狀態、描述與既有紀錄，所有 AC 維持未勾選；本輪不宣告完成。
+
+## 2026-10-23 介入需求盤點
+
+可直接推進研究：至少 5 個真實案例、固定 compiler/tsconfig 基準與比較證據由代理蒐集。缺少案例是待辦工作，不是使用者阻塞；完成範圍是繼續／縮小／停止的研究結論，不代表 IDE 外掛完成。
+
+本次只分類責任與下一步，不代表驗收完成、流量需求已證實或已授權遠端發佈；保留既有 AC 與狀態。
+
+2026-10-23 研究已產出：7 個來自本專案與 Knip 6.42.1 的真實型別案例，固定 TypeScript 7.0.2／5.9.3、strict 與 null-relaxed 設定；4 組真實分析皆無診斷，額外 negative control 兩版本均回報 TS2304 並保留 unresolved。原生 TS7 LSP hover verbosity 0／2、TS5.9 quick info 與 compiler 逐欄位／來源結果、各 6 次查詢時間與來源／設定 SHA256 保存於 research/ts-type-explorer-2026-10-23。verify.mjs PASS。觀察：長回傳型別可以補齊 hover 省略欄位；Report／Counters／遞迴 union 的原生呈現已足夠；195 個 mapped plugin 欄位沒有直接 declaration，不能編造來源。可理解性採明示查找任務與資訊可見性比較，未宣稱真人理解時間。建議縮小到具設定與來源的長型別檢視，第一場景為 SemverComparison 的 8 欄位與 rows 宣告定位；不新增 IDE 外掛或產品頁。完整 pnpm verify 正在執行，完成後逐項結案。
+
+2026-10-23 最終驗收：研究 verify.mjs、所有腳本 syntax check 與固定舊版 tarball integrity 下載流程均 PASS。完整 pnpm verify exit 0，950 單元／整合、141 E2E、格式／lint／型別／build／production audit 通過，task cache 停用。研究目錄不在主程式 lint/type 範圍，另以真實 compiler／LSP runner 和來源／設定 hash、語意不變量驗證。AC1–4 證據與限制詳見 research/ts-type-explorer-2026-10-23/README.md。研究完成，沒有宣稱真人理解速度、搜尋量、IDE UI 或新產品功能已驗證；未 push／部署。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+完成 7 個真實型別案例、TypeScript 7.0.2／5.9.3 原生 compiler／hover 與兩組 tsconfig 對照，保存來源／設定 hashes、查詢時間及無法解析控制。建議縮小為帶設定與來源的長型別檢視，首個可驗收場景為 SemverComparison 全部 8 欄位與 rows 宣告定位；不製作泛用 IDE 外掛。研究專用核對與完整 pnpm verify 通過（950 單元／整合、141 E2E），僅本機交付。
+<!-- SECTION:FINAL_SUMMARY:END -->

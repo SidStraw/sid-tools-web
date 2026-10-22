@@ -1,14 +1,17 @@
 ---
 id: STW-40
 title: 修正 Cloudflare 原生 Git 建置的 Node 版本偵測
-status: In Progress
+status: Done
 assignee:
   - '@codex'
 created_date: '2026-10-22 20:55'
+updated_date: '2026-10-22 21:09'
 labels: []
 dependencies: []
 references:
   - 'https://developers.cloudflare.com/pages/configuration/build-image/'
+documentation:
+  - docs/validation/stw-40/README.md
 priority: high
 type: bug
 ordinal: 3137
@@ -22,8 +25,8 @@ ordinal: 3137
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Cloudflare 原生建置選用與 mise／package.json 相同的 Node 24.21.0，安裝與建置成功。
-- [ ] #2 tools.sid.tw 提供新工具頁、正確 canonical 與 sitemap，GitHub Pages 維持關閉。
+- [x] #1 Cloudflare 原生建置選用與 mise／package.json 相同的 Node 24.21.0，安裝與建置成功。
+- [x] #2 tools.sid.tw 提供新工具頁、正確 canonical 與 sitemap，GitHub Pages 維持關閉。
 <!-- AC:END -->
 
 ## Implementation Plan
@@ -31,3 +34,15 @@ ordinal: 3137
 <!-- SECTION:PLAN:BEGIN -->
 1. 新增 Cloudflare 原生支援的 repo .node-version 並對齊既有版本。2. 本機核對版本一致及既有驗收結果。3. commit/push 觸發原生 Git 建置，讀取部署狀態／logs 與正式站 HTTP／無頭瀏覽器結果。4. 確認 GitHub Pages 關閉，結案並保存遠端證據。
 <!-- SECTION:PLAN:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+已驗證 commit 330f86a 的 Cloudflare 原生 Git 部署 cd4590fe-a460-43c1-80ad-1abbc9436233 成功，log 使用 Node 24.21.0／pnpm 12.8.2。正式 21 路由、canonical、sitemap、SPA、320px、Mock API 公開站限制與未知路徑 404 通過；GitHub has_pages=false。另發現 macOS CI 舊有 Markdown 計時斷言失敗，由 STW-41 獨立追蹤。
+<!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+新增原生 .node-version，Cloudflare 自動部署恢復且正式工具站通過 HTTP／無頭瀏覽器確認。證據保留於 docs/validation/stw-40。
+<!-- SECTION:FINAL_SUMMARY:END -->

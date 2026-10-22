@@ -1,0 +1,138 @@
+{
+  "checkedAt": "2026-10-22T20:58:29.346Z",
+  "origin": "https://tools.sid.tw",
+  "routes": [
+    {
+      "label": "圖片壓縮",
+      "url": "https://tools.sid.tw/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/"
+    },
+    {
+      "label": "Lighthouse 比較",
+      "url": "https://tools.sid.tw/tools/lighthouse/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/lighthouse/"
+    },
+    {
+      "label": "JSON 差異",
+      "url": "https://tools.sid.tw/tools/json-diff/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/json-diff/"
+    },
+    {
+      "label": "Cron 預覽",
+      "url": "https://tools.sid.tw/tools/cron/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/cron/"
+    },
+    {
+      "label": "SemVer 範圍",
+      "url": "https://tools.sid.tw/tools/semver/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/semver/"
+    },
+    {
+      "label": ".env 預檢",
+      "url": "https://tools.sid.tw/tools/env-check/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/env-check/"
+    },
+    {
+      "label": "Git diff 檢視",
+      "url": "https://tools.sid.tw/tools/git-diff/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/git-diff/"
+    },
+    {
+      "label": "Sitemap 預檢",
+      "url": "https://tools.sid.tw/tools/sitemap/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/sitemap/"
+    },
+    {
+      "label": "EXPLAIN 檢視",
+      "url": "https://tools.sid.tw/tools/explain/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/explain/"
+    },
+    {
+      "label": "圖片配色",
+      "url": "https://tools.sid.tw/tools/palette/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/palette/"
+    },
+    {
+      "label": "Selector 比較",
+      "url": "https://tools.sid.tw/tools/selectors/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/selectors/"
+    },
+    {
+      "label": "GraphQL 差異",
+      "url": "https://tools.sid.tw/tools/sdl/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/sdl/"
+    },
+    {
+      "label": "OpenAPI 差異",
+      "url": "https://tools.sid.tw/tools/openapi/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/openapi/"
+    },
+    {
+      "label": "回應 Fixture",
+      "url": "https://tools.sid.tw/tools/openapi-fixture/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/openapi-fixture/"
+    },
+    {
+      "label": "SQL 關聯圖",
+      "url": "https://tools.sid.tw/tools/sql-ddl/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/sql-ddl/"
+    },
+    {
+      "label": "Compose 預檢",
+      "url": "https://tools.sid.tw/tools/compose/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/compose/"
+    },
+    {
+      "label": "套件相依圖",
+      "url": "https://tools.sid.tw/tools/dependency-graph/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/dependency-graph/"
+    },
+    {
+      "label": "Bundle 比較",
+      "url": "https://tools.sid.tw/tools/bundle-diff/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/bundle-diff/"
+    },
+    {
+      "label": "Unused 審查",
+      "url": "https://tools.sid.tw/tools/unused-review/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/unused-review/"
+    },
+    {
+      "label": "Props 文件",
+      "url": "https://tools.sid.tw/tools/component-docs/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/component-docs/"
+    },
+    {
+      "label": "Mock API",
+      "url": "https://tools.sid.tw/tools/mock-api/",
+      "status": 200,
+      "canonical": "https://tools.sid.tw/tools/mock-api/"
+    }
+  ],
+  "spaNavigation": "passed",
+  "mockLocalConnectionDisabled": true,
+  "mobile320": "passed",
+  "sitemapEntries": 21,
+  "unknownRouteStatus": 404,
+  "pageErrors": []
+}
